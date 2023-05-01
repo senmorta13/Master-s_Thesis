@@ -1,0 +1,222 @@
+\documentclass[12pt]{report}
+
+
+%Packages-------------------------------------
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{graphics}
+\usepackage{graphicx}
+%\usepackage{hyperref}
+
+%\usepackage{xtocnic}
+
+\usepackage{xepersian}
+
+\settextfont{XB Zar}
+
+%Layout---------------------------------------
+
+%\usepackage[top=2cm, bottom=2cm, left=2cm, right=2cm]{geometry}
+
+%Commands-------------------------------------
+
+
+%Theorems-------------------------------------
+\newtheorem{thm}{قضیه}[chapter]
+\newtheorem{cor}[thm]{نتیجه}
+\newtheorem{defn}[thm]{تعریف}
+\newtheorem{prop}[thm]{گزاره}
+\newtheorem{lmm}[thm]{لم}
+\newtheorem{conj}[thm]{حدس}
+\newtheorem{exm}[thm]{مثال}
+\newtheorem{rem}[thm]{تذکر}
+\newtheorem{note}[thm]{یادداشت}
+\newtheorem{alg}[thm]{الگوریتم}
+
+
+\begin{document}
+
+%Title page ---------------------------------------------
+
+\begin{figure}
+\centering
+\includegraphics[height=2.5cm]{UT-Logo.pdf}
+\end{figure}
+
+\begin{center}
+پردیس علوم
+\\
+دانشکده ریاضی، آمار و علوم کامپیوتر
+\end{center}
+
+\begin{center}
+%%%%%%%%%%%%%
+\end{center}
+
+\begin{center}
+\huge{بهبود وارسی مدل با استفاده از نظریه تعبیر مجرد}
+\end{center}
+
+\begin{center}
+%%%
+\end{center}
+
+\begin{center}
+نگارنده
+\end{center}
+\begin{center}
+\textbf{
+پویا پرتو
+}
+\end{center}
+
+\begin{center}
+\begin{tabular}{rr}
+استاد راهنمای اول:& دکتر مجید علی‌زاده
+\\
+استاد راهنمای دوم: & دکتر مجتبی مجتهدی
+\\
+
+\end{tabular}
+\end{center}
+
+\vspace{3cm}
+\begin{center}
+پایاننامه برای دریافت درجه کارشناسی ارشد
+\\
+در رشته علوم کامپیوتر
+\end{center}
+
+\begin{center}
+تاریخ دفاع
+\end{center}
+
+\pagestyle{empty}
+\pagenumbering{}
+
+\newpage
+%\pagestyle{headings}
+%\setcounter{page}{1}
+%\pagenumbering{roman}
+\pagestyle{plain}
+\setcounter{page}{1}
+\pagenumbering{harfi}
+%Abstract page-------------------------------
+\chapter*{}
+\section*{چکیده}
+
+
+%Dedication page-----------------------------
+\chapter*{تقدیم به}
+\section*{تقدیم به}
+
+%Acknowledgement page------------------------
+\chapter*{سپاسگزاری}
+\section*{سپاسگزاری}
+
+%copyright + declaration page
+%\chapter*{اصالت اثر}
+%\section*{اصالت اثر}
+% هیچ قسمت از این پایان‌نامه، پیش از این در هیج موسسه تحصیلات عالی برای دریافت درجه تحصیلی استفاده نشده است. همچنین، هیچ قسمت از این پایان‌نامه برگردان فارسی تمامی یا قسمتی از یک اثر دیگر علمی (مانند مقاله، پایان‌نامه، و غیره) به زبانی دیگر نمی‌باشد. ارائه این پایان‌نامه توسط نگارنده به معاونت آموزشی (معاونت پژوهشی و تحصیلات تکمیلی برای ارشد و دکتری) به منزله تعهد نگارنده به اصالت متن و محتوای ارائه شده بر اساس یک کار پژوهشی در مدت تحصیل در دانشگاه تهران می باشد. در صورت اثبات خلاف این امر، مدرک تحصیلی اخذ شده توسط این پایان‌نامه از دانشگاه تهران، معتبر نمی باشد. 
+%
+%\chapter*{حق مالکیت معنوی}
+%\section*{حق مالکیت معنوی}
+%حق مالکیت معنوی این اثر متعلق به دانشگاه تهران می باشد. استفاده از مطالب این پایان‌نامه در فعالیت های تحقیقاتی با ذکر منبع بلامانع می‌باشد. در صورت استفاده تجاری، مانند چاپ این پایان‌نامه، هماهنگی لازم و اجازه کتبی از دانشگاه و نگارنده پایان‌نامه الزامی می‌باشد.
+
+%\listoffigures
+
+%-------------------------
+%\pagestyle{plain}
+%\setcounter{page}{1}
+%\pagenumbering{harfi}
+%-------------------------
+
+
+\chapter*{پیشگفتار }
+
+
+\tableofcontents
+
+\include{chapter1}
+
+
+\chapter{عنوان فصل}
+
+\chapter{عنوان فصل}
+
+\chapter{عنوان فصل}
+
+\chapter{نتیجه گیری}
+
+\chapter*{واژه‌نامه فارسی به انگلیسی}
+\chapter*{ واژه‌نامه انگلیسی به فارسی}
+
+\newpage
+\begin{latin}
+	\bibliographystyle{abbrv}
+	\bibliography{references}
+\end{latin}
+
+\begin{latin}
+\begin{abstract}
+Abstract goes here...
+\end{abstract}
+\newpage
+
+%Title page ---------------------------------------------
+\begin{figure}
+\centering
+\includegraphics[height=2.5cm]{UT-Logo.pdf}
+\end{figure}
+\begin{center}
+
+College of Science\\
+School of Mathematics, Statistics, and Computer Science
+\end{center}
+
+\begin{center}
+%%%%%%%%%%%%%
+\end{center}
+
+\begin{center}
+\huge{Thesis Title}
+\end{center}
+
+\begin{center}
+%%%
+\end{center}
+
+\begin{center}
+\textbf{
+Author name
+}
+\end{center}
+
+\begin{center}
+\begin{tabular}{rr}
+Supervisor: & name\\
+Co-Supervisor: & name\\
+Advisor: & name
+\end{tabular}
+\end{center}
+
+\vspace{3cm}
+\begin{center}
+A thesis submitted to Graduate Studies Office\\
+in partial fulfillment of the requirements for the degree of \\
+B.Sc./Master of Science/Doctor of Philosophy in\\
+Pure Mathematics/ Applied Mathematics/ Statistics/ Computer Science
+\end{center}
+
+\begin{center}
+yyyy
+\end{center}
+
+%\pagestyle{empty}
+%\pagenumbering{}
+
+\end{latin}
+
+\end{document}
