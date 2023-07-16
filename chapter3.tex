@@ -1,2 +1,217 @@
 \chapter{وارسی مدل منظم}
-در این فصل قرار است بیانی ساختارمندتر از روش وارسی مدل داشته باشیم. اهمیت ساختارمند تر بودن در این است که بیانی که در فصل پیش داشتیم تا پیاده سازی فاصله‌ی بسیاری دارد، چون همان‌طور که پیش‌تر گفته شد مجموعه‌ها موجودات ساختنی‌ای نیستند و کار با آن‌ها حین نوشتن برنامه‌ای کامپیوتری‌ که قرار است پیاده‌سازی روش مورد بحث ما باشد را سخت می‌کند.
+در این فصل قرار است به بیانی ساختارمندتر از روش وارسی مدل برسیم. اهمیت ساختارمند تر بودن در این است که بیانی که در فصل پیش داشتیم تا پیاده سازی فاصله‌ی بسیاری دارد، چون همان‌طور که پیش‌تر گفته شد مجموعه‌ها موجودات ساختنی‌ای نیستند و کار با آن‌ها حین نوشتن برنامه‌ای کامپیوتری‌ که قرار است پیاده‌سازی روش مورد بحث ما باشد را سخت می‌کند. ساختاری که در این فصل به صورت روش وارسی مدل اضافه می‌شود، ساختار عبارات منظم است، از این رو پیش از اینکه به بیان وارسی مدل منظم بپردازیم، نیاز داریم که ابتدا به بررسی و تعریف برخی خواص عبارات منظم بپردازیم که در ادامه برای بیان وارسی مدل مورد نیاز هستند.
+
+\section{در مورد عبارات منظم}
+در این بخش ابتدا مفهوم هم‌ارز بودن را برای عبارات منظم تعریف می‌کنیم، سپس به سراغ تعریف دو تابع 
+$\mathsf{dnf}$
+و 
+$\mathsf{fstnxt}$
+می‌رویم. 
+\subsection{هم‌ارزی عبارات منظم}
+‌خیلی ساده هم‌ارزی بین دو عبارت منظم را با برابر بودن معنای آن دو تعریف می‌کنیم.
+\begin{defn}
+	(هم‌ارزی عبارات منظم):
+	دو عبارت منظم
+	$\mathsf{R}_1$
+	و
+	$\mathsf{R_2}$
+
+	 را هم‌ارز می‌گوییم اگر و تنها اگر شرط زیر برقرار باشد:
+	 $$\mathcal{S}^r \llbracket \mathsf{R_1} \rrbracket = \mathcal{S}^r \llbracket \mathsf{R_2} \rrbracket$$ 
+	 این هم‌ارزی را با 
+	 $\mathsf{R_1} \Bumpeq \mathsf{R_2}$
+	 نمایش می‌دهیم.
+\end{defn}
+
+\subsection{فرم نرمال فصلی}
+	 یک دسته از عبارات منظم هستند که به آن‌ها می‌گوییم فرم نرمال فصلی. در صورتی از وارسی مدل که در این فصل ارائه شده، مفهوم فرم نرمال فصلی حضور دارد، بنابراین باید به بحث در مورد آن، پیش از رسیدن به صورت جدید، بپردازیم.
+	 \begin{defn}
+	 	(فرم نرمال فصلی): عبارت منظم 
+	 	$\mathsf{R} \in \mathbb{R}$
+	 	را یک فرم نرمال فصلی می‌گوییم اگر و تنها اگر با فرض اینکه عبارات منظم بدون انتخاب
+	 	$\mathsf{R_1 , R_2, ..., R_n} \in \mathbb{R}^{\nmid}$
+	 	وجود داشته باشند که 
+	 	$\mathsf{R= R_1 + R_2 + ... R_n}$.
+	 \end{defn}
+ در تعریف بالا به = دقت شود که با 
+ $\Bumpeq$
+ که در ادامه مورد بحث ماست فرق می‌کند. به سبک رایج منظور از = همان تساوی نحوی است.
+ 
+ در ادامه می‌خواهیم یک تابع به اسم $\mathsf{dnf}$ تعریف کنیم که یک عبارت منظم $\mathsf{R}$ را می‌گیرد و عبارت منظم $\mathsf{R'}$ را تحویل می‌دهد که یک فرم نرمال فصلی است و 
+ $\mathsf{R \Bumpeq R'}$
+برقرار است. ابتدا این تابع را به صورت استقرایی روی ساختار عبارات منظم تعریف می‌کنیم، سپس خاصیتی که گفتیم را درمورد آن ثابت می‌کنیم. این اثبات این حقیقت خواهد بود که هر عبارت منظم با یک فرم نرمال فصلی هم ارز است.
+  
+  \begin{defn}
+  	(تابع $\mathsf{dnf}$): تابع $\mathsf{dnf}$ روی عبارات منظم به شکل زیر تعریف می‌شود:
+  	
+  	$$\blacktriangleleft\mathsf{dnf}(\varepsilon)=\varepsilon$$
+  	$$\blacktriangleleft\mathsf{dnf}(\mathsf{L:B})=\mathsf{L:B}$$
+  	$$\blacktriangleleft\mathsf{dnf}(\mathsf{R_1 R_2})= \mathsf{\Sigma_{i=1}^{n_1} \Sigma_{j=1}^{n_2} R_1^i R_2^j }$$
+  	$$\mathsf{where\;R_1^1 + R_1^2 + ... + R_1^{n_1} = dnf(R_1)\;and\; R_2^1 + R_2^2 + ... + R_2^{n_2}= dnf(R_2)}$$
+   $$\blacktriangleleft\mathsf{dnf (R_1+R_2)=dnf(R_1)+dnf(R_2)}$$
+   $$\blacktriangleleft\mathsf{dnf (R^*)}= \mathsf{((R_1)^* (R_2)^* ... (R_n)^*)^*}$$
+   $$\mathsf{where\;dnf(R)=R^1+R^2+...+R^n}$$
+   $$\blacktriangleleft\mathsf{dnf(R^+)=dnf(RR^*)}$$
+   $$\blacktriangleleft\mathsf{ dnf((R)) = ( dnf(R) ) }$$  
+   	
+  \end{defn}
+	 \break
+\begin{thm}
+	اگر $\mathsf{R} \in \mathbb{R}$ آنگاه $\mathsf{dnf(R)}$ یک ترکیب نرمال فصلی است.
+\end{thm}
+\begin{proof}
+همان طور که گفتیم روی ساختار $\mathsf{R}$ استقرا می‌زنیم.
+$$\blacktriangleleft \mathsf{R}=\varepsilon:$$
+$$\mathsf{dnf(\varepsilon)}=\varepsilon$$
+که $\varepsilon$ یک فرم نرمال فصلی است.
+
+
+$$\blacktriangleleft \mathsf{R=L:B}:$$
+$$\mathsf{dnf(\mathsf{L:B})}=\mathsf{L:B}$$
+که $\mathsf{L:B}$ هم یک فرم نرمال فصلی است.
+
+
+$$\blacktriangleleft \mathsf{R=R_1R_2}:$$
+فرض استقرا این خواهد بود که 
+$\mathsf{dnf(R_1)=R_1^1+R_1^2+...+R_1^n}$
+و
+$\mathsf{dnf(R_2)=R_2^1+R_2^2+...+R_2^n}$
+درحالیکه $\mathsf{dnf(R_1)}$ و $\mathsf{dnf(R_2)}$ ترکیب نرمال فصلی هستند، یعنی هر $\mathsf{R_1^i}$ و هر $\mathsf{R_2^j}$ عضو $\mathbb{R^{\nmid}}$ است.
+طبق تعریف خواهیم داشت:
+$$\mathsf{dnf}(\mathsf{R_1 R_2})=\mathsf{\Sigma_{i=1}^{n_1}\Sigma_{j=1}^{n_2} R_1^i R_2^j}$$
+که طرف راست عبارت بالا یک ترکیب نرمال فصلی است، چون هر  
+$\mathsf{R_1^i R_2^j}$
+یک عضو از $\mathbb{R}^\nmid$ است.
+
+$$\blacktriangleleft \mathsf{R=R_1+R_2}:$$
+فرض استقرا این خواهد بود که $\mathsf{dnf(R_1)}$ و $\mathsf{dnf(R_2)}$ ترکیب فصلی نرمال هستند پس 
+$\mathsf{dnf(R_1+R_2)}$
+هم که برابر با
+$\mathsf{dnf(R_1)+dnf(R_2)}$
+است، ترکیب فصلی نرمال خواهد بود.
+
+$$\blacktriangleleft \mathsf{R=R_1^*}:$$
+طبق فرض استقرا داریم که $\mathsf{dnf(R_1)}$ یک ترکیب نرمال فصلی است. همین طور طبق تعریف $\mathsf{dnf}$ داریم 
+$$\mathsf{dnf(R_1^*)= ((R_1^1)^* (R_1^2)^* ... (R_1^n)^*)}$$
+که
+$$\mathsf{dnf(R_1)=R_1^1+R_1^2+...+R_1^n}$$
+که اینکه $\mathsf{((R_1^1)^* (R_1^2)^* ... (R_1^n)^*)}$ یک فرم نرمال فصلی است مشخص است چون می‌دانیم در هیچ کدام از این $\mathsf{R_1^i}$ ها عملگر $+$ وجود ندارد و عملگر $ ^*$ و عملگر چسباندن هم تغییری در این وضع ایجاد نمی‌کنند.
+
+$$\blacktriangleleft \mathsf{R=R_1^+}:$$
+طبق چیزهایی که از قبل داریم:
+$$\mathsf{dnf(R_1^+)=dnf(R_1 R_1^*)}$$
+$$\mathsf{dnf(R_1^*)= ((R_1^1)^* (R_1^2)^* ... (R_1^n)^*)}$$
+که گیریم 
+$\mathsf{R'=dnf(R_1^*)}$
+ که عضو 
+ $\mathbb{R^\nmid}$
+است. همین طور فرض می‌کنیم:
+$$\mathsf{R_1= R_1^1 + ... + R_1^n}$$
+پس با توجه به تعریف $\mathsf{dnf}$ برای عملگر چسباندن خواهیم داشت:
+$$\mathsf{dnf(R_1^+) = \Sigma_{i=1}^n R_1^i R'}$$
+
+$$\blacktriangleleft \mathsf{R=(R_1)}:$$
+طبق تعریف داریم:
+$$\mathsf{dnf((R_1))=(dnf(R_1))}$$
+طبق فرض استقرا 
+$\mathsf{dnf(R_1)}$
+یک ترکیب نرمال فصلی است، بنابراین 
+$\mathsf{(dnf(R_1))=R'} \in \mathbb{R^\nmid}$ 
+هم یک ترکیب فصلی نرمال خواهد بود.
+
+\end{proof}
+
+گزاره‌ی دیگری که برای اثبات مانده برقرار بودن 
+$\mathsf{R \Bumpeq dnf(R) }$
+است. برای اثبات آن باید ابتدا قضیه‌ی زیر را اثبات کنیم که اثبات آن را ارجاع می‌دهیم به \cite{ullman}. 
+\begin{thm}
+	برای هر دو عبارت منظم 
+	$\mathsf{R_1 , R_2} \in \mathbb{R}$
+	داریم:
+	$$\mathsf{(R_1 + R_2)^* \Bumpeq (R_1^* R_2^*)^*}$$
+\end{thm} 
+
+
+\begin{thm}
+	برای هر
+	$\mathsf{R} \in \mathbb{R}$ 
+	داریم:
+	$$\mathsf{dnf(R) \Bumpeq R}$$
+\end{thm}
+
+\begin{proof}
+	طبعا این اثبات با استقرا روی ساختار $\mathsf{R}$ انجام می‌شود.
+	
+	$$\blacktriangleright \mathsf{R=\varepsilon:}$$
+	$$\mathsf{dnf}(\varepsilon)=\varepsilon \Rightarrow 
+		\mathcal{S}^r \llbracket \mathsf{dnf(\varepsilon)} \rrbracket =
+		\mathcal{S}^r \llbracket \varepsilon \rrbracket$$
+	
+	$$\blacktriangleright \mathsf{R=L:B\;:}$$
+	$$\mathsf{dnf(L:B)=L:B} \Rightarrow 
+	\mathcal{S}^r \llbracket \mathsf{dnf(L:B)} \rrbracket =
+	\mathcal{S}^r \llbracket \mathsf{L:B} \rrbracket$$
+	
+	$$\blacktriangleright \mathsf{R=R_1 R_2\;:}$$
+	برای اثبات این حالت باید دو عبارت زیر را ثابت کنیم:
+	$$\mathcal{S}^r \llbracket \mathsf{R_1 R_2} \rrbracket \subseteq
+	  \mathcal{S}^r \llbracket \mathsf{dnf(R_1 R_2)} \rrbracket$$
+	$$\mathcal{S}^r \llbracket \mathsf{R_1 R_2} \rrbracket \supseteq
+	\mathcal{S}^r \llbracket \mathsf{dnf(R_1 R_2)} \rrbracket$$
+	
+	
+	$:(\supseteq)$
+	
+	فرض می‌کنیم 
+	$\langle \underline{\rho} , \pi \rangle$ 
+	یک عضو دلخواه از 
+	$\mathcal{S}^r \llbracket \mathsf{dnf(R_1 R_2)} \rrbracket$
+	باشد.
+	چون 
+	$\mathsf{dnf(R_1R_2)=} \mathsf{\Sigma_{i=1}^{n_1} \Sigma_{j=1}^{n_2} R_1^i R_2^j }$
+	 پس داریم:
+	$$\exists k_1,k_2:
+	\pi \in \mathcal{S}^r \llbracket \mathsf{R_1^{k_1} R_2^{k_2}} \rrbracket 
+	$$
+	$$\Rightarrow
+	\exists \pi_1, \pi_2 \; s.t. \; \pi=\pi_1 \pi_2 , 
+	\langle \underline{\rho} , \pi_1 \rangle \in \mathcal{S}^r \llbracket \mathsf{R_1^{k_1}} \rrbracket,
+	\langle \underline{\rho} , \pi_2 \rangle \in \mathcal{S}^r \llbracket \mathsf{R_2^{k_2}} \rrbracket
+	$$
+	با این وجود داریم:
+	$$\mathcal{S}^r \llbracket \mathsf{R_1^{k_1}} \rrbracket \subseteq
+	\mathcal{S}^r \llbracket \mathsf{R_1} \rrbracket,
+	\mathcal{S}^r \llbracket \mathsf{R_2^{k_2}} \rrbracket \subseteq
+	\mathcal{S}^r \llbracket \mathsf{R_2} \rrbracket$$
+	$$
+	\Rightarrow
+	\langle \underline{\rho} , \pi_1 \pi_2 \rangle =
+	\langle \underline{\rho} , \pi \rangle \in 
+	\mathcal{S}^r \llbracket \mathsf{R_1 R_2} \rrbracket$$ 
+	
+	$:(\subseteq)$
+	$$\langle \underline{\rho} ,\pi \rangle \in \mathcal{S}^r \llbracket \mathsf{R_1 R_2} \rrbracket$$
+	$$\Rightarrow\exists \pi_1, \pi_2: \pi = \pi_1 \pi_2\;s.t.\;
+	\langle \underline{\rho} , \pi_1 \rangle \in \mathcal{S}^r \llbracket \mathsf{R_1} \rrbracket
+	,\langle \underline{\rho} , \pi_2 \rangle \in \mathcal{S}^r \llbracket \mathsf{R_2} \rrbracket$$
+	طبق فرض استقرا داریم:
+	$$\mathcal{S}^r \llbracket \mathsf{R_1} \rrbracket=
+	\mathcal{S}^r \llbracket \mathsf{dnf(R_1)} \rrbracket,
+	\mathcal{S}^r \llbracket \mathsf{R_2} \rrbracket=
+	\mathcal{S}^r \llbracket \mathsf{dnf(R_2)} \rrbracket,
+	$$
+	$$\Rightarrow
+	\exists k_1,k_2: \langle \underline{\rho} , \pi_1 \rangle \in 
+	\mathcal{S}^r \llbracket \mathsf{R_1^{k_1}} \rrbracket,
+	\langle \underline{\rho} , \pi_2 \rangle \in 
+	\mathcal{S}^r \llbracket \mathsf{R_2^{k_2}} \rrbracket$$
+	$$\Rightarrow
+	\langle \underline{\rho} , \pi \rangle \in
+	\mathcal{S}^r \llbracket \mathsf{R_1^{k_1} R_2^{k_2}} \rrbracket
+	\subseteq \mathcal{S}^r \llbracket \mathsf{dnf(R_1 R_2)} \rrbracket
+	$$ 
+	
+	
+	
+	
+\end{proof}
