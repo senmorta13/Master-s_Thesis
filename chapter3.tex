@@ -131,6 +131,7 @@ $\mathsf{R \Bumpeq dnf(R) }$
 	$$\mathsf{(R_1 + R_2)^* \Bumpeq (R_1^* R_2^*)^*}$$
 \end{thm} 
 
+به عنوان نتیجه از قضیه‌ی بالا می‌توانیم با استفاده از یک برهان ساده به کمک استقرا روی اعداد طبیعی، حکم بالا را به جای ۲ برای تعداد دلخواه متنهاهی‌ای از عبارات منظم اثبات کنیم. در ادامه در واقع از این حکم در اثبات استفاده شده.
 
 \begin{thm}
 	برای هر
@@ -141,7 +142,13 @@ $\mathsf{R \Bumpeq dnf(R) }$
 
 \begin{proof}
 	طبعا این اثبات با استقرا روی ساختار $\mathsf{R}$ انجام می‌شود.
-	
+	توجه شود که در هر حالت از استقرا عبارات منظم 
+	$\mathsf{R_1 , R_2}$
+	در ساختار $\mathsf{R}$ حضور دارند، فرض گرفته‌ایم که 
+	$\mathsf{dnf(R_1)=R_1^1+R_1^2+...+R_1^n}$
+	و
+	$\mathsf{dnf(R_2)=R_1^2+R_2^2+...+R_2^m}$.
+		
 	$$\blacktriangleright \mathsf{R=\varepsilon:}$$
 	$$\mathsf{dnf}(\varepsilon)=\varepsilon \Rightarrow 
 		\mathcal{S}^r \llbracket \mathsf{dnf(\varepsilon)} \rrbracket =
@@ -212,6 +219,36 @@ $\mathsf{R \Bumpeq dnf(R) }$
 	$$ 
 	
 	
+	$$\blacktriangleright \mathsf{R=R_1 + R_2:}$$	
+	$$\mathcal{S}^r \llbracket \mathsf{dnf(R_1+R_2)} \rrbracket=$$
+	$$\mathcal{S}^r \llbracket \mathsf{dnf(R_1)+dnf(R_2)} \rrbracket=$$
+	$$\mathcal{S}^r \llbracket \mathsf{dnf(R_1)} \rrbracket \cup
+	\mathcal{S}^r \llbracket \mathsf{dnf(R_2)} \rrbracket=$$
+	(به کمک فرض استقرا)
+	$$\mathcal{S}^r \llbracket \mathsf{R_1} \rrbracket \cup
+	\mathcal{S}^r \llbracket \mathsf{R_2} \rrbracket=$$
+	$$\mathcal{S}^r \llbracket \mathsf{R_1+R_2} \rrbracket$$
 	
+	$$\blacktriangleright \mathsf{R=R_1^*:}$$
+	$$\mathcal{S}^r \llbracket \mathsf{dfn(R_1^*)} \rrbracket=$$
+	$$\mathcal{S}^r \llbracket \mathsf{((R_1^1)^* (R_1^2)^* ... (R_1^n))^*} \rrbracket=$$
+	(طبق نتیجه‌ای که از قضیه‌ی قبل گرفتیم)
+	$$\mathcal{S}^r \llbracket \mathsf{(R_1^1+R_1^2+...+R_1^n)^*} \rrbracket=$$
+	$$\mathcal{S}^r \llbracket \mathsf{(R_1)^*} \rrbracket=$$
+	$$\mathcal{S}^r \llbracket \mathsf{R_1^*} \rrbracket$$
 	
+	$$\blacktriangleright \mathsf{R=R_1^+:}$$
+	$$\mathcal{S}^r \llbracket \mathsf{dfn(R_1^+)} \rrbracket=$$
+	$$\mathcal{S}^r \llbracket \mathsf{dfn(R_1 R_1^*)} \rrbracket$$
+	در اینجا عملگر چسباندن را داریم. در موردهای قبلی این را نشان دادیم که چه‌طور در این حالت حکم برقرار می‌شود. می‌توانیم همان اثبات را درمورد همین عبارت هم ببینیم و بگوییم:
+	$$\mathcal{S}^r \llbracket \mathsf{dfn(R_1 R_1^*)} \rrbracket=
+	\mathcal{S}^r \llbracket \mathsf{R_1 R_1^*} \rrbracket=
+	\mathcal{S}^r \llbracket \mathsf{R_1^+} \rrbracket$$
+	
+	$$\blacktriangleright \mathsf{R=(R_1):}$$
+	$$\mathcal{S}^r \llbracket \mathsf{dnf((R_1))} \rrbracket=$$
+	$$\mathcal{S}^r \llbracket \mathsf{dnf(R_1)} \rrbracket=$$
+	(طبق فرض استقرا:)
+	$$\mathcal{S}^r \llbracket \mathsf{R_1} \rrbracket=$$
+	$$\mathcal{S}^r \llbracket \mathsf{(R_1)} \rrbracket$$
 \end{proof}
