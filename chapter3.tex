@@ -23,6 +23,43 @@ $\mathsf{fstnxt}$
 	 نمایش می‌دهیم.
 \end{defn}
 
+\begin{thm}
+	هم‌ارزی $\Bumpeq$ تعریف شده روی مجموعه‌ی عبارات منظم یک رابطه‌ی هم‌ارزی است.
+\end{thm}
+\begin{proof}
+	برای هر عبارت منظم $\mathsf{R}$ داریم:
+	$$\mathcal{S}^r \llbracket \mathsf{R} \rrbracket = 
+	\mathcal{S}^r \llbracket \mathsf{R} \rrbracket \Rightarrow
+	\mathsf{R} \Bumpeq \mathsf{R}$$
+	پس این رابطه انعکاسی است.
+	
+	اگر 
+	$\mathsf{R_1 , R_2} \in \mathbb{R}$
+	آنگاه داریم:
+	$$\mathcal{S}^r \llbracket \mathsf{R_1} \rrbracket =
+	\mathcal{S}^r \llbracket \mathsf{R_2} \rrbracket \rightarrow
+	\mathcal{S}^r \llbracket \mathsf{R_2} \rrbracket =
+	\mathcal{S}^r \llbracket \mathsf{R_1} \rrbracket \Rightarrow
+	\mathsf{R_1} \Bumpeq \mathsf{R_2} \rightarrow
+	\mathsf{R_2} \Bumpeq \mathsf{R_1}$$
+	پس این رابطه تقارنی هم هست.
+	
+	اگر
+	 $\mathsf{R_1,R_2,R_3} \in \mathbb{R}$
+	 	داریم:
+	 $$\mathcal{S}^r \llbracket \mathsf{R_1} \rrbracket =
+	 \mathcal{S}^r \llbracket \mathsf{R_2} \rrbracket \land
+	 \mathcal{S}^r \llbracket \mathsf{R_2} \rrbracket =
+	 \mathcal{S}^r \llbracket \mathsf{R_3} \rrbracket \rightarrow
+	 \mathcal{S}^r \llbracket \mathsf{R_1} \rrbracket =
+	 \mathcal{S}^r \llbracket \mathsf{R_3} \rrbracket$$
+	 $$\Rightarrow
+	 \mathsf{R_1} \Bumpeq \mathsf{R_2} \land
+	 \mathsf{R_2} \Bumpeq \mathsf{R_3} \rightarrow
+	 \mathsf{R_1} \Bumpeq \mathsf{R_3}$$
+\end{proof}
+
+
 \subsection{فرم نرمال فصلی}
 	 یک دسته از عبارات منظم هستند که به آن‌ها می‌گوییم فرم نرمال فصلی. در صورتی از وارسی مدل که در این فصل ارائه شده، مفهوم فرم نرمال فصلی حضور دارد، بنابراین باید به بحث در مورد آن، پیش از رسیدن به صورت جدید، بپردازیم.
 	 \begin{defn}
@@ -39,7 +76,7 @@ $\mathsf{fstnxt}$
  
  در ادامه می‌خواهیم یک تابع به اسم $\mathsf{dnf}$ تعریف کنیم که یک عبارت منظم $\mathsf{R}$ را می‌گیرد و عبارت منظم $\mathsf{R'}$ را تحویل می‌دهد که یک فرم نرمال فصلی است و 
  $\mathsf{R \Bumpeq R'}$
-برقرار است. ابتدا این تابع را به صورت استقرایی روی ساختار عبارات منظم تعریف می‌کنیم، سپس خاصیتی که گفتیم را درمورد آن ثابت می‌کنیم. این اثبات این حقیقت خواهد بود که هر عبارت منظم با یک فرم نرمال فصلی هم ارز است.
+برقرار است. ابتدا این تابع را به صورت استقرایی روی ساختار عبارات منظم تعریف می‌کنیم، سپس خاصیتی که گفتیم را درمورد آن ثابت می‌کنیم. اینْ اثبات این حقیقت خواهد بود که هر عبارت منظم با یک فرم نرمال فصلی هم ارز است.
   
   \begin{defn}
   	(تابع $\mathsf{dnf}$): تابع $\mathsf{dnf}$ روی عبارات منظم به شکل زیر تعریف می‌شود:
@@ -55,23 +92,23 @@ $\mathsf{fstnxt}$
    $$\blacktriangleleft\mathsf{ dnf((R)) = ( dnf(R) ) }$$  
    	
   \end{defn}
-	 \break
+
 \begin{thm}
 	اگر $\mathsf{R} \in \mathbb{R}$ آنگاه $\mathsf{dnf(R)}$ یک ترکیب نرمال فصلی است.
 \end{thm}
 \begin{proof}
 همان طور که گفتیم روی ساختار $\mathsf{R}$ استقرا می‌زنیم.
-$$\blacktriangleleft \mathsf{R}=\varepsilon:$$
+$$\blacktriangleright \mathsf{R}=\varepsilon:$$
 $$\mathsf{dnf(\varepsilon)}=\varepsilon$$
 که $\varepsilon$ یک فرم نرمال فصلی است.
 
 
-$$\blacktriangleleft \mathsf{R=L:B}:$$
+$$\blacktriangleright \mathsf{R=L:B}:$$
 $$\mathsf{dnf(\mathsf{L:B})}=\mathsf{L:B}$$
 که $\mathsf{L:B}$ هم یک فرم نرمال فصلی است.
 
 
-$$\blacktriangleleft \mathsf{R=R_1R_2}:$$
+$$\blacktriangleright \mathsf{R=R_1R_2}:$$
 فرض استقرا این خواهد بود که 
 $\mathsf{dnf(R_1)=R_1^1+R_1^2+...+R_1^n}$
 و
@@ -83,21 +120,21 @@ $$\mathsf{dnf}(\mathsf{R_1 R_2})=\mathsf{\Sigma_{i=1}^{n_1}\Sigma_{j=1}^{n_2} R_
 $\mathsf{R_1^i R_2^j}$
 یک عضو از $\mathbb{R}^\nmid$ است.
 
-$$\blacktriangleleft \mathsf{R=R_1+R_2}:$$
+$$\blacktriangleright \mathsf{R=R_1+R_2}:$$
 فرض استقرا این خواهد بود که $\mathsf{dnf(R_1)}$ و $\mathsf{dnf(R_2)}$ ترکیب فصلی نرمال هستند پس 
 $\mathsf{dnf(R_1+R_2)}$
 هم که برابر با
 $\mathsf{dnf(R_1)+dnf(R_2)}$
 است، ترکیب فصلی نرمال خواهد بود.
 
-$$\blacktriangleleft \mathsf{R=R_1^*}:$$
+$$\blacktriangleright \mathsf{R=R_1^*}:$$
 طبق فرض استقرا داریم که $\mathsf{dnf(R_1)}$ یک ترکیب نرمال فصلی است. همین طور طبق تعریف $\mathsf{dnf}$ داریم 
 $$\mathsf{dnf(R_1^*)= ((R_1^1)^* (R_1^2)^* ... (R_1^n)^*)}$$
 که
 $$\mathsf{dnf(R_1)=R_1^1+R_1^2+...+R_1^n}$$
 که اینکه $\mathsf{((R_1^1)^* (R_1^2)^* ... (R_1^n)^*)}$ یک فرم نرمال فصلی است مشخص است چون می‌دانیم در هیچ کدام از این $\mathsf{R_1^i}$ ها عملگر $+$ وجود ندارد و عملگر $ ^*$ و عملگر چسباندن هم تغییری در این وضع ایجاد نمی‌کنند.
 
-$$\blacktriangleleft \mathsf{R=R_1^+}:$$
+$$\blacktriangleright \mathsf{R=R_1^+}:$$
 طبق چیزهایی که از قبل داریم:
 $$\mathsf{dnf(R_1^+)=dnf(R_1 R_1^*)}$$
 $$\mathsf{dnf(R_1^*)= ((R_1^1)^* (R_1^2)^* ... (R_1^n)^*)}$$
@@ -110,7 +147,7 @@ $$\mathsf{R_1= R_1^1 + ... + R_1^n}$$
 پس با توجه به تعریف $\mathsf{dnf}$ برای عملگر چسباندن خواهیم داشت:
 $$\mathsf{dnf(R_1^+) = \Sigma_{i=1}^n R_1^i R'}$$
 
-$$\blacktriangleleft \mathsf{R=(R_1)}:$$
+$$\blacktriangleright \mathsf{R=(R_1)}:$$
 طبق تعریف داریم:
 $$\mathsf{dnf((R_1))=(dnf(R_1))}$$
 طبق فرض استقرا 
@@ -252,3 +289,354 @@ $\mathsf{R \Bumpeq dnf(R) }$
 	$$\mathcal{S}^r \llbracket \mathsf{R_1} \rrbracket=$$
 	$$\mathcal{S}^r \llbracket \mathsf{(R_1)} \rrbracket$$
 \end{proof}
+
+
+\subsection{سر و دم عبارات منظم}
+در این بخش تعریف تابعی را روی عبارات منظم ارائه می‌کنیم که یک عبارت منظم را می‌گیرد و یک زوج از عبارات منظم را تحویل می‌دهد، سپس به بیان یک قضیه در مورد این تابع می‌پردازیم. این تابع را با
+$\mathsf{fstnxt}$
+نشان می‌دهیم. قرار است این تابع یک عبارت منظم را بگیرد و آن را به این شکل تجزیه کند که اولین زوج موجود در عبارت منظم که انگار سر عبارت منظم است، از باقی آن که دم آن عبارت منظم می‌شود، جدا شود. تابع روی عبارات منظم تهی و عبارات منظمی که عملگر $+$ را دارند تعریف نشده.
+\begin{defn}
+	(تابع سر و دم): تابع سر و دم را از نوع 
+	$\mathsf{fstnxt}:\mathbb{( \mathbb{R^+ \cap R^\nmid})} \rightarrow \mathbb{R \times R}$ 
+	به شکل زیر تعریف می‌‌کنیم:
+	$$
+	\blacktriangleleft\mathsf{fstnxt (L:B) = \langle L:B , \varepsilon \rangle }
+	$$
+	$$
+	\blacktriangleleft\mathsf{fstnxt (R_1 R_2) = fstnxt (R_2)}$$
+	$$\mathsf{where\; R_1 \in \mathbb{R}_\varepsilon}$$
+	$$\blacktriangleleft\mathsf{fstnxt(R_1 R_2)= \llparenthesis  R_1^n \in \mathbb{R}_\varepsilon \; \mathbb{?} \; \langle R_1^f , R_2 \rangle : 
+		\langle R_1^f , R_1^n \bullet R_{2} \rangle \rrparenthesis} $$
+	$$\mathsf{where\; R_1 \notin \mathbb{R}_\varepsilon and\;
+		fstnxt(R_1)= \langle R_1^f , R_1^n \rangle}$$
+	$$\blacktriangleleft\mathsf{fstnxt(R^+)= \llparenthesis R^n \in \mathbb{R_\varepsilon}\;?\;\langle R^f , R^* \rangle : \langle R^f , R^n \bullet R^* \rangle \rrparenthesis}$$
+	$$\mathsf{where\; fstnxt(R)=\langle R^f , R^n \rangle}$$
+	$$\blacktriangleleft\mathsf{fstnxt((R))=fstnxt(R)}$$
+	
+\end{defn}
+
+از این تعریف قرار است در صورتی از وارسی مدل که در این فصل ارائه شده استفاده شود. یک قضیه در آخر این بخش آمده که مهم‌ترین نتیجه در مورد تابع سر و دم است. 
+برای اثبات آن قضیه ابتدا یک گرامر برای $\mathbb{R^+ \cap R^\nmid}$ می‌آوریم.
+\begin{thm}
+	گرامر زیر زبان $\mathbb{R^+ \cap R^\nmid}$ را توصیف می‌کند.
+	$$\mathsf{R} \:\:\:\in\:\:\: \mathbb{R^+ \cap R^\nmid}$$
+	$$\mathsf{R}\:\:\: ::= \:\:\: \mathsf{L:B} \: |
+	\: \mathsf{\varepsilon R_2} \: | \: \mathsf{R_1 \varepsilon} \: |
+	\: \mathsf{R_1 R_2} \: | 
+	\: \mathsf{R_1^+} | (\mathsf{R_1})$$
+\end{thm}
+\begin{proof}
+	نام مجموعه‌ی عبارات منظم تولید شده با گرامر بالا را $\mathbb{R'}$ می‌گذاریم. باید ثابت کنیم
+	$\mathbb{R'=R^+ \cap R^\nmid}$
+	که برای این باید ثابت کنیم این دو مجموعه زیر مجموعه‌ی یکدیگر هستند. برای اثبات 
+	$\mathbb{R' \subseteq R^+ \cap R^\nmid}$
+	می‌توانیم روی ساختار گرامر بالا استقرا ‌بزنیم:
+	$$\blacktriangleright \mathsf{R=L:B}\;:$$
+	به وضوح 
+	$\mathsf{L:B} \in \mathbb{R^+ \cap R^\nmid}$
+	است و این را از گرامر $\mathbb{R^+}$ و $\mathbb{R^\nmid}$ می‌توانیم ببینیم.
+	$$\blacktriangleright \mathsf{R=\varepsilon R_2}\;:$$
+	با فرض اینکه 
+	$\mathsf{R_2} \in \mathbb{R^+ \cap R^\nmid}$
+	که فرض استقراست، طبق گرامر $\mathbb{R^+}$ داریم $\mathsf{R_2} \in \mathbb{R^+}$ و طبق گرامر $\mathbb{R^\nmid}$ داریم چون 
+	$\mathsf{R_2} \in \mathbb{R^\nmid}$
+	و
+	$\varepsilon \in \mathbb{R^\nmid}$
+	پس 
+	$\mathsf{\varepsilon R_2} \in \mathbb{R^\nmid}$.
+	پس داریم 
+	$\mathsf{\varepsilon R_2} \in \mathbb{R^+ \cap R^\nmid}$.
+	
+	$$\blacktriangleright \mathsf{R=R_1 \varepsilon}\;:$$
+	مشابه مورد قبل ثابت می‌شود.
+	
+	$$\blacktriangleright \mathsf{R=R_1 R_2}\;:$$
+	طبق فرض استقرا داریم 
+	$\mathsf{R_1,R_2} \in \mathbb{R^\nmid \cap R^+}$ 
+	و در هر دو گرامر عملگر چسباندن را داریم. پس این مورد هم اثبات می‌شود.
+	$$\blacktriangleright \mathsf{R=R_1^+}\;:$$
+	مثل مورد قبل چون عملگر $ ^+$ در هر دو گرامر هست مثل مورد قبل به کمک فرض استقرا اثبات می‌شود.
+	$$\blacktriangleright \mathsf{R=(R_1)}\;:$$
+	مثل مورد قبل اثبات می‌شود.
+	
+	در اینجا اثبات 
+	$\mathbb{R' \subseteq R^+ \cap R^\nmid}$ 
+	کامل می‌شود. حال به سراغ اثبات 
+	$\mathbb{R^+ \cap R^\nmid \subseteq R'}$
+	می‌رویم.
+	
+	برای اثبات این بخش با فرض اینکه 
+	$\mathsf{R} \in \mathbb{R^+ \cap R^\nmid}$
+	روی ساختار اعضای $\mathbb{R^\nmid}$ استقرا می‌زنیم( این اثبات می‌توانست با استقرا روی ساختار اعضای $\mathbb{R^+}$ هم انجام شود).
+	$$\blacktriangleright \mathsf{R=\varepsilon}\;:$$
+	چون $\varepsilon \notin \mathbb{R^+ \cap R^\nmid}$ پس اصلا این مورد باطل است و در موردش نیاز به اثبات نیست.
+	
+	
+	$$\blacktriangleright \mathsf{R=L:B}\;:$$
+	در این صورت طبق گرامر $\mathbb{R'}$ داریم  
+	$\mathsf{R} \in \mathbb{R'}$.
+	
+	$$\blacktriangleright \mathsf{R=R_1 R_2}\;:$$
+	اینجا هم با توجه به اینکه طبق فرض استقرا 
+	$\mathsf{R_1 , R_2} \in \mathbb{R'}$
+	مثل مورد قبل چون $+$ در گرامر $\mathbb{R'}$ حضور دارد، حکم ثابت می‌شود.
+	
+	$$\blacktriangleright \mathsf{R=R_1^*}\;:$$
+	چون به ازای هیچ عبارت منظم $\mathsf{R}$ای $\mathsf{R}$ داخل $\mathbb{R^+}$ نمی‌افتد پس بررسی این مورد هم مورد نیاز نیست.
+	
+	
+	$$\blacktriangleright \mathsf{R=R_1^+}\;:$$
+	مثل عملگر $+$ با توجه به فرض استقرا و اینکه $ ^+$ در گرامر $\mathbb{R'}$ حضور دارد، این مورد هم اثبات می‌شود.
+	
+	
+	$$\blacktriangleright \mathsf{R=(R_1)}\;:$$
+	مثل مورد قبلی است.
+	
+	
+	
+	
+	
+	
+	
+\end{proof}
+
+ساختاری که تابع سر و دم روی آن تعریف شده با این ساختار ریخت متفاوتی دارد و البته لزومی هم ندارد که یکی باشند. ساختاری که در قضیه‌ی قبل ارائه کرده‌ایم در \cite{calcul} نیامده و خودمان صرفا برای اثبات قضیه‌ی بعدی آورده‌ایمش.
+
+
+
+\begin{thm}
+	برای هر عبارت منظم 
+	$\mathsf{R} \in \mathbb{R^+ \cap R^\nmid}$
+	اگر 
+	$\mathsf{fstnxt(R)=\langle L:B , R'\rangle}$
+		آنگاه 
+	$\mathsf{R'}\in \mathbb{R}^\nmid$
+	و 
+	$\mathsf{R \Bumpeq L:B\bullet R'}$.
+\end{thm}
+\begin{proof}
+	اثبات را باید با استقرا روی ساختار عبارات منظم عضو 
+	$\mathbb{R^+ \cap R^\nmid}$
+	زد.
+	$$\blacktriangleright\mathsf{R=L:B;\:}$$
+	در این حالت طبق تعریف تابع سر و دم داریم
+	$\mathsf{fstnxt(R)=\langle L:B , \varepsilon \rangle}$.
+	از طرف دیگر \break
+	$\mathcal{S}^r\llbracket \mathsf{L:B \bullet \varepsilon} \rrbracket = 
+	\mathcal{S}^r \llbracket \mathsf{L:B} \rrbracket$
+	را داریم و $\varepsilon$ عضو $\mathbb{R^\nmid}$ است.
+	
+	$$\blacktriangleright\mathsf{R=\varepsilon R_2;\:}$$
+	طبق تعریف تابع سر و دم داریم
+	$\mathsf{fstnxt(\varepsilon R_2) = fstnxt(R_2)}$.
+		فرض استقرا این است که اگر 
+		$\mathsf{fstnxt(R_2)=\langle L:B, R'_2 \rangle}$
+	آنگاه 
+	$\mathsf{R'_2}\in \mathbb{R^\nmid}$
+	و
+	$\mathsf{L:B \bullet R'_2} \Bumpeq  \mathsf{R_2}$.
+	پس 
+	$\mathsf{fstnxt(R)=\langle L:B , R'_2 \rangle}$
+	که همان‌ طور که گفتم طبق فرض استقرا 
+	$\mathsf{R'_2} \in \mathbb{R^\nmid}$
+	و از طرف دیگر:
+	$$\mathsf{R=\varepsilon R_2 \Bumpeq R_2 \Bumpeq L:B \bullet R'_2 }$$
+			
+	
+	
+	
+	
+	
+	$$\blacktriangleright\mathsf{R=R_1 \varepsilon;\:}$$
+	در این حالت امکان ندارد $\mathsf{R_1=\varepsilon}$ باشد، چون در آن صورت خواهیم داشت 
+	$\mathsf{R=\varepsilon \varepsilon} \in \mathbb{R_\varepsilon}$
+	که تناقض است چون $\varepsilon \varepsilon$ در دامنه‌ی تابع سر و دم نیست.
+	طبق تعریف سر و دم اگر داشته باشیم 
+	$\mathsf {fstnxt(R_1)=\langle L:B , R'_1 \rangle}$
+	
+در آن صورت بنا بر این که 
+$\mathsf{R'_1} \in \mathbb{R_\varepsilon}$
+برقرار هست یا نه دو حالت را داریم:
+	$$\blacktriangleright\blacktriangleright \mathsf{R'_1} \in \mathbb{R_\varepsilon}: $$
+	در این صورت 
+	$\mathsf{fstnxt(R)=\langle L:B , \varepsilon \rangle}$
+برقرار است. چون
+ $\mathsf{R} \in \mathbb{( \mathbb{R^+ \cap R^\nmid})}$
+  پس 
+  چون
+  $\mathsf{R_2}$
+  زیر رشته‌ی $\mathsf{R}$ است، پس
+  $\mathsf{R_2 \in} \mathbb{R^\nmid}$
+  برقرار است. اصلا در این صورت $\mathsf{R=L:B\;\varepsilon}$ برقرار خواهد بود. بنابراین
+  $\mathsf{L:B\;\varepsilon \Bumpeq L:B \bullet \varepsilon}$
+  هم بدیهی خواهد بود.
+  $$\blacktriangleright\blacktriangleright \mathsf{R'_1} \notin \mathbb{R_\varepsilon}: $$
+در این صورت 
+$\mathsf{fstnxt(R)=\langle L:B , R'_1 \bullet \varepsilon \rangle}$
+طبق تعریف سر و دم برقرار است. چون 
+
+$\mathsf{R} \in \mathbb{R^+ \cap R^\nmid}$،
+پس زیر رشته‌های آن نیز عملگر $+$ را نخواهند داشت، پس 
+$\mathsf{R} \in \mathbb{R^\nmid}$.
+در اینجا نیز واضح است که:
+$$\mathsf{L:B \bullet R'_1 \bullet \varepsilon \Bumpeq R_1 \varepsilon = R }$$
+
+
+	
+	$$\blacktriangleright\mathsf{R=R_1 R_2;\:}$$
+	اگر یکی از $\mathsf{R_1}$ و $\mathsf{R_2}$ برابر $\varepsilon$ باشد که حالات بالا را داریم و اگر هر دو برابر $\varepsilon$ باشند هم که اصلا به تناقض می‌خوریم چون در این صورت دیگر در $\mathbb{R^+}$ این عبارت منظم را نداریم. پس تنها یک حالت می‌ماند و آن اینکه هیچ یک از این دو عبارت منظم تهی نباشند. باز هم اگر فرض کنیم 
+	$\mathsf{fstnxt(R_1)=\langle L:B , R'_1 \rangle}$
+	مسئله بنا به اینکه 
+	$\mathsf{R'_1} \in \mathbb{R_\varepsilon}$
+	برقرار هست یا خیر افراز می‌شود، مانند حالت قبل.
+	$$\blacktriangleright\blacktriangleright \mathsf{R'_1} \notin \mathbb{R_\varepsilon}: $$
+	در این صورت 
+	$\mathsf{fstnxt(R)=\langle L:B , R'_1 \bullet R_2}\rangle$.
+	مانند آنچه بالاتر استدلال کردیم خواهیم داشت 
+	$\mathsf{R'_1 \bullet R_2 \in } \mathbb{R^\nmid}$.
+	علاوه‌بر این طبق فرض استقرا داریم 
+	$\mathsf{ R_1 \Bumpeq L:B \bullet R'_1 }$،
+	پس:
+	$$\mathsf{L:B \bullet R'_1 \bullet R_2 \Bumpeq R_1 \bullet R_2 = R}$$
+	(عملگر چسباندن شرکت پذیر است). پس این حالت اثبات می‌شود.
+	$$\blacktriangleright\blacktriangleright \mathsf{R'_1} \in \mathbb{R_\varepsilon}: $$
+	در این صورت 
+	$\mathsf{fstnxt(R)=\langle L:B , R_2 \rangle}$.
+	مثل حالت‌های قبل ثابت می‌شود که $\mathsf{R_2} \in \mathbb{R^\nmid}$ و اینکه داریم:
+	$$\mathsf{R = L:B \bullet R_2 \Rightarrow L:B \bullet R_2 \Bumpeq R}$$ 
+	
+	$$\blacktriangleright\mathsf{R=R_1^+;\:}$$
+	با فرض اینکه 
+	$\mathsf{fstnxt(R_1)=\langle L:B , R'_1 \rangle}$
+		بنا به اینکه 
+	$\mathsf{R'_1} \in \mathbb{R_\varepsilon}$
+	برقرار باشد یا نه، دو حالت خواهد بود:
+	$$\blacktriangleright\blacktriangleright\mathsf{R'_1} \in \mathbb{R_\varepsilon}:$$
+	در این صورت طبق تعریف تابع سر و دم
+	$\mathsf{fstnxt(R)=\langle L:B , R^*_1 \rangle}$
+	را داریم. 
+	$\mathsf{R_1^*}$
+	عضو 
+	$\mathbb{R^\nmid}$ 
+	خواهد بود چونکه  داخل 
+	$\mathsf{R'_1}$
+	و 
+	$\mathsf{L:B}$
+	عملگر $+$ وجود ندارد و جای دیگری از این عبارت منظم وجود ندارد که در آن بتوان وجود این عملگر را متصور شد. همین طور داریم:
+	$$\mathsf{fstnxt(R_1) = \langle L:B , R'_1 \rangle \rightarrow
+		R'_1 \in \mathbb{R^\nmid}\; \land \; L:B \bullet R'_1 \Bumpeq R_1}$$
+		(عبارت بالا فرض استقراست.)
+	$$\mathsf{R_1^* \Bumpeq (L:B \bullet R'_1)^* \Bumpeq (L:B \bullet \varepsilon)^* \Bumpeq (L:B)^*}$$
+	(هم‌ارزی وسطی به خاطر این است که $\mathsf{R'_1}$ عضو $\mathbb{R^\nmid}$ است. اگر یکی از دو هم‌ارزی‌ دیگر هم برقرار نباشند کلا عملگر $ ^*$ خوش تعریف نخواهد بود، پس این دو هم‌ارزی باید برقرار باشند.)
+	$$\Rightarrow \mathsf{L:B\bullet R_1^* \Bumpeq L:B \bullet (L:B)^* \Bumpeq 
+	(L:B)^+}$$
+
+	$$\blacktriangleright\blacktriangleright\mathsf{R'_1} \notin \mathbb{R_\varepsilon}:$$
+با توجه به تعریف تابع سر و دم و فرض استقرا که چند خط بالاتر بیان شده، در این حالت داریم 
+	$\mathsf{fstnxt(R)=\langle L:B , R'_1 \bullet R_1^* \rangle}$.
+	به همان دلیل مورد قبلی می‌دانیم که $\mathsf{R_1^*}$ عضو $\mathbb{R^\nmid}$ است و طبق فرض استقرا داریم $\mathsf{R'_1} \in \mathbb{R^\nmid}$. بنابراین داریم
+		$\mathsf{R'_1 \bullet R_1^*} \in \mathbb{R^\nmid}$.
+		
+		باز هم با استفاده از فرض استقرا داریم:
+		$$\mathsf{L:B \bullet R'_1 \Bumpeq R_1}$$
+		$$\Rightarrow \mathsf{L:B \bullet R'_1 \bullet R_1^* \Bumpeq R_1 R_1^* \Bumpeq R_1^+}$$
+	
+	$$\blacktriangleright\mathsf{R=(R_1)\;:}$$
+	از فرض استقرا نتیجه می‌شود.
+\end{proof}
+
+این بخش در این قسمت به پایان می‌رسد. الان ابزارهای کافی برای بیان روش وارسی مدل به شکل جدیدی که مد نظر است را داریم.
+
+\section{وارسی مدل منظم}
+همان‌طور که گفتیم در این فصل می‌خواهیم یک صورت معادل از صورتی که در فصل پیش برای روش وارسی مدل آورده شده بود را ارائه کنیم و تا به اینجای فصل صرفا به معرفی چند مفهوم که برای بیان این صورت جدید احتیاج داشتیم پرداختیم. در این یخش ابتدا این صورت جدید را بیان می‌‌کنیم و سپس به اثبات می‌‌کنیم که این صورت جدید با صورت قبلی معادل است. همان‌طور که پیشتر هم اشاره شد تفاوت این بیان با بیان قبلی این است که این بیان روی ساختار عبارات منظم تعریف شده در حالیکه صورت قبلی ساختاری نداشت.
+\subsection{صورت}
+
+در نهایت برای تعریف صورت به یک تابع $\mathcal{M}$ احتیاج داریم که در ورودی‌اش یک زوج متشکل از یک محیط اولیه و یک عبارت منظم را در کنار یک برنامه می‌گیرد و در خروجی همه‌ی ردهای پیشوندی موجود در معنای برنامه را که با عبارت منظم سازگار هستند، داخل یک مجموعه بر می‌گرداند.
+اما در این بین این مفهوم سازگاری یک رد پیشوندی با یک مجموعه چگونه مشخص می‌شود؟ این نکته‌ای است که تا به حال در مورد آن بحث نکرده‌ایم و الان می‌خواهیم تابع $\mathcal{M}^t$ را با این هدف تعریف کنیم. البته این تابع قرار است یک ویژگی بیشتر هم داشته باشد و این ویژگی این است که اگر عبارت منظم با رد پیشوندی سازگار نباشد، به ما می‌گوید که از کجای عبارت منظم ناسازگاری وجود داشته واگر هم این دو با هم سازگار باشند این تابع به ما نشان می‌دهد که عبارت منظم تا کجا بررسی شده( قهمیدن این موضوع با نگاه به تعریف ساده‌تر می‌شود و البته نباید فراموش کرد که سازگاری‌ای که داریم، قرار است پیرو صورت قبلی باشد که در آن اگر طول یک عبارت منظم از یک رد پیشوندی بیشتر باشد و صرفا تا اتمام طول رد پیشوندی سازگاری بین این دو برقرار باشد، در نهایت هم سازگار حسابشان می‌کنیم، به عبارت دیگر داریم از نقش عملگر $\mathsf{prefix}$ در صورت قبلی صحبت می‌کنیم).
+\begin{defn}
+	(وارسی‌گر رد پیشوندی): به تابع $\mathcal{M}^t$ از نوع 
+	$\mathbb{(\underline{EV} \times R^\nmid) \rightarrow  \mathfrak{S}^{+\infty}}
+	\rightarrow (\mathbb{B \times R^\nmid} ) $
+	وارسی‌گر رد پیشوندی می‌گوییم. این تابع ضابطه‌ی زیر را دارد:
+	$$\blacktriangleleft\mathcal{M}^t \langle \underline{\rho} , \varepsilon \rangle \pi = 
+	\langle \mathit{T} , \varepsilon \rangle$$
+	(برای هر عضو دیگر $\mathbb{R_\varepsilon}$ هم ضابطه‌ی بالایی برقرار است. دو ضابظه‌ی پایینی برای عبارات منظم عضو $\mathbb{R^+ \cap R^\nmid}$ هستند.)
+	$$\blacktriangleleft\mathcal{M}^t \langle \underline{\rho} , \mathsf{R} \rangle \epsilon = 
+	\langle \mathit{T} , \mathsf{R} \rangle$$
+	$$\blacktriangleleft\mathcal{M}^t \langle \underline{\rho} , \mathsf{R} \rangle \pi = 
+	\llparenthesis \langle \underline{\rho}, \langle l_1, \rho_1 \rangle \rangle \in
+	\mathcal{S}^r \llbracket \mathsf{L:B} \rrbracket \; ? \; 
+	\mathcal{M}^t \langle \underline{\rho}, \mathsf{R'} \rangle \pi' \; : \; 
+	\langle \mathit{F}, \mathsf{R} \rangle \rrparenthesis$$
+	$$\mathsf{while}\; \pi=\langle l_1,\rho_1\rangle \pi' \;\mathsf{and}\; 
+	\langle \mathsf{L:B,R'}\rangle = \mathsf{fstnxt(R)}$$
+	
+\end{defn}
+
+برای اینکه به $\mathcal{M}$ برسیم به معرفی یک تابع دیگر هم می‌پردازیم. این تابع را با
+ $\mathcal{M}^\nmid$ 
+نشان می‌دهیم و در واقع همان کاری را که $\mathcal{M}$ قرار است به ازای همه‌ی عبارات منظم انجام دهد، این تابع روی عبارات منظمی که $+$ ندارند انجام می‌دهد.
+\begin{defn}
+	(وارسی مدل منظم محدود به $\mathbb{R^\nmid}$): به تابع $\mathcal{M}^\nmid$ از نوع \break
+	$\mathbb{(\underline{EV} \times R^\nmid)} \rightarrow  \mathit{P}({\mathfrak{S}^{+\infty})}
+	\rightarrow \mathit{P}(\mathfrak{S}^{+\infty} \times \mathbb{R}^\nmid ) $
+	می‌گوییم وارسی مدل منظم محدود به $\mathbb{R^\nmid}$. ضابطه‌ی این تابع به شکل زیر است:
+	
+	 $$\mathcal{M}^\nmid \langle \underline{\rho} , \mathsf{R} \rangle \Pi= \{ \langle \pi , \mathsf{R'} \rangle | \pi \in \Pi \land  
+	  \mathcal{M}^t \langle \underline{\rho} , \mathsf{R} \rangle \pi =
+	 \langle \mathit{T} , \mathsf{R'} \rangle \}$$
+\end{defn}
+
+
+حالا خود $\mathcal{M}$ را تعریف می‌کنیم. تعریف این تابع چیزی نیست جز اجتماع گرفتن از خروجی تابع بالا به ازای عبارات منظمی که در فرم نرمال عبارت منظم ورودی تابع حضور دارند. البته اطلاعاتمان از عبارات منظم در هر زوجی که در خروجی $\mathcal{M}^\nmid$ حذف می‌شود، یعنی صرفا ردهای پیشوندی را داریم.
+
+\begin{defn}
+(وارسی مدل منظم):
+تابع $\mathcal{M}$ را از نوع 
+$\mathbb{(\underline{EV} \times R)} \rightarrow  \mathit{P}({\mathfrak{S}^{+\infty})}
+\rightarrow \mathit{P}(\mathfrak{S}^{+\infty} ) $
+ وارسی مدل منظم می‌گوییم که ضابطه‌ی زیر را دارد:
+$$\mathcal{M} \langle \underline{\rho} , \mathsf{R} \rangle \Pi= \bigcup_{i=1}^n \{  \pi | \exists \mathsf{R'} \in \mathbb{R}:\; \langle \pi , \mathsf{R'} \rangle \in 
+\mathcal{M}^\nmid \langle \underline{\rho}, \mathsf{R_i} \rangle \Pi \}$$
+$$\mathsf{while \; dnf (R) = R_1 + R_2 + ... + R_n}$$ 
+
+
+
+
+
+\end{defn}
+
+با این تعریف در واقع زمانی می‌توانیم بگوییم، برنامه‌ی $\mathsf{P}$ خاصیت $\mathsf{R}$ دارد \break که 
+$\mathcal{M}\langle \underline{\rho} , \mathsf{R} \rangle \mathcal{S}^* \llbracket \mathsf{P} \rrbracket = 
+\mathcal{S}^* \llbracket \mathsf{P} \rrbracket$.
+در واقع انگار تابع 
+$\mathcal{M} \langle \underline{\rho} , \mathsf{R} \rangle$
+مثل یک صافی روی مجموعه‌ی 
+$\mathcal{S}^* \llbracket \mathsf{P} \rrbracket$
+عمل می‌کند.
+
+
+می‌توان این طور تصور کرد که به هر حال مجموعه‌ی معنای یک برنامه می‌تواند به مجموعه‌هایی افراز شود که در هر مجموعه ردهای پیشوندی‌ای حضور دارند که محیط اولین وضعیتشان یکسان است. در چنین مجموعه‌ای قاعدتا باید اگر در رد پیشوندی‌هایی که حداقل دو عضو دارند، وضعیت دومشان یکسان است و این رویه برای بقیه‌ی وضعیت‌ها نیز صادق است، یعنی مثلا در رد پیشوندی‌هایی که $n$ عضو وجود دارد، وضعیت  $n$ام در همه‌ی آن‌ها یکسان خواهد بود. در هر مجموعه‌ی داخل این افراز یک رد پیشوندی ماکسیمال وجود خواهد داشت که در واقع اجرای کامل برنامه با محیطی که در وضعیت اول قرار دارد است.
+
+حال برای هر برنامه‌ی $\mathsf{P}$ که خاصیت $\mathsf{R}$ در مورد آن مورد بررسی است، بعد از اینکه 
+$\mathcal{M} \langle \underline{\rho}, \mathsf{R} \rangle \mathcal{S}^* \llbracket \mathsf{P} \rrbracket$
+ محاسبه شد، اگر در هر مجموعه از افرازی که در بالا توصیف کردیم، رد پیشوندی ماکسیمال موجود باشد در آن صورت 
+$\mathcal{M} \langle \underline{\rho}, \mathsf{R} \rangle \llbracket \mathsf{P} \rrbracket=
+\llbracket \mathsf{P} \rrbracket $
+برقرار خواهد بود. اگر هم این تساوی برقرار نباشد، در افراز
+$\mathcal{M} \langle \underline{\rho}, \mathsf{R} \rangle \llbracket \mathsf{P} \rrbracket$
+نسبت به وضعیت‌های متفاوت در اول های پیشوندی، در هر افزاری که رد پیشوندی ماکسیمال موجود در همان افراز در مجموعه‌ی 
+$\mathcal{S}^* \llbracket \mathsf{P} \rrbracket $ 
+نیست، آن رد پیشوندی دیگری که در آن مجموعه ماکسیمال است، به ما می‌گوید که برنامه به چه وصعیتی برخورد کرده که با $\mathsf{R}$ ناسازگاری داشته و اطلاعاتی را در مورد برنامه به ما می‌دهد.
+
+برای حرف هایی که در چند بخش قبل گفتیم، اثباتی نیاورده‌ایم و البته که ادعاهایی هم هستند که نیاز به اثبات دارند، اما به هر حال اثبات آن‌ها در این بخش و در حین بحثی که هستیم، به نظر منحرف کننده می‌آید و البته در ادامه هم حرفی بر اساس این ادعاها زده نشده. اما به هر حال اگر یک درک شهودی از این موجوداتی که در اینجا توصیف شده‌اند داشته باشیم، می‌توانیم تا حد قابل قبولی صحت این ادعاها را ببینیم.
+
+
+\subsection{درستی و تمامیت}
+
+
+
+
+
+
+

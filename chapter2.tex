@@ -17,7 +17,7 @@ $$\mathsf{|\:\:\:;\hspace{3.75cm}}$$
 $$\mathsf{|\:\:\:if\:(B)\:S\:|\:if\:(B)\:S\:else\:S}$$
 $$\mathsf{|\:\:\:while\:(B)\:S\: | \: break;\hspace{0.65cm}}$$
 $$\mathsf{|\:\:\:\{Sl\}\hspace{3.15cm}}$$
-$$\mathsf{Sl \in \mathbb{SL}::=Sl\:\:\:S\:|\:\epsilon}\hspace{3.05cm}$$
+$$\mathsf{Sl \in \mathbb{SL}::=Sl\:\:\:S\:|\:\backepsilon}\hspace{3.05cm}$$
 $$\mathsf{P\in \mathbb{P}\:::=Sl}\hspace{4.25cm}$$
 
 \vspace{1cm}
@@ -55,7 +55,7 @@ $$\mathsf{P\in \mathbb{P}\:::=Sl}\hspace{4.25cm}$$
 \end{defn}
 
 \begin{defn}
-	(وضعیت): به هر زوج مرتبْ به ترتیب متشکل از یک برچسب $l$ و یک محیط $\rho$ یک وضعیت  
+	(وضعیت): به هر زوج مرتبْ به ترتیب متشکل از یک برچسب $l$ و یک محیط $\rho$ یک وضعیت (یا حالت)  
 	$\langle l , \rho \rangle$
 	می‌گوییم. مجموعه‌ی همه‌ی وضعیت‌ها را با $\mathfrak{S}$ نشان می‌دهیم.
 \end{defn}
@@ -139,7 +139,9 @@ $$$$\cup    \{ \langle at[\mathsf{S}] , \rho \rangle \langle at[\mathsf{S_t}] , 
 \pi | \mathcal{B}[\mathsf{B}] \rho =True  \wedge   \langle  at[\mathsf{S_t}]  , \rho \rangle \pi \in \mathcal{S} [\mathsf{S_t}]    \}          $$ \\
 
 
-اگر $         \mathsf{Sl} ::= \ni  $ باشد، ردهای پیشوندی متناظر با اجرای این دستور را به شکل مجموعه‌ی زیر تعریف می کنیم:
+اگر 
+$         \mathsf{Sl} ::= \backepsilon  $
+ باشد، ردهای پیشوندی متناظر با اجرای این دستور را به شکل مجموعه‌ی زیر تعریف می کنیم:
 
 $$\mathcal{S} [\mathsf{Sl}] = \{ \langle at[\mathsf{Sl}] , \rho \rangle | \rho \in \mathbb{EV}       \}        $$ \\
 
@@ -551,130 +553,155 @@ $\mathsf{R}$
 
 \section{در مورد توقف پذیری}
 
-در این بخش مشکلی از کار که به نظر نگارنده رسیده مطرح شده. متاسفانه این مشکل بسیار بزرگ است و به نظر عجیب می‌‌آید که نویسنده‌ی \cite{calcul} متوجه آن نبوده! اگر صحبت ما در اینجا درست باشد، این به این معنی خواهد بود که کل کاری که در حال توصیفش هستیم قابل پیاده سازی نیست!
+در این بخش مشکلی از کار که به نظر نگارنده رسیده مطرح شده. متاسفانه این مشکل بسیار بزرگ است و به نظر عجیب می‌‌آید اگر نویسنده‌ی \cite{calcul} متوجه آن نبوده باشد! اگر صحبت ما در اینجا درست باشد، این به این معنی خواهد بود که کل کاری که در حال توصیفش هستیم قابل پیاده سازی نیست!
 
 بحث ما در اینجا در مورد توقف پذیری است. در \cite{calcul} در مورد توقف یک برنامه صحبتی به میان نیامده. یعنی حتی گفته نشده که در چه صورتی می‌توانیم بگوییم که یک برنامه متوقف شده است. یک تعریف  صوری معقول که خودمان می‌توانیم برای این معنا بیاوریم این است:
 
 \begin{defn}
-	برنامه‌ی $\mathsf{P}$ را به همراه اجرای اولیه $\underline{\rho}$ توقف پذیر می‌گوییم اگر و تنها اگر وجود داشته باشد 
+(توقف پذیری:) برنامه‌ی $\mathsf{P}$ را به همراه اجرای اولیه $\underline{\rho}$ توقف پذیر می‌گوییم اگر و تنها اگر وجود داشته باشد 
 	$\pi \in \mathcal{S}^* \llbracket \mathsf{P} \rrbracket$ 
-	که 
-	$$\pi = \langle at \llbracket \mathsf{P} \rrbracket , \underline{\rho} \rangle \pi'$$
-	و اینکه $\langle aft\llbracket \mathsf{P} \rrbracket , \rho \rangle$ در $\pi$ حضور داشته باشد. این اتفاق را با 
+	که ($\rho$ محیط متناظر با محیط اولیه‌ی $\underline{\rho}$ است.):
+	$$\pi = \langle at \llbracket \mathsf{P} \rrbracket , \rho \rangle \pi'$$
+	و اینکه $\langle aft\llbracket \mathsf{P} \rrbracket , \rho' \rangle$ در $\pi$ حضور داشته باشد. این اتفاق را با 
 	$\mathsf{P,\underline{\rho}\downarrow}$
-	نشان می‌دهیم.
+	نشان می‌دهیم. همین تعریف را برای لیست دستورات $\mathsf{Sl}$ یا دستور $\mathsf{S}$ هم صرفا با جایگذاری این‌ها با برنامه‌ی $\mathsf{P}$ داریم.
 \end{defn} 
+در این تعریف توقف پذیری صرفا برای یک محیط اولیه تعریف شده.
+در اینجا توقف پذیری به متناهی بودن ردهای پیشوندی موجود در برنامه ربط داده نشده. با توجه به معناشناسی‌ای که داریم، تعریف توقف پذیری به معنای وجود رد پیشوندی متناهی با محیط اولیه‌ی مورد بررسی در معنای برنامه که اصلا جور در نمی‌آید، چون معناشناسی ما خاصیت پیشوندی بودن را دارد و مطمئن هستیم در معنای هر برنامه‌ای حتما یک رد پیشوندی متناهی با محیط اولیه‌ی مورد بررسی وجود دارد.
 
-در این تعریف توقف پذیری به متناهی بودن ردهای پیشوندی موجود در برنامه ربط داده نشده. با توجه به معناشناسی‌ای که داریم، تعریف توقف پذیری به معنای وجود رد پیشوندی متناهی در معنای برنامه که اصلا جور در نمی‌آید، چون معناشناسی ما خاصیت پیشوندی بودن را دارد و مطمئن هستیم در معنای هر برنامه‌ای حتما یک رد پیشوندی متناهی وجود دارد.
-
-اگر هم بخواهیم تعریف توقف پذیری را وجودنداشتن ردهای پیشوندی نامتناهی در معنای برنامه در ابتدا به نظر می‌آید که به تعریف قوی‌تری نسبت به آنچه ارائه دادیم رسیده‌ایم. ما در اینجا سعی داریم تعریفی را ارائه کنیم که برای حرف‌هایی که در \cite{6} زده شده تا حد امکان مشکل درست نکند، که اگر دیدیم با این وجود مشکل وجود دارد مطمئن باشیم که اشتباه در \cite{6} است و نه حرف ما. پس سعی از ارائه‌ی این تعریف که به نظر از تعریف ارائه شده با کار ناسازگارتر می‌آید اجتناب می‌کنیم( در ادامه به بیان ناسازگاری پراخته شده) اما می‌بینیم که تعریفی که ارائه کردیم با همان که بگوییم در برنامه رد پیشوندی نامتناهی وجود ندارد معادل است.
+اگر هم بخواهیم تعریف توقف پذیری را وجودنداشتن ردهای پیشوندی نامتناهی با محیط اولیه‌ی مورد بررسی در معنای برنامه در نظر بگیریم در ابتدا به نظر می‌آید که به تعریف قوی‌تری نسبت به آنچه ارائه دادیم رسیده‌ایم. ما در اینجا سعی داریم تعریفی را ارائه کنیم که برای حرف‌هایی که در \cite{calcul} زده شده تا حد امکان مشکل درست نکند، که اگر دیدیم با این وجود مشکل وجود دارد مطمئن باشیم که اشتباه در \cite{calcul} است و نه حرف ما. پس سعی از ارائه‌ی این تعریف که به نظر از تعریف ارائه شده با کار ناسازگارتر می‌آید اجتناب می‌کنیم( در ادامه به بیان ناسازگاری پراخته شده) اما در قضیه‌ی بعدی می‌بینیم که تعریفی که ارائه کردیم با همان که بگوییم در برنامه رد پیشوندی نامتناهی وجود ندارد معادل است.
 \begin{thm}
-	برای برنامه‌ی $\mathsf{P}$ و محیط اولیه‌ی $\underline{\rho}$ داریم $\mathsf{P} , \underline{\rho} \downarrow $ اگر و تنها اگر 
-	$$\forall \pi \in \mathcal{S^*} \llbracket \mathsf{P} \rrbracket : \pi \in \mathbb{R^+}$$
+	برای برنامه‌ی $\mathsf{P}$ و محیط اولیه‌ی $\underline{\rho}$ داریم $\mathsf{P} , \underline{\rho} \downarrow $ اگر و تنها اگر با فرض اینکه $\rho$ محیط متناظر با محیط اولیه‌ی $\underline{\rho}$ است و
+	$$\forall \pi \in \mathbb{S^{+\infty}} : 
+	\langle at \llbracket \mathsf{P} \rrbracket , \rho \rangle \pi \in \mathcal{S^*} \llbracket \mathsf{P} \rrbracket \rightarrow
+	\langle at \llbracket \mathsf{P} \rrbracket , \rho \rangle \pi \in \mathbb{R^+}$$
 	 
 \end{thm}
 \begin{proof}
 	$(\Rightarrow)$
-	برای این قسمت باید ثابت کنیم که در معنای هر برنامه‌ای رد پیشوندی‌ای وجود دارد که به 
-	$\langle aft\llbracket \mathsf{P} \rrbracket , \rho \rangle$
+	برای این قسمت باید ثابت کنیم که در معنای هر برنامه‌ای رد پیشوندی‌ای وجود دارد که با
+	$\langle at\llbracket \mathsf{P} \rrbracket , \rho \rangle$
+	شروع شده و به ازای یک محیط $\rho'$ به 
+	$\langle aft\llbracket \mathsf{P} \rrbracket , \rho' \rangle$
 	ختم شده. 
-	در این اثبات از تعریف برچسب‌ها که در \cite{calcul} آمده استفاده شده.
+	در این اثبات از تعریف برچسب‌ها که در ضمیمه‌ی \cite{calcul} آمده استفاده شده.
 	داریم 
 	$\mathsf{P=Sl}$
 	و 
 	$aft \llbracket \mathsf{P} \rrbracket = aft \llbracket \mathsf{Sl} \rrbracket $
 	
 	حکم را با استقرا روی ساختار $\mathsf{Sl}$ ثابت می‌کنیم. 
-	\newpage$$\blacktriangleleft \mathsf{Sl = \epsilon}:$$
+	$$\blacktriangleright \mathsf{Sl = \backepsilon}:$$
 	داریم:
-	$$\mathcal{S^*} \llbracket \epsilon \rrbracket = \{\langle at \llbracket \epsilon \rrbracket , \rho | \rho \in \mathbb{EV}\}$$
+	$$\mathcal{S^*} \llbracket \backepsilon \rrbracket = \{\langle at \llbracket \backepsilon \rrbracket , \dot{\rho} \rangle | \dot{\rho} \in \mathbb{EV}\}$$
 	و طبق تعریف برچسب‌ها داریم:
-	$$at \llbracket \epsilon \rrbracket = aft \llbracket \epsilon \rrbracket$$
+	$$at \llbracket \backepsilon \rrbracket = aft \llbracket \backepsilon \rrbracket$$
 	پس حکم برقرار است.
-	$$\blacktriangleleft \mathsf{Sl =Sl'\;S}:$$
-	اینکه در معنای $\mathsf{Sl}$ دنباله‌ای شامل $\langle aft \llbracket Sl \rrbracket , \rho \rangle$ وجود داشته باشد، به با توجه به تعاریفی که داریم به این وابسته است که در معنای $\mathsf{S}$ دنباله‌ای شامل $\langle aft \llbracket S \rrbracket , \rho \rangle$ وجود داشته باشد. برای اینکه این را ثابت کنیم هم باید همین حکم را روی ساختار $\mathsf{S}$ ثابت کنیم که در واقع بخش اصلی اثبات این سمت قضیه است. 
-	$$\blacktriangleleft\blacktriangleleft \mathsf{S\;=\; x\doteq A;}:$$
+	$$\blacktriangleright \mathsf{Sl =Sl'\;S}:$$
+	اینکه در معنای $\mathsf{Sl}$ دنباله‌ای شامل
+	 $\langle aft \llbracket \mathsf{Sl} \rrbracket , \rho '\rangle$ وجود داشته باشد، به با توجه به تعاریفی که داریم به این وابسته است که در معنای $\mathsf{S}$ دنباله‌ای شامل $\langle aft \llbracket \mathsf{S} \rrbracket , \rho' \rangle$ وجود داشته باشد. برای اینکه این را ثابت کنیم هم باید همین حکم را روی ساختار $\mathsf{S}$ ثابت کنیم که در واقع بخش اصلی اثبات این سمت قضیه است. 
+	$$\blacktriangleright\blacktriangleright \mathsf{S\;=\; x\doteq A;}:$$
 	در این حالت با توجه به تعریف معنای $\mathsf{S}$ که قبل‌تر ارائه شد، دنباله‌ی 
-	$$\langle at \llbracket \mathsf{S} \rrbracket ,\rho \rangle \langle aft\llbracket\mathsf{S}\rrbracket , \rho\llbracket\mathsf{x}\leftarrow \mathcal{A}\llbracket\mathsf{A}[\rrbracket\rho] \rangle $$
-	در معنای دستور به ازای هر $\rho$ وجود دارد که خب در هر صورت این شامل $\underline{\rho}$ هم می‌شود .
-	$$\blacktriangleleft\blacktriangleleft \mathsf{S=\; ; \;\;}:$$	 
+	$$\langle at \llbracket \mathsf{S} \rrbracket ,\rho \rangle \langle aft\llbracket\mathsf{S}\rrbracket , \rho[\mathsf{x}\leftarrow \mathcal{A}\llbracket\mathsf{A}\rrbracket\rho] \rangle $$
+	در معنای دستور به ازای هر $\rho$ وجود دارد که خب در هر صورت این شامل محیط متناظر با $\underline{\rho}$ هم می‌شود .
+	$$\blacktriangleright\blacktriangleright \mathsf{S=\; ; \;\;}:$$	 
 با توجه به معنای این دستوردنباله‌ی زیر در معنای این دستور وجود دارد.
-$$\langle at \llbracket \mathsf{S} \rrbracket ,\underline{\rho} \rangle \langle aft\llbracket\mathsf{S}\rrbracket , \underline{\rho} \rangle $$
+$$\langle at \llbracket \mathsf{S} \rrbracket ,\rho \rangle \langle aft\llbracket\mathsf{S}\rrbracket , \rho \rangle $$
 
-$$\blacktriangleleft\blacktriangleleft \mathsf{S=\; if (B) S_t}:$$
+$$\blacktriangleright\blacktriangleright \mathsf{S=\; if\;(B)\;S_t}:$$
 	در صورتی که 
 	$\mathcal{B}\llbracket\mathsf{B}\rrbracket\rho=\mathit{T}$
 	دنباله‌ی 
-	$$\langle at \llbracket \mathsf{S} \rrbracket , \underline{\rho} \rangle
-	\langle at \llbracket \mathsf{S_t} \rrbracket , \underline{\rho} \rangle \pi$$
+	$$\langle at \llbracket \mathsf{S} \rrbracket , \rho \rangle
+	\langle at \llbracket \mathsf{S_t} \rrbracket , \rho \rangle \pi$$
 	در مجموعه‌ی معنای این دستور حضور دارد در حالیکه 
-	$\langle at \llbracket \mathsf{S_t} \rrbracket , \underline{\rho} \rangle \pi$
+	$\langle at \llbracket \mathsf{S_t} \rrbracket , \rho \rangle \pi$
 	داخل معنای $\mathsf{S_t}$ است و طبق فرض استقرا می‌دانیم که برچسب آخرین موقعیت $\pi$ برابر است با $aft \llbracket \mathsf{S_t} \rrbracket$ که طبق تعاریف مربوط به برچسب‌ها 
 	$aft \llbracket \mathsf{S_t} \rrbracket=aft \llbracket \mathsf{S} \rrbracket$.
 	در صورتی که معنای عبارت بولی غلط باشد هم دنباله‌ی زیر در معنای دستور طبق تعریف موجود است.
-	$$\langle at \llbracket \mathsf{S} \rrbracket ,\underline{\rho} \rangle \langle aft\llbracket\mathsf{S}\rrbracket , \underline{\rho} \rangle $$
+	$$\langle at \llbracket \mathsf{S} \rrbracket ,\rho \rangle \langle aft\llbracket\mathsf{S}\rrbracket , \rho \rangle $$
 	
-$$\blacktriangleleft\blacktriangleleft \mathsf{S=\; if\;(B)\;S_t\;else\;S_f}:$$
+$$\blacktriangleright\blacktriangleright \mathsf{S=\; if\;(B)\;S_t\;else\;S_f}:$$
 مانند حالت قبل است منتها با این تفاوت که در صورتی که معنای عبارت بولی غلط باشد دنباله‌ی زیر در معنای دستور حضور دارد:
-	$$\langle at \llbracket \mathsf{S} \rrbracket , \underline{\rho} \rangle
-\langle at \llbracket \mathsf{S_f} \rrbracket , \underline{\rho} \rangle \pi$$
+	$$\langle at \llbracket \mathsf{S} \rrbracket , \rho \rangle
+\langle at \llbracket \mathsf{S_f} \rrbracket , \rho \rangle \pi$$
 و تساوی 
 $aft \llbracket \mathsf{S_t} \rrbracket=aft \llbracket \mathsf{S} \rrbracket=aft \llbracket \mathsf{S_f} \rrbracket$
 هم طبق تعریف برچسب‌ها برقرار است.
 
-$$\blacktriangleleft\blacktriangleleft \mathsf{S=\; while\;(B)\;S_t}:$$
+$$\blacktriangleright\blacktriangleright \mathsf{S=\; while\;(B)\;S_t}:$$
 در اثبات این سمت قضیه این حالت پیچیده ترین حالت است و در واقع تنها حالتی است که در اثبات آن به فرض قضیه احتیاج داریم! همان طور که پیشتر گفتیم معنای حلقه با استفاده از یک تابع تعریف می‌شود. معنای حلقه کوچکترین نقطه ثابت این تابع است، در حالیکه انگار این تابع وقتی روی یک مجموعه از ردهای پیشوندی اعمال شود، تاثیرات یک بار اجرای دستورات درون حلقه را روی ردهای پیشوندی درون مجموعه اعمال می‌کند.
 
-طبق تعریف $\mathcal{F}$ مطمئن هستیم که رد پیشوندی‌ای که با محیط $\underline{\rho}$ شروع شود در مجموعه‌ی معنای $\mathsf{S}$ وجود دارد، چونکه به ازای هر محیط $\rho$ حالت 
-$\langle at \llbracket \mathsf{S} \rrbracket, \rho \rangle$
+طبق تعریف $\mathcal{F}$ مطمئن هستیم که رد پیشوندی‌ای که با محیط $\underline{\rho}$ شروع شود در مجموعه‌ی معنای $\mathsf{S}$ وجود دارد، چونکه به ازای هر محیط $\dot{\rho}$(نقطه به این خاطر است که با $\rho$ خاص موجود در فرض اشتباه گرفته نشود) حالت 
+$\langle at \llbracket \mathsf{S} \rrbracket, \dot{\rho} \rangle$
  در هر اعمال تابع $\mathcal{F}$ روی هر مجموعه‌ی دلخواه وجود دارد. وقتی معنای $\mathsf{S}$ را به عنوان کوچک‌ترین نقطه ثابت $\mathcal{F}$ در نظر گرفته‌ایم پس مطمئن هستیم که آن مجموعه‌ای که کوچکترین نقطه ثابت است شامل رد پیشوندی 
- $\langle at \llbracket \mathsf{S} \rrbracket, \underline{\rho} \rangle$
+ $\langle at \llbracket \mathsf{S} \rrbracket, \rho \rangle$
  است. این رد پیشوندی با اجرای $\mathcal{F}$ تحت تاثیر قرار می‌گیرد. اگر معنای $\mathsf{B}$ در یکی از اعمال های $\mathcal{F}$ غلط باشد، رد پیشوندی
-$ \langle at \llbracket \mathsf{S} \rrbracket, \underline{\rho} \rangle \pi \langle aft \llbracket \mathsf{S} \rrbracket , \rho \rangle$ 
-در معنای برنامه قرار خواهد گرفت و می‌توانیم بگوییم اجرای دستور با این محیط اولیه توقف پذیر است( توقف پذیری برای دستور را هم به همان معنی‌ای که برای برنامه‌ها گفتیم داریم به این شکل که کافی است دستور با برنامه در تعریف جایگزین شود). می‌دانیم که طبق تعریف تابع به انتهای این رد پیشوندی چیزی اضافه نمی‌شود. از طرف دیگر هم با این محیط اولیه، با توجه به تعریف رد پیشوندی دیگری وجود ندارد که طولانی‌تر از رد پیشوندی مورد اشاره باشد. 
+$ \langle at \llbracket \mathsf{S} \rrbracket, \rho \rangle \pi \langle aft \llbracket \mathsf{S} \rrbracket , \rho' \rangle$ 
+در معنای برنامه قرار خواهد گرفت و می‌توانیم بگوییم اجرای دستور با این محیط اولیه توقف پذیر است. می‌دانیم که طبق تعریف تابع به انتهای این رد پیشوندی چیزی اضافه نمی‌شود. از طرف دیگر هم با این محیط اولیه، با توجه به تعریف رد پیشوندی دیگری وجود ندارد که طولانی‌تر از رد پیشوندی مورد اشاره باشد. 
 
-در حالت دیگر اگر فرض کنیم هیچ گاه به حالتی نمی‌رسیم که در آن معنای $\mathsf{B}$ غلط باشد هم با فرض مسئله به تناقض می‌خوریم، چون در آن صورت تابع $\mathcal{F}$ مدام به طول دنباله‌‌هایی که با محیط اولیه‌ی $\underline{\rho}$ شروع می‌شوند می‌افزاید و این یک دنباله‌ی نامتناهی را خواهد ساخت. در صورتی که معنای $\mathsf{B}$ هیچ گاه صحیح نباشد، حداقل حالت 
-$\langle at \llbracket \mathsf{S_t} \rrbracket , \rho \rangle$
+در حالت دیگر اگر فرض کنیم هیچ گاه به حالتی نمی‌رسیم که در آن معنای $\mathsf{B}$ غلط باشد هم با فرض مسئله به تناقض می‌خوریم، چون در آن صورت تابع $\mathcal{F}$ مدام به طول دنباله‌‌هایی که با محیط $\rho$ شروع می‌شوند می‌افزاید و این یک دنباله‌ی نامتناهی را خواهد ساخت. در صورتی که معنای $\mathsf{B}$ هیچ گاه صحیح نباشد، حداقل حالت 
+$\langle at \llbracket \mathsf{S_t} \rrbracket , \rho'' \rangle$
 به ته دنباله‌های پیشین اضافه خواهد شد و از این جهت مطمئن هستیم که دنباله‌ی نامتناهی گفته شده در معنای دستور حضور خواهد داشت. 
 
 پس با این تفاصیل، این مورد هم ثابت می‌شود.
 
-\break$$\blacktriangleleft\blacktriangleleft \mathsf{S=\; break;}:$$
-در تعریف تابع $aft$ روی برچسب‌ها این تعریف برای این دستور مشخص نیست! مهم‌ترین چیزی که در مورد برچسب‌ها در مورد این دستور قرار است برقرار باشد این است که اگر این دستور بخشی از $\mathsf{S_t}$ در حلقه‌ی زیر باشد
-$$\mathsf{S=\; while\; B\; S_t}$$
+\break$$\blacktriangleright\blacktriangleright \mathsf{S=\; break;}:$$
+در تعریف تابع $aft$ روی برچسب‌ها در \cite{calcul} این تعریف برای این دستور مشخص نیست! در \cite{cousotbook} که در مورد برچسب‌ها بحث شده، نویسنده‌ی \cite{calcul} گفته که در مورد آن بخش از تعاریف توابع مربوط به برچسب‌ها که تعریف نشده‌اند برداشت آزاد است و ما در اینجا سعی داریم معقول ترین برداشتی که نسبت به درکمان از این کار می‌توانیم داشته باشیم را بیان کنیم. مهم‌ترین چیزی که در مورد برچسب‌ها در مورد این دستور قرار است برقرار باشد این است که اگر این دستور بخشی از $\mathsf{S_t}$ در حلقه‌ی زیر باشد
+$$\mathsf{S'=\; while\; (B)\; S_t}$$
 در این صورت 
-$aft \llbracket \mathsf{S} \rrbracket = brk-to \llbracket \mathsf{S_t} \rrbracket $
+$aft \llbracket \mathsf{S'} \rrbracket = brk-to \llbracket \mathsf{S_t} \rrbracket $
 را طبق تعریف داریم. انتظار می‌رود که\break 
-$aft \llbracket \mathsf{break;} \rrbracket = aft \llbracket \mathsf{S} \rrbracket$ 
-باشد. اینکه دستورات برنامه پس از اجرای $\mathsf{break;}$ از خارج(یا به عبارت بهتر بعد از) حقله‌ی $\mathsf{S}$ پی گرفته شود انتظار معقولی است از سیستمی که در حال توصیف رد اجرای برنامه‌های کامپیوتری است. از پس این فرض ما 
+$aft \llbracket \mathsf{break;} \rrbracket = aft \llbracket \mathsf{S'} \rrbracket$ 
+باشد. اینکه دستورات برنامه پس از اجرای $\mathsf{break;}$ از خارج(یا به عبارت بهتر بعد از) حقله‌ی $\mathsf{S'}$ پی گرفته شود انتظار معقولی است از سیستمی که در حال توصیف رد اجرای برنامه‌های کامپیوتری است. البته در نظر گرفته شود که فرض کرده‌ایم که $\mathsf{S'}$ داخلی ترین حلقه‌ای است که $\mathsf{break;}$ درون آن جای دارد.
+
+ از پس این فرض‌های ما 
 $aft \llbracket \mathsf{break;} \rrbracket = break-to \llbracket \mathsf{S_t} \rrbracket$ 
 نتیجه می‌شود و طبق تعریف معنای دستورات 
 $\mathsf{break;}$
 رد پیشوندی زیر در معنای این دستور وجود دارد
-$$\langle at \llbracket \mathsf{break;} \rrbracket , \underline{\rho} \rangle
-\langle aft \llbracket \mathsf{break;} \rrbracket , \underline {\rho} \rangle$$
+$$\langle at \llbracket \mathsf{break;} \rrbracket , \rho \rangle
+\langle aft \llbracket \mathsf{break;} \rrbracket , \rho \rangle$$
  که نشانه‌ی توقف است.
  
 
-$$\blacktriangleleft\blacktriangleleft \mathsf{S=\; \{ Sl'' \}}:$$
-	در این صورت توقف پذیری $\mathsf{Sl''}$ را از فرض استقرای استقرایی که روی لیست دستورات زده بودیم داریم پس $\mathsf{\{Sl\}}$ هم توقف پذیر است.
+$$\blacktriangleright\blacktriangleright \mathsf{S=\; \{ Sl'' \}}:$$
+	در این صورت توقف پذیری $\mathsf{Sl''}$ را از فرض استقرای استقرایی که روی لیست دستورات زده بودیم داریم پس $\mathsf{\{Sl''\}}$ هم توقف پذیر است.
 	
 	
 در اینجا اثبات این طرف قضیه به پایان می‌رسد.
 
 ($\Leftarrow$)
+دوباره باید روی ساختار برنامه‌ها استقرا بزنیم و دوباره چون هر برنامه مساوی با یک لیست از دستورات است استقرا را ابتدا روی ساختار لیست دستورات و در دل آن روی ساختار دستورات استقرا می‌زنیم.
 
+در این اثبات به غیر از یک حالت ساختار دستور، که دستور حلقه است، هر آنچه در مورد اثبات طرف راست قضیه گفتیم، به ما حکم را بدون نیاز به فرض نشان می‌دهد. بنابراین فقط در مورد اثبات همین یک مورد بحث می‌کنیم. 
+$$\blacktriangleright\blacktriangleright \mathsf{S=\; while\; (B)\; S_t}:$$
 
+اگر فرض کنیم این دستور به ازای محیط $\rho$ در حالت اول متوقف شده، در واقع فرض کرده‌ایم در معنای این دستور رد پیشوندی 
+$\langle at \llbracket \mathsf{S} \rrbracket , \rho \rangle \pi \langle aft \llbracket \mathsf{S} \rrbracket , \rho' \rangle \pi'$ 
+وجود دارد.
+باید ثابت کنیم به ازای $\pi'$ دلخواه اگر رد پیشوندی
+$\langle at \llbracket \mathsf{S} \rrbracket , \rho \rangle \pi \langle aft \llbracket \mathsf{S} \rrbracket , \rho' \rangle \pi'$ 
+داخل 
+$\mathcal{S^*}\llbracket \mathsf{S} \rrbracket$
+وجود داشته باشد آنگاه
+$\pi'=\epsilon$
+برقرار است.
+
+اگر برچسب
+$aft \llbracket \mathsf{S} \rrbracket$
+در یک حالت در رد پیشوندی‌ای که گفتیم حضور داشته باشد، یعنی در یک دور اجرای حلقه عبارت بولی معنی غلط می‌داده که حالتی شامل این برچسب به یک رد پیشوندی چسبانده شده و این رد پیشوندی ساخته شده. از طرفی دیگر هم می‌دانیم که وقتی عبارت بولی حاضر در ساختار حلقه غلط شده، دیگر به ردهای پیشوندی داخل معنای حلقه چیزی اضافه نمی‌شود. بنابراین سناریو‌ای جز $\pi'=\epsilon$ باقی نمی‌ماند. 
 \end{proof}
 
-
-
-
-
-
-
-
-
-
+پس با توجه به آنچه گفتیم می‌توانیم با خیال راحت توقف پذیری یک برنامه با یک محیط اولیه را معادل متناهی بودن همه‌ی ردهای پیشوندی‌ای بدانیم که با محیط متناظر با آن محیط اولیه شروع شده‌اند.
+اگر در صورت ارائه شده از وارسی مدل عبارت منظم $\mathsf{R}$ را با عبارت منظم $\varepsilon$ جایگزین کنیم داریم:
+$$\mathsf{P},\underline{\rho} \models \mathsf{R}
+\Leftrightarrow
+(\{\underline{\rho}\}\times \mathcal{S}^* \llbracket \mathsf{P}\rrbracket) \subseteq 
+\mathsf{prefix} (\mathcal{S}^r \llbracket \varepsilon \bullet (?:\mathit{T})^*\rrbracket)
+=\mathsf{prefix} (\mathcal{S}^r \llbracket (?:\mathit{T})^*\rrbracket)$$
+طبق تعریف معنای عبارات منظم، هر رد پیشوندی متناهی‌ای داخل مجموعه‌ی سمت راستی رابطه‌ی زیرمجموعه بودن قرار می‌گیرد. این یعنی اگر الگوریتمی برای بررسی 
+$\mathsf{P} , \underline{\rho} \models \mathsf{R} $
+داشته باشیم، این الگوریتم می‌تواند تشخیص دهد آیا برنامه‌ی $\mathsf{P}$ با محیط اولیه‌ی $\underline{\rho}$ متوقف می‌شود یا خیر! این یعنی الگوریتمی برای مسئله‌ی توقف پذیری، مسئله‌ای که تصمیم ناپذیر است! بنابراین چنین الگوریتمی نباید وجود داشته باشد که یعنی پیاده سازی‌ای برای شیوه‌ای که در حال بیانش هستیم وجود ندارد! ادامه‌ی کار روی همین تعریف پیش می‌رود و دو صورت دیگر هم که قرار است ساختارمندتر باشند در نهایت با این صورت معادل‌اند، هرچند که پس از رسیدن به بیان دو صورت دیگر خواهیم دید که همین صحبت‌هایی که در مورد این صورت می‌کنیم در مورد صورت‌های دیگر هم بدون در نظر گرفتن معادل بودن این ۳ صورت برقرار است.
 
 
