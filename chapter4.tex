@@ -2,11 +2,7 @@
 \chapter{وارسی مدل ساختارمند}
 
 در این فصل همان طور که پیشتر هم بارها اشاره کردیم قرار است، به ادامه‌ی ساختارمندتر کردن کار بپردازیم. در فصل گذشته ساختار عبارات منظم را به تعریف وارسی مدل اضافه کردیم و حالا می‌خواهیم ساختار زبانمان را به کار اضافه کنیم. این آخرین تلاش \cite{calcul} برای گسترش کار بوده. یعنی وارسی مدل به شکل جدید تعریف شده و معادل بودن آن با صورت قبلی وارسی مدل ثابت شده و پس از آن کار پایان می‌پذیرد. 
-تعریف صورت جدید چونکه روی ساختار زبان انجام گرفته جزئیات بسیار طولانی‌ای دارد. همی باعث شده تا اثبات‌ برابری این صورت با صورت قبلی هم بسیار مفصل و حجیم باشد. این اثبات در \cite{calcul} به طور کامل حین معرفی هر مورد تعریف بیان شده. بنابراین از ارائه‌ی دوباره‌ی این جزئیات به طور کامل خودداری کرده‌ایم و صرفا یک گزارش کلی از اینکه هر برقراری چگونه ثابت شده، به سبک \cite{calcul} بعد از بیان هر مورد از تعریف، آورده‌ایم.
-
-تعریف روی ساختار مجموعه‌ی 
-$\mathbb{P \cup Sl \cup S}$
-انجام شده. یعنی در واقع روی همه‌ی اعضای تعریف هر یک از این سه بخش زبان تعریف کردن صورت گرفته، تقریبا کاری شبیه به اثبات لمی که در بخش 2.5 داشتیم.
+تعریف صورت جدید چونکه روی ساختار زبان انجام گرفته جزئیات بسیار طولانی‌ای دارد. همی باعث شده تا اثبات‌ برابری این صورت با صورت قبلی هم بسیار مفصل و حجیم باشد. این اثبات در \cite{calcul} به طور کامل حین معرفی هر مورد تعریف بیان شده. بنابراین از ارائه‌ی دوباره‌ی این جزئیات خودداری کرده‌ایم و صرفا ممکن است برای بعضی موارد آن یک گزارش کلی از اینکه هر برقراری چگونه ثابت شده، به سبک \cite{calcul} بعد از بیان هر مورد از تعریف، آورده‌باشیم.
 
 \begin{defn}
 	
@@ -15,5 +11,207 @@ $\mathcal{\hat{M}}$
  را از نوع
  $\mathbb{(\underline{EV} \times R)} \rightarrow  \mathit{P}({\mathfrak{S}^{+\infty})}
 \rightarrow \mathit{P}(\mathfrak{S}^{+\infty} ) $
-وارسی مدل ساختارمند می‌نامیم.
+وارسی مدل ساختارمند می‌نامیم( ضابطه‌ی تابع در ادامه‌ی متن آمده).
 \end{defn}
+در ادامه ممکن است به خاطر کوتاه‌تر نوشتن بعضی جاها به‌جای 
+$\mathcal{\hat{M}}\langle \underline{\rho}, \mathsf{R} \rangle \mathcal{S}^* \llbracket \mathsf{P} \rrbracket$
+از 
+$\mathcal{\hat{M}}\langle \underline{\rho}, \mathsf{R} \rangle \llbracket \mathsf{P} \rrbracket$
+استفاده کرده باشیم، یعنی در اشاره به تابع $\mathcal{S}^*$ به براکت‌ها
+$\llbracket \; \rrbracket$
+قناعت کرده باشیم.
+
+
+تعریف روی ساختار مجموعه‌ی 
+$\mathbb{P \cup Sl \cup S}$
+انجام شده. یعنی در واقع روی همه‌ی اعضای تعریف هر یک از این سه بخش زبان تعریف کردن صورت گرفته، تقریبا کاری شبیه به اثبات لمی که در بخش 3.3 داشتیم.
+در ادامه موردهای تعریف $\mathcal{\hat{M}}$ را به ازای برنامه‌ی $\mathsf{P}$، محیط اولیه‌ی $\underline{\rho}$ و عبارت منظم $\mathsf{R}$تعریف می‌کنیم. یعنی در حال تعریف 
+$\mathcal{\hat{M}} \langle \underline{\rho} , \mathsf{R} \rangle \mathcal{S}^* 
+\llbracket \mathsf{P} \rrbracket$
+هستیم، روی ساختار برنامه‌ها یعنی $\mathsf{P}$.
+$$\blacktriangleleft \mathsf{P=Sl:}$$
+$$\mathcal{\hat{M}} \langle \underline{\rho} , \mathsf{R} \rangle \mathcal{S}^* \llbracket \mathsf{P} \rrbracket=
+\bigcup_{i=1}^n \{\pi | \exists \mathsf{R'} \in \mathbb{R}, \; \langle \pi , \mathsf{R'} \rangle \mathcal{\hat{M}^\nmid}
+\langle \underline{\rho}, \mathsf{R}_i \rangle \mathcal{S}^* \llbracket \mathsf{Sl} \rrbracket \}
+$$  
+$$\mathsf{where\; dnf(R)=R_1 + R_2 + ... + R_n}$$
+اثبات برابری با صورت فصل قبل با اینکه 
+$\mathcal{\hat{M}^\nmid} \langle \underline{\rho}, \mathsf{R} \rangle \llbracket \mathsf{Sl} \rrbracket$
+هنوز تعریف نشده در \cite{calcul} آمده با این استدلال که برابری 
+$\mathcal{\hat{M}} \langle \underline{\rho}, \mathsf{R} \rangle \llbracket \mathsf{Sl} \rrbracket=
+\mathcal{{M}} \langle \underline{\rho}, \mathsf{R} \rangle \llbracket \mathsf{Sl} \rrbracket$
+در فرض استقرا آمده. کلیت اثبات هم این است که از باز کردن تعریف
+$\mathcal{{M}} \langle \underline{\rho}, \mathsf{R} \rangle \llbracket \mathsf{P} \rrbracket$
+با استفاده‌ی مستقیم تعاریف و بدون تکنیک خاصی به 
+$\mathcal{\hat{M}} \langle \underline{\rho}, \mathsf{R} \rangle \llbracket \mathsf{P} \rrbracket$
+رسیده.
+
+در ادامه با توجه به تعریف قبل به بیان تعریف 
+$\mathcal{\hat{M}^\nmid}$
+پرداخته شده. این تنها بخش تابع $\mathcal{\hat{M}}$ است که معرفی نشده و با مشخص شدن آن معنای 
+$\mathcal{\hat{M}}$
+به ازای برنامه‌های مختلف مشخص می‌شود. این نکته را در نظر داشته باشیم که 
+$\mathcal{\hat{M}^\nmid}$
+قرار است در عمل روی مجوعه‌ی برنامه‌ها تعریف شود و مثلا اینکه به ازای  
+$\Pi \in \mathfrak{S}^{+\infty}$
+دلخواه که مساوی معنی یک برنامه نیست، این تابع با یک محیط اولیه و یک عبارت منظم چه خروجی‌ای دارد برای ما اهمیتی ندارد و البته به این شکلی  هم که تابع تعریف شده حتی به ازای چنین ورودی‌ای خروجی ندارد. در واقع حتی به ازای 
+$\mathsf{S:=\; x=A;}$
+هم که یک عضو از زبان است، به این معنا که $\mathsf{S}$ صرفا یک بخش از یک برنامه است و
+ خروجی‌ای نخواهد داشت و داشتن خروجی به ازای این متغیر را از 
+$\mathcal{\hat{M}^\nmid}$
+انتظار داریم. مشابه 
+$\mathcal{M^\nmid}$
+خروجی 
+$\mathcal{\hat{M}^\nmid}$
+هم یک زوج مرتب شامل $\pi$ ای که $\mathsf{R}$ را ارضا کرده و یک عبارت منظم بدون $+$ که بخشی از $\mathsf{R}$ را نشان می‌دهد که با $\pi$ تطابق داده نشده( چون احتمالا $\pi$ کوتاه‌تر بوده یا ممکن است اصلا این عبارت منظم تهی باشد).
+$$\blacktriangleleft\mathcal{\hat{M}^\nmid} \langle \underline{\rho}, \mathsf{\varepsilon} \rangle \llbracket \mathsf{S} \rrbracket
+=
+\{\langle \pi , \varepsilon \rangle | \pi \in \mathcal{S}^* \rrbracket \mathsf{S} \llbracket \}$$
+
+برای $\mathsf{Sl=SL' \; S}$ و $\mathsf{R} \in \mathbb{R^\nmid} \cap \mathbb{R^+}$ داریم:
+
+$$\blacktriangleleft\mathcal{\hat{M}^\nmid} \langle \underline{\rho}, \mathsf{R} \rangle \llbracket \mathsf{Sl} \rrbracket
+=
+\mathcal{\hat{M}^\nmid} \langle \underline{\rho}, \mathsf{R} \rangle \llbracket \mathsf{Sl'} \rrbracket
+\cup$$ 
+$$\{ \langle \pi \langle \mathsf{at}\llbracket \mathsf{S} \rrbracket, \rho \rangle \pi'
+, \mathsf{R''} \rangle | \langle \pi \langle at \llbracket \mathsf{S}\rrbracket, \rho \rangle, \mathsf{R'} \rangle \in \mathcal{\hat{M}^\nmid}  \langle \underline{\rho} , \mathsf{R} \rangle \llbracket \mathsf{Sl'} \rrbracket\land$$
+ $$\langle \langle at \llbracket \mathsf{S}\rrbracket , \rho \rangle \pi' , \mathsf{R''} \rangle \in \mathcal{\hat{M}^\nmid}
+\langle \underline{\rho},\mathsf{R'} \rangle   \llbracket \mathsf{S} \rrbracket
+ \}$$
+از اینجا به بعد کار با تعاریف طویل‌تری از آنچه تا حالا داشتیم، روبرو هستیم، مانند همین تعریف بالا. اما به هرحال مفهوم چندان پیچیده‌ای پشت این تعاریف نیست. تعریف بالا به طور خلاصه می‌گوید همه‌ی ردهای پیشوندی ‌ای که در 
+$\mathcal{\hat{M}^\nmid} \langle \underline{\rho}, \mathsf{R} \rangle \llbracket \mathsf{Sl'} \rrbracket$
+هستند به همراه همه‌ی زوج‌هایی که مولفه اول آن‌ها یک رد پیشوندی است که تکه‌ی اول آن داخل 
+$\mathcal{\hat{M}^\nmid} \langle \underline{\rho}, \mathsf{R} \rangle \llbracket \mathsf{Sl'} \rrbracket$
+افتاده و ادامه‌ی آن داخل 
+$\mathcal{\hat{M}^\nmid} \langle \underline{\rho}, \mathsf{R'} \rangle \llbracket \mathsf{S} \rrbracket$
+است، در حالیکه $\mathsf{R'}$ هم ادامه‌ی عبارت منظم $\mathsf{R}$ است، که به تطبیق با رد پیشوندی   داخل  
+$\mathcal{\hat{M}^\nmid} \langle \underline{\rho}, \mathsf{R} \rangle \llbracket \mathsf{Sl'} \rrbracket$
+که زوج خودش است نرسیده و مولفه‌ی دوم این زوج مرتب نیز ادامه‌ی عبارت منظم $\mathsf{R}$ است که به تطبیق با رد پیشوندی‌ای که در مولفه‌ی اول بود، نرسیده.
+
+برای $\mathsf{Sl=\epsilon}$ و $\mathsf{R} \in \mathbb{R^\nmid} \cap \mathbb{R^+}$ داریم:
+
+$$\blacktriangleleft\mathcal{\hat{M}^\nmid} \langle \underline{\rho}, \mathsf{R} \rangle \llbracket \mathsf{Sl} \rrbracket
+=$$
+$$\{ \langle \langle at \llbracket \mathsf{Sl} \rrbracket , \rho \rangle , \mathsf{R'} \rangle | \langle \underline{\rho} , \langle at \llbracket \mathsf{Sl} \rrbracket, \rho \rangle \rangle \in \mathcal{S}^r \llbracket \mathsf{L:B} \rrbracket
+\}$$
+$$\mathsf{where \; fstnxt(R)=\langle L:B,R' \rangle}$$
+یعنی همه‌ی ردهای پیشوندی تک عضوی که محیطشان اولین لبترال موجود در عبارت منظم را ارضا می‌کند. در واقع هر مخیطی که این لیترال را ارضا کند، برچسب این مجوعه دستور را در این مجموعه می‌آورد(به همراه باقی عبارت منظم).
+
+برای $\mathsf{S=\;x=A;}$ و $\mathsf{R} \in \mathbb{R^\nmid} \cap \mathbb{R^+}$ داریم:
+$$\blacktriangleleft\mathcal{\hat{M}^\nmid} \langle \underline{\rho}, \mathsf{R} \rangle \llbracket \mathsf{S} \rrbracket
+=$$
+$$\{
+\langle \langle at \llbracket \mathsf{S} \rrbracket, \rho \rangle , \mathsf{R'} \rangle |
+\langle \underline{\rho}, \langle at \llbracket \mathsf{S} \rrbracket, \rho \rangle \rangle \in \mathcal{S}^r \llbracket \mathsf{L:B} \rrbracket \}$$
+$$\cup \{ \langle \langle at \llbracket \mathsf{S} \rrbracket , \rho \rangle  \langle aft \llbracket \mathsf{S} \rrbracket, 
+\rho [\mathsf{x}\leftarrow \mathcal{A}\llbracket \mathsf{A} \rrbracket \rho ]\rangle , \varepsilon \rangle | \mathsf{R'} \in \mathbb{R_\varepsilon} \land$$
+$$
+\langle \underline{\rho}, \langle at \llbracket \mathsf{S} \rrbracket , \rho \rangle \rangle \in 
+\mathcal{S}^r \llbracket \mathsf{L:B} \rrbracket
+\}$$
+$$\cup \{
+\langle \langle at \llbracket \mathsf{S} \rrbracket , \rho \rangle \langle aft \llbracket \mathsf{S} \rrbracket , \rho [\mathsf{x} \leftarrow \mathcal \llbracket \mathsf{A}\rrbracket \rho]\rangle, \mathsf{R''}\rangle | \mathsf{R'} \notin \mathbb{R_\varepsilon} \land$$
+$$\langle \underline{\rho},\langle at \llbracket \mathsf{S} \rrbracket , \rho \rangle \rangle \in \mathcal{S}^r \llbracket \mathsf{L:B} \rrbracket \land \langle \mathsf{L':B',R''} \rangle = 
+\mathsf{fstnxt(R') }\land$$
+$$\langle \underline{\rho}, \langle aft \llbracket \mathsf{S} \rrbracket,\rho 
+[\mathsf{x} \leftarrow \mathcal{A}\llbracket \mathsf{A} \rrbracket \rho]\rangle \rangle \in 
+\mathcal{S}^r \llbracket \mathsf{L':B'} \rrbracket
+\}$$
+با نگاه به این تعریف می‌توان بهتر متوجه شد که اینکه می‌گفتیم قرار است ساختار زبان وارد صورت فصل پیش شود یعنی چه. به جای اینکه مانند فصل گذشته نسبت به ردهای پیشوندی متفاوت خروجی تابع تعیین شود، نسبت به دستوری که معنایش ردهای پیشوندی هستند، خروجی تعیین می‌شود. 
+
+در اینجا هم با اینکه تعریف متکلف است اما معنای ساده‌ای دارد. این تابع دستور را به همراه زوج محیط اولیه و عبارت منظم می‌گیرد، ابتدا همان چیزهایی را که تابع در حالت قبلی برمی‌گردانْد را برمی‌گردانَد و سپس نسبت به اینکه پس از تغییر در محیط‌ها در اثر اجرای دستور مقدار دهی ادامه‌ی عبارت منظم سارگار هست یا نه زوج‌های متشکل از رد پیشوندی و عبارت منظم را به خروجی اضافه می‌کند. نکته‌ای که به جزئیات این تعریف اضافه کرده این است که برای اینکه ادامه‌ی عبارات منظم خارج شده بعد از بررسی اولین لیترال عبارت منظم، یعنی $\mathsf{R'}$،  آیا تهی است یا نه و این دو حالت متفاوت را در بر خواهد گرفت که در تعریف لحاظ شده‌اند.
+
+از این ۴ حالت تنها اثبات حالت آخر در \cite{calcul} آورده شده و خب اثبات دیگر حالات را هم می‌تواند در همین اثبات که مفصل‌تر و کلی‌تر است، دید. اثبات سر راست است، از جایگذاری تساوی‌های واضح استفاده شده و جزئیات و توضیحات کافی دارد.
+
+برای عبارت منظم 
+$\mathsf{R} \in \mathbb{R}^\nmid \cup \mathbb{R^+}$
+و 
+$\mathsf{S= \; if \; (B) \; S_t}$
+داریم:
+$$\blacktriangleleft\mathcal{\hat{M}^\nmid} \langle \underline{\rho},\mathsf{R} \rangle \llbracket \mathsf{S} \rrbracket=$$
+$$\{\langle \langle at \llbracket \mathsf{S} \rrbracket , \rho \rangle , \mathsf{R'} \rangle | \langle \underline{\rho} , \langle at \llbracket \mathsf{S} \rrbracket , \rho \rangle \rangle \in \mathcal{S}^r \llbracket \mathsf{L':B'} ]\rrbracket \}$$
+$$\cup \{\langle \langle at \llbracket \mathsf{S} \rrbracket , \rho \rangle \langle at \llbracket \mathsf{S_t} \rrbracket, \rho \rangle \pi, \mathsf{R''} | \mathcal{B}\llbracket\mathsf{B} \rrbracket \rho = \mathit{T} \land$$
+$$\langle \underline{\rho},\langle at \llbracket \mathsf{S} \rrbracket , \rho \rangle \rangle \in \mathcal{S}^r \llbracket \mathsf{L':B'} \rrbracket \land$$
+$$\langle \langle at \llbracket \mathsf{S_t} \rrbracket , \rho \rangle \pi,\mathsf{R''} \rangle \in \mathcal{\hat{M}^\nmid} \langle \underline{\rho}, \mathsf{R'} \rangle\llbracket \mathsf{S_t} \rrbracket \}$$
+$$\cup \{\langle \langle at \llbracket \mathsf{S} \rrbracket, \rho \rangle \langle aft \llbracket \mathsf{S} \rrbracket , \rho \rangle , \varepsilon \rangle | \mathcal{B}\llbracket \mathsf{B} \rrbracket \rho = \mathit{F} \land \mathsf{R'} \in \mathbb{R_\varepsilon} \land$$
+$$\langle \underline{\rho} , \langle \llbracket \mathsf{S} \rrbracket , \rho \rangle \rangle \in \mathcal{S}^r \llbracket \mathsf{L':B'} \rrbracket\}$$
+$$\cup \{\langle \langle at \llbracket \mathsf{S} \rrbracket , \rho \rangle \langle aft \llbracket \mathsf{S} \rrbracket , \rho \rangle , \mathsf{R''} \rangle | \mathcal{B} \llbracket \mathsf{B} \rrbracket \rho = \mathit{F} \land \mathsf{R'} \notin \mathbb{R_\varepsilon} \land$$
+$$\langle \underline{\rho}, \langle at \llbracket \mathsf{S} \rrbracket , \rho \rangle \rangle \in \mathcal{S}^r\llbracket \mathsf{L':B'} \rrbracket \land \langle \mathsf{L'':B''} , \mathsf{R''} \rangle = \mathsf{fstnxt(R')} \land$$
+$$\langle \underline{\rho}, \langle aft \llbracket \mathsf{S} \rrbracket , \rho \rangle \rangle \in \mathcal{S}^r \llbracket \mathsf{L'':B''} \rrbracket \}$$
+$$\mathsf{while \; fstnxt(R)=\langle L':B', R' \rangle}$$
+
+
+برای عبارت منظم 
+$\mathsf{R} \in \mathbb{R}^\nmid \cup \mathbb{R^+}$
+و 
+$\mathsf{S= \; if \; (B) \; S_t \; else \; S_f}$
+داریم:
+
+$$\blacktriangleleft\mathcal{\hat{M}^\nmid} \langle \underline{\rho},\mathsf{R} \rangle \llbracket \mathsf{S} \rrbracket=$$
+$$\{\langle \langle at \llbracket \mathsf{S} \rrbracket , \rho \rangle , \mathsf{R'} \rangle | \langle \underline{\rho} , \langle at \llbracket \mathsf{S} \rrbracket , \rho \rangle \rangle \in \mathcal{S}^r \llbracket \mathsf{L':B'} ]\rrbracket \}$$
+$$\cup \{\langle \langle at \llbracket \mathsf{S} \rrbracket , \rho \rangle \langle at \llbracket \mathsf{S_t} \rrbracket, \rho \rangle \pi, \mathsf{R''} | \mathcal{B}\llbracket\mathsf{B} \rrbracket \rho = \mathit{T} \land$$
+$$\langle \underline{\rho},\langle at \llbracket \mathsf{S} \rrbracket , \rho \rangle \rangle \in \mathcal{S}^r \llbracket \mathsf{L':B'} \rrbracket \land$$
+$$\langle \langle at \llbracket \mathsf{S_t} \rrbracket , \rho \rangle \pi,\mathsf{R''} \rangle \in \mathcal{\hat{M}^\nmid} \langle \underline{\rho}, \mathsf{R'} \rangle  \llbracket \mathsf{S_t} \rrbracket \}$$
+$$\cup \{\langle \langle at \llbracket \mathsf{S} \rrbracket , \rho \rangle \langle at \llbracket \mathsf{S_f} \rrbracket, \rho \rangle \pi, \mathsf{R''} | \mathcal{B}\llbracket\mathsf{B} \rrbracket \rho = \mathit{F} \land$$
+$$\langle \underline{\rho},\langle at \llbracket \mathsf{S} \rrbracket , \rho \rangle \rangle \in \mathcal{S}^r \llbracket \mathsf{L':B'} \rrbracket \land$$
+$$\langle \langle at \llbracket \mathsf{S_f} \rrbracket , \rho \rangle \pi,\mathsf{R''} \rangle \in \mathcal{\hat{M}^\nmid}  \langle \underline{\rho}, \mathsf{R'} \rangle \llbracket \mathsf{S_f} \rrbracket \}$$
+
+ با توجه به موارد قبلی می‌شود مفهوم این دو مورد از تعریف را هم فهمید و پیچیدگی بیشتری ندارد. در باره‌ی مورد اول داستان به این شکل است که مانند تعریف‌های قبلی ابتدا تطابق لیترال اول عبارت منظم با رد‌های پیشوندی تک عضوی با برچسب شروع دستور و محیط دلخواه بررسی می‌شود، سپس به این‌ها ردهای پیشوندی‌ای که در درون دستور $\mathsf{S_t}$ هستند و در موقعیت ابتداییشان عبارت بولی معنای صحیح دارد و البته با اولین لیترال باقی عبارت منظم هستند هم در زوج‌هایی که از یک دانه از رد‌های پیشوندی و یک عبارت منظم که بخش تطبیق داده نشده‌ی $\mathsf{R}$ با رد پیشوندی تشکیل شده‌اند، به مجموعه‌ی خروجی اضافه می‌شوند. دو مجموعه‌ی دیگری که در اینجا با خروجی‌ای که تاحالا توصیف کرده‌ایم اجتماع گرفته‌ شده‌اند هم مربوط به حالتی است که در ابتدای رد پیشوندی عبارت بولی معنای غلط دارد و در این صورت چون برخلاف حالت قبل که عبارت منظم تطبیق داده نشده با خود تابع
+ $\mathcal{\hat{M^\nmid}}$
+مشخص می‌شد، در این حالت به ازای اینکه این ادامه‌ی عبارت منظم تهی است یا خیر دو حالت را برای تعریف آن داریم که در واقع عضو دوم زوج مرتب‌های موجود در خروجی را مشخص می‌کنند.
+ 
+ برای عبارت منظم 
+ $\mathsf{R} \in \mathbb{R}^\nmid \cup \mathbb{R^+}$
+ و 
+ $\mathsf{S= \; break;}$
+ داریم:
+$$\blacktriangleleft \mathcal{\hat{M}^\nmid} \langle \underline{\rho}, \mathsf{R} \rangle 
+\llbracket \mathsf{S} \rrbracket= $$
+$$\{\langle \langle at \llbracket \mathsf{S} \rrbracket,\rho \rangle , \mathsf{R'} \rangle | \langle \underline{\rho} , \langle at \llbracket \mathsf{S} \rrbracket , \rho \rangle \rangle \in \mathcal{S}^r \llbracket \mathsf{L:B} \rrbracket\}$$
+$$\cup \{ \langle \langle at \llbracket \mathsf{S} \rrbracket , \rho \rangle \langle brk-to \llbracket \mathsf{S} \rrbracket , \rho \rangle , \varepsilon \rangle | \mathsf{R'} \in \mathbb{R_\varepsilon} \land$$
+$$\langle \underline{\rho}, \langle at \llbracket \mathsf{S} \rrbracket, \rho \rangle \rangle \in \mathcal{S}^r \llbracket \mathsf{L:B} \rrbracket \}$$
+$$\cup \{ \langle \langle at \llbracket \mathsf{S} \rrbracket , \rho \rangle \langle brk-to \llbracket \mathsf{S} \rrbracket,\rho \rangle ,\mathsf{R''} \rangle | \mathsf{R'} \notin \mathbb{R_\varepsilon} \land$$
+$$ \langle \underline{\rho},\langle at \llbracket \mathsf{S} \rrbracket , \rho \rangle \rangle \in \mathcal{S}^r \llbracket \mathsf{L:B} \rrbracket \land \langle \mathsf{L':B',R''} \rangle = \mathsf{fstnxt(R') \land}$$
+$$\langle \underline{\rho}, \langle brk-to \llbracket \mathsf{S} \rrbracket, \rho \rangle \rangle \in \mathcal{S}^r \llbracket \mathsf{L':B'} \rrbracket \}$$
+	    
+ با توجه به موارد قبلی این که این قسمت از تعریف چه معنایی دارد و به چه علت به این شکل است، قابل درک است.
+ 
+ برای عبارت منظم 
+ $\mathsf{R} \in \mathbb{R}^\nmid \cup \mathbb{R^+}$
+ و 
+ $\mathsf{S= \; while \; (B) \; S_b:}$
+ داریم:
+ 
+$$\blacktriangleleft\mathcal{\hat{M}^\nmid} \langle \underline{\rho}, \mathsf{R} \rangle \llbracket \mathsf{S} \rrbracket = lfp^\subseteq \; (\mathcal{\hat{F^\nmid}} \langle \underline{\rho}, \mathsf{R} \rangle \llbracket \mathsf{S} \rrbracket)$$
+$$\mathsf{while} \;  \mathcal{\hat{F^\nmid}} \langle \underline{\rho}, \mathsf{R} \rangle X = \{ \langle \langle at \llbracket \mathsf{S} \rrbracket , \rho \rangle , \mathsf{R'} \rangle | \rho \in \mathbb{EV} \land \langle \underline{\rho}, \langle at \llbracket \mathsf{S} \rrbracket , \rho \rangle \rangle \in \mathcal{S}^r \llbracket \mathsf{L':B'} \rrbracket \}$$
+$$\cup \{\langle \pi_2 \langle at \llbracket \mathsf{S} \rrbracket , \rho \rangle \langle aft \llbracket \mathsf{S}\rrbracket , \rho \rangle , \varepsilon \rangle | \langle \pi_2 \langle at \llbracket \mathsf{S} \rrbracket , \rho \rangle , \varepsilon \rangle \in X \land$$
+$$\mathcal{B}\llbracket \mathsf{B} \rrbracket \rho = \mathit{F} \}$$
+$$\cup \{ \langle \pi_2 \langle at \llbracket \mathsf{S} \rrbracket , \rho \rangle \langle aft \llbracket \mathsf{S} \rrbracket , \rho \rangle , \varepsilon \rangle | \langle \pi_2 \langle at \llbracket \mathsf{S} \rrbracket , \rho \rangle , \mathsf{R''} \rangle \in X \land $$
+$$\mathcal{B}\llbracket \mathsf{B} \rrbracket \rho = \mathit{F} \land \mathsf{R''} \notin \mathbb{R_\varepsilon} \land \langle \mathsf{L':B',R'} \rangle = \mathsf{fstnxt(R'')} \land \mathsf{R'} \in \mathbb{R_\varepsilon} \land$$
+$$\langle \underline{\rho} ,\langle at \llbracket \mathsf{S} \rrbracket , \rho \rangle \rangle \in \mathcal{S}^r \llbracket \mathsf{L':B'} \rrbracket\}$$
+$$\cup \{\langle \pi_2 \langle at \llbracket \mathsf{S} \rrbracket , \rho \rangle \langle aft \llbracket \mathsf{S}\rrbracket , \rho \rangle , \mathsf{R'} \rangle | \langle \pi_2 \langle at \llbracket \mathsf{S} \rrbracket , \rho \rangle , \mathsf{R''} \rangle \in X \land$$
+$$\mathcal{B}\llbracket \mathsf{B} \rrbracket \rho = \mathit{F} \land \mathsf{R''} \notin \mathbb{R_\varepsilon} \land \langle \mathsf{L':B',R'} \rangle = \mathsf{fstnxt(R'')} \land \mathsf{R'''} \notin \mathbb{R_\varepsilon} \land$$
+$$\langle \underline{\rho}, \langle at \llbracket \mathsf{S} \rrbracket , \rho \rangle \rangle \in \mathcal{S}^r \llbracket \mathsf{L':B'} \rrbracket \land \langle \mathsf{L'':B'' , R'} \rangle = \mathsf{fstnxt(R''')} \land$$
+$$\langle \underline{\rho}, \langle aft \llbracket \mathsf{S} \rrbracket , \rho \rangle \rangle \in \mathsf{S}^r \llbracket \mathsf{L'':B''} \rrbracket \}$$
+$$\cup \{\langle \pi_2 \langle at \llbracket \mathsf{S} \rrbracket , \rho \rangle \langle at \llbracket \mathsf{S_b} \rrbracket , \rho \rangle \pi_3, \varepsilon \rangle | \langle \pi_2 \langle at \llbracket \mathsf{S} \rrbracket , \rho \rangle , \varepsilon \rangle \in X \land$$
+$$\mathcal{B}\llbracket \mathsf{B} \rrbracket \rho = \mathit{T}\land \langle at \llbracket \mathsf{S_b} \rrbracket , \rho \rangle \pi_3 \in \mathcal{S}^* \llbracket \mathsf{S_b} \rrbracket \}$$
+$$\cup\{\langle \pi_2 \langle at \llbracket \mathsf{S} \rrbracket , \rho \rangle \langle at \llbracket \mathsf{S_b} \rrbracket , \rho \rangle \pi_3 , \varepsilon \rangle | \langle \pi_2 \langle at \llbracket \mathsf{S} \rrbracket , \rho \rangle , \mathsf{R''} \rangle \in X \land$$
+$$\mathcal{B} \llbracket \mathsf{B} \rrbracket \rho = \mathit{T} \land \mathsf{R''} \notin \mathbb{R_\varepsilon} \land \langle \mathsf{L:B} , \varepsilon \rangle = \mathsf{fstnxt(R'')} \land$$	
+$$\langle \underline{\rho} ,\langle at \llbracket \mathsf{S} \rrbracket, \rho \rangle \rangle \in \mathcal{S}^r \llbracket \mathsf{L:B} \rrbracket \land \langle at \llbracket \mathsf{S_b} \rrbracket , \rho \rangle \pi_3 \in \mathcal{S}^* \llbracket \mathsf{S_b} \rrbracket\}$$ 
+$$\cup \{ \langle \pi_2 \langle at \llbracket \mathsf{S} \rrbracket , \rho \rangle \langle at \llbracket \mathsf{S_b} \rrbracket , \rho \rangle \pi_3 , \mathsf{R'} \rangle | \langle \pi_2 \langle at \llbracket \mathsf{S} \rrbracket , \rho \rangle , \mathsf{R''} \rangle \in X \land$$
+$$\mathcal{B} \llbracket \mathsf{B} \rrbracket \rho = \mathit{T} \land \mathsf{R''} \notin \mathbb{R_\varepsilon} \land \langle \mathsf{L:B,R''''} \rangle = \mathsf{fstnxt(R'')} \land$$
+$$\langle \underline{\rho} , \langle at \llbracket \mathsf{S}\rrbracket , \rho \rangle \rangle \in \mathcal{S}^r \llbracket \mathsf{L:B} \rrbracket \land \mathsf{R''''} \notin \mathbb{R_\varepsilon} \land$$
+$$\langle \mathsf{L':B',R'''} \rangle = \mathsf{fstnxt(R'''')} \land \langle \underline{\rho} , \langle at \llbracket \mathsf{S_b}\rrbracket , \rho \rangle \rangle \in \mathcal{S}^r \llbracket \mathsf{L':B'} \rrbracket \land$$
+$$\langle \langle at \llbracket \mathsf{S_b} \rrbracket, \rho \rangle \pi_3 , \mathsf{R'} \rangle \in \mathcal{\hat{M}^\nmid} \llbracket \mathsf{S_b} \rrbracket \langle \underline{\rho} , \mathsf{R'''} \rangle \}$$
+$$ \mathsf{and \; \langle L':B' , R' \rangle = fstnxt(R)}$$
+
+
+
+
+
+
+
+
+
+ 
