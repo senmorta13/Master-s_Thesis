@@ -6,7 +6,7 @@
 ابتدا به تعریف ویژگی‌ها می‌پردازیم، سپس به سراغ تعریف یک نوع عبارت منظم می‌رویم که از آن برای بیان ویژگی‌ها استفاده می‌شود.
 \subsection{ویژگی‌های معنایی}
 همان‌طور که در بخش قبلی دیدیم، معنای هر برنامه با یک مجموعه‌ی 
-$\mathcal{S^*} [\mathsf{S}]$
+$\mathcal{S^*} {\mathsf{S}}$
 مشخص می‌شود. وقتی می‌خواهیم ویژگی‌هایی را برای موجوداتی که به کمک مجموعه‌ها تعریف شده اند بیان کنیم، اینکه ویژگی‌ها را هم با مجموعه‌ها بیان کنیم کار معقولی به نظر می‌رسد. مثل اینکه بخواهیم ویژگی زوج بودن را در مورد اعداد طبیعی بیان کنیم. می توانیم مجموعه‌ی $\mathbb{E}$ را به عنوان مجموعه‌ی همه‌ی اعداد زوج در نظر بگیریم و اینکه یک عدد زوج هست یا نه را عضویتش در مجموعه‌ی $\mathbb{E}$ تعریف کنیم. پس یعنی در مورد اعداد طبیعی قرار است هر ویژگی به شکل زیرمجموعه‌ای از تمام این اعداد در نظر گرفته شود. یعنی هر عضو 
 $\mathit{P}(\mathbb{N})$
 بنا به تعریف ما یک ویژگی از اعداد طبیعی است.
@@ -133,13 +133,13 @@ $\mathcal{S}^r$
 	تابع 
 	$\mathcal{S}^r:\mathbb{R}\rightarrow \mathit{P}(\mathbb{\underline{EV}\times S}^*)$
 	به صورت استقرایی روی ساختار عبارت منظم $\mathsf{R}$ به صورت زیر تعریف می‌شود:
-$$\mathcal{S}^r[\varepsilon]= \{ \langle \underline{\rho} , \epsilon \rangle | \underline{\rho} \in \underline{\mathbb{EV}}\}$$
+$$\mathcal{S}^r{\varepsilon}= \{ \langle \underline{\rho} , \epsilon \rangle | \underline{\rho} \in \underline{\mathbb{EV}}\}$$
 [یعنی معنای عبارت منظم
 $\varepsilon$
 مجموعه‌ای شامل زوج مرتب‌هایی از محیط‌های اولیه‌ی مختلف در کنار رد پیشوندی تهی استفاده می‌کند.]
-$$\mathcal{S}^r[\mathsf{L:B}] = \{\langle\underline{\rho},\langle l , \rho \rangle \rangle | l \in \mathsf{L} \land \mathcal{B}[\mathsf{B}] \underline{\rho},\rho \}$$
+$$\mathcal{S}^r\llbracket\mathsf{L:B}\rrbracket = \{\langle\underline{\rho},\langle l , \rho \rangle \rangle | l \in \mathsf{L} \land \mathcal{B}\llbracket\mathsf{B}\rrbracket \underline{\rho},\rho \}$$
 [این یعنی معنای عبارت 
-$\mathcal{S}^r[\mathsf{L:B}]$
+$\mathcal{S}^r\llbracket\mathsf{L:B}\rrbracket$
 زوج مرتب‌هایی هستند که عضو اول آن‌ها محیط‌های اولیه مختلف هستند( مانند مورد قبلی و البته در موارد آتی!) و عضو دوم آن‌ها ردهای پیشوندی تک‌عضوی 
 $\langle l , \rho \rangle$
 هستند که در آن‌ها برچسب 
@@ -167,7 +167,7 @@ $\mathcal{A}$
 و 
 $\mathcal{B}$
 را در ادامه با نوع‌های متفاوت دوباره تعریف خواهیم کرد، که البته فرق اساسی‌ای با تعریف قبلی ندارد و صرفا گسترشی ساده از آن است.]
-$$\mathcal{S}^r[\mathsf{R_1 R_2}]= \mathcal{S}^r[\mathsf{R_1}] \Join \mathcal{S}^r[\mathsf{R_2}]$$
+$$\mathcal{S}^r\llbracket\mathsf{R_1 R_2}\rrbracket= \mathcal{S}^r\llbracket\mathsf{R_1}\rrbracket \Join \mathcal{S}^r\llbracket\mathsf{R_2}\rrbracket$$
 \begin{center}
 	به‌طوری که در آن برای هر دو مجموعه‌ی 
 	$\mathcal{S}$
@@ -189,29 +189,29 @@ $\mathsf{R_2}$
 به هم ساخته شده باشد، آنگاه معنای این عبارت منظم با چسباندن ردهای پیشوندی موجود در مولفه‌ی دوم زوج مرتب‌هایی که اعضای مجموعه‌ی معنای این دو عبارت منظم هستند و گذاشتن این رد پیشوندی‌های حاصل از چسباندنْ در معنای عبارت منظم جدید تعریف می‌شود. همین‌طور که می‌بینید یک عملگر چسباندن برای دو مجموعه از این زوج‌های 
 $\langle \underline{\rho} , \pi \rangle$
 تعریف شده و در تعریف 
-$\mathcal{S}^r [\mathsf{R_1 R_2}]$
+$\mathcal{S}^r \llbracket\mathsf{R_1 R_2}\rrbracket$
 از آن کمک گرفته شده.\\
 تا این تکه از تعریف معنای عبارت منظم که رسیده‌ایم، تا حدی به دستیابی به درکی شهودی از اینکه به چه نحوی قرار است عبارات منظم راهی برای توصیف ویژگی‌ در مورد برنامه‌ها باشد نزدیک‌تر شده‌ایم. همان‌طور که در مورد قبل دیدیم هر زوج 
 $\mathsf{L:B}$
 دقیقا به یک وضعیتْ داخل یک رد پیشوندی اشاره می‌کند. انگار که قرار است این زوج‌ها موازی با وضعیت‌ها در ردهای پیشوندی موجود در معنای یک برنامه جلو روند و منطبق باشند تا وارسی مدل انجام شود. درک این موضوع اولین قدم ماست در دیدن عصاره‌ی روش وارسی مدل در ادبیاتی که از اول این فصلْ عَلَم کرده‌ایم.]
-$$\mathcal{S}^r [\mathsf{R_1\:|\:R_2}]= 
-\mathcal{S}^r [R_1] \cup
-\mathcal{S}^r [R_2]$$
+$$\mathcal{S}^r \llbracket\mathsf{R_1\:|\:R_2}\rrbracket= 
+\mathcal{S}^r \llbracket R_1\rrbracket \cup
+\mathcal{S}^r \llbracket R_2\rrbracket$$
 [این موردْ معنای اعمال عملگر انتخاب روی دو عبارت منظم را توصیف می‌کند. معنای اعمال این عملگر به‌سادگی به صورت اجتماع معنای هر دو عبارت منظم تعریف شده.]
 
-$$\mathcal{S}^r [\mathsf{R}]^0 = \mathcal{S}^r[\varepsilon]$$
-$$\mathcal{S}^r [\mathsf{R}]^{n+1} = \mathcal{S}^r [\mathsf{R}]^{n} \Join
-\mathcal{S}^r [\mathsf{R}]$$
+$$\mathcal{S}^r \llbracket\mathsf{R}\rrbracket^0 = \mathcal{S}^r\llbracket\varepsilon\rrbracket$$
+$$\mathcal{S}^r \llbracket\mathsf{R}\rrbracket^{n+1} = \mathcal{S}^r \llbracket\mathsf{R}\rrbracket^{n} \Join
+\mathcal{S}^r \llbracket\mathsf{R}\rrbracket$$
 [دو عبارت اخیر برای توصیف معنای عملگرهای $^*$ و $^+$ تعریف شده‌اند. عملگر $\Join$ و معنای 
-$\mathcal{S}^r[\varepsilon]$
+$\mathcal{S}^r\llbracket\varepsilon\rrbracket$
 را هم که قبلا تعریف کرده بودیم و $0$ و $n$ و $n+1$ هم اعداد طبیعی‌اند و $+$ لاجرم همان جمع اعداد طبیعی است.]
-$$\mathcal{S}^r[\mathsf{R^*}] =  \bigcup_{n \in \mathbb{N}}
-\mathcal{S}^r [\mathsf{R}^n]$$
-$$\mathcal{S}^r[\mathsf{R^+}] =  \bigcup_{n \in \mathbb{N}\setminus\{0\}}
-\mathcal{S}^r [\mathsf{R}^n]$$
+$$\mathcal{S}^r\llbracket\mathsf{R^*}\rrbracket =  \bigcup_{n \in \mathbb{N}}
+\mathcal{S}^r \llbracket\mathsf{R}^n\rrbracket$$
+$$\mathcal{S}^r\llbracket\mathsf{R^+}\rrbracket =  \bigcup_{n \in \mathbb{N}\setminus\{0\}}
+\mathcal{S}^r \llbracket\mathsf{R}^n\rrbracket$$
 [این دو عبارت هم تعریف معنای خود دو عملگر $^*$ و $^+$ هستند. منظور از $\mathbb{N}$ مجموعه‌ی اعداد طبیعی است. همان‌طور که قبل‌تر هم اشاره شد $^+$ را می‌توان در فرازبان با $^*$ تعریف کرد. اضافه می‌کنیم که خود $^*$ را هم در فرازبان می‌توان با عملگر انتخاب تعریف کرد و در اینجا می‌توان این نکته را هم دید.]
 
-$$\mathcal{S}^r [(\mathsf{B})]=\mathcal{S}^r [\mathsf{B}]$$
+$$\mathcal{S}^r \llbracket(\mathsf{B})\rrbracket=\mathcal{S}^r \llbracket\mathsf{B}\rrbracket$$
 [این تکه از تعریف هم صرفا بیان می‌کند که پرانتزها تاثیری در معنای عبارات منظم ندارند که کاملا قابل انتظار است چرا که وجود پرانتز قرار است در صرفا در خواص نحوی زبان اثر بگذارد.]
 \end{defn}
 تعریف معنای عبارات منظم در اینجا تمام می‌شود اما همان‌گونه که در لا‌به‌لای تعاریف گفتیم، احتیاج داریم که $\mathcal{A}$ و $\mathcal{B}$ را از نو تعریف کنیم:
@@ -229,33 +229,18 @@ $$\mathcal{S}^r [(\mathsf{B})]=\mathcal{S}^r [\mathsf{B}]$$
 	به شکل زیر تعریف می‌شوند:
 	
 	
-$$\mathcal{A}[\mathsf{1}]\underline{\rho},\rho=1$$
-$$\mathcal{A}[\mathsf{\underline{\mathsf{x}}}]\underline{\rho},\rho= \underline{\rho}(\mathsf{x})$$
-$$\mathcal{A}[\mathsf{\mathsf{x}}]\underline{\rho},\rho= \rho(\mathsf{x})$$
-$$\mathcal{A}[\mathsf{A_1 - A_2}]\underline{\rho},\rho= 
-\mathcal{A}[\mathsf{A_1}]\underline{\rho},\rho - \mathcal{A}[\mathsf{A_2}]\underline{\rho},\rho$$
-$$\mathcal{B}[\mathsf{A_1 < A_2}]\underline{\rho},\rho=
-	\mathcal{A}[\mathsf{A_1}]\underline{\rho},\rho\: <\: \mathcal{A}[\mathsf{A_2}]\underline{\rho},\rho$$
-$$\mathcal{B}[\mathsf{B_1\:nand\:B_2}]\underline{\rho},\rho=
-\mathcal{B}[\mathsf{B_1}]\underline{\rho},\rho \uparrow 
-\mathcal{B}[\mathsf{B_2}]\underline{\rho},\rho $$
+$$\mathcal{A}\llbracket\mathsf{1}\rrbracket\underline{\rho},\rho=1$$
+$$\mathcal{A}\llbracket\mathsf{\underline{\mathsf{x}}}\rrbracket\underline{\rho},\rho= \underline{\rho}(\mathsf{x})$$
+$$\mathcal{A}\llbracket\mathsf{\mathsf{x}}\rrbracket\underline{\rho},\rho= \rho(\mathsf{x})$$
+$$\mathcal{A}\llbracket\mathsf{A_1 - A_2}\rrbracket\underline{\rho},\rho= 
+\mathcal{A}\llbracket\mathsf{A_1}\rrbracket\underline{\rho},\rho - \mathcal{A}\llbracket\mathsf{A_2}\rrbracket\underline{\rho},\rho$$
+$$\mathcal{B}\llbracket\mathsf{A_1 < A_2}\rrbracket\underline{\rho},\rho=
+	\mathcal{A}\llbracket\mathsf{A_1}\rrbracket\underline{\rho},\rho\: <\: \mathcal{A}\llbracket\mathsf{A_2}\rrbracket\underline{\rho},\rho$$
+$$\mathcal{B}\llbracket\mathsf{B_1\:nand\:B_2}\rrbracket\underline{\rho},\rho=
+\mathcal{B}\llbracket\mathsf{B_1}\rrbracket\underline{\rho},\rho \uparrow 
+\mathcal{B}\llbracket\mathsf{B_2}\rrbracket\underline{\rho},\rho $$
 \end{defn}
 به‌راحتی قابل مشاهده است که تعاریف جدید تا حد خوبی به تعاریف قبلی شبیه هستند و فرق عمده صرفا وارد شدن $\underline{\rho}$ است.\\
-حال به سراغ چند مثال از عبارات منظم و معنای آن‌ها می‌رویم.
-\begin{exm}
-	فرض کنید عبارت منظم ما
-
-\end{exm}
-
-\begin{exm}
-	
-	{این سه تا مثال باید با سه تا مثال بخش معناشناسی برنامه‌ها سینک باشن! همین طور در ادامه بعد از تعریف مدل چکینگ در این فصل هم ۳ تا مثال خواهیم داشت که قراره هر کدومشون از این ۳ تا مثال و ۳ تا مثالی که قبلا تعریف کردیم تشکیل شده باشن.}
-\end{exm}
-
-\begin{exm}
-	
-\end{exm}
-
 تا اینجای کار بیشتر مفاهیمی که برای بیان صورت جدید مسئله‌ی وارسی مدل احتیاج داریم را بیان کرده‌ایم. 
 \subsection{واریته‌های مختلف زبان عبارات منظم}
 به عنوان قسمت آخر این بخشْ واریته‌های مختلفی از زبان عبارات منظم را بیان می‌کنیم. ، که هر کدام در واقع زیرمجموعه‌هایی از کل عبارات زبانی که توصیف کرده‌ایم را توصیف می‌کنند. بعضی از آن‌ها را در همین فصل برای هدف نهایی این فصل و بعضی دیگر را در فصل بعدی استفاده می‌کنیم.
@@ -348,8 +333,8 @@ $$
 	آنگاه:
 	$$\mathsf{P},\underline{\rho} \models \mathsf{R}
 	 \Leftrightarrow
-	(\{\underline{\rho}\}\times \mathcal{S}^* [\mathsf{P}]) \subseteq 
-	\mathsf{prefix} (\mathcal{S}^r [\mathsf{R} \bullet (?:\mathit{T})^*])
+	(\{\underline{\rho}\}\times \mathcal{S}^* \llbracket\mathsf{P}\rrbracket) \subseteq 
+	\mathsf{prefix} (\mathcal{S}^r \llbracket\mathsf{R} \bullet (?:\mathit{T})^*\rrbracket)
 	$$
 \end{defn}
 

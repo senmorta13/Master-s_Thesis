@@ -55,7 +55,7 @@ $\mathcal{\hat{M}^\nmid}$
 قرار است در عمل روی مجوعه‌ی برنامه‌ها تعریف شود و مثلا اینکه به ازای  
 $\Pi \in \mathfrak{S}^{+\infty}$
 دلخواه که مساوی معنی یک برنامه نیست، این تابع با یک محیط اولیه و یک عبارت منظم چه خروجی‌ای دارد برای ما اهمیتی ندارد و البته به این شکلی  هم که تابع تعریف شده حتی به ازای چنین ورودی‌ای خروجی ندارد. در واقع حتی به ازای 
-$\mathsf{S:=\; x=A;}$
+$\mathsf{S:=\; x\doteq A;}$
 هم که یک عضو از زبان است، به این معنا که $\mathsf{S}$ صرفا یک بخش از یک برنامه است و
  خروجی‌ای نخواهد داشت و داشتن خروجی به ازای این متغیر را از 
 $\mathcal{\hat{M}^\nmid}$
@@ -98,7 +98,7 @@ $$\{ \langle \langle at \llbracket \mathsf{Sl} \rrbracket , \rho \rangle , \math
 $$\mathsf{where \; fstnxt(R)=\langle L:B,R' \rangle}$$
 یعنی همه‌ی ردهای پیشوندی تک عضوی که محیطشان اولین لبترال موجود در عبارت منظم را ارضا می‌کند. در واقع هر مخیطی که این لیترال را ارضا کند، برچسب این مجوعه دستور را در این مجموعه می‌آورد(به همراه باقی عبارت منظم).
 
-برای $\mathsf{S=\;x=A;}$ و $\mathsf{R} \in \mathbb{R^\nmid} \cap \mathbb{R^+}$ داریم:
+برای $\mathsf{S=\;x \doteq A;}$ و $\mathsf{R} \in \mathbb{R^\nmid} \cap \mathbb{R^+}$ داریم:
 $$\blacktriangleleft\mathcal{\hat{M}^\nmid} \langle \underline{\rho}, \mathsf{R} \rangle \llbracket \mathsf{S} \rrbracket
 =$$
 $$\{
@@ -203,15 +203,30 @@ $$\cup \{ \langle \pi_2 \langle at \llbracket \mathsf{S} \rrbracket , \rho \rang
 $$\mathcal{B} \llbracket \mathsf{B} \rrbracket \rho = \mathit{T} \land \mathsf{R''} \notin \mathbb{R_\varepsilon} \land \langle \mathsf{L:B,R''''} \rangle = \mathsf{fstnxt(R'')} \land$$
 $$\langle \underline{\rho} , \langle at \llbracket \mathsf{S}\rrbracket , \rho \rangle \rangle \in \mathcal{S}^r \llbracket \mathsf{L:B} \rrbracket \land \mathsf{R''''} \notin \mathbb{R_\varepsilon} \land$$
 $$\langle \mathsf{L':B',R'''} \rangle = \mathsf{fstnxt(R'''')} \land \langle \underline{\rho} , \langle at \llbracket \mathsf{S_b}\rrbracket , \rho \rangle \rangle \in \mathcal{S}^r \llbracket \mathsf{L':B'} \rrbracket \land$$
-$$\langle \langle at \llbracket \mathsf{S_b} \rrbracket, \rho \rangle \pi_3 , \mathsf{R'} \rangle \in \mathcal{\hat{M}^\nmid} \llbracket \mathsf{S_b} \rrbracket \langle \underline{\rho} , \mathsf{R'''} \rangle \}$$
+$$\langle \langle at \llbracket \mathsf{S_b} \rrbracket, \rho \rangle \pi_3 , \mathsf{R'} \rangle \in \mathcal{\hat{M}^\nmid} \langle \underline{\rho} , \mathsf{R'''} \rangle \llbracket \mathsf{S_b} \rrbracket \}$$
 $$ \mathsf{and \; \langle L':B' , R' \rangle = fstnxt(R)}$$
 
+برای دستور $\mathscr{while}$ تفاوتی که با سایر دستورات وجود دارد، حضور یک تابع در تعریف آن است و در واقع وارسی مدل به صورت کوچک‌ترین نقطه ثابت این تابع تعریف می‌شود. این همان کاری است که در تعریف معنای اجزای زبان هم انجام شد و وقتی که می‌خواهیم ساختار زبان را به صورت وارسی مدل اضافه انتظار می‌داشتیم که سر و کله‌ی عملگر نقطه ثابت هم پیدا شود، همان طور که تعریف بقیه‌ی دستورات زبان مطابق تعریف معانیشان که در ابتدای کار آورده‌ایم، انجام شده.
 
 
+برای عبارت منظم 
+$\mathsf{R} \in \mathbb{R}^\nmid \cup \mathbb{R^+}$
+و 
+$\mathsf{S= \; ; \;:}$
+داریم:
+$$\blacktriangleleft\mathcal{\hat{M}^\nmid}  \langle \underline{\rho}, \mathsf{R} \rangle \llbracket \mathsf{S} \rrbracket = \{\langle \langle at \llbracket \mathsf{S} \rrbracket , \rho \rangle , \mathsf{R'} \rangle | \langle \underline{\rho}, \langle at \llbracket \mathsf{S} \rrbracket , \rho \rangle \rangle \in \mathcal{S}^r \llbracket \mathsf{L:B}\rrbracket\}$$
+$$\mathsf{while \; fstnxt (R) = \langle L:B,R' \rangle}$$
+	
+	
 
+برای عبارت منظم 
+$\mathsf{R} \in \mathbb{R}^\nmid \cup \mathbb{R^+}$
+و 
+$\mathsf{S= \; \{Sl\} \;:}$
+داریم:
+$$\blacktriangleleft \mathcal{\hat{M}^\nmid} \langle \underline{\rho}, \mathsf{R} \rangle \llbracket \{\mathsf{Sl}\} \rrbracket =
+ \mathcal{\hat{M}^\nmid} \langle \underline{\rho}, \mathsf{R} \rangle \llbracket \mathsf{Sl} \rrbracket$$
 
-
-
-
+در اینجا تعریف وارسی مدل ساختارمند به پایان می‌رسد.
 
  
