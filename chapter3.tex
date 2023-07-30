@@ -1,642 +1,610 @@
-\chapter{وارسی مدل منظم}
-در این فصل قرار است به بیانی ساختارمندتر از روش وارسی مدل برسیم. اهمیت ساختارمند تر بودن در این است که بیانی که در فصل پیش داشتیم تا پیاده سازی فاصله‌ی بسیاری دارد، چون همان‌طور که پیش‌تر گفته شد مجموعه‌ها موجودات ساختنی‌ای نیستند و کار با آن‌ها حین نوشتن برنامه‌ای کامپیوتری‌ که قرار است پیاده‌سازی روش مورد بحث ما باشد را سخت می‌کند. ساختاری که در این فصل به صورت روش وارسی مدل اضافه می‌شود، ساختار عبارات منظم است و دلیل اینکه نام این فصل و تعریف اصلی‌ای که در این فصل قرار است ارائه شود "وارسی مدل منظم" است هم همین است که ساختار عبارات منظم به تعریف اضافه شده. از این رو پیش از اینکه به بیان وارسی مدل منظم بپردازیم، نیاز داریم که ابتدا به بررسی و تعریف برخی خواص عبارات منظم بپردازیم که در ادامه برای بیان وارسی مدل مورد نیاز هستند.
 
-\section{در مورد عبارات منظم}
-در این بخش ابتدا مفهوم هم‌ارز بودن را برای عبارات منظم تعریف می‌کنیم، سپس به سراغ تعریف دو تابع 
-$\mathsf{dnf}$
-و 
-$\mathsf{fstnxt}$
-می‌رویم. 
-\subsection{هم‌ارزی عبارات منظم}
-‌خیلی ساده هم‌ارزی بین دو عبارت منظم را با برابر بودن معنای آن دو تعریف می‌کنیم.
+\chapter{صوری‌گری جدید برای روش وارسی مدل}
+
+\section{ویژگی‌های معنایی برنامه‌ها}
+تا به اینجای کار یک زبان آورده‌ایم و برای آن معنا تعریف کرده‌ایم. در این فصل می‌خواهیم در مورد ویژگی‌های برنامه‌هایی که در این زبان نوشته می‌شوند با توجه به معنای صوری‌ای که تعریف کرده‌ایم، صحبت کنیم. دقت شود که برای برنامه‌هایی که در یک زبان برنامه‌نویسی نوشته می‌شوند می‌توان به اشکال مختلفی ویژگی تعریف کرد؛ مثلا ویژگی‌های نحوی، مثل اینکه طول برنامه چند خط است یا هر کاراکتر چند بار به کار رفته، یا ویژگی‌های محاسباتی، مثل بررسی‌ سرعت برنامه یا میزان استفاده‌ی آن از حافظه که عموما در نظریه الگوریتم و پیچیدگی محاسبات بررسی می‌شود. منظور ما در اینجا از تعریف ویژگی، متناسب است با معناشناسی‌ای که برای برنامه‌هایمان تعریف کرده‌ایم. معناشناسی‌ای که تعریف کرده‌ایم درواقع سیر محاسباتی برنامه را توصیف می‌کند و ما می‌خواهیم ویژگی‌ها را با توجه به این موصوع تعریف کنیم. در این صورت می‌توانیم صحت عملکرد برنامه‌ها را با توجه به صادق بودن ویژگی‌هایی که در مورد آن‌ها تعریف شده بفهمیم.\\
+ابتدا به تعریف ویژگی‌ها می‌پردازیم، سپس به سراغ تعریف یک نوع عبارت منظم می‌رویم که از آن برای بیان ویژگی‌ها استفاده می‌شود.
+\subsection{ویژگی‌های معنایی}
+همان‌طور که در بخش قبلی دیدیم، معنای هر برنامه با یک مجموعه‌ی 
+$\mathcal{S^*} {\mathsf{S}}$
+مشخص می‌شود. وقتی می‌خواهیم ویژگی‌هایی را برای موجوداتی که به کمک مجموعه‌ها تعریف شده اند بیان کنیم، اینکه ویژگی‌ها را هم با مجموعه‌ها بیان کنیم کار معقولی به نظر می‌رسد. مثل اینکه بخواهیم ویژگی زوج بودن را در مورد اعداد طبیعی بیان کنیم. می توانیم مجموعه‌ی $\mathbb{E}$ را به عنوان مجموعه‌ی همه‌ی اعداد زوج در نظر بگیریم و اینکه یک عدد زوج هست یا نه را عضویتش در مجموعه‌ی $\mathbb{E}$ تعریف کنیم. پس یعنی در مورد اعداد طبیعی قرار است هر ویژگی به شکل زیرمجموعه‌ای از تمام این اعداد در نظر گرفته شود. یعنی هر عضو 
+$\mathit{P}(\mathbb{N})$
+بنا به تعریف ما یک ویژگی از اعداد طبیعی است.
+در مورد برنامه‌ها نیز قرار است همین رویه را پیش بگیریم. تابع 
+$\mathcal{S^*}$
+از نوع 
+$\mathbb{P} \rightarrow \mathit{P}(\mathfrak{S^+})$
+است. یعنی یک برنامه را در ورودی می‌گیرد و یک مجموعه از ردهای پیشوندی را باز می‌گرداند. پس می‌توانیم هر ویژگی را به عنوان زیر مجموعه‌ای از 
+$\mathit{P}(\mathfrak{S^+})$
+تعریف کنیم، به عبارت دیگر عضوی از
+$\mathit{P(P}(\mathfrak{S^+}))$.
+
+\subsection{عبارات منظم}
+در اینجا توصیف ویژگی‌ها برای هر برنامه باید یک چارچوب داشته باشد. در صورت قدیمی روش وارسی مدل ما از منطق های زمانی برای بیان ویژگی‌ها به صورت صوری استفاده می‌کردیم و این احتیاج به یک زبان برای صوری کردن کامل کار را، که رسیدن به بیان مسئله‌ی وارسی مدل است، به ما نشان می‌دهد. در اینجا ما با داستان دیگری هم رو به رو هستیم و آن این است که از آنجایی که با مجموعه‌ها سر و کار داریم و مجموعه‌ها چندان موجودات ساختنی‌ای نیستند( برخلاف مدل کریپکی)، بهتر است یک موجود ساختنی مثل یک زبان صوری برای بیان آن‌ها داشته باشیم. در این فصل قصد داریم یک نوع عبارت منظم را برای این منظور تعریف کنیم. پیشتر به نکته‌ی دیگری در مورد استفاده از عبارات منظم، که متداول‌تر بودن بین جامعه‌ی برنامه نویسان است، صحبت کردیم. ابتدا زبان این عبارت منظم را تعریف می‌کنیم، سپس به سراغ معناشناسی آن می‌رویم. 
+\subsection{زبان عبارات منظم}
+فرق عمده‌ای که زبان عبارات منظم ما با عبارات منظم کلاسیک دارد در کاراکترهاست. کاراکترها در زبان کلاسیک موجوداتی اتمی بودند، اما در اینجا ساختار دارند. در اینجا به جای هر کاراکتر یک زوج متشکل از مجموعه‌ی $\mathsf{L}$ و عبارت بولی $\mathsf{B}$ تشکیل شده‌اند که این زوج را به شکل 
+$\mathsf{L : B}$
+در زبانمان نمایش می‌دهیم.\\ 
+زبان ما به شکل BNF زیر است:
 \begin{defn}
-	(هم‌ارزی عبارات منظم):
-	دو عبارت منظم
-	$\mathsf{R}_1$
-	و
-	$\mathsf{R_2}$
-
-	 را هم‌ارز می‌گوییم اگر و تنها اگر شرط زیر برقرار باشد:
-	 $$\mathcal{S}^r \llbracket \mathsf{R_1} \rrbracket = \mathcal{S}^r \llbracket \mathsf{R_2} \rrbracket$$ 
-	 این هم‌ارزی را با 
-	 $\mathsf{R_1} \Bumpeq \mathsf{R_2}$
-	 نمایش می‌دهیم.
+$$\mathsf{L} \in \mathit{P}(\mathbb{L})$$        
+$$\mathsf{x,y,...} \in \mathbb{X}$$
+$$\mathsf{\underline{x},\underline{y},...} \in \mathbb{\underline{X}}$$
+$$\mathsf{B} \in \mathbb{B}$$
+$$\mathsf{R} \in \mathbb{R}$$
+\newpage
+$$\mathsf{R} ::=\hspace{0.5cm} \varepsilon\hspace{4.2cm}$$
+$$|\:\:\:\mathsf{L : B}\hspace{2.4cm}$$
+$$|\:\:\:\mathsf{R_1 R_2}\:\:\:(or\:\mathsf{R_1 \bullet R_2 })$$
+$$\:\:\:\:\:\:\:|\:\:\:\mathsf{R_1\:\mid\:R_2}\:\:\:(or\:\mathsf{R_1 + R_2 })$$
+$$|\:\:\:\mathsf{R_1^*}\hspace{2.8cm}$$
+$$|\:\:\:\mathsf{R_1^+}\hspace{2.7cm}$$
+$$|\:\:\:(\mathsf{R_1})\hspace{2.47cm}$$
 \end{defn}
-
-\begin{thm}
-	هم‌ارزی $\Bumpeq$ تعریف شده روی مجموعه‌ی عبارات منظم یک رابطه‌ی هم‌ارزی است.
-\end{thm}
-\begin{proof}
-	برای هر عبارت منظم $\mathsf{R}$ داریم:
-	$$\mathcal{S}^r \llbracket \mathsf{R} \rrbracket = 
-	\mathcal{S}^r \llbracket \mathsf{R} \rrbracket \Rightarrow
-	\mathsf{R} \Bumpeq \mathsf{R}$$
-	پس این رابطه انعکاسی است.
-	
-	اگر 
-	$\mathsf{R_1 , R_2} \in \mathbb{R}$
-	آنگاه داریم:
-	$$\mathcal{S}^r \llbracket \mathsf{R_1} \rrbracket =
-	\mathcal{S}^r \llbracket \mathsf{R_2} \rrbracket \rightarrow
-	\mathcal{S}^r \llbracket \mathsf{R_2} \rrbracket =
-	\mathcal{S}^r \llbracket \mathsf{R_1} \rrbracket \Rightarrow
-	\mathsf{R_1} \Bumpeq \mathsf{R_2} \rightarrow
-	\mathsf{R_2} \Bumpeq \mathsf{R_1}$$
-	پس این رابطه تقارنی هم هست.
-	
-	اگر
-	 $\mathsf{R_1,R_2,R_3} \in \mathbb{R}$
-	 	داریم:
-	 $$\mathcal{S}^r \llbracket \mathsf{R_1} \rrbracket =
-	 \mathcal{S}^r \llbracket \mathsf{R_2} \rrbracket \land
-	 \mathcal{S}^r \llbracket \mathsf{R_2} \rrbracket =
-	 \mathcal{S}^r \llbracket \mathsf{R_3} \rrbracket \rightarrow
-	 \mathcal{S}^r \llbracket \mathsf{R_1} \rrbracket =
-	 \mathcal{S}^r \llbracket \mathsf{R_3} \rrbracket$$
-	 $$\Rightarrow
-	 \mathsf{R_1} \Bumpeq \mathsf{R_2} \land
-	 \mathsf{R_2} \Bumpeq \mathsf{R_3} \rightarrow
-	 \mathsf{R_1} \Bumpeq \mathsf{R_3}$$
-\end{proof}
-
-
-\subsection{فرم نرمال فصلی}
-	 یک دسته از عبارات منظم هستند که به آن‌ها می‌گوییم فرم نرمال فصلی. در صورتی از وارسی مدل که در این فصل ارائه شده، مفهوم فرم نرمال فصلی حضور دارد، بنابراین باید به بحث در مورد آن، پیش از رسیدن به صورت جدید، بپردازیم.
-	 \begin{defn}
-	 	(فرم نرمال فصلی): عبارت منظم 
-	 	$\mathsf{R} \in \mathbb{R}$
-	 	را یک فرم نرمال فصلی می‌گوییم اگر و تنها اگر با فرض اینکه عبارات منظم بدون انتخاب
-	 	$\mathsf{R_1 , R_2, ..., R_n} \in \mathbb{R}^{\nmid}$
-	 	وجود داشته باشند که 
-	 	$\mathsf{R= R_1 + R_2 + ... R_n}$.
-	 \end{defn}
- در تعریف بالا به = دقت شود که با 
- $\Bumpeq$
- که در ادامه مورد بحث ماست فرق می‌کند. به سبک رایج منظور از = همان تساوی نحوی است.
- 
- در ادامه می‌خواهیم یک تابع به اسم $\mathsf{dnf}$ تعریف کنیم که یک عبارت منظم $\mathsf{R}$ را می‌گیرد و عبارت منظم $\mathsf{R'}$ را تحویل می‌دهد که یک فرم نرمال فصلی است و 
- $\mathsf{R \Bumpeq R'}$
-برقرار است. ابتدا این تابع را به صورت استقرایی روی ساختار عبارات منظم تعریف می‌کنیم، سپس خاصیتی که گفتیم را درمورد آن ثابت می‌کنیم. اینْ اثبات این حقیقت خواهد بود که هر عبارت منظم با یک فرم نرمال فصلی هم ارز است.
-  
-  \begin{defn}
-  	(تابع $\mathsf{dnf}$): تابع $\mathsf{dnf}$ روی عبارات منظم به شکل زیر تعریف می‌شود:
-  	
-  	$$\blacktriangleleft\mathsf{dnf}(\varepsilon)=\varepsilon$$
-  	$$\blacktriangleleft\mathsf{dnf}(\mathsf{L:B})=\mathsf{L:B}$$
-  	$$\blacktriangleleft\mathsf{dnf}(\mathsf{R_1 R_2})= \mathsf{\Sigma_{i=1}^{n_1} \Sigma_{j=1}^{n_2} R_1^i R_2^j }$$
-  	$$\mathsf{where\;R_1^1 + R_1^2 + ... + R_1^{n_1} = dnf(R_1)\;and\; R_2^1 + R_2^2 + ... + R_2^{n_2}= dnf(R_2)}$$
-   $$\blacktriangleleft\mathsf{dnf (R_1+R_2)=dnf(R_1)+dnf(R_2)}$$
-   $$\blacktriangleleft\mathsf{dnf (R^*)}= \mathsf{((R_1)^* (R_2)^* ... (R_n)^*)^*}$$
-   $$\mathsf{where\;dnf(R)=R^1+R^2+...+R^n}$$
-   $$\blacktriangleleft\mathsf{dnf(R^+)=dnf(RR^*)}$$
-   $$\blacktriangleleft\mathsf{ dnf((R)) = ( dnf(R) ) }$$  
-   	
-  \end{defn}
-
-\begin{thm}
-	اگر $\mathsf{R} \in \mathbb{R}$ آنگاه $\mathsf{dnf(R)}$ یک ترکیب نرمال فصلی است.
-\end{thm}
-\begin{proof}
-همان طور که گفتیم روی ساختار $\mathsf{R}$ استقرا می‌زنیم.
-$$\blacktriangleright \mathsf{R}=\varepsilon:$$
-$$\mathsf{dnf(\varepsilon)}=\varepsilon$$
-که $\varepsilon$ یک فرم نرمال فصلی است.
-
-
-$$\blacktriangleright \mathsf{R=L:B}:$$
-$$\mathsf{dnf(\mathsf{L:B})}=\mathsf{L:B}$$
-که $\mathsf{L:B}$ هم یک فرم نرمال فصلی است.
-
-
-$$\blacktriangleright \mathsf{R=R_1R_2}:$$
-فرض استقرا این خواهد بود که 
-$\mathsf{dnf(R_1)=R_1^1+R_1^2+...+R_1^n}$
+همان طور که قابل مشاهده است در اینجا عملگرهای دوتایی چسباندن
+$(\bullet)$
+ و انتخاب
+$(|)$
+ را داریم، به همراه عملگرهای یگانی 
+$^*$
 و
-$\mathsf{dnf(R_2)=R_2^1+R_2^2+...+R_2^n}$
-درحالیکه $\mathsf{dnf(R_1)}$ و $\mathsf{dnf(R_2)}$ ترکیب نرمال فصلی هستند، یعنی هر $\mathsf{R_1^i}$ و هر $\mathsf{R_2^j}$ عضو $\mathbb{R^{\nmid}}$ است.
-طبق تعریف خواهیم داشت:
-$$\mathsf{dnf}(\mathsf{R_1 R_2})=\mathsf{\Sigma_{i=1}^{n_1}\Sigma_{j=1}^{n_2} R_1^i R_2^j}$$
-که طرف راست عبارت بالا یک ترکیب نرمال فصلی است، چون هر  
-$\mathsf{R_1^i R_2^j}$
-یک عضو از $\mathbb{R}^\nmid$ است.
-
-$$\blacktriangleright \mathsf{R=R_1+R_2}:$$
-فرض استقرا این خواهد بود که $\mathsf{dnf(R_1)}$ و $\mathsf{dnf(R_2)}$ ترکیب فصلی نرمال هستند پس 
-$\mathsf{dnf(R_1+R_2)}$
-هم که برابر با
-$\mathsf{dnf(R_1)+dnf(R_2)}$
-است، ترکیب فصلی نرمال خواهد بود.
-
-$$\blacktriangleright \mathsf{R=R_1^*}:$$
-طبق فرض استقرا داریم که $\mathsf{dnf(R_1)}$ یک ترکیب نرمال فصلی است. همین طور طبق تعریف $\mathsf{dnf}$ داریم 
-$$\mathsf{dnf(R_1^*)= ((R_1^1)^* (R_1^2)^* ... (R_1^n)^*)}$$
-که
-$$\mathsf{dnf(R_1)=R_1^1+R_1^2+...+R_1^n}$$
-که اینکه $\mathsf{((R_1^1)^* (R_1^2)^* ... (R_1^n)^*)}$ یک فرم نرمال فصلی است مشخص است چون می‌دانیم در هیچ کدام از این $\mathsf{R_1^i}$ ها عملگر $+$ وجود ندارد و عملگر $ ^*$ و عملگر چسباندن هم تغییری در این وضع ایجاد نمی‌کنند.
-
-$$\blacktriangleright \mathsf{R=R_1^+}:$$
-طبق چیزهایی که از قبل داریم:
-$$\mathsf{dnf(R_1^+)=dnf(R_1 R_1^*)}$$
-$$\mathsf{dnf(R_1^*)= ((R_1^1)^* (R_1^2)^* ... (R_1^n)^*)}$$
-که گیریم 
-$\mathsf{R'=dnf(R_1^*)}$
- که عضو 
- $\mathbb{R^\nmid}$
-است. همین طور فرض می‌کنیم:
-$$\mathsf{R_1= R_1^1 + ... + R_1^n}$$
-پس با توجه به تعریف $\mathsf{dnf}$ برای عملگر چسباندن خواهیم داشت:
-$$\mathsf{dnf(R_1^+) = \Sigma_{i=1}^n R_1^i R'}$$
-
-$$\blacktriangleright \mathsf{R=(R_1)}:$$
-طبق تعریف داریم:
-$$\mathsf{dnf((R_1))=(dnf(R_1))}$$
-طبق فرض استقرا 
-$\mathsf{dnf(R_1)}$
-یک ترکیب نرمال فصلی است، بنابراین 
-$\mathsf{(dnf(R_1))=R'} \in \mathbb{R^\nmid}$ 
-هم یک ترکیب فصلی نرمال خواهد بود.
-
-\end{proof}
-
-گزاره‌ی دیگری که برای اثبات مانده برقرار بودن 
-$\mathsf{R \Bumpeq dnf(R) }$
-است. برای اثبات آن باید ابتدا قضیه‌ی زیر را اثبات کنیم که اثبات آن را ارجاع می‌دهیم به \cite{ullman}. 
-\begin{thm}
-	برای هر دو عبارت منظم 
-	$\mathsf{R_1 , R_2} \in \mathbb{R}$
-	داریم:
-	$$\mathsf{(R_1 + R_2)^* \Bumpeq (R_1^* R_2^*)^*}$$
-\end{thm} 
-
-به عنوان نتیجه از قضیه‌ی بالا می‌توانیم با استفاده از یک برهان ساده به کمک استقرا روی اعداد طبیعی، حکم بالا را به جای ۲ برای تعداد دلخواه متنهاهی‌ای از عبارات منظم اثبات کنیم. در ادامه در واقع از این حکم در اثبات استفاده شده.
-
-\begin{thm}
-	برای هر
-	$\mathsf{R} \in \mathbb{R}$ 
-	داریم:
-	$$\mathsf{dnf(R) \Bumpeq R}$$
-\end{thm}
-
-\begin{proof}
-	طبعا این اثبات با استقرا روی ساختار $\mathsf{R}$ انجام می‌شود.
-	توجه شود که در هر حالت از استقرا عبارات منظم 
-	$\mathsf{R_1 , R_2}$
-	در ساختار $\mathsf{R}$ حضور دارند، فرض گرفته‌ایم که 
-	$\mathsf{dnf(R_1)=R_1^1+R_1^2+...+R_1^n}$
-	و
-	$\mathsf{dnf(R_2)=R_1^2+R_2^2+...+R_2^m}$.
-		
-	$$\blacktriangleright \mathsf{R=\varepsilon:}$$
-	$$\mathsf{dnf}(\varepsilon)=\varepsilon \Rightarrow 
-		\mathcal{S}^r \llbracket \mathsf{dnf(\varepsilon)} \rrbracket =
-		\mathcal{S}^r \llbracket \varepsilon \rrbracket$$
-	
-	$$\blacktriangleright \mathsf{R=L:B\;:}$$
-	$$\mathsf{dnf(L:B)=L:B} \Rightarrow 
-	\mathcal{S}^r \llbracket \mathsf{dnf(L:B)} \rrbracket =
-	\mathcal{S}^r \llbracket \mathsf{L:B} \rrbracket$$
-	
-	$$\blacktriangleright \mathsf{R=R_1 R_2\;:}$$
-	برای اثبات این حالت باید دو عبارت زیر را ثابت کنیم:
-	$$\mathcal{S}^r \llbracket \mathsf{R_1 R_2} \rrbracket \subseteq
-	  \mathcal{S}^r \llbracket \mathsf{dnf(R_1 R_2)} \rrbracket$$
-	$$\mathcal{S}^r \llbracket \mathsf{R_1 R_2} \rrbracket \supseteq
-	\mathcal{S}^r \llbracket \mathsf{dnf(R_1 R_2)} \rrbracket$$
-	
-	
-	$:(\supseteq)$
-	
-	فرض می‌کنیم 
-	$\langle \underline{\rho} , \pi \rangle$ 
-	یک عضو دلخواه از 
-	$\mathcal{S}^r \llbracket \mathsf{dnf(R_1 R_2)} \rrbracket$
-	باشد.
-	چون 
-	$\mathsf{dnf(R_1R_2)=} \mathsf{\Sigma_{i=1}^{n_1} \Sigma_{j=1}^{n_2} R_1^i R_2^j }$
-	 پس داریم:
-	$$\exists k_1,k_2:
-	\pi \in \mathcal{S}^r \llbracket \mathsf{R_1^{k_1} R_2^{k_2}} \rrbracket 
-	$$
-	$$\Rightarrow
-	\exists \pi_1, \pi_2 \; s.t. \; \pi=\pi_1 \pi_2 , 
-	\langle \underline{\rho} , \pi_1 \rangle \in \mathcal{S}^r \llbracket \mathsf{R_1^{k_1}} \rrbracket,
-	\langle \underline{\rho} , \pi_2 \rangle \in \mathcal{S}^r \llbracket \mathsf{R_2^{k_2}} \rrbracket
-	$$
-	با این وجود داریم:
-	$$\mathcal{S}^r \llbracket \mathsf{R_1^{k_1}} \rrbracket \subseteq
-	\mathcal{S}^r \llbracket \mathsf{R_1} \rrbracket,
-	\mathcal{S}^r \llbracket \mathsf{R_2^{k_2}} \rrbracket \subseteq
-	\mathcal{S}^r \llbracket \mathsf{R_2} \rrbracket$$
-	$$
-	\Rightarrow
-	\langle \underline{\rho} , \pi_1 \pi_2 \rangle =
-	\langle \underline{\rho} , \pi \rangle \in 
-	\mathcal{S}^r \llbracket \mathsf{R_1 R_2} \rrbracket$$ 
-	
-	$:(\subseteq)$
-	$$\langle \underline{\rho} ,\pi \rangle \in \mathcal{S}^r \llbracket \mathsf{R_1 R_2} \rrbracket$$
-	$$\Rightarrow\exists \pi_1, \pi_2: \pi = \pi_1 \pi_2\;s.t.\;
-	\langle \underline{\rho} , \pi_1 \rangle \in \mathcal{S}^r \llbracket \mathsf{R_1} \rrbracket
-	,\langle \underline{\rho} , \pi_2 \rangle \in \mathcal{S}^r \llbracket \mathsf{R_2} \rrbracket$$
-	طبق فرض استقرا داریم:
-	$$\mathcal{S}^r \llbracket \mathsf{R_1} \rrbracket=
-	\mathcal{S}^r \llbracket \mathsf{dnf(R_1)} \rrbracket,
-	\mathcal{S}^r \llbracket \mathsf{R_2} \rrbracket=
-	\mathcal{S}^r \llbracket \mathsf{dnf(R_2)} \rrbracket,
-	$$
-	$$\Rightarrow
-	\exists k_1,k_2: \langle \underline{\rho} , \pi_1 \rangle \in 
-	\mathcal{S}^r \llbracket \mathsf{R_1^{k_1}} \rrbracket,
-	\langle \underline{\rho} , \pi_2 \rangle \in 
-	\mathcal{S}^r \llbracket \mathsf{R_2^{k_2}} \rrbracket$$
-	$$\Rightarrow
-	\langle \underline{\rho} , \pi \rangle \in
-	\mathcal{S}^r \llbracket \mathsf{R_1^{k_1} R_2^{k_2}} \rrbracket
-	\subseteq \mathcal{S}^r \llbracket \mathsf{dnf(R_1 R_2)} \rrbracket
-	$$ 
-	
-	
-	$$\blacktriangleright \mathsf{R=R_1 + R_2:}$$	
-	$$\mathcal{S}^r \llbracket \mathsf{dnf(R_1+R_2)} \rrbracket=$$
-	$$\mathcal{S}^r \llbracket \mathsf{dnf(R_1)+dnf(R_2)} \rrbracket=$$
-	$$\mathcal{S}^r \llbracket \mathsf{dnf(R_1)} \rrbracket \cup
-	\mathcal{S}^r \llbracket \mathsf{dnf(R_2)} \rrbracket=$$
-	(به کمک فرض استقرا)
-	$$\mathcal{S}^r \llbracket \mathsf{R_1} \rrbracket \cup
-	\mathcal{S}^r \llbracket \mathsf{R_2} \rrbracket=$$
-	$$\mathcal{S}^r \llbracket \mathsf{R_1+R_2} \rrbracket$$
-	
-	$$\blacktriangleright \mathsf{R=R_1^*:}$$
-	$$\mathcal{S}^r \llbracket \mathsf{dfn(R_1^*)} \rrbracket=$$
-	$$\mathcal{S}^r \llbracket \mathsf{((R_1^1)^* (R_1^2)^* ... (R_1^n))^*} \rrbracket=$$
-	(طبق نتیجه‌ای که از قضیه‌ی قبل گرفتیم)
-	$$\mathcal{S}^r \llbracket \mathsf{(R_1^1+R_1^2+...+R_1^n)^*} \rrbracket=$$
-	$$\mathcal{S}^r \llbracket \mathsf{(R_1)^*} \rrbracket=$$
-	$$\mathcal{S}^r \llbracket \mathsf{R_1^*} \rrbracket$$
-	
-	$$\blacktriangleright \mathsf{R=R_1^+:}$$
-	$$\mathcal{S}^r \llbracket \mathsf{dfn(R_1^+)} \rrbracket=$$
-	$$\mathcal{S}^r \llbracket \mathsf{dfn(R_1 R_1^*)} \rrbracket$$
-	در اینجا عملگر چسباندن را داریم. در موردهای قبلی این را نشان دادیم که چه‌طور در این حالت حکم برقرار می‌شود. می‌توانیم همان اثبات را درمورد همین عبارت هم ببینیم و بگوییم:
-	$$\mathcal{S}^r \llbracket \mathsf{dfn(R_1 R_1^*)} \rrbracket=
-	\mathcal{S}^r \llbracket \mathsf{R_1 R_1^*} \rrbracket=
-	\mathcal{S}^r \llbracket \mathsf{R_1^+} \rrbracket$$
-	
-	$$\blacktriangleright \mathsf{R=(R_1):}$$
-	$$\mathcal{S}^r \llbracket \mathsf{dnf((R_1))} \rrbracket=$$
-	$$\mathcal{S}^r \llbracket \mathsf{dnf(R_1)} \rrbracket=$$
-	(طبق فرض استقرا:)
-	$$\mathcal{S}^r \llbracket \mathsf{R_1} \rrbracket=$$
-	$$\mathcal{S}^r \llbracket \mathsf{(R_1)} \rrbracket$$
-\end{proof}
+$^+$.
+در ادامه خواهیم دید که در فرازبان معنی عملگر یگانی 
+$^+$
+به وسیله‌ی عملگر یگانی دیگر قابل بیان است، هرچند که در زبانمان هم برای سهولت کار از بیان این عملگر اجتناب نشده. 
+توجه شود که پرانتزها هم جزئی از زبان قرار داده شده‌اند.
 
 
-\subsection{سر و دم عبارات منظم}
-در این بخش تعریف تابعی را روی عبارات منظم ارائه می‌کنیم که یک عبارت منظم را می‌گیرد و یک زوج از عبارات منظم را تحویل می‌دهد، سپس به بیان یک قضیه در مورد این تابع می‌پردازیم. این تابع را با
-$\mathsf{fstnxt}$
-نشان می‌دهیم. قرار است این تابع یک عبارت منظم را بگیرد و آن را به این شکل تجزیه کند که اولین زوج موجود در عبارت منظم که انگار سر عبارت منظم است، از باقی آن که دم آن عبارت منظم می‌شود، جدا شود. تابع روی عبارات منظم تهی و عبارات منظمی که عملگر $+$ را دارند تعریف نشده.
+همین‌طور در اینجا می‌خواهیم از تعدادی عبارات مخفف که در ادامه کارمان را راحت‌تر می‌کنند صحبت کنیم. منظور از زوج 
+$\mathsf{? : B}$
+همان 
+$\mathbb{L}\mathsf{ : B}$
+است. عبارت 
+$l : \mathsf{B}$
+به جای عبارت 
+$\{l\} : \mathsf{B}$
+به کار می‌رود و منظور از عبارت 
+$\neg l \mathsf{: B}$
+نیز عبارت 
+$\mathbb{L}\setminus\{l\}:\mathsf{B}$
+است.
+
+با یک نگاه به دستور این زبان یک نکته‌ی چشمگیر برای ما، با توجه به موجوداتی که در بخش قبل تعریف کردیم، با نگاه به قواعد این زبان می‌تواند وجود یک مجموعه‌ی
+$\mathbb{\underline{X}}$
+در کنار 
+$\mathbb{X}$
+که از قبل داشتیم باشد. قرار است به ازای هر 
+$\mathsf{x}\in\mathbb{X}$
+یک 
+$\mathsf{\underline{x}}\in\mathbb{\underline{X}}$
+داشته‌باشیم. منظور از 
+$\mathsf{\underline{x}}$
+مقدار متغیر 
+$\mathsf{x}$
+در ابتدای هر برنامه است. این یعنی تابع
+$\underline{\rho}: \mathbb{\underline{X}} \rightarrow \mathbb{V}$
+که 
+$\mathbb{V}$
+مجموعه‌ی مقادیر متغیرهاست( در بخش قبل به این اشاره نشد اما خود
+$\rho$
+هایی که در بخش قبل داشتیم هم از نوع
+$\mathbb{X} \rightarrow \mathbb{V}$
+بود. با توجه به زبانمان و توضیحاتی که در گذشته دادیم، می‌توان در نظر گرفت که در اینجا 
+$\mathbb{V}$
+همان اعداد صحیح است). همان‌طور که پیش‌تر گفتیم برای اشاره به یک تابع
+$\rho$
+از کلمه‌ی "محیط" استفاده می‌شود. به همین منوال در ادامه برای اشاره‌ به 
+$\underline{\rho}$
+از "محیط اولیه" استفاده می‌کنیم. برای اشاره به مجموعه‌ی همه‌ی محیط‌های اولیه هم از نماد 
+$\underline{\mathbb{EV}}$
+استفاده می‌کنیم.
+بقیه‌ی موجودات از جمله برچسب‌ها و عبارات بولی را هم که قبلا داشتیم.\\
+در ادامه به بیان صوری معنای زبان بیان شده می‌پردازیم.\\
+
+\subsection{معناشناسی عبارات منظم}
+معنای عبارات منظم را با استفاده از تابع 
+$\mathcal{S}^r$
+نشان می‌دهیم. این تابع به این شکل تعریف می‌شود که در ورودی یک عبارت منظم 
+$\mathsf{R}$
+را می‌گیرد، سپس یک مجموعه از زوج مرتب‌های( یا همان‌طور که پیش‌تر نام‌گذاری کردیم "وضعیت‌ها"ی)
+$\langle\underline{\rho} , \pi\rangle$
+را که 
+$\pi \in \mathbb{S^*}$
+و 
+$\underline{\rho} \in \underline{\mathbb{EV}}$
+باز می‌گرداند. بنابراین این تابع از نوع
+$\mathbb{R} \rightarrow \mathit{P} (\mathbb{\underline{EV} \times S^*})$
+است. همین‌طور دقت شود که تا به حال از 
+$\mathbb{S}^*$
+صحبتی نکرده بودیم و فقط 
+$\mathbb{S}^+$
+را معرفی کرده بودیم. 
+$\mathbb{S}^*$
+نیز برابر است با
+$\mathbb{S}^+ \cup \{\epsilon\}$ 
+(به لحاظ معنایی همان عملگر
+$^*$
+است که در زبان عبارات منظمهم هست، مشهور به ستاره‌ی کلینی).
+
+تعریف استقرایی تابع 
+$\mathcal{S}^r$
+به شکل زیر است:
 \begin{defn}
-	(تابع سر و دم): تابع سر و دم را از نوع 
-	$\mathsf{fstnxt}:\mathbb{( \mathbb{R^+ \cap R^\nmid})} \rightarrow \mathbb{R \times R}$ 
-	به شکل زیر تعریف می‌‌کنیم:
-	$$
-	\blacktriangleleft\mathsf{fstnxt (L:B) = \langle L:B , \varepsilon \rangle }
-	$$
-	$$
-	\blacktriangleleft\mathsf{fstnxt (R_1 R_2) = fstnxt (R_2)}$$
-	$$\mathsf{where\; R_1 \in \mathbb{R}_\varepsilon}$$
-	$$\blacktriangleleft\mathsf{fstnxt(R_1 R_2)= \llparenthesis  R_1^n \in \mathbb{R}_\varepsilon \; \mathbb{?} \; \langle R_1^f , R_2 \rangle : 
-		\langle R_1^f , R_1^n \bullet R_{2} \rangle \rrparenthesis} $$
-	$$\mathsf{where\; R_1 \notin \mathbb{R}_\varepsilon and\;
-		fstnxt(R_1)= \langle R_1^f , R_1^n \rangle}$$
-	$$\blacktriangleleft\mathsf{fstnxt(R^+)= \llparenthesis R^n \in \mathbb{R_\varepsilon}\;?\;\langle R^f , R^* \rangle : \langle R^f , R^n \bullet R^* \rangle \rrparenthesis}$$
-	$$\mathsf{where\; fstnxt(R)=\langle R^f , R^n \rangle}$$
-	$$\blacktriangleleft\mathsf{fstnxt((R))=fstnxt(R)}$$
+	تابع 
+	$\mathcal{S}^r:\mathbb{R}\rightarrow \mathit{P}(\mathbb{\underline{EV}\times S}^*)$
+	به صورت استقرایی روی ساختار عبارت منظم $\mathsf{R}$ به صورت زیر تعریف می‌شود:
+$$\mathcal{S}^r\llbracket\varepsilon\rrbracket= \{ \langle \underline{\rho} , \epsilon \rangle | \underline{\rho} \in \underline{\mathbb{EV}}\}$$
+[یعنی معنای عبارت منظم
+$\varepsilon$
+مجموعه‌ای شامل زوج مرتب‌هایی از محیط‌های اولیه‌ی مختلف در کنار رد پیشوندی تهی استفاده می‌کند.]
+$$\mathcal{S}^r\llbracket\mathsf{L:B}\rrbracket = \{\langle\underline{\rho},\langle l , \rho \rangle \rangle | l \in \mathsf{L} \land \mathcal{B}\llbracket\mathsf{B}\rrbracket \underline{\rho},\rho \}$$
+[این یعنی معنای عبارت 
+$\mathcal{S}^r\llbracket\mathsf{L:B}\rrbracket$
+زوج مرتب‌هایی هستند که عضو اول آن‌ها محیط‌های اولیه مختلف هستند( مانند مورد قبلی و البته در موارد آتی!) و عضو دوم آن‌ها ردهای پیشوندی تک‌عضوی 
+$\langle l , \rho \rangle$
+هستند که در آن‌ها برچسب 
+$l$
+باید در
+$\mathsf{L}$
+که مجموعه‌ای از برچسب‌هاست حضور داشته باشد و عبارت بولی 
+$\mathsf{B}$
+باید درباره‌ی محیط اولیه
+$\underline{\rho}$
+و محیط 
+$\rho$
+برقرار باشد. حتما متوجه این نکته شدید که 
+$\mathcal{B}$
+در اینجا به جای اینکه از نوع 
+$\mathbb{EV} \rightarrow \mathbb{BOOL}$
+باشد،همان‌طور که قبلا تعریف کردیم، از نوع
+$\underline{\mathbb{EV}} \rightarrow \mathbb{EV} \rightarrow \mathbb{BOOL}$
+است.( منظور از 
+$\mathbb{BOOL}$
+همان مجموعه‌ی 
+$\{True,False\}$
+است.) در اینجا 
+$\mathcal{A}$
+و 
+$\mathcal{B}$
+را در ادامه با نوع‌های متفاوت دوباره تعریف خواهیم کرد، که البته فرق اساسی‌ای با تعریف قبلی ندارد و صرفا گسترشی ساده از آن است.]
+$$\mathcal{S}^r\llbracket\mathsf{R_1 R_2}\rrbracket= \mathcal{S}^r\llbracket\mathsf{R_1}\rrbracket \Join \mathcal{S}^r\llbracket\mathsf{R_2}\rrbracket$$
+\begin{center}
+	به‌طوری که در آن برای هر دو مجموعه‌ی 
+	$\mathcal{S}$
+	و
+	$\mathcal{S'}$
+	از رد‌های پیشوندی:
+$$\mathcal{S \Join S'}=
+\{
+\langle \underline{\rho}, \pi \pi' \rangle |
+\langle \underline{\rho},\pi \rangle \in \mathcal{S} \land
+\langle \underline{\rho},\pi' \rangle \in \mathcal{S'}
+\}
+$$
+\end{center}
+[این یعنی اگر یک عبارت منظم داشته باشیم که از چسباندن 
+$\mathsf{R_1}$
+و 
+$\mathsf{R_2}$
+به هم ساخته شده باشد، آنگاه معنای این عبارت منظم با چسباندن ردهای پیشوندی موجود در مولفه‌ی دوم زوج مرتب‌هایی که اعضای مجموعه‌ی معنای این دو عبارت منظم هستند و گذاشتن این رد پیشوندی‌های حاصل از چسباندنْ در معنای عبارت منظم جدید تعریف می‌شود. همین‌طور که می‌بینید یک عملگر چسباندن برای دو مجموعه از این زوج‌های 
+$\langle \underline{\rho} , \pi \rangle$
+تعریف شده و در تعریف 
+$\mathcal{S}^r \llbracket\mathsf{R_1 R_2}\rrbracket$
+از آن کمک گرفته شده.\\
+تا این تکه از تعریف معنای عبارت منظم که رسیده‌ایم، تا حدی به دستیابی به درکی شهودی از اینکه به چه نحوی قرار است عبارات منظم راهی برای توصیف ویژگی‌ در مورد برنامه‌ها باشد نزدیک‌تر شده‌ایم. همان‌طور که در مورد قبل دیدیم هر زوج 
+$\mathsf{L:B}$
+دقیقا به یک وضعیتْ داخل یک رد پیشوندی اشاره می‌کند. انگار که قرار است این زوج‌ها موازی با وضعیت‌ها در ردهای پیشوندی موجود در معنای یک برنامه جلو روند و منطبق باشند تا وارسی مدل انجام شود. درک این موضوع اولین قدم ماست در دیدن عصاره‌ی روش وارسی مدل در ادبیاتی که از اول این فصلْ عَلَم کرده‌ایم.]
+$$\mathcal{S}^r \llbracket\mathsf{R_1\:|\:R_2}\rrbracket= 
+\mathcal{S}^r \llbracket R_1\rrbracket \cup
+\mathcal{S}^r \llbracket R_2\rrbracket$$
+[این موردْ معنای اعمال عملگر انتخاب روی دو عبارت منظم را توصیف می‌کند. معنای اعمال این عملگر به‌سادگی به صورت اجتماع معنای هر دو عبارت منظم تعریف شده.]
+
+$$\mathcal{S}^r \llbracket\mathsf{R}\rrbracket^0 = \mathcal{S}^r\llbracket\varepsilon\rrbracket$$
+$$\mathcal{S}^r \llbracket\mathsf{R}\rrbracket^{n+1} = \mathcal{S}^r \llbracket\mathsf{R}\rrbracket^{n} \Join
+\mathcal{S}^r \llbracket\mathsf{R}\rrbracket$$
+[دو عبارت اخیر برای توصیف معنای عملگرهای $^*$ و $^+$ تعریف شده‌اند. عملگر $\Join$ و معنای 
+$\mathcal{S}^r\llbracket\varepsilon\rrbracket$
+را هم که قبلا تعریف کرده بودیم و $0$ و $n$ و $n+1$ هم اعداد طبیعی‌اند و $+$ لاجرم همان جمع اعداد طبیعی است.]
+$$\mathcal{S}^r\llbracket\mathsf{R^*}\rrbracket =  \bigcup_{n \in \mathbb{N}}
+\mathcal{S}^r \llbracket\mathsf{R}^n\rrbracket$$
+$$\mathcal{S}^r\llbracket\mathsf{R^+}\rrbracket =  \bigcup_{n \in \mathbb{N}\setminus\{0\}}
+\mathcal{S}^r \llbracket\mathsf{R}^n\rrbracket$$
+[این دو عبارت هم تعریف معنای خود دو عملگر $^*$ و $^+$ هستند. منظور از $\mathbb{N}$ مجموعه‌ی اعداد طبیعی است. همان‌طور که قبل‌تر هم اشاره شد $^+$ را می‌توان در فرازبان با $^*$ تعریف کرد. اضافه می‌کنیم که خود $^*$ را هم در فرازبان می‌توان با عملگر انتخاب تعریف کرد و در اینجا می‌توان این نکته را هم دید.]
+
+$$\mathcal{S}^r \llbracket(\mathsf{B})\rrbracket=\mathcal{S}^r \llbracket\mathsf{B}\rrbracket$$
+[این تکه از تعریف هم صرفا بیان می‌کند که پرانتزها تاثیری در معنای عبارات منظم ندارند که کاملا قابل انتظار است چرا که وجود پرانتز قرار است در صرفا در خواص نحوی زبان اثر بگذارد.]
+\end{defn}
+تعریف معنای عبارات منظم در اینجا تمام می‌شود اما همان‌گونه که در لا‌به‌لای تعاریف گفتیم، احتیاج داریم که $\mathcal{A}$ و $\mathcal{B}$ را از نو تعریف کنیم:
+\begin{defn}
+	توابع 
+	$\mathcal{A}:\mathbb{A}\rightarrow \mathbb{\underline{EV}} \rightarrow
+	\mathbb{EV} \rightarrow \mathbb{V}$
+	و 
+	$\mathcal{B}:\mathbb{B}\rightarrow \mathbb{\underline{EV}} \rightarrow
+	\mathbb{EV} \rightarrow \mathbb{BOOL}$
+	به شکل استقرایی به ترتیب روی ساختارهای 
+	$\mathsf{A}\in\mathbb{A}$
+	و
+	$\mathsf{B} \in \mathbb{B}$
+	به شکل زیر تعریف می‌شوند:
 	
+	
+$$\mathcal{A}\llbracket\mathsf{1}\rrbracket\underline{\rho},\rho=1$$
+$$\mathcal{A}\llbracket\mathsf{\underline{\mathsf{x}}}\rrbracket\underline{\rho},\rho= \underline{\rho}(\mathsf{x})$$
+$$\mathcal{A}\llbracket\mathsf{\mathsf{x}}\rrbracket\underline{\rho},\rho= \rho(\mathsf{x})$$
+$$\mathcal{A}\llbracket\mathsf{A_1 - A_2}\rrbracket\underline{\rho},\rho= 
+\mathcal{A}\llbracket\mathsf{A_1}\rrbracket\underline{\rho},\rho - \mathcal{A}\llbracket\mathsf{A_2}\rrbracket\underline{\rho},\rho$$
+$$\mathcal{B}\llbracket\mathsf{A_1 < A_2}\rrbracket\underline{\rho},\rho=
+	\mathcal{A}\llbracket\mathsf{A_1}\rrbracket\underline{\rho},\rho\: <\: \mathcal{A}\llbracket\mathsf{A_2}\rrbracket\underline{\rho},\rho$$
+$$\mathcal{B}\llbracket\mathsf{B_1\:nand\:B_2}\rrbracket\underline{\rho},\rho=
+\mathcal{B}\llbracket\mathsf{B_1}\rrbracket\underline{\rho},\rho \uparrow 
+\mathcal{B}\llbracket\mathsf{B_2}\rrbracket\underline{\rho},\rho $$
+\end{defn}
+به‌راحتی قابل مشاهده است که تعاریف جدید تا حد خوبی به تعاریف قبلی شبیه هستند و فرق عمده صرفا وارد شدن $\underline{\rho}$ است.\\
+تا اینجای کار بیشتر مفاهیمی که برای بیان صورت جدید مسئله‌ی وارسی مدل احتیاج داریم را بیان کرده‌ایم. 
+\subsection{واریته‌های مختلف زبان عبارات منظم}
+به عنوان قسمت آخر این بخشْ واریته‌های مختلفی از زبان عبارات منظم را بیان می‌کنیم. ، که هر کدام در واقع زیرمجموعه‌هایی از کل عبارات زبانی که توصیف کرده‌ایم را توصیف می‌کنند. بعضی از آن‌ها را در همین فصل برای هدف نهایی این فصل و بعضی دیگر را در فصل بعدی استفاده می‌کنیم.
+
+اولین واریته‌ای که می‌خواهیم بیان کنیم، واریته‌ای است که در اعضای آن اصلا عبارت 
+$\mathsf{L : B}$
+حضور ندارد و کل عبارت‌های زبان از $\varepsilon$ ها تشکیل شده‌اند.
+\begin{defn}
+	(عبارت منظم تهی - $\mathbb{R_\varepsilon}$): 
+	$$\mathsf{R} \:\:\:\in\:\:\: \mathbb{R}_\varepsilon$$
+	$$\mathsf{R}\:\:\: ::= \:\:\: \varepsilon \: | \: \mathsf{R_1 R_2} \: | 
+	\: \mathsf{R_1 + R_2} \: | \: \mathsf{R_1^*} \: | \: \mathsf{R_1^+} | (\mathsf{R_1})$$
 \end{defn}
 
-از این تعریف قرار است در صورتی از وارسی مدل که در این فصل ارائه شده استفاده شود. یک قضیه در آخر این بخش آمده که مهم‌ترین نتیجه در مورد تابع سر و دم است. 
-برای اثبات آن قضیه ابتدا یک گرامر برای $\mathbb{R^+ \cap R^\nmid}$ می‌آوریم.
-\begin{thm}
-	گرامر زیر زبان $\mathbb{R^+ \cap R^\nmid}$ را توصیف می‌کند.
-	$$\mathsf{R} \:\:\:\in\:\:\: \mathbb{R^+ \cap R^\nmid}$$
+
+ با توجه به بخش قبل متوجه هستیم که معنای همه‌ی این عبارت‌ها برابر 
+$\{\langle \underline{\rho} , \epsilon \rangle\}$
+خواهد بود.
+
+واریته‌ی بعدی عبارت منظم ناتهی است.
+\begin{defn}
+	(عبارت منظم ناتهی - $\mathbb{R}^+$):
+	$$\mathsf{R} \:\:\:\in\:\:\: \mathbb{R}^+$$
 	$$\mathsf{R}\:\:\: ::= \:\:\: \mathsf{L:B} \: |
 	\: \mathsf{\varepsilon R_2} \: | \: \mathsf{R_1 \varepsilon} \: |
 	\: \mathsf{R_1 R_2} \: | 
-	\: \mathsf{R_1^+} | (\mathsf{R_1})$$
-\end{thm}
-\begin{proof}
-	نام مجموعه‌ی عبارات منظم تولید شده با گرامر بالا را $\mathbb{R'}$ می‌گذاریم. باید ثابت کنیم
-	$\mathbb{R'=R^+ \cap R^\nmid}$
-	که برای این باید ثابت کنیم این دو مجموعه زیر مجموعه‌ی یکدیگر هستند. برای اثبات 
-	$\mathbb{R' \subseteq R^+ \cap R^\nmid}$
-	می‌توانیم روی ساختار گرامر بالا استقرا ‌بزنیم:
-	$$\blacktriangleright \mathsf{R=L:B}\;:$$
-	به وضوح 
-	$\mathsf{L:B} \in \mathbb{R^+ \cap R^\nmid}$
-	است و این را از گرامر $\mathbb{R^+}$ و $\mathbb{R^\nmid}$ می‌توانیم ببینیم.
-	$$\blacktriangleright \mathsf{R=\varepsilon R_2}\;:$$
-	با فرض اینکه 
-	$\mathsf{R_2} \in \mathbb{R^+ \cap R^\nmid}$
-	که فرض استقراست، طبق گرامر $\mathbb{R^+}$ داریم $\mathsf{R_2} \in \mathbb{R^+}$ و طبق گرامر $\mathbb{R^\nmid}$ داریم چون 
-	$\mathsf{R_2} \in \mathbb{R^\nmid}$
-	و
-	$\varepsilon \in \mathbb{R^\nmid}$
-	پس 
-	$\mathsf{\varepsilon R_2} \in \mathbb{R^\nmid}$.
-	پس داریم 
-	$\mathsf{\varepsilon R_2} \in \mathbb{R^+ \cap R^\nmid}$.
-	
-	$$\blacktriangleright \mathsf{R=R_1 \varepsilon}\;:$$
-	مشابه مورد قبل ثابت می‌شود.
-	
-	$$\blacktriangleright \mathsf{R=R_1 R_2}\;:$$
-	طبق فرض استقرا داریم 
-	$\mathsf{R_1,R_2} \in \mathbb{R^\nmid \cap R^+}$ 
-	و در هر دو گرامر عملگر چسباندن را داریم. پس این مورد هم اثبات می‌شود.
-	$$\blacktriangleright \mathsf{R=R_1^+}\;:$$
-	مثل مورد قبل چون عملگر $ ^+$ در هر دو گرامر هست مثل مورد قبل به کمک فرض استقرا اثبات می‌شود.
-	$$\blacktriangleright \mathsf{R=(R_1)}\;:$$
-	مثل مورد قبل اثبات می‌شود.
-	
-	در اینجا اثبات 
-	$\mathbb{R' \subseteq R^+ \cap R^\nmid}$ 
-	کامل می‌شود. حال به سراغ اثبات 
-	$\mathbb{R^+ \cap R^\nmid \subseteq R'}$
-	می‌رویم.
-	
-	برای اثبات این بخش با فرض اینکه 
-	$\mathsf{R} \in \mathbb{R^+ \cap R^\nmid}$
-	روی ساختار اعضای $\mathbb{R^\nmid}$ استقرا می‌زنیم( این اثبات می‌توانست با استقرا روی ساختار اعضای $\mathbb{R^+}$ هم انجام شود).
-	$$\blacktriangleright \mathsf{R=\varepsilon}\;:$$
-	چون $\varepsilon \notin \mathbb{R^+ \cap R^\nmid}$ پس اصلا این مورد باطل است و در موردش نیاز به اثبات نیست.
-	
-	
-	$$\blacktriangleright \mathsf{R=L:B}\;:$$
-	در این صورت طبق گرامر $\mathbb{R'}$ داریم  
-	$\mathsf{R} \in \mathbb{R'}$.
-	
-	$$\blacktriangleright \mathsf{R=R_1 R_2}\;:$$
-	اینجا هم با توجه به اینکه طبق فرض استقرا 
-	$\mathsf{R_1 , R_2} \in \mathbb{R'}$
-	مثل مورد قبل چون $+$ در گرامر $\mathbb{R'}$ حضور دارد، حکم ثابت می‌شود.
-	
-	$$\blacktriangleright \mathsf{R=R_1^*}\;:$$
-	چون به ازای هیچ عبارت منظم $\mathsf{R}$ای $\mathsf{R}$ داخل $\mathbb{R^+}$ نمی‌افتد پس بررسی این مورد هم مورد نیاز نیست.
-	
-	
-	$$\blacktriangleright \mathsf{R=R_1^+}\;:$$
-	مثل عملگر $+$ با توجه به فرض استقرا و اینکه $ ^+$ در گرامر $\mathbb{R'}$ حضور دارد، این مورد هم اثبات می‌شود.
-	
-	
-	$$\blacktriangleright \mathsf{R=(R_1)}\;:$$
-	مثل مورد قبلی است.
-	
-	
-	
-	
-	
-	
-	
-\end{proof}
+	\: \mathsf{R_1 + R_2} \: | \: \mathsf{R_1^+} | (\mathsf{R_1})$$
+\end{defn}
+دلیل وجود 
+$\mathsf{\varepsilon R_2}$
+و 
+$\mathsf{R_1 \varepsilon}$
+در تعریف این است که ممکن است معنای عبارتی با معنای عبارات عضو $\mathbb{R}_\varepsilon$ برابر نباشد( بعنی برابر ${\langle \underline{\rho} , \epsilon \rangle}$ نباشد)، اما در خود عبارتْ $\varepsilon$ حضور داشته باشد. با این تفاصیل می‌توان دید که دو مجموعه‌ی 
+$\mathbb{R}_\varepsilon$
+و
+$\mathbb{R}^+$
+یک افراز برای مجموعه‌ی $\mathbb{R}$ هستند، براساس اینکه معنای هر عبارت در $\mathbb{R}$ برابر ${\langle \underline{\rho} , \epsilon \rangle}$ هست یا خیر. بنابراین شاید به نظر برسد که تعریف یکی از آن‌ها به طور ساختاری کافی بود، اما ممکن است درجایی احتیاج داشته باشیم که ساختاری استقرایی روی هر یک از آن‌ها عَلَم کنیم یا اینکه در اثبات حکمی بخواهیم از استقرا روی یکی از این دو ساختار استفاده کنیم.
 
-ساختاری که تابع سر و دم روی آن تعریف شده با این ساختار ریخت متفاوتی دارد و البته لزومی هم ندارد که یکی باشند. ساختاری که در قضیه‌ی قبل ارائه کرده‌ایم در \cite{calcul} نیامده و خودمان صرفا برای اثبات قضیه‌ی بعدی آورده‌ایمش.
+واریته‌ی آخر عبارات منظم ما نیز عبارات منظم بدون انتخاب است.
+\begin{defn}
+(عبارت منظم بدون انتخاب - $\mathbb{R}^\nmid$):
+$$
+\mathsf{R}\:\:\: \in \:\:\: \mathbb{R}^\nmid$$
+$$
+\mathsf{R}\:\:\: ::= \:\:\: \varepsilon \: | \: \mathsf{L:B} \: | \:
+\mathsf{R_1 R_2} \: | \: \mathsf{R_1}^* \: | \: \mathsf{R_1}^+ \: | \:
+(\mathsf{R_1})$$
+\end{defn}
 
-
-
-\begin{thm}
-	برای هر عبارت منظم 
-	$\mathsf{R} \in \mathbb{R^+ \cap R^\nmid}$
+\section{صورت جدید مسئله‌ی وارسی مدل}
+بالاخره به هدف نهایی این فصل رسیدیم. می‌خواهیم صورت جدیدی از مسئله‌ی وارسی مدل را بیان ‌کنیم.\\
+پیش از ارائه‌ی تعریف وارسی مدل نیاز داریم تا عملگر بستار پیشوندی را برای یک مجموعه از ردهای پیشوندی معرفی کنیم.
+\begin{defn}
+	(بستار پیشوندی):
 	اگر 
-	$\mathsf{fstnxt(R)=\langle L:B , R'\rangle}$
-		آنگاه 
-	$\mathsf{R'}\in \mathbb{R}^\nmid$
-	و 
-	$\mathsf{R \Bumpeq L:B\bullet R'}$.
+	$\Pi \in \mathit{P}(\mathbb{\underline{EV}\times S^+})$
+	آنگاه بستار پیشوندی $\Pi$را به صورت زیر تعریف می‌کنیم:
+	$$\mathsf{prefix}(\Pi)=
+	\{\langle \underline{\rho},\pi\rangle | \pi \in \mathbb{S^+} \land \exists\
+	\pi' \in \mathbb{S^*}: \langle \underline{\rho}, \pi \pi' \rangle \in \Pi \}$$
+\end{defn}
+
+برای درک بهتر مفهوم بستار پیشوندی به مثال زیر توجه شود.
+\begin{exm}
+	اگر 
+	$\Pi = \{\langle\underline{\rho},\langle l_1 , \rho_1 \rangle 
+	\langle l_2  \rho_2 \rangle\rangle  \langle l_3 , \rho_3 \rangle\rangle 
+	,
+	\langle\underline{\rho},\langle {l_1}' , {\rho_1}' \rangle  \langle {l_2}'  {\rho_2}' \rangle\rangle
+	\}$ 
+	باشد( $\Pi$ شامل دو عضو است) آنگاه:
+	$$
+	\mathsf{prefix}(\Pi)=
+	\{
+	\langle\underline{\rho},\langle l_1 , \rho_1 \rangle\rangle ,
+	\langle\underline{\rho},\langle l_1 , \rho_1 \rangle  \langle l_2  \rho_2 \rangle\rangle,
+	\langle\underline{\rho},\langle l_1 , \rho_1 \rangle  \langle l_2  \rho_2 \rangle  \langle l_3 , \rho_3 \rangle\rangle ,$$
+	$$
+	\langle\underline{\rho},\langle {l_1}' , {\rho_1}' \rangle\rangle,
+	\langle\underline{\rho},\langle {l_1}' , {\rho_1}' \rangle  \langle {l_2}'  {\rho_2}' \rangle\rangle
+	\}
+	$$
+	که شامل 5 عضو است.
+\end{exm}
+حال به ارائه‌ی صورت جدیدمان از روش وارسی مدل می‌رسیم که هدف اصلی این اصل بود و با این تعریف فصل تمام می‌شود.
+\begin{defn}
+(وارسی مدل):
+	اگر 
+	$\mathsf{P}\in\mathbb{P} , \mathsf{R} \in \mathbb{R}^+ , \underline{\rho} \in \underline{\mathbb{EV}}$
+	آنگاه:
+	$$\mathsf{P},\underline{\rho} \models \mathsf{R}
+	 \Leftrightarrow
+	(\{\underline{\rho}\}\times \mathcal{S}^* \llbracket\mathsf{P}\rrbracket) \subseteq 
+	\mathsf{prefix} (\mathcal{S}^r \llbracket\mathsf{R} \bullet (?:\mathit{T})^*\rrbracket)
+	$$
+\end{defn}
+
+این تعریف بیان می‌کند که برنامه‌ی 
+$\mathsf{P}$
+در صورتی که با محیط اولیه‌ی 
+$\underline{\rho}$
+اجرا شود، در صورتی خاصیتی که با عبارت منظم 
+$\mathsf{R}$
+بیان شده را دارد که معنای آن زیرمجموعه‌ی بستار پیشوندی معنای عبارت منظم
+$\mathsf{R} \bullet (?:\mathit{T})^*$
+باشد.
+توجه شود که محیط اولیه‌ای که برای برنامه‌ی مورد بررسی متصور هستیم صرفا به این منظور قرار داده شده که معناشناسی برنامه را بتوانیم با معنای عبارات منظم قابل قیاس کنیم. دلیل حضور محیط اولیه در معنای عبارات منظم نیز در صورت سوم روش وارسی مدل یعنی فصل ۴ مشخص می‌شود و در این صورت از روش وارسی مدل و صورت بعدی آن چندان نقشی ندارد. 
+
+در مورد نقش 
+$ (?:\mathit{T})^*$
+و
+$ \mathsf{prefix} $
+این به تصمیم مبدع این روش بوده که این دو در تعریف روش وارسی مدل حضور داشته باشند. حضور این دو طبعا باعث می‌شود به ازای یک عبارت منظم 
+$\mathsf{R}$
+نسبت به این حالت که صرفا معنی برنامه زیرمجموعه‌ی معنی 
+$\mathsf{R}$
+باشد، برنامه‌های بیشتری باشند که خاصیت بیان شده با 
+$\mathsf{R}$
+را ارضا کنند، چون در این صورت مجموعه‌ی سمت راستی در رابطه‌ی زیرمجموعه بودن بزرگتر می‌شود.
+
+\section{در مورد توقف پذیری}
+
+در این بخش مشکلی از کار که به نظر نگارنده رسیده مطرح شده. متاسفانه این مشکل بسیار بزرگ است و به نظر عجیب می‌‌آید اگر نویسنده‌ی \cite{calcul} متوجه آن نبوده باشد! اگر صحبت ما در اینجا درست باشد، این به این معنی خواهد بود که کل کاری که در حال توصیفش هستیم قابل پیاده سازی نیست!
+
+بحث ما در اینجا در مورد توقف پذیری است. در \cite{calcul} در مورد توقف یک برنامه صحبتی به میان نیامده. یعنی حتی گفته نشده که در چه صورتی می‌توانیم بگوییم که یک برنامه متوقف شده است. یک تعریف  صوری معقول که خودمان می‌توانیم برای این معنا بیاوریم این است:
+
+\begin{defn}
+(توقف پذیری:) برنامه‌ی $\mathsf{P}$ را به همراه اجرای اولیه $\underline{\rho}$ توقف پذیر می‌گوییم اگر و تنها اگر وجود داشته باشد 
+	$\pi \in \mathcal{S}^* \llbracket \mathsf{P} \rrbracket$ 
+	که ($\rho$ محیط متناظر با محیط اولیه‌ی $\underline{\rho}$ است.):
+	$$\pi = \langle at \llbracket \mathsf{P} \rrbracket , \rho \rangle \pi'$$
+	و اینکه $\langle aft\llbracket \mathsf{P} \rrbracket , \rho' \rangle$ در $\pi$ حضور داشته باشد. این اتفاق را با 
+	$\mathsf{P,\underline{\rho}\downarrow}$
+	نشان می‌دهیم. همین تعریف را برای لیست دستورات $\mathsf{Sl}$ یا دستور $\mathsf{S}$ هم صرفا با جایگذاری این‌ها با برنامه‌ی $\mathsf{P}$ داریم.
+\end{defn} 
+در این تعریف توقف پذیری صرفا برای یک محیط اولیه تعریف شده.
+در اینجا توقف پذیری به متناهی بودن ردهای پیشوندی موجود در برنامه ربط داده نشده. با توجه به معناشناسی‌ای که داریم، تعریف توقف پذیری به معنای وجود رد پیشوندی متناهی با محیط اولیه‌ی مورد بررسی در معنای برنامه که اصلا جور در نمی‌آید، چون معناشناسی ما خاصیت پیشوندی بودن را دارد و مطمئن هستیم در معنای هر برنامه‌ای حتما یک رد پیشوندی متناهی با محیط اولیه‌ی مورد بررسی وجود دارد.
+
+اگر هم بخواهیم تعریف توقف پذیری را وجودنداشتن ردهای پیشوندی نامتناهی با محیط اولیه‌ی مورد بررسی در معنای برنامه در نظر بگیریم در ابتدا به نظر می‌آید که به تعریف قوی‌تری نسبت به آنچه ارائه دادیم رسیده‌ایم. ما در اینجا سعی داریم تعریفی را ارائه کنیم که برای حرف‌هایی که در \cite{calcul} زده شده تا حد امکان مشکل درست نکند، که اگر دیدیم با این وجود مشکل وجود دارد مطمئن باشیم که اشتباه در \cite{calcul} است و نه حرف ما. پس سعی از ارائه‌ی این تعریف که به نظر از تعریف ارائه شده با کار ناسازگارتر می‌آید اجتناب می‌کنیم( در ادامه به بیان ناسازگاری پراخته شده) اما در قضیه‌ی بعدی می‌بینیم که تعریفی که ارائه کردیم با همان که بگوییم در برنامه رد پیشوندی نامتناهی وجود ندارد معادل است.
+\begin{thm}
+	برای برنامه‌ی $\mathsf{P}$ و محیط اولیه‌ی $\underline{\rho}$ داریم $\mathsf{P} , \underline{\rho} \downarrow $ اگر و تنها اگر با فرض اینکه $\rho$ محیط متناظر با محیط اولیه‌ی $\underline{\rho}$ است و
+	$$\forall \pi \in \mathbb{S^{+}} : 
+	\langle at \llbracket \mathsf{P} \rrbracket , \rho \rangle \pi \in \mathcal{S^*} \llbracket \mathsf{P} \rrbracket \rightarrow
+	\langle at \llbracket \mathsf{P} \rrbracket , \rho \rangle \pi \in \mathbb{R^+}$$
+	 
 \end{thm}
 \begin{proof}
-	اثبات را باید با استقرا روی ساختار عبارات منظم عضو 
-	$\mathbb{R^+ \cap R^\nmid}$
-	زد.
-	$$\blacktriangleright\mathsf{R=L:B;\:}$$
-	در این حالت طبق تعریف تابع سر و دم داریم
-	$\mathsf{fstnxt(R)=\langle L:B , \varepsilon \rangle}$.
-	از طرف دیگر \break
-	$\mathcal{S}^r\llbracket \mathsf{L:B \bullet \varepsilon} \rrbracket = 
-	\mathcal{S}^r \llbracket \mathsf{L:B} \rrbracket$
-	را داریم و $\varepsilon$ عضو $\mathbb{R^\nmid}$ است.
-	
-	$$\blacktriangleright\mathsf{R=\varepsilon R_2;\:}$$
-	طبق تعریف تابع سر و دم داریم
-	$\mathsf{fstnxt(\varepsilon R_2) = fstnxt(R_2)}$.
-		فرض استقرا این است که اگر 
-		$\mathsf{fstnxt(R_2)=\langle L:B, R'_2 \rangle}$
-	آنگاه 
-	$\mathsf{R'_2}\in \mathbb{R^\nmid}$
-	و
-	$\mathsf{L:B \bullet R'_2} \Bumpeq  \mathsf{R_2}$.
-	پس 
-	$\mathsf{fstnxt(R)=\langle L:B , R'_2 \rangle}$
-	که همان‌ طور که گفتم طبق فرض استقرا 
-	$\mathsf{R'_2} \in \mathbb{R^\nmid}$
-	و از طرف دیگر:
-	$$\mathsf{R=\varepsilon R_2 \Bumpeq R_2 \Bumpeq L:B \bullet R'_2 }$$
-			
-	
-	
-	
-	
-	
-	$$\blacktriangleright\mathsf{R=R_1 \varepsilon;\:}$$
-	در این حالت امکان ندارد $\mathsf{R_1=\varepsilon}$ باشد، چون در آن صورت خواهیم داشت 
-	$\mathsf{R=\varepsilon \varepsilon} \in \mathbb{R_\varepsilon}$
-	که تناقض است چون $\varepsilon \varepsilon$ در دامنه‌ی تابع سر و دم نیست.
-	طبق تعریف سر و دم اگر داشته باشیم 
-	$\mathsf {fstnxt(R_1)=\langle L:B , R'_1 \rangle}$
-	
-در آن صورت بنا بر این که 
-$\mathsf{R'_1} \in \mathbb{R_\varepsilon}$
-برقرار هست یا نه دو حالت را داریم:
-	$$\blacktriangleright\blacktriangleright \mathsf{R'_1} \in \mathbb{R_\varepsilon}: $$
-	در این صورت 
-	$\mathsf{fstnxt(R)=\langle L:B , \varepsilon \rangle}$
-برقرار است. چون
- $\mathsf{R} \in \mathbb{( \mathbb{R^+ \cap R^\nmid})}$
-  پس 
-  چون
-  $\mathsf{R_2}$
-  زیر رشته‌ی $\mathsf{R}$ است، پس
-  $\mathsf{R_2 \in} \mathbb{R^\nmid}$
-  برقرار است. اصلا در این صورت $\mathsf{R=L:B\;\varepsilon}$ برقرار خواهد بود. بنابراین
-  $\mathsf{L:B\;\varepsilon \Bumpeq L:B \bullet \varepsilon}$
-  هم بدیهی خواهد بود.
-  $$\blacktriangleright\blacktriangleright \mathsf{R'_1} \notin \mathbb{R_\varepsilon}: $$
-در این صورت 
-$\mathsf{fstnxt(R)=\langle L:B , R'_1 \bullet \varepsilon \rangle}$
-طبق تعریف سر و دم برقرار است. چون 
-
-$\mathsf{R} \in \mathbb{R^+ \cap R^\nmid}$،
-پس زیر رشته‌های آن نیز عملگر $+$ را نخواهند داشت، پس 
-$\mathsf{R} \in \mathbb{R^\nmid}$.
-در اینجا نیز واضح است که:
-$$\mathsf{L:B \bullet R'_1 \bullet \varepsilon \Bumpeq R_1 \varepsilon = R }$$
-
-
-	
-	$$\blacktriangleright\mathsf{R=R_1 R_2;\:}$$
-	اگر یکی از $\mathsf{R_1}$ و $\mathsf{R_2}$ برابر $\varepsilon$ باشد که حالات بالا را داریم و اگر هر دو برابر $\varepsilon$ باشند هم که اصلا به تناقض می‌خوریم چون در این صورت دیگر در $\mathbb{R^+}$ این عبارت منظم را نداریم. پس تنها یک حالت می‌ماند و آن اینکه هیچ یک از این دو عبارت منظم تهی نباشند. باز هم اگر فرض کنیم 
-	$\mathsf{fstnxt(R_1)=\langle L:B , R'_1 \rangle}$
-	مسئله بنا به اینکه 
-	$\mathsf{R'_1} \in \mathbb{R_\varepsilon}$
-	برقرار هست یا خیر افراز می‌شود، مانند حالت قبل.
-	$$\blacktriangleright\blacktriangleright \mathsf{R'_1} \notin \mathbb{R_\varepsilon}: $$
-	در این صورت 
-	$\mathsf{fstnxt(R)=\langle L:B , R'_1 \bullet R_2}\rangle$.
-	مانند آنچه بالاتر استدلال کردیم خواهیم داشت 
-	$\mathsf{R'_1 \bullet R_2 \in } \mathbb{R^\nmid}$.
-	علاوه‌بر این طبق فرض استقرا داریم 
-	$\mathsf{ R_1 \Bumpeq L:B \bullet R'_1 }$،
-	پس:
-	$$\mathsf{L:B \bullet R'_1 \bullet R_2 \Bumpeq R_1 \bullet R_2 = R}$$
-	(عملگر چسباندن شرکت پذیر است). پس این حالت اثبات می‌شود.
-	$$\blacktriangleright\blacktriangleright \mathsf{R'_1} \in \mathbb{R_\varepsilon}: $$
-	در این صورت 
-	$\mathsf{fstnxt(R)=\langle L:B , R_2 \rangle}$.
-	مثل حالت‌های قبل ثابت می‌شود که $\mathsf{R_2} \in \mathbb{R^\nmid}$ و اینکه داریم:
-	$$\mathsf{R = L:B \bullet R_2 \Rightarrow L:B \bullet R_2 \Bumpeq R}$$ 
-	
-	$$\blacktriangleright\mathsf{R=R_1^+;\:}$$
-	با فرض اینکه 
-	$\mathsf{fstnxt(R_1)=\langle L:B , R'_1 \rangle}$
-		بنا به اینکه 
-	$\mathsf{R'_1} \in \mathbb{R_\varepsilon}$
-	برقرار باشد یا نه، دو حالت خواهد بود:
-	$$\blacktriangleright\blacktriangleright\mathsf{R'_1} \in \mathbb{R_\varepsilon}:$$
-	در این صورت طبق تعریف تابع سر و دم
-	$\mathsf{fstnxt(R)=\langle L:B , R^*_1 \rangle}$
-	را داریم. 
-	$\mathsf{R_1^*}$
-	عضو 
-	$\mathbb{R^\nmid}$ 
-	خواهد بود چونکه  داخل 
-	$\mathsf{R'_1}$
+	$(\Rightarrow)$
+	برای این قسمت باید ثابت کنیم که در معنای هر برنامه‌ای رد پیشوندی‌ای وجود دارد که با
+	$\langle at\llbracket \mathsf{P} \rrbracket , \rho \rangle$
+	شروع شده و به ازای یک محیط $\rho'$ به 
+	$\langle aft\llbracket \mathsf{P} \rrbracket , \rho' \rangle$
+	ختم شده. 
+	در این اثبات از تعریف برچسب‌ها که در ضمیمه‌ی \cite{calcul} آمده استفاده شده.
+	داریم 
+	$\mathsf{P=Sl}$
 	و 
-	$\mathsf{L:B}$
-	عملگر $+$ وجود ندارد و جای دیگری از این عبارت منظم وجود ندارد که در آن بتوان وجود این عملگر را متصور شد. همین طور داریم:
-	$$\mathsf{fstnxt(R_1) = \langle L:B , R'_1 \rangle \rightarrow
-		R'_1 \in \mathbb{R^\nmid}\; \land \; L:B \bullet R'_1 \Bumpeq R_1}$$
-		(عبارت بالا فرض استقراست.)
-	$$\mathsf{R_1^* \Bumpeq (L:B \bullet R'_1)^* \Bumpeq (L:B \bullet \varepsilon)^* \Bumpeq (L:B)^*}$$
-	(هم‌ارزی وسطی به خاطر این است که $\mathsf{R'_1}$ عضو $\mathbb{R^\nmid}$ است. اگر یکی از دو هم‌ارزی‌ دیگر هم برقرار نباشند کلا عملگر $ ^*$ خوش تعریف نخواهد بود، پس این دو هم‌ارزی باید برقرار باشند.)
-	$$\Rightarrow \mathsf{L:B\bullet R_1^* \Bumpeq L:B \bullet (L:B)^* \Bumpeq 
-	(L:B)^+}$$
-
-	$$\blacktriangleright\blacktriangleright\mathsf{R'_1} \notin \mathbb{R_\varepsilon}:$$
-با توجه به تعریف تابع سر و دم و فرض استقرا که چند خط بالاتر بیان شده، در این حالت داریم 
-	$\mathsf{fstnxt(R)=\langle L:B , R'_1 \bullet R_1^* \rangle}$.
-	به همان دلیل مورد قبلی می‌دانیم که $\mathsf{R_1^*}$ عضو $\mathbb{R^\nmid}$ است و طبق فرض استقرا داریم $\mathsf{R'_1} \in \mathbb{R^\nmid}$. بنابراین داریم
-		$\mathsf{R'_1 \bullet R_1^*} \in \mathbb{R^\nmid}$.
-		
-		باز هم با استفاده از فرض استقرا داریم:
-		$$\mathsf{L:B \bullet R'_1 \Bumpeq R_1}$$
-		$$\Rightarrow \mathsf{L:B \bullet R'_1 \bullet R_1^* \Bumpeq R_1 R_1^* \Bumpeq R_1^+}$$
+	$aft \llbracket \mathsf{P} \rrbracket = aft \llbracket \mathsf{Sl} \rrbracket $
 	
-	$$\blacktriangleright\mathsf{R=(R_1)\;:}$$
-	از فرض استقرا نتیجه می‌شود.
+	حکم را با استقرا روی ساختار $\mathsf{Sl}$ ثابت می‌کنیم. 
+	$$\blacktriangleright \mathsf{Sl = \backepsilon}:$$
+	داریم:
+	$$\mathcal{S^*} \llbracket \backepsilon \rrbracket = \{\langle at \llbracket \backepsilon \rrbracket , \dot{\rho} \rangle | \dot{\rho} \in \mathbb{EV}\}$$
+	و طبق تعریف برچسب‌ها داریم:
+	$$at \llbracket \backepsilon \rrbracket = aft \llbracket \backepsilon \rrbracket$$
+	پس حکم برقرار است.
+	$$\blacktriangleright \mathsf{Sl =Sl'\;S}:$$
+	اینکه در معنای $\mathsf{Sl}$ دنباله‌ای شامل
+	 $\langle aft \llbracket \mathsf{Sl} \rrbracket , \rho '\rangle$ وجود داشته باشد، به با توجه به تعاریفی که داریم به این وابسته است که در معنای $\mathsf{S}$ دنباله‌ای شامل $\langle aft \llbracket \mathsf{S} \rrbracket , \rho' \rangle$ وجود داشته باشد. برای اینکه این را ثابت کنیم هم باید همین حکم را روی ساختار $\mathsf{S}$ ثابت کنیم که در واقع بخش اصلی اثبات این سمت قضیه است. 
+	$$\blacktriangleright\blacktriangleright \mathsf{S\;=\; x\doteq A;}:$$
+	در این حالت با توجه به تعریف معنای $\mathsf{S}$ که قبل‌تر ارائه شد، دنباله‌ی 
+	$$\langle at \llbracket \mathsf{S} \rrbracket ,\rho \rangle \langle aft\llbracket\mathsf{S}\rrbracket , \rho[\mathsf{x}\leftarrow \mathcal{A}\llbracket\mathsf{A}\rrbracket\rho] \rangle $$
+	در معنای دستور به ازای هر $\rho$ وجود دارد که خب در هر صورت این شامل محیط متناظر با $\underline{\rho}$ هم می‌شود .
+	$$\blacktriangleright\blacktriangleright \mathsf{S=\; ; \;\;}:$$	 
+با توجه به معنای این دستوردنباله‌ی زیر در معنای این دستور وجود دارد.
+$$\langle at \llbracket \mathsf{S} \rrbracket ,\rho \rangle \langle aft\llbracket\mathsf{S}\rrbracket , \rho \rangle $$
+
+$$\blacktriangleright\blacktriangleright \mathsf{S=\; if\;(B)\;S_t}:$$
+	در صورتی که 
+	$\mathcal{B}\llbracket\mathsf{B}\rrbracket\rho=\mathit{T}$
+	دنباله‌ی 
+	$$\langle at \llbracket \mathsf{S} \rrbracket , \rho \rangle
+	\langle at \llbracket \mathsf{S_t} \rrbracket , \rho \rangle \pi$$
+	در مجموعه‌ی معنای این دستور حضور دارد در حالیکه 
+	$\langle at \llbracket \mathsf{S_t} \rrbracket , \rho \rangle \pi$
+	داخل معنای $\mathsf{S_t}$ است و طبق فرض استقرا می‌دانیم که برچسب آخرین موقعیت $\pi$ برابر است با $aft \llbracket \mathsf{S_t} \rrbracket$ که طبق تعاریف مربوط به برچسب‌ها 
+	$aft \llbracket \mathsf{S_t} \rrbracket=aft \llbracket \mathsf{S} \rrbracket$.
+	در صورتی که معنای عبارت بولی غلط باشد هم دنباله‌ی زیر در معنای دستور طبق تعریف موجود است.
+	$$\langle at \llbracket \mathsf{S} \rrbracket ,\rho \rangle \langle aft\llbracket\mathsf{S}\rrbracket , \rho \rangle $$
+	
+$$\blacktriangleright\blacktriangleright \mathsf{S=\; if\;(B)\;S_t\;else\;S_f}:$$
+مانند حالت قبل است منتها با این تفاوت که در صورتی که معنای عبارت بولی غلط باشد دنباله‌ی زیر در معنای دستور حضور دارد:
+	$$\langle at \llbracket \mathsf{S} \rrbracket , \rho \rangle
+\langle at \llbracket \mathsf{S_f} \rrbracket , \rho \rangle \pi$$
+و تساوی 
+$aft \llbracket \mathsf{S_t} \rrbracket=aft \llbracket \mathsf{S} \rrbracket=aft \llbracket \mathsf{S_f} \rrbracket$
+هم طبق تعریف برچسب‌ها برقرار است.
+
+$$\blacktriangleright\blacktriangleright \mathsf{S=\; while\;(B)\;S_t}:$$
+در اثبات این سمت قضیه این حالت پیچیده ترین حالت است و در واقع تنها حالتی است که در اثبات آن به فرض قضیه احتیاج داریم! همان طور که پیشتر گفتیم معنای حلقه با استفاده از یک تابع تعریف می‌شود. معنای حلقه کوچکترین نقطه ثابت این تابع است، در حالیکه انگار این تابع وقتی روی یک مجموعه از ردهای پیشوندی اعمال شود، تاثیرات یک بار اجرای دستورات درون حلقه را روی ردهای پیشوندی درون مجموعه اعمال می‌کند.
+
+طبق تعریف $\mathcal{F}$ مطمئن هستیم که رد پیشوندی‌ای که با محیط $\underline{\rho}$ شروع شود در مجموعه‌ی معنای $\mathsf{S}$ وجود دارد، چونکه به ازای هر محیط $\dot{\rho}$(نقطه به این خاطر است که با $\rho$ خاص موجود در فرض اشتباه گرفته نشود) حالت 
+$\langle at \llbracket \mathsf{S} \rrbracket, \dot{\rho} \rangle$
+ در هر اعمال تابع $\mathcal{F}$ روی هر مجموعه‌ی دلخواه وجود دارد. وقتی معنای $\mathsf{S}$ را به عنوان کوچک‌ترین نقطه ثابت $\mathcal{F}$ در نظر گرفته‌ایم پس مطمئن هستیم که آن مجموعه‌ای که کوچکترین نقطه ثابت است شامل رد پیشوندی 
+ $\langle at \llbracket \mathsf{S} \rrbracket, \rho \rangle$
+ است. این رد پیشوندی با اجرای $\mathcal{F}$ تحت تاثیر قرار می‌گیرد. اگر معنای $\mathsf{B}$ در یکی از اعمال های $\mathcal{F}$ غلط باشد، رد پیشوندی
+$ \langle at \llbracket \mathsf{S} \rrbracket, \rho \rangle \pi \langle aft \llbracket \mathsf{S} \rrbracket , \rho' \rangle$ 
+در معنای برنامه قرار خواهد گرفت و می‌توانیم بگوییم اجرای دستور با این محیط اولیه توقف پذیر است. می‌دانیم که طبق تعریف تابع به انتهای این رد پیشوندی چیزی اضافه نمی‌شود. از طرف دیگر هم با این محیط اولیه، با توجه به تعریف رد پیشوندی دیگری وجود ندارد که طولانی‌تر از رد پیشوندی مورد اشاره باشد. 
+
+در حالت دیگر اگر فرض کنیم هیچ گاه به حالتی نمی‌رسیم که در آن معنای $\mathsf{B}$ غلط باشد هم با فرض مسئله به تناقض می‌خوریم، چون در آن صورت تابع $\mathcal{F}$ مدام به طول دنباله‌‌هایی که با محیط $\rho$ شروع می‌شوند می‌افزاید و این یک دنباله‌ی نامتناهی را خواهد ساخت. در صورتی که معنای $\mathsf{B}$ هیچ گاه صحیح نباشد، حداقل حالت 
+$\langle at \llbracket \mathsf{S_t} \rrbracket , \rho'' \rangle$
+به ته دنباله‌های پیشین اضافه خواهد شد و از این جهت مطمئن هستیم که دنباله‌ی نامتناهی گفته شده در معنای دستور حضور خواهد داشت. 
+
+پس با این تفاصیل، این مورد هم ثابت می‌شود.
+
+\break$$\blacktriangleright\blacktriangleright \mathsf{S=\; break;}:$$
+در تعریف تابع $aft$ روی برچسب‌ها در \cite{calcul} این تعریف برای این دستور مشخص نیست! در \cite{cousotbook} که در مورد برچسب‌ها بحث شده، نویسنده‌ی \cite{calcul} گفته که در مورد آن بخش از تعاریف توابع مربوط به برچسب‌ها که تعریف نشده‌اند برداشت آزاد است و ما در اینجا سعی داریم معقول ترین برداشتی که نسبت به درکمان از این کار می‌توانیم داشته باشیم را بیان کنیم. مهم‌ترین چیزی که در مورد برچسب‌ها در مورد این دستور قرار است برقرار باشد این است که اگر این دستور بخشی از $\mathsf{S_t}$ در حلقه‌ی زیر باشد
+$$\mathsf{S'=\; while\; (B)\; S_t}$$
+در این صورت 
+$aft \llbracket \mathsf{S'} \rrbracket = brk-to \llbracket \mathsf{S_t} \rrbracket $
+را طبق تعریف داریم. انتظار می‌رود که\break 
+$aft \llbracket \mathsf{break;} \rrbracket = aft \llbracket \mathsf{S'} \rrbracket$ 
+باشد. اینکه دستورات برنامه پس از اجرای $\mathsf{break;}$ از خارج(یا به عبارت بهتر بعد از) حقله‌ی $\mathsf{S'}$ پی گرفته شود انتظار معقولی است از سیستمی که در حال توصیف رد اجرای برنامه‌های کامپیوتری است. البته در نظر گرفته شود که فرض کرده‌ایم که $\mathsf{S'}$ داخلی ترین حلقه‌ای است که $\mathsf{break;}$ درون آن جای دارد.
+
+ از پس این فرض‌های ما 
+$aft \llbracket \mathsf{break;} \rrbracket = break-to \llbracket \mathsf{S_t} \rrbracket$ 
+نتیجه می‌شود و طبق تعریف معنای دستورات 
+$\mathsf{break;}$
+رد پیشوندی زیر در معنای این دستور وجود دارد
+$$\langle at \llbracket \mathsf{break;} \rrbracket , \rho \rangle
+\langle aft \llbracket \mathsf{break;} \rrbracket , \rho \rangle$$
+ که نشانه‌ی توقف است.
+ 
+
+$$\blacktriangleright\blacktriangleright \mathsf{S=\; \{ Sl'' \}}:$$
+	در این صورت توقف پذیری $\mathsf{Sl''}$ را از فرض استقرای استقرایی که روی لیست دستورات زده بودیم داریم پس $\mathsf{\{Sl''\}}$ هم توقف پذیر است.
+	
+	
+در اینجا اثبات این طرف قضیه به پایان می‌رسد.
+
+($\Leftarrow$)
+دوباره باید روی ساختار برنامه‌ها استقرا بزنیم و دوباره چون هر برنامه مساوی با یک لیست از دستورات است استقرا را ابتدا روی ساختار لیست دستورات و در دل آن روی ساختار دستورات استقرا می‌زنیم.
+
+در این اثبات به غیر از یک حالت ساختار دستور، که دستور حلقه است، هر آنچه در مورد اثبات طرف راست قضیه گفتیم، به ما حکم را بدون نیاز به فرض نشان می‌دهد. بنابراین فقط در مورد اثبات همین یک مورد بحث می‌کنیم. 
+$$\blacktriangleright\blacktriangleright \mathsf{S=\; while\; (B)\; S_t}:$$
+
+اگر فرض کنیم این دستور به ازای محیط $\rho$ در حالت اول متوقف شده، در واقع فرض کرده‌ایم در معنای این دستور رد پیشوندی 
+$\langle at \llbracket \mathsf{S} \rrbracket , \rho \rangle \pi \langle aft \llbracket \mathsf{S} \rrbracket , \rho' \rangle \pi'$ 
+وجود دارد.
+باید ثابت کنیم به ازای $\pi'$ دلخواه اگر رد پیشوندی
+$\langle at \llbracket \mathsf{S} \rrbracket , \rho \rangle \pi \langle aft \llbracket \mathsf{S} \rrbracket , \rho' \rangle \pi'$ 
+داخل 
+$\mathcal{S^*}\llbracket \mathsf{S} \rrbracket$
+وجود داشته باشد آنگاه
+$\pi'=\epsilon$
+برقرار است.
+
+اگر برچسب
+$aft \llbracket \mathsf{S} \rrbracket$
+در یک حالت در رد پیشوندی‌ای که گفتیم حضور داشته باشد، یعنی در یک دور اجرای حلقه عبارت بولی معنی غلط می‌داده که حالتی شامل این برچسب به یک رد پیشوندی چسبانده شده و این رد پیشوندی ساخته شده. از طرفی دیگر هم می‌دانیم که وقتی عبارت بولی حاضر در ساختار حلقه غلط شده، دیگر به ردهای پیشوندی داخل معنای حلقه چیزی اضافه نمی‌شود. بنابراین سناریو‌ای جز $\pi'=\epsilon$ باقی نمی‌ماند. 
 \end{proof}
 
-این بخش در این قسمت به پایان می‌رسد. الان ابزارهای کافی برای بیان روش وارسی مدل به شکل جدیدی که مد نظر است را داریم.
+پس با توجه به آنچه گفتیم می‌توانیم با خیال راحت توقف پذیری یک برنامه با یک محیط اولیه را معادل متناهی بودن همه‌ی ردهای پیشوندی‌ای بدانیم که با محیط متناظر با آن محیط اولیه شروع شده‌اند.
+اگر در صورت ارائه شده از وارسی مدل عبارت منظم $\mathsf{R}$ را با عبارت منظم $\varepsilon$ جایگزین کنیم داریم:
+$$\mathsf{P},\underline{\rho} \models \mathsf{R}
+\Leftrightarrow
+(\{\underline{\rho}\}\times \mathcal{S}^* \llbracket \mathsf{P}\rrbracket) \subseteq 
+\mathsf{prefix} (\mathcal{S}^r \llbracket \varepsilon \bullet (?:\mathit{T})^*\rrbracket)
+=\mathsf{prefix} (\mathcal{S}^r \llbracket (?:\mathit{T})^*\rrbracket)$$
+طبق تعریف معنای عبارات منظم، هر رد پیشوندی متناهی‌ای داخل مجموعه‌ی سمت راستی رابطه‌ی زیرمجموعه بودن قرار می‌گیرد. این یعنی اگر الگوریتمی برای بررسی 
+$\mathsf{P} , \underline{\rho} \models \mathsf{R} $
+داشته باشیم، این الگوریتم می‌تواند تشخیص دهد آیا برنامه‌ی $\mathsf{P}$ با محیط اولیه‌ی $\underline{\rho}$ متوقف می‌شود یا خیر! این یعنی الگوریتمی برای مسئله‌ی توقف پذیری، مسئله‌ای که تصمیم ناپذیر است! بنابراین چنین الگوریتمی نباید وجود داشته باشد که یعنی پیاده سازی‌ای برای شیوه‌ای که در حال بیانش هستیم وجود ندارد! ادامه‌ی کار روی همین تعریف پیش می‌رود و دو صورت دیگر هم که قرار است ساختارمندتر باشند در نهایت با این صورت معادل‌اند، هرچند که پس از رسیدن به بیان دو صورت دیگر خواهیم دید که همین صحبت‌هایی که در مورد این صورت می‌کنیم در مورد صورت‌های دیگر هم بدون در نظر گرفتن معادل بودن این ۳ صورت برقرار است.
 
-\section{وارسی مدل منظم}
-همان‌طور که گفتیم در این فصل می‌خواهیم یک صورت معادل از صورتی که در فصل پیش برای روش وارسی مدل آورده شده بود را ارائه کنیم و تا به اینجای فصل صرفا به معرفی چند مفهوم که برای بیان این صورت جدید احتیاج داشتیم پرداختیم. در این یخش ابتدا این صورت جدید را بیان می‌‌کنیم و سپس به اثبات می‌‌کنیم که این صورت جدید با صورت قبلی معادل است. همان‌طور که پیشتر هم اشاره شد تفاوت این بیان با بیان قبلی این است که این بیان روی ساختار عبارات منظم تعریف شده در حالیکه صورت قبلی ساختاری نداشت.
-\subsection{صورت}
 
-در نهایت برای تعریف صورت به یک تابع $\mathcal{M}$ احتیاج داریم که در ورودی‌اش یک زوج متشکل از یک محیط اولیه و یک عبارت منظم را در کنار یک برنامه می‌گیرد و در خروجی همه‌ی ردهای پیشوندی موجود در معنای برنامه را که با عبارت منظم سازگار هستند، داخل یک مجموعه بر می‌گرداند.
-اما در این بین این مفهوم سازگاری یک رد پیشوندی با یک مجموعه چگونه مشخص می‌شود؟ این نکته‌ای است که تا به حال در مورد آن بحث نکرده‌ایم و الان می‌خواهیم تابع $\mathcal{M}^t$ را با این هدف تعریف کنیم. البته این تابع قرار است یک ویژگی بیشتر هم داشته باشد و این ویژگی این است که اگر عبارت منظم با رد پیشوندی سازگار نباشد، به ما می‌گوید که از کجای عبارت منظم ناسازگاری وجود داشته واگر هم این دو با هم سازگار باشند این تابع به ما نشان می‌دهد که عبارت منظم تا کجا بررسی شده( قهمیدن این موضوع با نگاه به تعریف ساده‌تر می‌شود و البته نباید فراموش کرد که سازگاری‌ای که داریم، قرار است پیرو صورت قبلی باشد که در آن اگر طول یک عبارت منظم از یک رد پیشوندی بیشتر باشد و صرفا تا اتمام طول رد پیشوندی سازگاری بین این دو برقرار باشد، در نهایت هم سازگار حسابشان می‌کنیم، به عبارت دیگر داریم از نقش عملگر $\mathsf{prefix}$ در صورت قبلی صحبت می‌کنیم).
+
+
+\section{در مورد قدرت بیان عبارات منظم}
+در این بخش می‌‌خواهیم کمی در مورد قدرت بیان عبارات منظمی که در این فصل آورده‌ایم در مقایسه با منطق \lr{LTL} که در فصل اول آمده صحبت کنیم. همان طور که پیش‌تر گفتیم، یکی از دلایلی که برای استفاده از عبارات منظم داریم این است که قدرت بیان بالاتری دارد. در \cite{regisbetter} در این مورد صحبت شده و ما هم در این فصل از آن مرجع برای بررسی‌هایمان کمک گرفته‌ایم، هرچند که آن بحث در فضای متفاوتی است. در \cite{calcul} هم در این مورد بحثی نشده.
+
+پیش از اینکه بخواهیم مقایسه‌ای ترتیب دهیم، ابتدا باید زبانی را که در فصل اول از \lr{LTL} آورده‌ایم، با عبارات منظمی که در این فصل آورده‌ایم با هم قابل مقایسه کنیم. به هر حال زبانی که در فصل اول آمده یک منطق گزاره‌ای است اما در عبارات منظمی که در این فصل آورده‌ایم اتم‌ها( یا به عبارت دیگر لیترال‌ها) به موجودات ساختارمندتر تبدیل شده‌اند که همان زوج مرتب‌های $\mathsf{L:B}$ هستند. در اینجا معناشناسی ما هم نسبت به تغییری که در اتم‌ها داده‌ایم فرق کرده. بنابراین اولین تلاشی که می‌کنیم این است که منطقی که در فصل اول آورده‌ایم را به شکلی که حس می‌کنیم قابل مقایسه با عبارات منظم باشد تغییر دهیم. در واقع تغییری که در زبان می‌دهیم همان تغییر اتم‌هاست. در ادامه معناشناسی منطق \lr{LTL} را هم به کمک ردهای پیشوندی، مثل عبارات منظم، بیان می‌کنیم. نام این منطق جدید را "\lr{LTL}- گسترش یافته" گذاشته‌ایم. 
+
 \begin{defn}
-	(وارسی‌گر رد پیشوندی): به تابع $\mathcal{M}^t$ از نوع 
-	$\mathbb{(\underline{EV} \times R^\nmid) \rightarrow  \mathfrak{S}^{+\infty}}
-	\rightarrow (\mathbb{B \times R^\nmid} ) $
-	وارسی‌گر رد پیشوندی می‌گوییم. این تابع ضابطه‌ی زیر را دارد:
-	$$\blacktriangleleft\mathcal{M}^t \langle \underline{\rho} , \varepsilon \rangle \pi = 
-	\langle \mathit{T} , \varepsilon \rangle$$
-	(برای هر عضو دیگر $\mathbb{R_\varepsilon}$ هم ضابطه‌ی بالایی برقرار است. دو ضابظه‌ی پایینی برای عبارات منظم عضو $\mathbb{R^+ \cap R^\nmid}$ هستند.)
-	$$\blacktriangleleft\mathcal{M}^t \langle \underline{\rho} , \mathsf{R} \rangle \epsilon = 
-	\langle \mathit{T} , \mathsf{R} \rangle$$
-	$$\blacktriangleleft\mathcal{M}^t \langle \underline{\rho} , \mathsf{R} \rangle \pi = 
-	\llparenthesis \langle \underline{\rho}, \langle l_1, \rho_1 \rangle \rangle \in
-	\mathcal{S}^r \llbracket \mathsf{L:B} \rrbracket \; ? \; 
-	\mathcal{M}^t \langle \underline{\rho}, \mathsf{R'} \rangle \pi' \; : \; 
-	\langle \mathit{F}, \mathsf{R} \rangle \rrparenthesis$$
-	$$\mathsf{while}\; \pi=\langle l_1,\rho_1\rangle \pi' \;\mathsf{and}\; 
-	\langle \mathsf{L:B,R'}\rangle = \mathsf{fstnxt(R)}$$
+	(زبان \lr{LTL}- گسترش‌ یافته): با فرض اینکه 
+	$\mathsf{L} \in \mathbb{L}$
+	و 
+	$\mathsf{B} \in \mathbb{B}$
+	زبان جدید  \lr{LTL} به شکل زیر است:
+	
+	$$
+	\phi \in \Phi \Leftrightarrow
+	\phi ::= \mathsf{L:B} | \phi_1 \lor \phi_2 |
+	\neg \phi_1 |
+	\bigcirc \phi_1 |
+	\phi_1 \mathcal{U}\phi_2 
+	$$	
+	
+\end{defn} 
+
+\begin{defn}
+	(معناشناسی \lr{LTL}- گسترش یافته): تابع 
+	$\mathcal{S}^t : \Phi \rightarrow \mathit{P}(\mathbb{\underline{EV}}\times\mathfrak{S}^{+})$
+	با ضابطه‌ی زیر، معناشناسی زبان \lr{LTL} است.
+	
+	$$\blacktriangleleft \mathcal{S}^t \llbracket \mathsf{L:B} \rrbracket = 
+	\{ \langle \underline{\rho} , \langle l , \rho \rangle\rangle | l \in \mathsf{L} \; , \; \mathcal{B}\llbracket \mathsf{B} \rrbracket \underline{\rho}, \rho=\mathit{T} \; , \; \underline{\rho}\in \mathbb{\underline{EV}}\}$$
+	$$\blacktriangleleft \mathcal{S}^t \llbracket \mathsf{\phi_1 \lor \phi_2} \rrbracket =
+	\mathcal{S}^t \llbracket \phi_1 \rrbracket \cup \mathcal{S}^t \llbracket \phi_2 \rrbracket
+	$$
+	$$\blacktriangleleft \mathcal{S}^t \llbracket \mathsf{\neg \phi_1} \rrbracket =
+	\mathfrak{S}^{+ \infty} \setminus \mathcal{S}^t \llbracket \phi_1 \rrbracket
+	$$
+	$$\blacktriangleleft \mathcal{S}^t \llbracket \mathsf{\bigcirc \phi_1} \rrbracket =
+	\{ \langle \underline{\rho} , \langle l , \rho \rangle \pi \rangle | \langle \underline{\rho},\pi \rangle \in \mathcal{S}^t \llbracket \phi_1 \rrbracket \; , \; l \in \mathbb{L} \; , \; \rho \in \mathbb{EV} \; , \;\underline{\rho},\in \mathbb{\underline{EV}} \}
+	$$
+	$$\blacktriangleleft \mathcal{S}^t \llbracket \mathsf{\phi_1 \mathcal{U} \phi_2} \rrbracket =
+	\{ \langle \underline{\rho} , \pi \rangle | \exists \pi': \forall \pi'': \pi \pi'' \subsetneq \pi' \rightarrow (\langle \underline{\rho}, \pi \pi'' \rangle \in \mathcal{S}^t \llbracket \phi_1 \rrbracket,\langle \underline{\rho}, \pi' \rangle \in \mathcal{S}^t \llbracket \phi_2 \rrbracket) \; , \;\underline{\rho} \in \mathbb{\underline{EV}} \}
+	$$
+	
 	
 \end{defn}
 
-برای اینکه به $\mathcal{M}$ برسیم به معرفی یک تابع دیگر هم می‌پردازیم. این تابع را با
- $\mathcal{M}^\nmid$ 
-نشان می‌دهیم و در واقع همان کاری را که $\mathcal{M}$ قرار است به ازای همه‌ی عبارات منظم انجام دهد، این تابع روی عبارات منظمی که $+$ ندارند انجام می‌دهد.
+حال می‌خواهیم ثابت کنیم که معناشناسی‌ای که ارائه کرده‌ایم، معنای \lr{LTL} را حفظ کرده. 
+برای این کار ابتدا یک معناشناسی جدید را برای زبان \lr{LTL} قدیمی ارائه می‌دهیم و ثابت می‌کنیم که معادل با معناشناسی قبلی است. سپس می‌بینیم که با تغییر مدل‌ها در معناشناسی جدید، معناشناسی گسترش یافته برای \lr{LTL} می‌رسیم.
+
 \begin{defn}
-	(وارسی مدل منظم محدود به $\mathbb{R^\nmid}$): به تابع $\mathcal{M}^\nmid$ از نوع \break
-	$\mathbb{(\underline{EV} \times R^\nmid)} \rightarrow  \mathit{P}({\mathfrak{S}^{+\infty})}
-	\rightarrow \mathit{P}(\mathfrak{S}^{+\infty} \times \mathbb{R}^\nmid ) $
-	می‌گوییم وارسی مدل منظم محدود به $\mathbb{R^\nmid}$. ضابطه‌ی این تابع به شکل زیر است:
+	(مدل \lr{LTL}- جدید): به هر تابع از $\Pi$ یعنی مجموعه‌ی اتم‌ها به $\mathit{P(\mathbb{N})}$ یعنی مجموعه‌ی همه‌ی زیرمجوعه‌های مجموعه‌ی کل اعداد طبیعی می‌گوییم مدل جدید.
+	$$M_n:\Pi \rightarrow \mathit{P(\mathbb{N})}$$
+	مجموعه‌ی همه‌ی مدل‌های جدید را با 
+	$\mathbb{M}_n$
+	نشان می‌دهیم.
+\end{defn}
+
+\begin{defn}
+	(معناشناسی \lr{LTL}- جدید): تابع 
+	$\bar{ }:\mathbb{M}_n \rightarrow \Phi \rightarrow \mathit{P}(\mathbb{N})$
+	( به علامت گذاری دقت کنید! نام گذاری تابع به شکل سنتی و با یک حرف خاص نیست و صرفا علامت بار را گذاشته‌ایم. به ازای مدل $M_n$ در ورودی، تابع 
+	$\bar{M_n}: \Phi \rightarrow \mathit{P}(\mathbb{N})$
+	 را داریم.)
+	 به ازای مدل $M_n$ روی فرمول‌های زبان \lr{LTL} به شکل زیر تعریف می‌شود:
+	 $$\blacktriangleleft \bar{M_n}(\pi)= \{n|n\in M_n(\pi) \}$$
+	 $$\blacktriangleleft \bar{M_n}(\phi \lor \psi)= \bar{M_n}(\phi) \cup \bar{M_n}(\psi)$$
+	 $$\blacktriangleleft \bar{M_n}(\neg \phi)= \mathbb{N} \setminus \bar{M_n}(\phi)$$
+	 $$\blacktriangleleft \bar{M_n}(\bigcirc\pi)= \{n+1|n\in \bar{M_n}(\pi) \}$$
+	 $$\blacktriangleleft \bar{M_n}(\phi \mathcal{U} \psi)= \{n|\exists k : \forall j: n \leq j \lneq k: j \in \bar{M_n}(\phi) , k \in \bar{M_n}(\psi) \}$$
+	 و به کمک این تابع تعریف می‌کنیم:
+	 $$M_n,i \models \phi \; \mathit{iff}\; i \in \bar{M_n}(\pi)$$
+\end{defn}
+
+مدل‌های جدیدی که تعریف کرده‌ایم همان اطلاعاتی را که مدل‌های قدیمی به ما می‌دادند، با آرایش دیگری در خود نگه می‌دارند. برای اینکه بتوانیم از هر دو شیوه‌ی بیان یک مدل استفاده کنیم یک تابع میان آن‌ها تعریف می‌کنیم.
+
+\begin{defn}
+	(تابع مبدل): تابع
+	$\mathfrak{T}:\mathbb{M_n} \rightarrow \mathbb{M}$
+	را به نام تابع مبدل به شکل زیر تعریف می‌کنیم:
+	$$\mathfrak{T}(M_n)(i)=\{ \pi | i \in M_n(\pi) \}$$
+\end{defn} 
+
+این تابع یک تناظر یک به یک و پوشا بین مدل‌های قدیم و جدید درست می‌کند. بنابراین می‌توانیم قضیه‌ی زیر را بیان کنیم.
+\begin{thm}
+	معناشناسی جدید و قدیم با یکدیگر معادل‌اند یا به عبارت دیگر داریم:
+	برای هر مدل $M_n \in \mathbb{M_n}$ داریم:
 	
-	 $$\mathcal{M}^\nmid \langle \underline{\rho} , \mathsf{R} \rangle \Pi= \{ \langle \pi , \mathsf{R'} \rangle | \pi \in \Pi \land  
-	  \mathcal{M}^t \langle \underline{\rho} , \mathsf{R} \rangle \pi =
-	 \langle \mathit{T} , \mathsf{R'} \rangle \}$$
-\end{defn}
+\end{thm}
 
-
-حالا خود $\mathcal{M}$ را تعریف می‌کنیم. تعریف این تابع چیزی نیست جز اجتماع گرفتن از خروجی تابع بالا به ازای عبارات منظمی که در فرم نرمال عبارت منظم ورودی تابع حضور دارند. البته اطلاعاتمان از عبارات منظم در هر زوجی که در خروجی $\mathcal{M}^\nmid$ حذف می‌شود، یعنی صرفا ردهای پیشوندی را داریم.
-
-\begin{defn}
-(وارسی مدل منظم):
-تابع $\mathcal{M}$ را از نوع 
-$\mathbb{(\underline{EV} \times R)} \rightarrow  \mathit{P}({\mathfrak{S}^{+\infty})}
-\rightarrow \mathit{P}(\mathfrak{S}^{+\infty} ) $
- وارسی مدل منظم می‌گوییم که ضابطه‌ی زیر را دارد:
-$$\mathcal{M} \langle \underline{\rho} , \mathsf{R} \rangle \Pi= \bigcup_{i=1}^n \{  \pi | \exists \mathsf{R'} \in \mathbb{R}:\; \langle \pi , \mathsf{R'} \rangle \in 
-\mathcal{M}^\nmid \langle \underline{\rho}, \mathsf{R_i} \rangle \Pi \}$$
-$$\mathsf{while \; dnf (R) = R_1 + R_2 + ... + R_n}$$ 
-
-
-
-
-
-\end{defn}
-
-با این تعریف در واقع زمانی می‌توانیم بگوییم، برنامه‌ی $\mathsf{P}$ خاصیت $\mathsf{R}$ دارد \break که 
-$\mathcal{M}\langle \underline{\rho} , \mathsf{R} \rangle \mathcal{S}^* \llbracket \mathsf{P} \rrbracket = 
-\mathcal{S}^* \llbracket \mathsf{P} \rrbracket$.
-در واقع انگار تابع 
-$\mathcal{M} \langle \underline{\rho} , \mathsf{R} \rangle$
-مثل یک صافی روی مجموعه‌ی 
-$\mathcal{S}^* \llbracket \mathsf{P} \rrbracket$
-عمل می‌کند.
-
-
-می‌توان این طور تصور کرد که به هر حال مجموعه‌ی معنای یک برنامه می‌تواند به مجموعه‌هایی افراز شود که در هر مجموعه ردهای پیشوندی‌ای حضور دارند که محیط اولین وضعیتشان یکسان است. در چنین مجموعه‌ای قاعدتا باید اگر در رد پیشوندی‌هایی که حداقل دو عضو دارند، وضعیت دومشان یکسان است و این رویه برای بقیه‌ی وضعیت‌ها نیز صادق است، یعنی مثلا در رد پیشوندی‌هایی که $n$ عضو وجود دارد، وضعیت  $n$ام در همه‌ی آن‌ها یکسان خواهد بود. در هر مجموعه‌ی داخل این افراز یک رد پیشوندی ماکسیمال وجود خواهد داشت که در واقع اجرای کامل برنامه با محیطی که در وضعیت اول قرار دارد است.
-
-حال برای هر برنامه‌ی $\mathsf{P}$ که خاصیت $\mathsf{R}$ در مورد آن مورد بررسی است، بعد از اینکه 
-$\mathcal{M} \langle \underline{\rho}, \mathsf{R} \rangle \mathcal{S}^* \llbracket \mathsf{P} \rrbracket$
- محاسبه شد، اگر در هر مجموعه از افرازی که در بالا توصیف کردیم، رد پیشوندی ماکسیمال موجود باشد در آن صورت 
-$\mathcal{M} \langle \underline{\rho}, \mathsf{R} \rangle \llbracket \mathsf{P} \rrbracket=
-\llbracket \mathsf{P} \rrbracket $
-برقرار خواهد بود. اگر هم این تساوی برقرار نباشد، در افراز
-$\mathcal{M} \langle \underline{\rho}, \mathsf{R} \rangle \llbracket \mathsf{P} \rrbracket$
-نسبت به وضعیت‌های متفاوت در اول های پیشوندی، در هر افزاری که رد پیشوندی ماکسیمال موجود در همان افراز در مجموعه‌ی 
-$\mathcal{S}^* \llbracket \mathsf{P} \rrbracket $ 
-نیست، آن رد پیشوندی دیگری که در آن مجموعه ماکسیمال است، به ما می‌گوید که برنامه به چه وصعیتی برخورد کرده که با $\mathsf{R}$ ناسازگاری داشته و اطلاعاتی را در مورد برنامه به ما می‌دهد.
-
-برای حرف هایی که در چند بخش قبل گفتیم، اثباتی نیاورده‌ایم و البته که ادعاهایی هم هستند که نیاز به اثبات دارند، اما به هر حال اثبات آن‌ها در این بخش و در حین بحثی که هستیم، به نظر منحرف کننده می‌آید و البته در ادامه هم حرفی بر اساس این ادعاها زده نشده. اما به هر حال اگر یک درک شهودی از این موجوداتی که در اینجا توصیف شده‌اند داشته باشیم، می‌توانیم تا حد قابل قبولی صحت این ادعاها را ببینیم.
-
-
-\subsection{درستی و تمامیت}
-
-در این بخش قرار است به اثبات برقراری دو صورت متفاوتی که تا به حال از وارسی مدل ارائه کرده‌ایم بپردازیم. عنوان بخش "درستی و تمامیت" نباید با مفهومی از درستی و تمامیت که در \cite{statica} آمده اشتباه گرفته شود. این عنوانی است که نویسنده‌ی \cite{calcul} برای دو قضیه‌ای که معادل بودن این دو روش را نشان می‌دهند به کار گرفته و ما هم در اینجا همان نام را آورده‌ایم.
-
-نگارنده‌ی این پایان نامه به صحت اثبات موجود در  \cite{calcul} مشکوک است! ابتدا این اثبات را بیان کرده‌ایم و ایرادی که به آن وارد می‌بینیم را توضیح داده‌ایم و سپس اثبات خودمان را ارائه کرده‌ایم.
 
 
 
