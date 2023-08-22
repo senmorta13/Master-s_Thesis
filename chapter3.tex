@@ -241,11 +241,35 @@ $$\mathcal{B}\llbracket\mathsf{B_1\:nand\:B_2}\rrbracket\underline{\rho},\rho=
 \mathcal{B}\llbracket\mathsf{B_2}\rrbracket\underline{\rho},\rho $$
 \end{defn}
 به‌راحتی قابل مشاهده است که تعاریف جدید تا حد خوبی به تعاریف قبلی شبیه هستند و فرق عمده صرفا وارد شدن $\underline{\rho}$ است.\\
-تا اینجای کار بیشتر مفاهیمی که برای بیان صورت جدید مسئله‌ی وارسی مدل احتیاج داریم را بیان کرده‌ایم. 
-\subsection{واریته‌های مختلف زبان عبارات منظم}
-به عنوان قسمت آخر این بخشْ واریته‌های مختلفی از زبان عبارات منظم را بیان می‌کنیم. ، که هر کدام در واقع زیرمجموعه‌هایی از کل عبارات زبانی که توصیف کرده‌ایم را توصیف می‌کنند. بعضی از آن‌ها را در همین فصل برای هدف نهایی این فصل و بعضی دیگر را در فصل بعدی استفاده می‌کنیم.
 
-اولین واریته‌ای که می‌خواهیم بیان کنیم، واریته‌ای است که در اعضای آن اصلا عبارت 
+حال که معناشناسی عبارات منظم را داریم، به طور مختصر به مقایسه‌ی عبارات منظمی که در این بحث تعریف کرده‌ایم و عبارات منظم کلاسیک در باقی نوشته‌ها و موضوعات می‌پردازیم. جبر کلاینی یک ساختار جبری است که تعمیمی است از عبارات منظم معرفی شده در \cite{kleene56}. سر و کله‌ی عبارات منظم در قسمت‌های مختلفی از علوم کامپیوتر پیدا شده‌، با تعاریفی نابرابر. جبر کلاینی قرار بوده که تعمیمی باشد که این تعاریف نابرابر را در خود جای دهد. در \cite{DexterKleene} آمده که برای جبر کلاینی هم تعاریف متفاوتی که با هم برابر نیستند، معرفی شده است. علاوه بر این، این مقاله به بررسی این تعاریف و ارتباطشان با یکدیگر پرداخته است. همین طور، این مقاله خود با یک تعریف از جبر کلاینی شروع کرده. طبق این تعریف اگر عبارات منظم ما یک جبر کلاینی می‌بودند، می‌بایستی که برای هر عبارت منظم $\mathsf{R}$ می‌داشتیم
+$\mathcal{S}^r \llbracket \mathsf{\varepsilon R} \rrbracket = \mathcal{S}^r \llbracket \mathsf{\varepsilon} \rrbracket$ 
+چون $\varepsilon$ نقش صفر عملگر انتخاب( که عملگر جمع جبر کلینی است) را دارد و یک جبر کلاینی برای صفر خاصیت جذب را به عنوان یک اصل دارد. اما در مورد عبارات منظمی که در اینجا تعریف کردیم داریم 
+$\mathcal{S}^r \llbracket \mathsf{\varepsilon R} \rrbracket = \mathcal{S}^r \llbracket \mathsf{R} \rrbracket$.
+بیشتر از این به این بحث نمی‌پردازیم که بحث دامنه‌دار و منحرف کننده‌ایست. یک قضیه را در مورد عبارات منظم ارائه می‌دهیم که پخش پذیری عملگر انتخاب به عملگر چسباندن است و بعد به ادامه‌ی راه اصلیمان می‌پردازیم.
+\begin{thm}
+	برای عبارات منظم
+	 $\mathsf{R , R}_1,\mathsf{R}_2$
+	 داریم:
+	  $$\mathcal{S}^r \llbracket \mathsf{R}\bullet (\mathsf{R}_1 + \mathsf{R}_2) \rrbracket = \mathcal{S}^r \llbracket (\mathsf{R \bullet R}_1) + (\mathsf{R \bullet R}_2) \rrbracket $$
+\end{thm}
+
+\begin{proof}
+	$$\mathcal{S}^r \llbracket \mathsf{R}\bullet (\mathsf{R}_1 + \mathsf{R}_2) \rrbracket =\mathcal{S}^r \llbracket \mathsf{R} \rrbracket \Join \mathcal{S}^r \llbracket (\mathsf{R}_1+\mathsf{R}_2) \rrbracket$$
+	$$=\mathcal{S}^r \llbracket \mathsf{R} \rrbracket \Join \mathcal{S}^r \llbracket \mathsf{R}_1+\mathsf{R}_2 \rrbracket=\mathcal{S}^r \llbracket \mathsf{R} \rrbracket \Join (\mathcal{S}^r \llbracket \mathsf{R}_1 \rrbracket \cup \mathcal{S}^r\llbracket \mathsf{R}_2 \rrbracket)$$
+	$$= \{ \langle \underline{\rho}, \pi \pi' \rangle| \langle \underline{\rho}, \pi \rangle \in \mathcal{S}^r \llbracket \mathsf{R} \rrbracket \land (\langle \underline{\rho},\pi'\rangle \in \mathcal{S}^r \llbracket \mathsf{R}_1 \rrbracket\lor \langle \underline{\rho} , \pi' \rangle \in \mathcal{S}^r \llbracket \mathsf{R}_2 \rrbracket) \}$$
+	$$=\{ \langle \underline{\rho}, \pi \pi' \rangle| (\langle \underline{\rho}, \pi \rangle \in \mathcal{S}^r \llbracket \mathsf{R} \rrbracket \land \langle \underline{\rho},\pi'\rangle \in \mathcal{S}^r \llbracket \mathsf{R}_1 \rrbracket) \lor (\langle \underline{\rho}, \pi \rangle \in \mathcal{S}^r \llbracket \mathsf{R} \rrbracket \land \langle \underline{\rho} , \pi' \rangle \in \mathcal{S}^r \llbracket \mathsf{R}_2 \rrbracket  \}$$
+	$$=\{ \langle \underline{\rho}, \pi \pi' \rangle|\langle \underline{\rho}, \pi \rangle \in \mathcal{S}^r \llbracket \mathsf{R} \rrbracket \land \langle \underline{\rho},\pi'\rangle \in \mathcal{S}^r \llbracket \mathsf{R}_1 \rrbracket\} \cup
+	\{ \langle \underline{\rho}, \pi \pi' \rangle|\langle \underline{\rho}, \pi \rangle \in \mathcal{S}^r \llbracket \mathsf{R} \rrbracket \land \langle \underline{\rho},\pi'\rangle \in \mathcal{S}^r \llbracket \mathsf{R}_2 \rrbracket\}$$
+	$$=(\mathcal{S}^r \llbracket \mathsf{R} \rrbracket \Join \mathcal{S}^r \llbracket \mathsf{R}_1\rrbracket ) \cup (\mathcal{S}^r \llbracket \mathsf{R} \rrbracket \Join \mathcal{S}^r \llbracket \mathsf{R}_2 \rrbracket)=
+	\mathcal{S}^r \llbracket \mathsf{R\bullet R}_1 \rrbracket \cup \mathcal{S}^r \llbracket \mathsf{R\bullet R}_2 \rrbracket$$
+	$$=\mathcal{S}^r \llbracket (\mathsf{R \bullet R}_1) + (\mathsf{R \bullet R}_2) \rrbracket $$
+\end{proof}
+تا اینجای کار بیشتر مفاهیمی که برای بیان صورت جدید مسئله‌ی وارسی مدل احتیاج داریم را بیان کرده‌ایم. 
+\subsection{گونه‌های مختلف زبان عبارات منظم}
+به عنوان قسمت آخر این بخشْ گونه‌های مختلفی از زبان عبارات منظم را بیان می‌کنیم که هر کدام در واقع زیرمجموعه‌هایی از کل عبارات زبانی که توصیف کرده‌ایم را توصیف می‌کنند. بعضی از آن‌ها را در همین فصل برای هدف نهایی این فصل و بعضی دیگر را در فصل بعدی استفاده می‌کنیم.
+
+اولین گونه‌ای که می‌خواهیم بیان کنیم، گونه‌ای است که در اعضای آن اصلا عبارت 
 $\mathsf{L : B}$
 حضور ندارد و کل عبارت‌های زبان از $\varepsilon$ ها تشکیل شده‌اند.
 \begin{defn}
@@ -260,7 +284,7 @@ $\mathsf{L : B}$
 $\{\langle \underline{\rho} , \epsilon \rangle\}$
 خواهد بود.
 
-واریته‌ی بعدی عبارت منظم ناتهی است.
+گونه‌ی بعدی عبارت منظم ناتهی است.
 \begin{defn}
 	(عبارت منظم ناتهی - $\mathbb{R}^+$):
 	$$\mathsf{R} \:\:\:\in\:\:\: \mathbb{R}^+$$
@@ -279,7 +303,7 @@ $\mathbb{R}_\varepsilon$
 $\mathbb{R}^+$
 یک افراز برای مجموعه‌ی $\mathbb{R}$ هستند، براساس اینکه معنای هر عبارت در $\mathbb{R}$ برابر ${\langle \underline{\rho} , \epsilon \rangle}$ هست یا خیر. بنابراین شاید به نظر برسد که تعریف یکی از آن‌ها به طور ساختاری کافی بود، اما ممکن است درجایی احتیاج داشته باشیم که ساختاری استقرایی روی هر یک از آن‌ها عَلَم کنیم یا اینکه در اثبات حکمی بخواهیم از استقرا روی یکی از این دو ساختار استفاده کنیم.
 
-واریته‌ی آخر عبارات منظم ما نیز عبارات منظم بدون انتخاب است.
+گونه‌ی آخر عبارات منظم ما نیز عبارات منظم بدون انتخاب است.
 \begin{defn}
 (عبارت منظم بدون انتخاب - $\mathbb{R}^\nmid$):
 $$
@@ -513,236 +537,6 @@ $$\mathsf{P},\underline{\rho} \models \mathsf{R}
 طبق تعریف معنای عبارات منظم، هر رد پیشوندی متناهی‌ای داخل مجموعه‌ی سمت راستی رابطه‌ی زیرمجموعه بودن قرار می‌گیرد. این یعنی اگر الگوریتمی برای بررسی 
 $\mathsf{P} , \underline{\rho} \models \mathsf{R} $
 داشته باشیم، این الگوریتم می‌تواند تشخیص دهد آیا برنامه‌ی $\mathsf{P}$ با محیط اولیه‌ی $\underline{\rho}$ متوقف می‌شود یا خیر! این یعنی الگوریتمی برای مسئله‌ی توقف پذیری، مسئله‌ای که تصمیم ناپذیر است! بنابراین چنین الگوریتمی نباید وجود داشته باشد که یعنی پیاده سازی‌ای برای شیوه‌ای که در حال بیانش هستیم وجود ندارد! ادامه‌ی کار روی همین تعریف پیش می‌رود و دو صورت دیگر هم که قرار است ساختارمندتر باشند در نهایت با این صورت معادل‌اند، هرچند که پس از رسیدن به بیان دو صورت دیگر خواهیم دید که همین صحبت‌هایی که در مورد این صورت می‌کنیم در مورد صورت‌های دیگر هم بدون در نظر گرفتن معادل بودن این ۳ صورت برقرار است.
-
-
-
-
-\section{در مورد قدرت بیان عبارات منظم}
-در این بخش می‌‌خواهیم کمی در مورد قدرت بیان عبارات منظمی که در این فصل آورده‌ایم در مقایسه با منطق \lr{LTL} که در فصل اول آمده صحبت کنیم. همان طور که پیش‌تر گفتیم، یکی از دلایلی که کوزو برای استفاده از عبارات منظم دارد این است که عبارات منظم قادر به بیان خواصی هستند که منطق زمانی از بیان آن‌ها عاجز است. او \cite{regisbetter} را به عنوان مرجع صحبتش در نظر گرفته و در \cite{calcul} در این مورد با جزئیات بحثی نشده. 
-در این بخش می‌خواهیم این بحث را بیشتر باز کنیم. 
-
-سوال اصلی ما در این بخش این است که آیا یکی از این دو موجود، اکیدا از دیگری در بیان قوی‌تر هست یا خیر. به این معنی که آیا می‌شود هر چیزی که با یکی از این‌ها قابل بیان است را با دیگری هم بیان کرد یا خیر. البته که \cite{regisbetter} حداقل در مورد یک طرف این بحث حرف زده و ما هم در اینجا از آن محتوا هم کمک خواهیم گرفت و این بحث را میان دو زبانی که تا به حال در بحث داشتیم مطرح می‌کنیم، یعنی منطق زمانی خطی و عبارات منظمی که در همین فصل معرفی شدند.
-
-\subsection{نزدیک کردن صورت دو زبان}
-
-پیش از اینکه بخواهیم مقایسه‌ای ترتیب دهیم، ابتدا باید زبانی را که در فصل اول از \lr{LTL} آورده‌ایم، با عبارات منظمی که در این فصل آورده‌ایم با هم قابل مقایسه کنیم. به هر حال زبانی که در فصل اول آمده یک منطق گزاره‌ای است اما در عبارات منظمی که در این فصل آورده‌ایم اتم‌ها( یا به عبارت دیگر لیترال‌ها) به موجودات ساختارمندتری تبدیل شده‌اند که همان زوج مرتب‌های $\mathsf{L:B}$ هستند. در اینجا معناشناسی ما هم نسبت به تغییری که در اتم‌ها داده‌ایم فرق کرده. بنابراین اولین تلاشی که می‌کنیم این است که منطقی که در فصل اول آورده‌ایم را به شکلی که حس می‌کنیم قابل مقایسه با عبارات منظم باشد تغییر دهیم. در واقع تغییری که در زبان می‌دهیم همان تغییر اتم‌هاست. در ادامه معناشناسی منطق \lr{LTL} را هم به کمک ردهای پیشوندی، مثل عبارات منظم، بیان می‌کنیم. نام این منطق جدید را "\lr{LTL}- گسترش یافته" گذاشته‌ایم. 
-
-\begin{defn}
-	(زبان \lr{LTL}- گسترش‌ یافته): با فرض اینکه 
-	$\mathsf{L} \subseteq \mathbb{L}$
-	و 
-	$\mathsf{B} \in \mathbb{B}$
-	زبان جدید  \lr{LTL} به شکل زیر است:
-	
-	$$
-	\phi \in \Phi \Leftrightarrow
-	\phi ::= \mathsf{L:B} | \phi_1 \lor \phi_2 |
-	\neg \phi_1 |
-	\bigcirc \phi_1 |
-	\phi_1 \mathcal{U}\phi_2 
-	$$	
-	مجموعه‌ی همه‌ی فرمول‌ها در این زبان را با $\mathfrak{L}_e$ نمایش می‌دهیم.
-\end{defn} 
-
-\begin{defn}
-	(معناشناسی \lr{LTL}- گسترش یافته): تابع 
-	$\mathcal{S}^t : \Phi \rightarrow \mathit{P}(\mathbb{\underline{EV}}\times\mathfrak{S}^{+})$
-	با ضابطه‌ی زیر، معناشناسی زبان \lr{LTL} است.
-	
-	$$\blacktriangleleft \mathcal{S}^t \llbracket \mathsf{L:B} \rrbracket = 
-	\{ \langle \underline{\rho} , \langle l , \rho \rangle\rangle | l \in \mathsf{L} \; , \; \mathcal{B}\llbracket \mathsf{B} \rrbracket \underline{\rho}, \rho=\mathit{T} \; , \; \underline{\rho}\in \mathbb{\underline{EV}}\}$$
-	$$\blacktriangleleft \mathcal{S}^t \llbracket \mathsf{\phi_1 \lor \phi_2} \rrbracket =
-	\mathcal{S}^t \llbracket \phi_1 \rrbracket \cup \mathcal{S}^t \llbracket \phi_2 \rrbracket
-	$$
-	$$\blacktriangleleft \mathcal{S}^t \llbracket \mathsf{\neg \phi_1} \rrbracket =
-	\mathfrak{S}^{+ \infty} \setminus \mathcal{S}^t \llbracket \phi_1 \rrbracket
-	$$
-	$$\blacktriangleleft \mathcal{S}^t \llbracket \mathsf{\bigcirc \phi_1} \rrbracket =
-	\{ \langle \underline{\rho} , \langle l , \rho \rangle \pi \rangle | \langle \underline{\rho},\pi \rangle \in \mathcal{S}^t \llbracket \phi_1 \rrbracket \; , \; l \in \mathbb{L} \; , \; \rho \in \mathbb{EV} \; , \;\underline{\rho},\in \mathbb{\underline{EV}} \}
-	$$
-	$$\blacktriangleleft \mathcal{S}^t \llbracket \mathsf{\phi_1 \mathcal{U} \phi_2} \rrbracket =
-	\{ \langle \underline{\rho} , \pi \rangle | \exists \pi': \forall \pi'': \pi \pi'' \subsetneq \pi' \rightarrow (\langle \underline{\rho}, \pi \pi'' \rangle \in \mathcal{S}^t \llbracket \phi_1 \rrbracket,\langle \underline{\rho}, \pi' \rangle \in \mathcal{S}^t \llbracket \phi_2 \rrbracket) \; , \;\underline{\rho} \in \mathbb{\underline{EV}} \}
-	$$
-	
-	
-\end{defn}
-
-حال می‌خواهیم ثابت کنیم که معناشناسی‌ای که ارائه کرده‌ایم، معنای منطق \lr{LTL} را حفظ کرده. 
-برای این کار ابتدا یک معناشناسی جدید را برای زبان \lr{LTL} قدیمی ارائه می‌دهیم و ثابت می‌کنیم که معادل با معناشناسی قبلی است. 
-
-\begin{defn}
-	(مدل \lr{LTL}- جدید): به هر تابع از $\Pi$ یعنی مجموعه‌ی اتم‌ها به $\mathit{P(\mathbb{N})}$ یعنی مجموعه‌ی همه‌ی زیرمجوعه‌های مجموعه‌ی کل اعداد طبیعی می‌گوییم مدل جدید.
-	$$M_n:\Pi \rightarrow \mathit{P(\mathbb{N})}$$
-	مجموعه‌ی همه‌ی مدل‌های جدید را با 
-	$\mathbb{M}_n$
-	نشان می‌دهیم.
-\end{defn}
-
-\begin{defn}
-	(معناشناسی \lr{LTL}- جدید): تابع 
-	$\bar{ }:\mathbb{M}_n \rightarrow \Phi \rightarrow \mathit{P}(\mathbb{N})$
-	( به علامت گذاری دقت کنید! نام گذاری تابع به شکل سنتی و با یک حرف خاص نیست و صرفا علامت بار را گذاشته‌ایم. به ازای مدل $M_n$ در ورودی، تابع 
-	$\bar{M_n}: \Phi \rightarrow \mathit{P}(\mathbb{N})$
-	 را داریم.)
-	 به ازای مدل $M_n$ روی فرمول‌های زبان \lr{LTL} به شکل زیر تعریف می‌شود:
-	 $$\blacktriangleleft \bar{M_n}(\pi)= M_n(\pi)$$
-	 $$\blacktriangleleft \bar{M_n}(\phi \lor \psi)= \bar{M_n}(\phi) \cup \bar{M_n}(\psi)$$
-	 $$\blacktriangleleft \bar{M_n}(\neg \phi)= \mathbb{N} \setminus \bar{M_n}(\phi)$$
-	 $$\blacktriangleleft \bar{M_n}(\bigcirc\phi)= \{n+1|n\in \bar{M_n}(\phi) \}$$
-	 $$\blacktriangleleft \bar{M_n}(\phi \mathcal{U} \psi)= \{n|\exists k : \forall j: n \leq j \lneq k \rightarrow j \in \bar{M_n}(\phi) , k \in \bar{M_n}(\psi) \}$$
-	 و به کمک این تابع تعریف می‌کنیم:
-	 $$M_n,i \models_n \phi \; \mathit{iff}\; i \in \bar{M_n}(\phi)$$
-\end{defn}
-
-مدل‌های جدیدی که تعریف کرده‌ایم همان اطلاعاتی را که مدل‌های قدیمی به ما می‌دادند، با آرایش دیگری در خود نگه می‌دارند. برای اینکه بتوانیم از هر دو شیوه‌ی بیان یک مدل استفاده کنیم یک تابع میان آن‌ها تعریف می‌کنیم.
-
-\begin{defn}
-	(تابع مبدل): تابع
-	$\mathfrak{T}:\mathbb{M_n} \rightarrow \mathbb{M}$
-	را به نام تابع مبدل به شکل زیر تعریف می‌کنیم:
-	$$\mathfrak{T}(M_n)(i)=\{ \pi | i \in M_n(\pi) \}$$
-\end{defn} 
-
-این تابع یک تناظر یک به یک و پوشا بین مدل‌های قدیم و جدید است. 
-\begin{thm}
-	تابع $\mathfrak{T}$ یک به یک و پوشا است.
-\end{thm}
-\begin{proof}
-	پیش از هر چیز ذکر این نکته ضروری است که اصلا چرا $\mathfrak{T}$ یک تابع است. این از این می‌آید که با توجه به اینکه در تعریف این تابع صرفا از عملگر اجتماع و محمول عضویت استفاده شده و می‌دانیم این دو خوش تعریف هستند، پس متوجه می‌شویم که $\mathfrak{T}$ یک تابع است.
-	
-	اثبات یک به یک بودن:
-	فرض می‌‌کنیم که به ازای دو مدل $M_n$ و $M_n'$ که ممکن است متفاوت باشند، داریم $\mathfrak{T}(M_n)=\mathfrak{T}(M_n')$. داریم:
-	$$\Rightarrow \forall i \in \mathbb{N}: \mathfrak{T}(M_n)(i)=\mathfrak{T}(M_n')(i)
-	\Rightarrow \forall i \in \mathbb{N}: \forall \pi \in \Pi: \pi \in \mathfrak{T}(M_n)(i) \leftrightarrow \pi \in \mathfrak{T}(M_n')(i)$$
-	$$\Rightarrow \forall i \in \mathbb{N}: \forall \pi \in \Pi: i \in M_n(\pi) \leftrightarrow \pi \in M_n'(\pi) \iff M_n = M_n'$$
-	پس این دو مدل الزاما برابرند و این یعنی این تابع یک به یک است.
-	
-	اثبات پوشا بودن: فرض می‌کنیم $M \in \mathbb{M}$ و ثابت می‌کنیم برای مدل \break
-	 $M_n (\pi)=\{i | \pi \in M(i)\}$ 
-	داریم $\mathfrak{T}(M_n)=M$.
-	$$\forall j \in \mathbb{N}: \mathfrak{T}(M_n)(j)=\{\pi | j \in M_n(\pi)\}
-	=\{\pi | j \in \{i | \pi \in M(i)\}\}= \{\pi | \pi \in M(j)\}=M(j)$$
-	$$\Rightarrow \mathfrak{T}(M_n)=M$$
-	پس تابع مبدل پوشا نیز هست.
-\end{proof}
-
-بنابراین می‌توانیم قضیه‌ی زیر را بیان کنیم.
-\begin{thm}
-	معناشناسی جدید و قدیم با یکدیگر معادل‌اند یا به عبارت دیگر 
-	برای هر مدل $M_n \in \mathbb{M_n}$ داریم:
-	$$\forall \phi \in \Phi, i\in\mathbb{N}:\bar{M_n},i \models_n \phi \leftrightarrow \mathfrak{T}(M_n) , i \models \phi $$
-\end{thm}
-
-\begin{proof}
-	روی ساختار $\phi$ استقرا می‌زنیم:
-	$$\blacktriangleright \phi=\pi:$$
-	$$M_n , i \models_n \pi \iff i \in \bar{M_n} (\pi) \iff i \in M_n(\pi)$$
-	$$\iff \pi \in \mathfrak{T}(M_n)(i) \iff \mathfrak{T}(M_n),i \models \pi $$
-	
-	$$\blacktriangleright \phi=\phi \lor \psi:$$
-	$$M_n , i \models_n \phi \lor \psi  \iff i\in \bar{M_n}(\phi \lor \psi) = \bar{M_n} (\phi) \cup \bar{M_n}(\psi)$$
-	در اینجا بدون کاستن از کلیت می‌توانیم فرض کنیم $i \in \bar{M_n}$. با فرض دیگر هم اثبات به همین شکل است.
-	$$i \in \bar{M_n}(\phi) \iff M_n,i\models_n \phi \mathfrak{T}(M_n),i \models \phi \Rightarrow \mathfrak{T}(M_n),i\models \phi \lor \psi$$
-	عکس این اثبات را هم برای عکس این طرف قضیه که ثابت کردیم در همین اثبات می‌شود دید. آخرین نتیجه‌ای که گرفتیم می‌تواند بدون کاستن از کلیت برعکس گرفته شود و در واقع برای هر دو زیر فرمول به‌طور جداگانه ثابت شود.
-	$$\blacktriangleright \phi=\neg \phi:$$
-	$$M_n,i \models_n \iff i \in \bar{M_n}(\neg \phi) \iff i \notin \bar{M_n}(\phi)$$
-	$$\iff M_n ,i \nvDash_n \phi \iff \mathfrak{T}(M_n),i \nvDash \phi \iff \mathfrak{T} (M_n) ,i \models \neg \phi$$ 
-
-	$$\blacktriangleright \phi=\phi \mathcal{U} \psi:$$
-	$$M_n,i \models_n \pi \mathcal{U} \psi \iff i \in \bar{M_n}(\phi \mathcal{U}\psi)$$
-	$$\iff \exists k: \forall j: i \leq j < k \rightarrow j \in \bar{M_n}(\phi) , k \in \bar{M_n}(\psi)$$
-	$$\iff \exists k: \forall j: i \leq j < k \rightarrow M_n,j \models_n\phi ,  M_n,k\models_n \psi$$
-	$$\iff \exists k: \forall j: i \leq j < k \rightarrow \mathfrak{T}(M_n),j \models\phi ,  \mathfrak{T}(M_n),k\models \psi$$
-	$$\iff \mathfrak{T}(M_n),i \models \phi \mathcal{U} \psi$$
-
-\end{proof}
-
-پس تا اینجای کار ثابت کردیم که معناشناسی جدیدی که برای \lr{LTL} ارائه کرده‌ایم با معناشناسی قدیمی‌اش معادل است. 
-
-می‌توان دید که معناشناسی جدید به معناشناسی‌ 
-$\mathcal{S}^t$
- بسیار شبیه است و انگار که با جایگذاری زوج‌های 
- $\mathsf{L:B}$ به جای اتم‌ها و ردهای پیشوندی متناهی به جای مدل‌هایی که داشتیم، می‌توان 
- از 
-$\bar{M_n}$
-به 
-$\mathcal{S}^t$
-رسید. تا اینجای کار تا حدی ارتباط $\mathcal{S}^t$ به $\bar{M}_n$ را نشان داده‌ایم، هرچند که برای اطمینان بیشتر می‌بایست به مشخص‌تر کردن این ارتباط ادامه داد. کاری که انتظار می‌رود انجام شود این است که یک دوسویی مدل‌ها را از \lr{LTL}-جدید به \lr{LTL}-گسترش یافته مرتبط کند و دوسویی دیگر هم مدل‌ها را در دو منطق به هم مرتبط کند.
-
-در مورد اتم‌ها می‌توانیم این را بگوییم که چون در \lr{LTL}- جدید( مثل \lr{LTL} که در فصل اول مطرح شده)، اتم‌ها را شمارای نامتناهی در نظر گرفته‌ایم و از طرفی در \lr{LTL}- گسترش یافته هم عبارات بولی شمارای نامتناهی هستند و مجموعه‌ی برچسب‌ها هم قاعدتا باید متناهی در نظر گرفته شود(‌یا اگر می‌خواهیم مجموعه‌ی برچسب‌ها را برای همه‌ی برنامه‌ها تعریف کنیم و آن‌ها را نامتناهی در نظر بگیریم، شاید دلیل معقولی برای ناشمارا در نظرگرفتن آن‌ها وجود نداشته باشد. در \cite{calcul} نویسنده در مورد مجموعه‌ی برچسب‌ها هم به صراحت صحبت نکرده)، در این صورت مجموعه‌ی اتم‌ها شمارای نامتناهی خواهد بود. همین حقیقت به ما یک دو سویی بین اتم‌های دو زبان می‌دهد. نام این دوسویی را 
-$\mathfrak{T}_a$
-می‌گذاریم.
-
-در مورد مدل‌ها نیز 
-
-\subsection{مقایسه}
-
-حال به بررسی این می‌پردازیم که کدام زبان قدرت بیان بیشتری دارد.
-
-\begin{thm}
-	هر فرمولی که به زبان \lr{LTL}-گسترش یافته قابل بیان باشد، به زبان عبارات منظم هم قابل بیان است. به عبارت دیگر 
-	$$\forall \phi \in \mathfrak{L}_e: \exists \mathsf{R} \in \mathbb{R} : \mathcal{S}^t \llbracket \phi \rrbracket = \mathcal{S}^r \llbracket \mathsf{R} \rrbracket$$
-\end{thm}
-\begin{proof}
-	با استقرا روی ساختار فرمول‌ها می توانیم این قضیه را ثابت کنیم.
-	$$\blacktriangleright\phi=\mathsf{L:B}:$$
-	$\mathsf{L:B}$ عضو هر دو زبان هست و در هر دو معنای یکسانی دارد.
-	$$\blacktriangleright\phi= \phi_1 \lor \phi_2:$$
-	طبق فرض استقرا وجود دارند 
-	$\mathsf{R_1,R_2} \in \mathbb{R}$
-	که
-	$\mathcal{S}^r \llbracket \mathsf{R_1} \rrbracket = \mathcal{S}^t \llbracket \phi_1 \rrbracket$ 
-	و
-	$\mathcal{S}^r \llbracket \mathsf{R_2} \rrbracket = \mathcal{S}^t \llbracket \phi_2 \rrbracket$
-	و داریم:
-	$$\mathcal{S}^r \llbracket \mathsf{ R_1 + R_2} \rrbracket =  \mathcal{S}^r \llbracket \mathsf{R_1} \rrbracket \cup \mathcal{S}^r \llbracket \mathsf{R_2} \rrbracket = \mathcal{S}^t \llbracket \phi_1 \rrbracket \cup \mathcal{S}^t \llbracket \phi_1 \rrbracket = \mathcal{S}^t \llbracket \phi_1 \lor \phi_2 \rrbracket$$
-	$$\blacktriangleright\phi= \neg \phi_1:$$
-	طبق فرض استقرا یک عبارت منظم $\mathsf{R_1}$ وجود دارد که 
-	$\mathcal{S}^r \llbracket \mathsf{R_1} \rrbracket = \mathcal{S}^t \llbracket \phi_1 \rrbracket $.
-	در \cite{sipser13} یک الگوریتم برای تبدیل هر عبارت منظم به عبارت منظم دیگری که مکملش است آمده. اما عبارت منظمی که در \cite{sipser13} آمده الفبای متناهی دارد. در عبارات منظمی که اینجا داریم اما الفبا نامتناهی است. بنابراین دو سیستم متفاوت داریم و کاملا محتمل است که آن روش که به کمک اتوماتای متناهی است، در مورد این نوع عبارت منظم صدق نکند. اما به هر حال با اندکی اهمال و ساده گیری این بخش از اثبات را رها می‌کنیم و به ادامه‌ی راه می‌پردازیم، به این امید که بعدا این تکه از اثبات هم حل شود.
-	
-	$$\blacktriangleright\phi= \bigcirc \phi_1:$$
-	اگر $\mathsf{R_1}$ عبارت منظم معادل $\phi_1$ باشد، آنگاه 
-	$?: \mathit{T} \bullet \mathsf{R_1}$
-	عبارت منظم $\bigcirc \phi_1$ است.
-	
-	$$\blacktriangleright\phi= \phi_1 \mathcal{U} \phi_2:$$
-	طبق فرض استقرا $\mathsf{R_1,R_2}$ وجود دارند که به ترتیب معادل با فرمول‌های $\phi_1,\phi_2$ هستند. احتمالا این اثبات‌ها را باید به کمک تابع سر و دم و و فرم نرمال فصلی یک عبارت منظم کامل کرد.
-	
-	
-\end{proof}
-
-
-از طرف دیگر نشان می‌دهیم که عبارت منظم 
-$\mathsf{ (?:\mathit{T} \bullet L:B)*}$
-که در واقع شامل همه‌ی رد‌های پیشوندی می‌شود که که در اعضای زوجشان اتم $\mathsf{L:B}$ را ارضا می‌کند و در اعضای فردشان مهم نیست که چه اتفاقی می‌افتد، در \lr{LTL} قابل بیان نیست.
-
-این را با برهان خلف به صورت استقرایی روی ساختار فرمول $\phi$ ثابت می‌کنیم. 
-
-\begin{thm}
-	هیچ فرمول 
-	$\phi \in \mathfrak{L}_e$ 
-	وجود ندارد که به ازای یک زوج $\mathsf{L:B}$ داشته باشیم
-	$\mathcal{S}^t \llbracket \phi \rrbracket = \mathcal{S}^r \llbracket \mathsf{(?:\mathit{T}\bullet \mathsf{L:B})^*} \rrbracket$.
-\end{thm}
-\begin{proof}
-$$\blacktriangleright \phi = \mathsf{L:B}: $$
-ردهای پیشوندی موجود در معنای این فرمول همه تک عضوی هستند در حالی که در معنای عبارت منظم 
-$\mathsf{(?:\mathit{T}\bullet \mathsf{L:B})^*}$
-ردهای به طول متفاوت وجود دارند. پس $\phi$ به این فرم نمی‌تواند باشد.
-
-$$\blacktriangleright \phi = \phi_1 \lor \phi_2: $$
-فرض استقرا این است که معنای هیچ یک از $\phi_1,\phi_2$ با این عبارت منظم برابر نیست.
-
-
-\end{proof}
-
-پس در این صورت لزوما هر چه که با عبارات منظم قابل بیان است، با \lr{LRL} قابل بیان نیست.
-
-
-
-
-
 
 
 

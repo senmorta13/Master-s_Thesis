@@ -338,7 +338,7 @@ $\mathsf{fstnxt}$
 	$$\blacktriangleright \mathsf{R=\varepsilon R_2}\;:$$
 	با فرض اینکه 
 	$\mathsf{R_2} \in \mathbb{R^+ \cap R^\nmid}$
-	که فرض استقراست، طبق گرامر $\mathbb{R^+}$ داریم $\mathsf{R_2} \in \mathbb{R^+}$ و طبق گرامر $\mathbb{R^\nmid}$ داریم چون 
+	که فرض استقراست، طبق گرامر $\mathbb{R^+}$ داریم 	$\varepsilon\mathsf{R_2} \in \mathbb{R^+}$ و طبق گرامر $\mathbb{R^\nmid}$ داریم چون 
 	$\mathsf{R_2} \in \mathbb{R^\nmid}$
 	و
 	$\varepsilon \in \mathbb{R^\nmid}$
@@ -369,7 +369,7 @@ $\mathsf{fstnxt}$
 	$\mathsf{R} \in \mathbb{R^+ \cap R^\nmid}$
 	روی ساختار اعضای $\mathbb{R^\nmid}$ استقرا می‌زنیم( این اثبات می‌توانست با استقرا روی ساختار اعضای $\mathbb{R^+}$ هم انجام شود).
 	$$\blacktriangleright \mathsf{R=\varepsilon}\;:$$
-	چون $\varepsilon \notin \mathbb{R^+ \cap R^\nmid}$ پس اصلا این مورد باطل است و در موردش نیاز به اثبات نیست.
+	چون $\varepsilon \notin \mathbb{R^+ \cap R^\nmid}$ پس اصلا این مورد باطل است و در مورد آن نیازی به ارائه‌ی اثبات نیست.
 	
 	
 	$$\blacktriangleright \mathsf{R=L:B}\;:$$
@@ -382,7 +382,8 @@ $\mathsf{fstnxt}$
 	مثل مورد قبل چون $+$ در گرامر $\mathbb{R'}$ حضور دارد، حکم ثابت می‌شود.
 	
 	$$\blacktriangleright \mathsf{R=R_1^*}\;:$$
-	چون به ازای هیچ عبارت منظم $\mathsf{R}$ای $\mathsf{R}$ داخل $\mathbb{R^+}$ نمی‌افتد پس بررسی این مورد هم مورد نیاز نیست.
+	چون به ازای هیچ عبارت منظم $\mathsf{R_1}$ای 
+	$\mathsf{R_1}^*$ داخل $\mathbb{R^+}$ نمی‌افتد پس بررسی این مورد هم مورد نیاز نیست.
 	
 	
 	$$\blacktriangleright \mathsf{R=R_1^+}\;:$$
@@ -400,7 +401,7 @@ $\mathsf{fstnxt}$
 	
 \end{proof}
 
-ساختاری که تابع سر و دم روی آن تعریف شده با این ساختار ریخت متفاوتی دارد و البته لزومی هم ندارد که یکی باشند. ساختاری که در قضیه‌ی قبل ارائه کرده‌ایم در \cite{calcul} نیامده و خودمان صرفا برای اثبات قضیه‌ی بعدی آورده‌ایمش.
+ساختاری که تابع سر و دم روی آن تعریف شده با این ساختار ریخت متفاوتی دارد و البته لزومی هم ندارد که یکی باشند. ساختاری که در قضیه‌ی قبل ارائه کرده‌ایم در \cite{calcul} نیامده و خودمان با هدف اثبات قضیه‌ی بعدی، آن را در اینجا ارائه‌ کرده‌ایم.
 
 
 
@@ -548,11 +549,11 @@ $$\mathsf{L:B \bullet R'_1 \bullet \varepsilon \Bumpeq R_1 \varepsilon = R }$$
 این بخش در این قسمت به پایان می‌رسد. الان ابزارهای کافی برای بیان روش وارسی مدل به شکل جدیدی که مد نظر است را داریم.
 
 \section{وارسی مدل منظم}
-همان‌طور که گفتیم در این فصل می‌خواهیم یک صورت معادل از صورتی که در فصل پیش برای روش وارسی مدل آورده شده بود را ارائه کنیم و تا به اینجای فصل صرفا به معرفی چند مفهوم که برای بیان این صورت جدید احتیاج داشتیم پرداختیم. در این یخش ابتدا این صورت جدید را بیان می‌‌کنیم و سپس به اثبات می‌‌کنیم که این صورت جدید با صورت قبلی معادل است. همان‌طور که پیشتر هم اشاره شد تفاوت این بیان با بیان قبلی این است که این بیان روی ساختار عبارات منظم تعریف شده در حالیکه صورت قبلی ساختاری نداشت.
+همان‌طور که گفتیم، در این فصل می‌خواهیم یک صورت معادل با صورتی که در فصل پیش برای روش وارسی مدل آورده شده بود را ارائه کنیم و تا به اینجای فصل صرفا به معرفی چند مفهوم که برای بیان این صورت جدید احتیاج داشتیم پرداخته‌ایم. در این یخش ابتدا این صورت جدید را بیان می‌‌کنیم و سپس اثبات می‌‌کنیم که صورت جدید با صورت قبلی معادل است. همان‌طور که پیش‌تر هم اشاره شد، تفاوت این بیان با بیان قبلی این است که این بیان روی ساختار عبارات منظم تعریف شده در حالیکه صورت قبلی ساختاری نداشت.
 \subsection{صورت}
 
 در نهایت برای تعریف صورت به یک تابع $\mathcal{M}$ احتیاج داریم که در ورودی‌اش یک زوج متشکل از یک محیط اولیه و یک عبارت منظم را در کنار یک برنامه می‌گیرد و در خروجی همه‌ی ردهای پیشوندی موجود در معنای برنامه را که با عبارت منظم سازگار هستند، داخل یک مجموعه بر می‌گرداند.
-اما در این بین این مفهوم سازگاری یک رد پیشوندی با یک مجموعه چگونه مشخص می‌شود؟ این نکته‌ای است که تا به حال در مورد آن بحث نکرده‌ایم و الان می‌خواهیم تابع $\mathcal{M}^t$ را با این هدف تعریف کنیم. البته این تابع قرار است یک ویژگی بیشتر هم داشته باشد و این ویژگی این است که اگر عبارت منظم با رد پیشوندی سازگار نباشد، به ما می‌گوید که از کجای عبارت منظم ناسازگاری وجود داشته واگر هم این دو با هم سازگار باشند این تابع به ما نشان می‌دهد که عبارت منظم تا کجا بررسی شده( قهمیدن این موضوع با نگاه به تعریف ساده‌تر می‌شود و البته نباید فراموش کرد که سازگاری‌ای که داریم، قرار است پیرو صورت قبلی باشد که در آن اگر طول یک عبارت منظم از یک رد پیشوندی بیشتر باشد و صرفا تا اتمام طول رد پیشوندی سازگاری بین این دو برقرار باشد، در نهایت هم سازگار حسابشان می‌کنیم، به عبارت دیگر داریم از نقش عملگر $\mathsf{prefix}$ در صورت قبلی صحبت می‌کنیم).
+اما در این بین، مفهوم سازگاری یک رد پیشوندی با یک عبارت منظم چگونه مشخص می‌شود؟ این نکته‌ای است که تا به حال در مورد آن بحث نکرده‌ایم و الان می‌خواهیم تعریف تابع $\mathcal{M}^t$ را با این هدف به بحث وارد کنیم. البته این تابع قرار است یک ویژگی بیشتر هم داشته باشد و این ویژگی این است که اگر عبارت منظم با رد پیشوندی سازگار نباشد، به ما می‌گوید که از کجای عبارت منظم ناسازگاری وجود داشته  است و اگر هم این دو با هم سازگار باشند، این تابع به ما نشان می‌دهد که عبارت منظم تا کجا بررسی شده( فهمیدن این موضوع با نگاه به تعریف ساده‌تر است و البته نباید فراموش کرد که سازگاری‌ای که داریم، قرار است پیرو صورت قبلی باشد که در آن اگر طول یک عبارت منظم از یک رد پیشوندی بیشتر باشد و صرفا تا اتمام طول رد پیشوندی سازگاری بین این دو برقرار باشد، در نهایت هم سازگار حسابشان می‌کنیم، به عبارت دیگر داریم از نقش عملگر $\mathsf{prefix}$ در صورت قبلی صحبت می‌کنیم).
 \begin{defn}
 	(وارسی‌گر رد پیشوندی): به تابع $\mathcal{M}^t$ از نوع 
 	$\mathbb{(\underline{EV} \times R^\nmid) \rightarrow  \mathfrak{S}^{+\infty}}
@@ -560,7 +561,7 @@ $$\mathsf{L:B \bullet R'_1 \bullet \varepsilon \Bumpeq R_1 \varepsilon = R }$$
 	وارسی‌گر رد پیشوندی می‌گوییم. این تابع ضابطه‌ی زیر را دارد:
 	$$\blacktriangleleft\mathcal{M}^t \langle \underline{\rho} , \varepsilon \rangle \pi = 
 	\langle \mathit{T} , \varepsilon \rangle$$
-	(برای هر عضو دیگر $\mathbb{R_\varepsilon}$ هم ضابطه‌ی بالایی برقرار است. دو ضابظه‌ی پایینی برای عبارات منظم عضو $\mathbb{R^+ \cap R^\nmid}$ هستند.)
+	(برای هر عضو دیگر $\mathbb{R_\varepsilon}$ هم ضابطه‌ی بالایی برقرار است. دو ضابطه‌ی پایینی برای عبارات منظم عضو $\mathbb{R^+ \cap R^\nmid}$ هستند.)
 	$$\blacktriangleleft\mathcal{M}^t \langle \underline{\rho} , \mathsf{R} \rangle \epsilon = 
 	\langle \mathit{T} , \mathsf{R} \rangle$$
 	$$\blacktriangleleft\mathcal{M}^t \langle \underline{\rho} , \mathsf{R} \rangle \pi = 
@@ -588,55 +589,439 @@ $$\mathsf{L:B \bullet R'_1 \bullet \varepsilon \Bumpeq R_1 \varepsilon = R }$$
 \end{defn}
 
 
-حالا خود $\mathcal{M}$ را تعریف می‌کنیم. تعریف این تابع چیزی نیست جز اجتماع گرفتن از خروجی تابع بالا به ازای عبارات منظمی که در فرم نرمال عبارت منظم ورودی تابع حضور دارند. البته اطلاعاتمان از عبارات منظم در هر زوجی که در خروجی $\mathcal{M}^\nmid$ حذف می‌شود، یعنی صرفا ردهای پیشوندی را داریم.
+حالا خود $\mathcal{M}$ را تعریف می‌کنیم. تعریف این تابع چیزی نیست جز اجتماع گرفتن از خروجی تابع بالا به ازای عبارات منظمی که در فرم نرمال عبارت منظم ورودی تابع حضور دارند. البته اطلاعاتمان از عبارات منظم در هر زوجی که در خروجی $\mathcal{M}^\nmid$ وجود دارد حذف می‌شود، یعنی صرفا ردهای پیشوندی را در مجموعه‌ای که خروجی $\mathcal{M}$ است، داریم.
 
 \begin{defn}
 (وارسی مدل منظم):
+
 تابع $\mathcal{M}$ را از نوع 
 $\mathbb{(\underline{EV} \times R)} \rightarrow  \mathit{P}({\mathfrak{S}^{+\infty})}
-\rightarrow \mathit{P}(\mathfrak{S}^{+\infty} ) $
+\rightarrow (\mathbb{\underline{EV}} \times \mathit{P} (\mathfrak{S}^{+\infty} ) )$
  وارسی مدل منظم می‌گوییم که ضابطه‌ی زیر را دارد:
-$$\mathcal{M} \langle \underline{\rho} , \mathsf{R} \rangle \Pi= \bigcup_{i=1}^n \{  \pi | \exists \mathsf{R'} \in \mathbb{R}:\; \langle \pi , \mathsf{R'} \rangle \in 
+$$\mathcal{M} \langle \underline{\rho} , \mathsf{R} \rangle \Pi= \bigcup_{i=1}^n \{  \langle \underline{\rho},\pi\rangle | \exists \mathsf{R'} \in \mathbb{R}:\; \langle \pi , \mathsf{R'} \rangle \in 
 \mathcal{M}^\nmid \langle \underline{\rho}, \mathsf{R_i} \rangle \Pi \}$$
 $$\mathsf{while \; dnf (R) = R_1 + R_2 + ... + R_n}$$ 
 
 
 
-
+در این صورت اگر خاصیت $\mathsf{R} \in \mathbb{R}$ در محیط اولیه‌ی $\underline{\rho}$ برای برنامه‌ی $\mathsf{P}$ برقرار باشد، می نویسیم
+$$\mathsf{P} , \underline{\rho} \models_r \mathsf{R}$$
+و برقرار بودن این رابطه با شرط زیر تعریف می‌شود:
+$$\mathsf{P} , \underline{\rho} \models_r \mathsf{R} \iff \{\underline{\rho}\} \times \mathcal{S}^* \llbracket \mathsf{P} \rrbracket \subseteq \mathcal{M} \langle \underline{\rho} , \mathsf{R} \rangle \mathcal{S}^* \llbracket \mathsf{P} \rrbracket$$
 
 \end{defn}
 
 با این تعریف در واقع زمانی می‌توانیم بگوییم، برنامه‌ی $\mathsf{P}$ خاصیت $\mathsf{R}$ دارد \break که 
 $\mathcal{M}\langle \underline{\rho} , \mathsf{R} \rangle \mathcal{S}^* \llbracket \mathsf{P} \rrbracket = 
-\mathcal{S}^* \llbracket \mathsf{P} \rrbracket$.
+\{\underline{\rho}\} \times \mathcal{S}^* \llbracket \mathsf{P} \rrbracket$.
 در واقع انگار تابع 
 $\mathcal{M} \langle \underline{\rho} , \mathsf{R} \rangle$
 مثل یک صافی روی مجموعه‌ی 
 $\mathcal{S}^* \llbracket \mathsf{P} \rrbracket$
-عمل می‌کند.
+عمل می‌کند، پس خروجی این مجموعه زیر مجموعه‌ی $\{\underline{\rho}\} \times \mathcal{S}^* \llbracket \mathsf{P} \rrbracket$ است.
+\begin{thm}
+	برای هر برنامه‌ی $\mathsf{P}$، محیط اولیه‌ی $\underline{\rho}$ و عبارت منظم $\mathsf{R}$ داریم:
+	$$\mathcal{M}\langle \underline{\rho},\mathsf{R} \rangle \mathcal{S}^* \llbracket \mathsf{P} \rrbracket \subseteq \{\underline{\rho}\} \times \mathcal{S}^* \llbracket \mathsf{P}\rrbracket$$
+\end{thm}
+
+\begin{proof}
+	اگر زوج
+	$\langle \underline{\rho}, \pi \rangle$ 
+	عضو 
+	$\mathcal{M}\langle \underline{\rho},\mathsf{R} \rangle \mathcal{S}^* \llbracket \mathsf{P} \rrbracket $
+	باشد، طبق تعریف $\mathcal{M}$،\break یعنی اگر 
+	$\mathsf{dnf(R)=R_1+R_2+...+R_n}$
+	باشد و عبارت منظم $\mathsf{R'} \in \mathbb{R}$ و عدد $i$ بین ۱ و $n$ وجود دارند که: 
+	$$\langle \pi , \mathsf{R'} \rangle \in \mathcal{M}^\nmid \langle \underline{\rho},\mathsf{R_i} \rangle \mathcal{S}^* \llbracket \mathsf{P} \rrbracket$$
+	که طبق تعریف $\mathcal{M^\nmid}$ یعنی: 
+	$$\pi \in \mathcal{S}^* \llbracket \mathsf{P} \rrbracket \land \mathcal{M}^t \langle \underline{\rho},\mathsf{R_i}\rangle \pi = \langle \mathit{T},\mathsf{R'} \rangle$$
+که از 
+$\pi \in \mathcal{S}^* \llbracket \mathsf{P} \rrbracket$
+می‌توان نتیجه گرفت 
+$\langle \underline{\rho}, \pi \rangle \in \{\underline{\rho}\} \times \mathcal{S}^* \llbracket \mathsf{P} \rrbracket$.
+
+\end{proof}
 
 
-می‌توان این طور تصور کرد که به هر حال مجموعه‌ی معنای یک برنامه می‌تواند به مجموعه‌هایی افراز شود که در هر مجموعه ردهای پیشوندی‌ای حضور دارند که محیط اولین وضعیتشان یکسان است. در چنین مجموعه‌ای قاعدتا باید اگر در رد پیشوندی‌هایی که حداقل دو عضو دارند، وضعیت دومشان یکسان است و این رویه برای بقیه‌ی وضعیت‌ها نیز صادق است، یعنی مثلا در رد پیشوندی‌هایی که $n$ عضو وجود دارد، وضعیت  $n$ام در همه‌ی آن‌ها یکسان خواهد بود. در هر مجموعه‌ی داخل این افراز یک رد پیشوندی ماکسیمال وجود خواهد داشت که در واقع اجرای کامل برنامه با محیطی که در وضعیت اول قرار دارد است.
+مجموعه‌ی معنای یک برنامه را می‌توان به مجموعه‌ای از دسته‌ها افراز کرد، که در هر یک از این دسته‌ها ردهای پیشوندی‌ای حضور دارند که وضعیت اول آن‌ها یکسان است. قاعدتا در هر یک از این دسته‌ها باید وضعیت‌های بعدی هم، در صورت وجود، به طور موازی با یکدیگر یکسان باشند، یعنی مثلا در یک مجموعه از افراز توصیف شده، همه‌ی ردهای پیشوندی‌ای که عضو دوم دارند، عضو دومشان با هم برابر است. این حرف برای عضو سوم و چهارم و غیره هم برقرار است. در هر دسته از این افراز یک رد پیشوندی ماکسیمال وجود خواهد داشت، که توصیف تمام و کمال برنامه، در اجرا با وضعیت اول مختص آن مجموعه است.
 
-حال برای هر برنامه‌ی $\mathsf{P}$ که خاصیت $\mathsf{R}$ در مورد آن مورد بررسی است، بعد از اینکه 
+حال برای هر برنامه‌ی $\mathsf{P}$ که خاصیت $\mathsf{R}$ در مورد آن مورد بررسی است، می‌توانیم همین افراز را روی مجموعه‌ی 
 $\mathcal{M} \langle \underline{\rho}, \mathsf{R} \rangle \mathcal{S}^* \llbracket \mathsf{P} \rrbracket$
- محاسبه شد، اگر در هر مجموعه از افرازی که در بالا توصیف کردیم، رد پیشوندی ماکسیمال موجود باشد در آن صورت 
-$\mathcal{M} \langle \underline{\rho}, \mathsf{R} \rangle \llbracket \mathsf{P} \rrbracket=
-\llbracket \mathsf{P} \rrbracket $
-برقرار خواهد بود. اگر هم این تساوی برقرار نباشد، در افراز
-$\mathcal{M} \langle \underline{\rho}, \mathsf{R} \rangle \llbracket \mathsf{P} \rrbracket$
-نسبت به وضعیت‌های متفاوت در اول های پیشوندی، در هر افزاری که رد پیشوندی ماکسیمال موجود در همان افراز در مجموعه‌ی 
-$\mathcal{S}^* \llbracket \mathsf{P} \rrbracket $ 
-نیست، آن رد پیشوندی دیگری که در آن مجموعه ماکسیمال است، به ما می‌گوید که برنامه به چه وصعیتی برخورد کرده که با $\mathsf{R}$ ناسازگاری داشته و اطلاعاتی را در مورد برنامه به ما می‌دهد.
+در نظر بگیریم. اگر در هر دسته از این افراز، رد پیشوندی ماکسیمال همین افراز روی 
+$\mathcal{S}^* \llbracket \mathsf{P} \rrbracket$
+( یعنی معنای برنامه) در دسته‌ی متناظر( یعنی دسته‌ای که از عضو ماکسیمالش روی خروجی $\mathcal{M}$ صحبت کردیم، منظور از متناظر این است که هر دو دسته در هر دو افراز ردهای پیشوندی با وضعیت اول یکسان دارند) وجود داشته باشد، در این صورت پس حتما 
+$\mathcal{M} \langle \underline{\rho}, \mathsf{R} \rangle \mathcal{S}^* \llbracket \mathsf{P} \rrbracket =\{\underline{\rho}\} \times \mathcal{S}^* \llbracket \mathsf{P} \rrbracket$.
+اگر دسته‌ای از افراز روی 
+$\mathcal{M} \langle \underline{\rho}, \mathsf{R} \rangle \mathcal{S}^* \llbracket \mathsf{P} \rrbracket$
+دارای عضو ماکسیمال متفاوتی نسبت به همان دسته روی 
+$\mathcal{S}^* \llbracket \mathsf{P} \rrbracket$
+باشد، قطعا این عضو ماکسیمال کوتاه‌تر از عضو ماکسیمال همان دسته در 
+$\mathcal{S}^* \llbracket \mathsf{P} \rrbracket$
+است و این یعنی ناسازگاری‌ای با عبارت منظم مورد بررسی وجود داشته است. محل وقوع ناسازگاری را تابع  
+$\mathcal{M}^\nmid$
+می‌تواند به ما بگوید. محل ناسازگاری، عبارت منظمی است که زوج عضو ماکسیمال دسته‌ی مورد نظر در خروجی یکی از اعمال های 
+$\mathcal{M}^\nmid$
+روی بخش‌های مختلف 
+$\mathsf{dnf(R)}$
+است. 
 
-برای حرف هایی که در چند بخش قبل گفتیم، اثباتی نیاورده‌ایم و البته که ادعاهایی هم هستند که نیاز به اثبات دارند، اما به هر حال اثبات آن‌ها در این بخش و در حین بحثی که هستیم، به نظر منحرف کننده می‌آید و البته در ادامه هم حرفی بر اساس این ادعاها زده نشده. اما به هر حال اگر یک درک شهودی از این موجوداتی که در اینجا توصیف شده‌اند داشته باشیم، می‌توانیم تا حد قابل قبولی صحت این ادعاها را ببینیم.
+
 
 
 \subsection{درستی و تمامیت}
+حال به اثبات معادل بودن صورت جدید با صورت قبلی می‌پردازیم. در \cite{calcul} این اثبات که یک قضیه‌ی دوطرفه است، تحت دو قضیه به نام‌های درستی و تمامیت آمده. درستی به این معناست که اگر یک بررسی با روش جدید انجام شود، نتیجه‌ای یکسان با انجام بررسی برای همان برنامه و همان عبارت منظم در صورت قبلی دارد و تمامیت نیز عکس آن است، یعنی هر بررسی‌ای که با صورت قبلی انجام شده، نتیجه‌ی یکسانی با انجام همان بررسی در صورت جدید دارد.
 
-در این بخش قرار است به اثبات برقراری دو صورت متفاوتی که تا به حال از وارسی مدل ارائه کرده‌ایم بپردازیم. عنوان بخش "درستی و تمامیت" نباید با مفهومی از درستی و تمامیت که در \cite{statica} آمده اشتباه گرفته شود. این عنوانی است که نویسنده‌ی \cite{calcul} برای دو قضیه‌ای که معادل بودن این دو روش را نشان می‌دهند به کار گرفته و ما هم در اینجا همان نام را آورده‌ایم.
+نگارنده‌ی این پایان نامه، به درستی دو اثبات موجود در \cite{calcul} بسیار بد بین است! در اثبات تمامیت، برهان به شکل عجیبی بی‌ربط است و در اثبات قضیه درستی، ایرادات فنی ریزی در جزئیات وجود دارد که با تعاریف در تناقض است. از این رو برهان‌هایی که در اینجا آورده‌ایم جدید هستند.
 
-نگارنده‌ی این پایان نامه به صحت اثبات موجود در  \cite{calcul} مشکوک است! ابتدا این اثبات را بیان کرده‌ایم و ایرادی که به آن وارد می‌بینیم را توضیح داده‌ایم و سپس اثبات خودمان را ارائه کرده‌ایم.
+\begin{thm}
+	(قضیه درستی): اگر $\mathsf{P}$ یک برنامه، $\mathsf{R}$ یک عبارت منظم و $\underline{\rho}$ یک محیط اولیه باشند، آنگاه داریم:
+	$$\mathsf{P},\underline{\rho} \models_r \mathsf{R} \Rightarrow
+	\mathsf{P},\underline{\rho} \models \mathsf{R}$$
+\end{thm}
+\begin{proof}
+	طبق تعریف دو صورت، باید با فرض اینکه داریم:
+	$$\{\underline{\rho}\}\times\mathcal{S}^* \llbracket \mathsf{P} \rrbracket \subseteq 
+	\mathcal{M}\langle \underline{\rho},\mathsf{R} \rangle \mathcal{S}^* \llbracket \mathsf{P} \rrbracket$$
+	ثابت کنیم:
+	$$\{\underline{\rho}\}\times\mathcal{S}^* \llbracket \mathsf{P} \rrbracket \subseteq 
+	\mathsf{prefix(\mathcal{S}^r \llbracket R \bullet (?:\mathit{T})^*} \rrbracket)$$
+	در این راستا، می‌توانیم گزاره‌ی زیر را ثابت کنیم که از گزاره‌ی قبلی قوی‌تر است و آن را نتیجه می‌دهد:
+	$$\mathcal{M}\langle \underline{\rho},\mathsf{R} \rangle \mathcal{S}^* \llbracket \mathsf{P} \rrbracket \subseteq \mathsf{prefix(\mathcal{S}^r \llbracket R \bullet (?:\mathit{T})^*} \rrbracket)$$
+	
+	در مورد عبارت منظم $\mathsf{R}$ فرض می‌کنیم
+	$\mathsf{dnf(R)=R_1+R_2+...+R_n}$،
+	که هر $\mathsf{R}_i$ ذکر شده، عضو $\mathbb{R}^\nmid$ است. 
+	فرض می‌کنیم
+	$\langle \underline{\rho}, \pi \rangle \in \mathcal{M}\langle \underline{\rho},\mathsf{R} \rangle \mathcal{S}^* \llbracket \mathsf{P} \rrbracket$
+	آنگاه وجود دارد $k$ و $\mathsf{R'}$ که \break
+	$\langle \pi , \mathsf{R'} \rangle  \in \mathcal{M}^\nmid\langle \underline{\rho},\mathsf{R}_k \rangle \mathcal{S}^* \llbracket \mathsf{P} \rrbracket$
+	که طبق تعریف $\mathcal{M}^\nmid$ خواهیم داشت:
+	$$\pi \in \mathcal{S}^* \llbracket \mathsf{P} \rrbracket \land \mathcal{M}^t \langle \underline{\rho},\mathsf{R}_k \rangle \pi = \langle \mathit{T},\mathsf{R'} \rangle$$
+	که طرف چپ گزاره‌ی عطفی بالا، در فرض بود و در ادامه‌ی کار با طرف راست این عبارت پیش می‌رویم. یعنی:
+	$$\mathcal{M}^t \langle \underline{\rho},\mathsf{R}_k\rangle \pi = \langle \mathit{T},\mathsf{R'} \rangle$$
+
+در مورد $\mathsf{R}_k$ دو حالت داریم، یا 
+$\mathsf{R}_k \Bumpeq \varepsilon$
+برقرار است، یا اینگونه نیست( 
+$\mathsf{R}_k \not\Bumpeq \varepsilon$).
+$$\blacktriangleright\mathsf{R}_k \Bumpeq \varepsilon:$$
+در این صورت می‌توانیم ثابت کنیم 
+$$\mathsf{prefix(\mathcal{S}^r \llbracket \mathsf{R} \bullet (?:\mathit{T})^* \rrbracket)}=
+	\{\underline{\rho}\} \times \mathbb{S}^+$$
+با توجه به پخش پذیری عملگر چسباندن روی عملگر انتخاب، که پیش‌تر ثابت کردیم، داریم:
+$$\mathsf{R}\bullet(?:\mathit{T})^* \Bumpeq \mathsf{(R_1 + R_2 + ... +R_m)}\bullet(?:\mathit{T})^*$$
+$$\Bumpeq \mathsf{R_1}\bullet (?:\mathit{T})^* + \mathsf{R_2} \bullet (?:\mathit{T})+...+ \mathsf{R_n} \bullet (?:\mathit{T})^*$$
+چون $\mathsf{R}_k \Bumpeq \varepsilon$ داریم:
+$$\mathsf{R_1}\bullet (?:\mathit{T})^* + \mathsf{R_2} \bullet (?:\mathit{T})+...+ \mathsf{R}_k \bullet (?:\mathit{T})^* +...+ \mathsf{R_n} \bullet (?:\mathit{T})^*$$
+$$\Bumpeq \mathsf{R_1}\bullet (?:\mathit{T})^* + \mathsf{R_2} \bullet (?:\mathit{T})+...+ \varepsilon \bullet (?:\mathit{T})^* +...+ \mathsf{R_n} \bullet (?:\mathit{T})^*$$
+و از طرف دیگر داریم:
+$$\varepsilon \bullet (?:\mathit{T})^* \Bumpeq (?:\mathit{T})^* = (\{\underline{\rho}\} \times \mathbb{S}^+)$$  
+
+پس 
+$\mathsf{prefix(\mathcal{S}^r \llbracket \mathsf{R} \bullet (?:\mathit{T})^* \rrbracket)}$
+مجموعه‌ی 
+$\{\underline{\rho}\} \times \mathbb{S}^+$
+را به عنوان زیرمجموعه در درون خود دارد و عضوی بیش از این هم طبق تعریفش نمی‌تواند داشته باشد، پس:
+$$\mathsf{prefix(\mathcal{S}^r \llbracket \mathsf{R} \bullet (?:\mathit{T})^* \rrbracket)}=
+\{\underline{\rho}\} \times \mathbb{S}^+$$
+که این گزاره نتیجه می‌دهد:
+$$\langle \underline{\rho}, \pi \rangle \in \mathsf{prefix(\mathcal{S}^r \llbracket \mathsf{R} \bullet (?:\mathit{T})^* \rrbracket)}$$
+
+$$\blacktriangleright \mathsf{R}_k \not\Bumpeq \varepsilon:$$
+این فرض، همان طور که پیش‌تر اشاره کردیم، یعنی
+$\mathsf{R}_k \in \mathsf{R}^+ \cap \mathsf{R}^\nmid$.
+پس مجاز هستیم از تابع سر و دم استفاده کنیم. فرض می‌کنیم 
+$\mathsf{fstnxt(R}_k) = \langle \mathsf{L}_k^1 : \mathsf{B}_k^1 , \mathsf{R}_k^1 \rangle$.
+همین‌طور فرض می‌کنیم:
+$$\pi = \langle l_0,\rho_0 \rangle \langle l_1 , \rho_1 \rangle \langle l_2 , \rho_2 \rangle ... \langle l_l , \rho_l \rangle$$
+و تعریف می‌کنیم:
+$$\pi(i)=\langle l_i , \rho_i\rangle \langle l_{i+1},\rho_{i+1}\rangle,...,\langle l_l,\rho_l \rangle$$
+داریم:
+$$\mathcal{M}^t \langle \underline{\rho},\mathsf{R}_k \rangle \pi = \langle \mathit{T} , \mathsf{R'} \rangle \Rightarrow \forall \mathsf{R''} \in \mathbb{R}: \mathcal{M}^t \langle \underline{\rho},\mathsf{R}_k \rangle \pi \neq \langle \mathit{F},\mathsf{R}'' \rangle$$
+پس لاجرم تساوی زیر برقرار است( با توجه به سر و دم $\mathsf{R}_k$):
+$$\mathcal{M}^t \langle \underline{\rho}, \mathsf{R}_k \rangle \pi= \mathcal{M}^t \langle \underline{\rho}, \mathsf{R}_k^1 \rangle \pi(1)$$
+بدون کاستن از کلیت( چون ممکن است $\mathsf{R}_k^1 \Bumpeq \varepsilon$) فرض می‌کنیم کاری که انجام دادیم را می‌توانیم روی دم خروجی عبارت منظم $\mathsf{R}_k$( یعنی $\mathsf{R}_k^1$) تکرار کنیم:
+$$\mathcal{M}^t \langle \underline{\rho}, \mathsf{R}_k^1 \rangle \pi(1)= \mathcal{M}^t \langle \underline{\rho}, \mathsf{R}_k^2 \rangle \pi(2)\;\;\; \mathsf{where\;fstnxt}(\mathsf{R}_k^1)=\langle \mathsf{L}_k^2 : \mathsf{B}_k^2 , \mathsf{R}_k^2 \rangle$$
+
+باز هم بدون کاستن از کلیت می‌توانیم فرض کنیم که این رویه را به صورت یک سلسله می‌توان تا $h$ مرحله ادامه داد، یعنی:
+$$\mathcal{M}^t \langle \underline{\rho},\mathsf{R}_k^{h-1} \rangle \pi(h-1)=\mathcal{M}^t\langle \underline{\rho},\mathsf{R}_k^{h} \rangle \pi(h) \;\;\;
+\mathsf{where\;fstnxt}(\mathsf{R}_k^{h-1})=\langle \mathsf{L}_k^{h} : \mathsf{B}_k^{h} , \mathsf{R}_k^{h} \rangle$$
+در حالیکه 
+$\mathsf{R_k^h} \Bumpeq \varepsilon$. 
+اگر $\mathsf{R_k^h} \Bumpeq \varepsilon$ هیچ زمانی برقرار نشود، یعنی بتوانیم این سلسله را تا بی‌نهایت ادامه دهیم، مطمئن خواهیم بود که در معنای $\mathsf{R_k}$ حتما ردهای پیشوندی نامتناهی حضور دارند که چنین چیزی با تعریف معنای عبارات منظم در تناقض است، چون در معنای عبارات منظم رد پیشوندی نامتناهی حضور ندارد.
+تا اینجا، می‌توانیم بگوییم:
+$$\mathsf{R_k} \Bumpeq \mathsf{L_k^1 : B_k^1 \bullet L_k^2:B_k^2 \bullet ... \bullet L_k^h:B_k^h}$$
+
+حال بسته به اینکه $h<l$ برقرار هست یا خیر می‌توانیم مسئله را به دو حالت افراز کنیم:
+$$\blacktriangleright\blacktriangleright h<l:$$
+در این صورت داریم:
+$$\mathcal{M}^t \langle \underline{\rho}, \mathsf{R}_k^h \rangle \pi(h+1)=\langle \mathit{T} , \varepsilon \rangle$$
+
+این‌ها یعنی داریم:
+$$\forall j:1\leq j \leq h \rightarrow \langle \underline{\rho},\langle l_j, \rho_j \rangle\rangle \in \mathcal{S}^r \llbracket \mathsf{L}_j : \mathsf{B}_j \rrbracket$$
+$$\Rightarrow \langle \underline{\rho}, \pi \rangle \in \mathcal{S}^r \llbracket \mathsf{R}_k \bullet (?:\mathit{T})^* \rrbracket \Rightarrow \langle \underline{\rho},\pi\rangle \in \mathsf{prefix(\mathcal{S}^r \llbracket R \bullet (?:\mathit{T})^*} \rrbracket)$$ 
+
+$$\blacktriangleright\blacktriangleright h\geq l:$$
+در این صورت داریم:
+$$\mathcal{M}^t \langle\underline{\rho},\mathsf{R_k}\rangle \pi = \langle \mathit{T}, \mathsf{R}_k^l\rangle$$
+که یعنی:
+$$\forall j:1\leq j \leq l \rightarrow \langle \underline{\rho},\langle l_j, \rho_j \rangle\rangle \in \mathcal{S}^r \llbracket \mathsf{L}_j : \mathsf{B}_j \rrbracket$$
+$$\Rightarrow \langle \underline{\rho}, \pi \rangle \in \mathsf{prefix}(\mathcal{S}^r \llbracket \mathsf{R}_k\rrbracket) \Rightarrow \langle \underline{\rho},\pi\rangle \in \mathsf{prefix(\mathcal{S}^r \llbracket R \bullet (?:\mathit{T})^*} \rrbracket)$$ 
+
+پس در کل می‌توانیم بگوییم
+$$\langle \underline{\rho},\pi\rangle \in \mathsf{prefix(\mathcal{S}^r \llbracket R \bullet (?:\mathit{T})^*} \rrbracket)$$
+و اثبات قضیه تمام می‌شود.
+\end{proof}
+
+حال به اثبات تمامیت می‌پردازیم.
+
+\begin{thm}
+
+	(قضیه تمامیت): اگر $\mathsf{P}$ یک برنامه، $\mathsf{R}$ یک عبارت منظم و $\underline{\rho}$ یک محیط اولیه باشند، آنگاه داریم:
+$$\mathsf{P},\underline{\rho} \models \mathsf{R} \Rightarrow
+\mathsf{P},\underline{\rho} \models_r \mathsf{R}$$
+\end{thm}
+\begin{proof}
+	با برهان خلف این قضیه را ثابت می‌کنیم و شکل اثبات تا حدی شبیه به اثبات درستی است.
+	$$\{\underline{\rho}\}\times \mathcal{S}^* \llbracket \mathsf{P} \rrbracket \nsubseteq \mathcal{M}\langle \underline{\rho}, \mathsf{R} \rangle \mathcal{S}^* \llbracket \mathsf{P} \rrbracket \Rightarrow
+	\exists \pi:\langle \underline{\rho}, \pi \rangle \in \{\rho\}\times \mathcal{S}^* \llbracket \mathsf{P}\rrbracket \land \langle \underline{\rho}, \pi \rangle \notin \mathcal{M}\langle \underline{\rho},\mathsf{R}\rangle\mathcal{S}^* \llbracket \mathsf{P} \rrbracket$$
+	اگر فرض کنیم
+	$\mathsf{dnf(R)=R_1+R_2+...+R_n}$،
+	علاوه بر این، با توجه به آنچه در اثبات درستی گفتیم فرض کنیم:
+	$$\mathsf{R}_i \Bumpeq \mathsf{L_i^1:B_i^1 \bullet L_i^2:B_i^2 \bullet ... \bullet L_i^n:B_i^n}$$ 
+	و
+	$$\pi=\langle l_1 ,\rho_1 \rangle \langle l_2 ,\rho_2 \rangle ... \langle l_l ,\rho_l \rangle$$
+	می‌توانیم در ادامه‌ی فرض خلف نتیجه بگیریم:
+	$$\forall i:1 \leq i \leq n \rightarrow 
+	\langle \underline{\rho}, \pi \rangle \notin \mathcal{M}^\nmid \langle \underline{\rho}, \mathsf{R}_i \rangle \mathcal{S}^* \llbracket \mathsf{P} \rrbracket$$
+	$$\Rightarrow\forall i:1 \leq i \leq n \rightarrow\exists \mathsf{R'}_i:\Rightarrow \mathcal{M}^t \langle \underline{\rho},\mathsf{R}_i \rangle \pi = \langle \mathit{F},\mathsf{R}_i^k \rangle$$
+	در این صورت خواهیم داشت:
+	$$\exists j: \langle \underline{\rho},\langle l_j,\rho_j \rangle \rangle \notin \mathcal{S}^r \llbracket \mathsf{L_i^j:B_i^j} \rrbracket
+	\Rightarrow \langle \underline{\rho},\pi \rangle \notin \mathcal {S}^r \llbracket \mathsf{R}_i \bullet (?:\mathit{T})^* \rrbracket$$
+	از نتیجه‌ی آخر می‌توانیم ثابت کنیم 
+	$\langle \underline{\rho},\pi \rangle \notin \mathsf{prefix}(\mathcal {S}^r \llbracket \mathsf{R}_i \bullet (?:\mathit{T})^* \rrbracket)$
+	چون اگر غیر از این باشد، اگر فرض کنیم 
+	$\langle \underline{\rho}, \pi' \rangle$
+	 عضو 
+	 $\mathsf{prefix}(\mathcal {S}^r \llbracket \mathsf{R}_i \bullet (?:\mathit{T})^* \rrbracket)$
+	 هست، اما عضو \break
+	 $\mathcal {S}^r \llbracket \mathsf{R}_i \bullet (?:\mathit{T})^* \rrbracket$
+	 نیست، اگر طول $\pi$ بزرگتر یا مساوی $j$ باشد، به خاطر وجود 
+	 $\langle l_j,\rho_j \rangle$
+	 در $\pi$، خواهیم داشت $\pi \neq \pi'$ و اگر طول $\pi'$ کمتر از $j$ باشد، چون طول $\pi$ قطعا بزرگتر یا مساوی $j$ است( نتیجه از عبارت بالایی که دارای سور وجودی است)، پس باز هم 
+	 $\pi \neq \pi'$.
+	 توجه شود که 
+	 $\langle \underline{\rho},\pi \rangle \notin \mathcal {S}^r \llbracket \mathsf{R}_i \bullet (?:\mathit{T})^* \rrbracket$
+	 با توجه به آنچه گفتیم، با فرض در تناقض است و حکم ثابت می‌شود.
+\end{proof}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section{در مورد قدرت بیان عبارات منظم}
+در این بخش می‌‌خواهیم کمی در مورد قدرت بیان عبارات منظمی که در این فصل آورده‌ایم در مقایسه با منطق \lr{LTL} که در فصل اول آمده صحبت کنیم. همان طور که پیش‌تر گفتیم، یکی از دلایلی که کوزو برای استفاده از عبارات منظم دارد این است که عبارات منظم قادر به بیان خواصی هستند که منطق زمانی از بیان آن‌ها عاجز است. او \cite{regisbetter} را به عنوان مرجع صحبتش در نظر گرفته و در \cite{calcul} در این مورد صحبت بیشتری نکرده است. 
+در این بخش می‌خواهیم این بحث را بیشتر باز کنیم. 
+
+سوال اصلی ما در این بخش این است که آیا یکی از این دو موجود، اکیدا از دیگری در بیان قوی‌تر هست یا خیر. به این معنی که آیا می‌شود هر چیزی که با یکی از این‌ها قابل بیان است را با دیگری هم بیان کرد یا خیر. البته \cite{regisbetter} حداقل در مورد یک طرف این بحث حرف زده و ما هم در اینجا از آن محتوا هم کمک خواهیم گرفت و این بحث را میان دو زبانی که تا به حال در بحث داشتیم مطرح می‌کنیم، یعنی منطق زمانی خطی و عبارات منظمی که در همین فصل معرفی شدند.
+
+\subsection{نزدیک کردن صورت دو زبان}
+
+پیش از اینکه بخواهیم مقایسه‌ای ترتیب دهیم، ابتدا باید زبانی را که در فصل اول از \lr{LTL} آورده‌ایم، با عبارات منظمی که در این فصل آورده‌ایم با هم قابل مقایسه کنیم. به هر حال زبانی که در فصل اول آمده یک منطق گزاره‌ای است اما در عبارات منظمی که در این فصل آورده‌ایم اتم‌ها( یا به عبارت دیگر لیترال‌ها) به موجودات ساختارمندتری تبدیل شده‌اند که همان زوج مرتب‌های $\mathsf{L:B}$ هستند. در اینجا معناشناسی ما هم نسبت به تغییری که در اتم‌ها داده‌ایم فرق کرده است. بنابراین اولین تلاشی که می‌کنیم این است که منطقی که در فصل اول آورده‌ایم را به شکلی که حس می‌کنیم قابل مقایسه با عبارات منظم باشد تغییر دهیم. در واقع تغییری که در زبان می‌دهیم همان تغییر اتم‌هاست. در ادامه معناشناسی منطق \lr{LTL} را هم به کمک ردهای پیشوندی، مثل عبارات منظم، بیان می‌کنیم. نام این منطق جدید را "\lr{LTL}- گسترش یافته" گذاشته‌ایم. 
+
+\begin{defn}
+	(زبان \lr{LTL}- گسترش‌ یافته): با فرض اینکه 
+	$\mathsf{L} \subseteq \mathbb{L}$
+	و 
+	$\mathsf{B} \in \mathbb{B}$
+	زبان  \lr{LTL}- گسترش یافته به شکل زیر است:
+	
+	$$
+	\phi \in \Phi \Leftrightarrow
+	\phi ::= \mathsf{L:B} | \phi_1 \lor \phi_2 |
+	\neg \phi_1 |
+	\bigcirc \phi_1 |
+	\phi_1 \mathcal{U}\phi_2 
+	$$	
+	مجموعه‌ی همه‌ی فرمول‌ها در این زبان را با $\mathfrak{L}_e$ نمایش می‌دهیم.
+\end{defn} 
+
+\begin{defn}
+	(معناشناسی \lr{LTL}- گسترش یافته): تابع 
+	$\mathcal{S}^t : \Phi \rightarrow \mathit{P}(\mathbb{\underline{EV}}\times\mathfrak{S}^{+})$
+	با ضابطه‌ی زیر، معناشناسی زبان \lr{LTL} است.
+	
+	$$\blacktriangleleft \mathcal{S}^t \llbracket \mathsf{L:B} \rrbracket = 
+	\{ \langle \underline{\rho} , \langle l , \rho \rangle\rangle | l \in \mathsf{L} \; , \; \mathcal{B}\llbracket \mathsf{B} \rrbracket \underline{\rho}, \rho=\mathit{T} \; , \; \underline{\rho}\in \mathbb{\underline{EV}}\}$$
+	$$\blacktriangleleft \mathcal{S}^t \llbracket \mathsf{\phi_1 \lor \phi_2} \rrbracket =
+	\mathcal{S}^t \llbracket \phi_1 \rrbracket \cup \mathcal{S}^t \llbracket \phi_2 \rrbracket
+	$$
+	$$\blacktriangleleft \mathcal{S}^t \llbracket \mathsf{\neg \phi_1} \rrbracket =
+	\mathfrak{S}^{+} \setminus \mathcal{S}^t \llbracket \phi_1 \rrbracket
+	$$
+	$$\blacktriangleleft \mathcal{S}^t \llbracket \mathsf{\bigcirc \phi_1} \rrbracket =
+	\{ \langle \underline{\rho} , \langle l , \rho \rangle \pi \rangle | \langle \underline{\rho},\pi \rangle \in \mathcal{S}^t \llbracket \phi_1 \rrbracket \; , \; l \in \mathbb{L} \; , \; \rho \in \mathbb{EV} \; , \;\underline{\rho},\in \mathbb{\underline{EV}} \}
+	$$
+	$$\blacktriangleleft \mathcal{S}^t \llbracket \mathsf{\phi_1 \mathcal{U} \phi_2} \rrbracket =
+	\{ \langle \underline{\rho} , \pi \rangle | \exists \pi': \forall \pi'': \pi \pi'' \subsetneq \pi' \rightarrow (\langle \underline{\rho}, \pi \pi'' \rangle \in \mathcal{S}^t \llbracket \phi_1 \rrbracket,\langle \underline{\rho}, \pi' \rangle \in \mathcal{S}^t \llbracket \phi_2 \rrbracket) \; , \;\underline{\rho} \in \mathbb{\underline{EV}} \}
+	$$
+	
+	
+\end{defn}
+
+حال می‌خواهیم ثابت کنیم که معناشناسی‌ای که ارائه کرده‌ایم، معنای منطق \lr{LTL} را حفظ کرده. 
+برای این کار ابتدا یک معناشناسی جدید را برای زبان \lr{LTL} قدیمی ارائه می‌دهیم و ثابت می‌کنیم که معادل با معناشناسی قبلی است. 
+
+\begin{defn}
+	(مدل \lr{LTL}- جدید): به هر تابع از $\Pi$ یعنی مجموعه‌ی اتم‌ها به $\mathit{P(\mathbb{N})}$ یعنی مجموعه‌ی همه‌ی زیرمجوعه‌های مجموعه‌ی کل اعداد طبیعی می‌گوییم مدل جدید.
+	$$M_n:\Pi \rightarrow \mathit{P(\mathbb{N})}$$
+	مجموعه‌ی همه‌ی مدل‌های جدید را با 
+	$\mathbb{M}_n$
+	نشان می‌دهیم.
+\end{defn}
+
+\begin{defn}
+	(معناشناسی \lr{LTL}- جدید): تابع 
+	$\bar{ }:\mathbb{M}_n \rightarrow \Phi \rightarrow \mathit{P}(\mathbb{N})$
+	( به علامت گذاری دقت کنید! نام گذاری تابع به شکل سنتی و با یک حرف خاص نیست و صرفا علامت بار را گذاشته‌ایم. به ازای مدل $M_n$ در ورودی، تابع 
+	$\bar{M_n}: \Phi \rightarrow \mathit{P}(\mathbb{N})$
+	را داریم.)
+	به ازای مدل $M_n$ روی فرمول‌های زبان \lr{LTL} به شکل زیر تعریف می‌شود:
+	$$\blacktriangleleft \bar{M_n}(\pi)= M_n(\pi)$$
+	$$\blacktriangleleft \bar{M_n}(\phi \lor \psi)= \bar{M_n}(\phi) \cup \bar{M_n}(\psi)$$
+	$$\blacktriangleleft \bar{M_n}(\neg \phi)= \mathbb{N} \setminus \bar{M_n}(\phi)$$
+	$$\blacktriangleleft \bar{M_n}(\bigcirc\phi)= \{n+1|n\in \bar{M_n}(\phi) \}$$
+	$$\blacktriangleleft \bar{M_n}(\phi \mathcal{U} \psi)= \{n|\exists k : \forall j: n \leq j \lneq k \rightarrow j \in \bar{M_n}(\phi) , k \in \bar{M_n}(\psi) \}$$
+	و به کمک این تابع تعریف می‌کنیم:
+	$$M_n,i \models_n \phi \; \mathit{iff}\; i \in \bar{M_n}(\phi)$$
+\end{defn}
+
+مدل‌های جدیدی که تعریف کرده‌ایم همان اطلاعاتی را که مدل‌های قدیمی به ما می‌دادند، با آرایش دیگری در خود نگه می‌دارند. برای اینکه بتوانیم از هر دو شیوه‌ی بیان یک مدل استفاده کنیم یک تابع میان آن‌ها تعریف می‌کنیم.
+
+\begin{defn}
+	(تابع مبدل): تابع
+	$\mathfrak{T}:\mathbb{M_n} \rightarrow \mathbb{M}$
+	را به نام تابع مبدل به شکل زیر تعریف می‌کنیم:
+	$$\mathfrak{T}(M_n)(i)=\{ \pi | i \in M_n(\pi) \}$$
+\end{defn} 
+
+این تابع یک تناظر یک به یک و پوشا بین مدل‌های قدیم و جدید است. 
+\begin{thm}
+	تابع $\mathfrak{T}$ یک به یک و پوشا است.
+\end{thm}
+\begin{proof}
+	پیش از هر چیز ذکر این نکته ضروری است که اصلا چرا $\mathfrak{T}$ یک تابع است. این از این می‌آید که با توجه به اینکه در تعریف این تابع صرفا از عملگر اجتماع و محمول عضویت استفاده شده و می‌دانیم این دو خوش تعریف هستند، پس متوجه می‌شویم که $\mathfrak{T}$ یک تابع است.
+	
+	اثبات یک به یک بودن:
+	فرض می‌‌کنیم که به ازای دو مدل $M_n$ و $M_n'$ که ممکن است متفاوت باشند، داریم $\mathfrak{T}(M_n)=\mathfrak{T}(M_n')$. داریم:
+	$$\Rightarrow \forall i \in \mathbb{N}: \mathfrak{T}(M_n)(i)=\mathfrak{T}(M_n')(i)
+	\Rightarrow \forall i \in \mathbb{N}: \forall \pi \in \Pi: \pi \in \mathfrak{T}(M_n)(i) \leftrightarrow \pi \in \mathfrak{T}(M_n')(i)$$
+	$$\Rightarrow \forall i \in \mathbb{N}: \forall \pi \in \Pi: i \in M_n(\pi) \leftrightarrow \pi \in M_n'(\pi) \iff M_n = M_n'$$
+	پس این دو مدل الزاما برابرند و این یعنی این تابع یک به یک است.
+	
+	اثبات پوشا بودن: فرض می‌کنیم $M \in \mathbb{M}$ و ثابت می‌کنیم برای مدل \break
+	$M_n (\pi)=\{i | \pi \in M(i)\}$ 
+	داریم $\mathfrak{T}(M_n)=M$.
+	$$\forall j \in \mathbb{N}: \mathfrak{T}(M_n)(j)=\{\pi | j \in M_n(\pi)\}
+	=\{\pi | j \in \{i | \pi \in M(i)\}\}= \{\pi | \pi \in M(j)\}=M(j)$$
+	$$\Rightarrow \mathfrak{T}(M_n)=M$$
+	پس تابع مبدل پوشا نیز هست.
+\end{proof}
+
+بنابراین می‌توانیم قضیه‌ی زیر را بیان کنیم.
+\begin{thm}
+	معناشناسی جدید و قدیم با یکدیگر معادل‌اند یا به عبارت دیگر 
+	برای هر مدل $M_n \in \mathbb{M_n}$ داریم:
+	$$\forall \phi \in \Phi, i\in\mathbb{N}:\bar{M_n},i \models_n \phi \leftrightarrow \mathfrak{T}(M_n) , i \models \phi $$
+\end{thm}
+
+\begin{proof}
+	روی ساختار $\phi$ استقرا می‌زنیم:
+	$$\blacktriangleright \phi=\pi:$$
+	$$M_n , i \models_n \pi \iff i \in \bar{M_n} (\pi) \iff i \in M_n(\pi)$$
+	$$\iff \pi \in \mathfrak{T}(M_n)(i) \iff \mathfrak{T}(M_n),i \models \pi $$
+	
+	$$\blacktriangleright \phi=\phi \lor \psi:$$
+	$$M_n , i \models_n \phi \lor \psi  \iff i\in \bar{M_n}(\phi \lor \psi) = \bar{M_n} (\phi) \cup \bar{M_n}(\psi)$$
+	در اینجا بدون کاستن از کلیت می‌توانیم فرض کنیم $i \in \bar{M_n}$. با فرض دیگر هم اثبات به همین شکل است.
+	$$i \in \bar{M_n}(\phi) \iff M_n,i\models_n \phi \mathfrak{T}(M_n),i \models \phi \Rightarrow \mathfrak{T}(M_n),i\models \phi \lor \psi$$
+	عکس این اثبات را هم برای عکس این طرف قضیه که ثابت کردیم در همین اثبات می‌شود دید. آخرین نتیجه‌ای که گرفتیم می‌تواند بدون کاستن از کلیت برعکس گرفته شود و در واقع برای هر دو زیر فرمول به‌طور جداگانه ثابت شود.
+	$$\blacktriangleright \phi=\neg \phi:$$
+	$$M_n,i \models_n \iff i \in \bar{M_n}(\neg \phi) \iff i \notin \bar{M_n}(\phi)$$
+	$$\iff M_n ,i \nvDash_n \phi \iff \mathfrak{T}(M_n),i \nvDash \phi \iff \mathfrak{T} (M_n) ,i \models \neg \phi$$ 
+	
+	$$\blacktriangleright \phi=\phi \mathcal{U} \psi:$$
+	$$M_n,i \models_n \pi \mathcal{U} \psi \iff i \in \bar{M_n}(\phi \mathcal{U}\psi)$$
+	$$\iff \exists k: \forall j: i \leq j < k \rightarrow j \in \bar{M_n}(\phi) , k \in \bar{M_n}(\psi)$$
+	$$\iff \exists k: \forall j: i \leq j < k \rightarrow M_n,j \models_n\phi ,  M_n,k\models_n \psi$$
+	$$\iff \exists k: \forall j: i \leq j < k \rightarrow \mathfrak{T}(M_n),j \models\phi ,  \mathfrak{T}(M_n),k\models \psi$$
+	$$\iff \mathfrak{T}(M_n),i \models \phi \mathcal{U} \psi$$
+	
+\end{proof}
+
+پس تا اینجای کار تا حدودی نشان دادم که معناشناسی جدیدی که برای \lr{LTL} ارائه کرده‌ایم با معناشناسی قدیمی‌اش معادل است. 
+
+می‌توان دید که $\bar{M_n}$ به
+$\mathcal{S}^t$
+بسیار شبیه است و انگار که با جایگذاری زوج‌های 
+$\mathsf{L:B}$ به جای اتم‌ها و ردهای پیشوندی متناهی به جای اعداد طبیعی می‌توان 
+از 
+$\bar{M_n}$
+به 
+$\mathcal{S}^t$
+رسید. البته می‌توان برای اطمینان به مشخص‌تر کردن این ارتباط ادامه داد. در واقع ماهیت مدل‌ها در دو منطقی که ادعای معادل بودنشان را داریم، متفاوت است. در منطق قبلی مدل ها هر اتم را به زیرمجموعه‌ای از همه‌ی اعداد طبیعی می‌نگارند و در منطق گسترش یافته مدل‌ها هر اتم را به مجموعه‌ای از وضعیت‌ها( ردهای پیشوندی تک عضوی) می‌نگارند. این یعنی ترتیبی که در ردهای پیشوندی داریم در مدل وجود ندارد، درحالیکه در مدل‌های قدیمی ترتیب از مدل مشخص می‌شود. از آنجایی که در هر دو منطق مجموعه‌ی مدل‌ها هم مرتبه‌ی مجموعه‌ی اعداد حقیقی است، می‌دانیم که یک دو سویی بین مدل‌ها هست و احتمالا صورت هم‌ارزی دو منطق را می‌توان با استفاده از آن تابع و البته دوسویی دیگری بین اتم‌های دو منطق، که از شمارا و نامتناهی بودن مجموعه‌ی اتم‌های هر دو منطق داریم، می‌توان به یک صورت کامل برای این ادعا هم رسید. اما ما فعلا به همین شواهد قانع شده‌ایم.
+
+\subsection{مقایسه}
+
+حال به بررسی این می‌پردازیم که کدام زبان قدرت بیان بیشتری دارد. ابتدا ثابت می‌کنیم عبارات منظمی وجود دارند که قابل بیان به وسیله‌ی \lr{LTL}- گسترش یافته نیستند. سپس عکس این را ثابت می‌کنیم، یعنی ثابت نشان می‌دهیم فرمولی در \lr{LTL}- گسترش یافته وجود دارد که به وسیله‌ی عبارات منظم قابل بیان نیست. 
+
+\begin{thm}
+	به ازای 
+	$\mathsf{L} \subseteq \mathbb{L},\mathsf{B}\in \mathbb{B}$
+	عبارت منظم 
+	$(\mathsf{\langle ? : \mathit{T} \rangle \langle L:B \rangle })^*$
+	قابل بیان با \lr{LTL} نیست. به عبارت دیگر هیچ فرمولی در \lr{LTL}- گسترش یافته نیست که هم‌معنا با عبارت منظم 
+	$(\mathsf{\langle ? : \mathit{T} \rangle \langle L:B \rangle })^*$
+	 باشد.
+\end{thm}
+
+\begin{proof}
+	اثبات را با استقرا روی ساختار زبان \lr{LTL}- گسترش یافته انجام می‌دهیم. در هر مورد از استقرا ثابت می‌کنیم که اگر ساختار فرمول به شکل فرض شده باشد، نمی‌تواند هم معنا با عبارت منظم ذکر شده باشد.
+	
+	$$\blacktriangleright \phi = \mathsf{\langle L:B \rangle}:$$
+	در این حالت معنای $\phi$ صرفا شامل ردهای پیشوندی تک عضوی است در حالی که در معنای عبارت منظم مذکور اصلا رد پیشوندی تک عضوی وجود ندارد.
+	
+	$$\blacktriangleright \phi = \phi_1 \lor \phi_2:$$
+	
+	
+	$$\blacktriangleright \phi = \neg \phi_1:$$
+	
+	
+	
+\end{proof}
+
+
+
+
+
+
+
+
 
 
 
