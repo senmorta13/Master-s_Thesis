@@ -1,0 +1,211 @@
+
+
+
+
+
+\section{در مورد قدرت بیان عبارات منظم}
+در این بخش می‌‌خواهیم کمی در مورد قدرت بیان عبارات منظمی که در این فصل آورده‌ایم در مقایسه با منطق \lr{LTL} که در فصل اول آمده صحبت کنیم. همان طور که پیش‌تر گفتیم، یکی از دلایلی که کوزو برای استفاده از عبارات منظم دارد این است که عبارات منظم قادر به بیان خواصی هستند که منطق زمانی از بیان آن‌ها عاجز است. او \cite{regisbetter} را به عنوان مرجع صحبتش در نظر گرفته و در \cite{calcul} در این مورد صحبت بیشتری نکرده است. 
+در این بخش می‌خواهیم این بحث را بیشتر باز کنیم. 
+
+سوال اصلی ما در این بخش این است که آیا یکی از این دو موجود، اکیدا از دیگری در بیان قوی‌تر هست یا خیر. به این معنی که آیا می‌شود هر چیزی که با یکی از این‌ها قابل بیان است را با دیگری هم بیان کرد یا خیر. البته \cite{regisbetter} حداقل در مورد یک طرف این بحث حرف زده و ما هم در اینجا از آن محتوا هم کمک خواهیم گرفت و این بحث را میان دو زبانی که تا به حال در بحث داشتیم مطرح می‌کنیم، یعنی منطق زمانی خطی و عبارات منظمی که در همین فصل معرفی شدند.
+
+\subsection{نزدیک کردن صورت دو زبان}
+
+پیش از اینکه بخواهیم مقایسه‌ای ترتیب دهیم، ابتدا باید زبانی را که در فصل اول از \lr{LTL} آورده‌ایم، با عبارات منظمی که در این فصل آورده‌ایم با هم قابل مقایسه کنیم. به هر حال زبانی که در فصل اول آمده یک منطق گزاره‌ای است اما در عبارات منظمی که در این فصل آورده‌ایم اتم‌ها( یا به عبارت دیگر لیترال‌ها) به موجودات ساختارمندتری تبدیل شده‌اند که همان زوج مرتب‌های $\mathsf{L:B}$ هستند. در اینجا معناشناسی ما هم نسبت به تغییری که در اتم‌ها داده‌ایم فرق کرده است. بنابراین اولین تلاشی که می‌کنیم این است که منطقی که در فصل اول آورده‌ایم را به شکلی که حس می‌کنیم قابل مقایسه با عبارات منظم باشد تغییر دهیم. در واقع تغییری که در زبان می‌دهیم همان تغییر اتم‌هاست. در ادامه معناشناسی منطق \lr{LTL} را هم به کمک ردهای پیشوندی، مثل عبارات منظم، بیان می‌کنیم. نام این منطق جدید را "\lr{LTL}- گسترش یافته" گذاشته‌ایم. 
+
+\begin{defn}
+	(زبان \lr{LTL}- گسترش‌ یافته): با فرض اینکه 
+	$\mathsf{L} \subseteq \mathbb{L}$
+	و 
+	$\mathsf{B} \in \mathbb{B}$
+	زبان  \lr{LTL}- گسترش یافته به شکل زیر است:
+	
+	$$
+	\phi \in \Phi \Leftrightarrow
+	\phi ::= \mathsf{L:B} | \phi_1 \lor \phi_2 |
+	\neg \phi_1 |
+	\bigcirc \phi_1 |
+	\phi_1 \mathcal{U}\phi_2 
+	$$	
+	مجموعه‌ی همه‌ی فرمول‌ها در این زبان را با $\mathfrak{L}_e$ نمایش می‌دهیم.
+\end{defn} 
+
+\begin{defn}
+	(معناشناسی \lr{LTL}- گسترش یافته): تابع 
+	$\mathcal{S}^t : \Phi \rightarrow \mathit{P}(\mathbb{\underline{EV}}\times\mathfrak{S}^{+})$
+	با ضابطه‌ی زیر، معناشناسی زبان \lr{LTL} است.
+	
+	$$\blacktriangleleft \mathcal{S}^t \llbracket \mathsf{L:B} \rrbracket = 
+	\{ \langle \underline{\rho} , \langle l , \rho \rangle\rangle | l \in \mathsf{L} \; , \; \mathcal{B}\llbracket \mathsf{B} \rrbracket \underline{\rho}, \rho=\mathit{T} \; , \; \underline{\rho}\in \mathbb{\underline{EV}}\}$$
+	$$\blacktriangleleft \mathcal{S}^t \llbracket \mathsf{\phi_1 \lor \phi_2} \rrbracket =
+	\mathcal{S}^t \llbracket \phi_1 \rrbracket \cup \mathcal{S}^t \llbracket \phi_2 \rrbracket
+	$$
+	$$\blacktriangleleft \mathcal{S}^t \llbracket \mathsf{\neg \phi_1} \rrbracket =
+	\mathfrak{S}^{+} \setminus \mathcal{S}^t \llbracket \phi_1 \rrbracket
+	$$
+	$$\blacktriangleleft \mathcal{S}^t \llbracket \mathsf{\bigcirc \phi_1} \rrbracket =
+	\{ \langle \underline{\rho} , \langle l , \rho \rangle \pi \rangle | \langle \underline{\rho},\pi \rangle \in \mathcal{S}^t \llbracket \phi_1 \rrbracket \; , \; l \in \mathbb{L} \; , \; \rho \in \mathbb{EV} \; , \;\underline{\rho},\in \mathbb{\underline{EV}} \}
+	$$
+	$$\blacktriangleleft \mathcal{S}^t \llbracket \mathsf{\phi_1 \mathcal{U} \phi_2} \rrbracket =
+	\{ \langle \underline{\rho} , \pi \rangle | \exists \pi': \forall \pi'': \pi \pi'' \subsetneq \pi' \rightarrow (\langle \underline{\rho}, \pi \pi'' \rangle \in \mathcal{S}^t \llbracket \phi_1 \rrbracket,\langle \underline{\rho}, \pi' \rangle \in \mathcal{S}^t \llbracket \phi_2 \rrbracket) \; , \;\underline{\rho} \in \mathbb{\underline{EV}} \}
+	$$
+	
+	
+\end{defn}
+
+حال می‌خواهیم ثابت کنیم که معناشناسی‌ای که ارائه کرده‌ایم، معنای منطق \lr{LTL} را حفظ کرده. 
+برای این کار ابتدا یک معناشناسی جدید را برای زبان \lr{LTL} قدیمی ارائه می‌دهیم و ثابت می‌کنیم که معادل با معناشناسی قبلی است. 
+
+\begin{defn}
+	(مدل \lr{LTL}- جدید): به هر تابع از $\Pi$ یعنی مجموعه‌ی اتم‌ها به $\mathit{P(\mathbb{N})}$ یعنی مجموعه‌ی همه‌ی زیرمجوعه‌های مجموعه‌ی کل اعداد طبیعی می‌گوییم مدل جدید.
+	$$M_n:\Pi \rightarrow \mathit{P(\mathbb{N})}$$
+	مجموعه‌ی همه‌ی مدل‌های جدید را با 
+	$\mathbb{M}_n$
+	نشان می‌دهیم.
+\end{defn}
+
+\begin{defn}
+	(معناشناسی \lr{LTL}- جدید): تابع 
+	$\bar{ }:\mathbb{M}_n \rightarrow \Phi \rightarrow \mathit{P}(\mathbb{N})$
+	( به علامت گذاری دقت کنید! نام گذاری تابع به شکل سنتی و با یک حرف خاص نیست و صرفا علامت بار را گذاشته‌ایم. به ازای مدل $M_n$ در ورودی، تابع 
+	$\bar{M_n}: \Phi \rightarrow \mathit{P}(\mathbb{N})$
+	را داریم.)
+	به ازای مدل $M_n$ روی فرمول‌های زبان \lr{LTL} به شکل زیر تعریف می‌شود:
+	$$\blacktriangleleft \bar{M_n}(\pi)= M_n(\pi)$$
+	$$\blacktriangleleft \bar{M_n}(\phi \lor \psi)= \bar{M_n}(\phi) \cup \bar{M_n}(\psi)$$
+	$$\blacktriangleleft \bar{M_n}(\neg \phi)= \mathbb{N} \setminus \bar{M_n}(\phi)$$
+	$$\blacktriangleleft \bar{M_n}(\bigcirc\phi)= \{n+1|n\in \bar{M_n}(\phi) \}$$
+	$$\blacktriangleleft \bar{M_n}(\phi \mathcal{U} \psi)= \{n|\exists k : \forall j: n \leq j \lneq k \rightarrow j \in \bar{M_n}(\phi) , k \in \bar{M_n}(\psi) \}$$
+	و به کمک این تابع تعریف می‌کنیم:
+	$$M_n,i \models_n \phi \; \mathit{iff}\; i \in \bar{M_n}(\phi)$$
+\end{defn}
+
+مدل‌های جدیدی که تعریف کرده‌ایم همان اطلاعاتی را که مدل‌های قدیمی به ما می‌دادند، با آرایش دیگری در خود نگه می‌دارند. برای اینکه بتوانیم از هر دو شیوه‌ی بیان یک مدل استفاده کنیم یک تابع میان آن‌ها تعریف می‌کنیم.
+
+\begin{defn}
+	(تابع مبدل): تابع
+	$\mathfrak{T}:\mathbb{M_n} \rightarrow \mathbb{M}$
+	را به نام تابع مبدل به شکل زیر تعریف می‌کنیم:
+	$$\mathfrak{T}(M_n)(i)=\{ \pi | i \in M_n(\pi) \}$$
+\end{defn} 
+
+این تابع یک تناظر یک به یک و پوشا بین مدل‌های قدیم و جدید است. 
+\begin{thm}
+	تابع $\mathfrak{T}$ یک به یک و پوشا است.
+\end{thm}
+\begin{proof}
+	پیش از هر چیز ذکر این نکته ضروری است که اصلا چرا $\mathfrak{T}$ یک تابع است. این از این می‌آید که با توجه به اینکه در تعریف این تابع صرفا از عملگر اجتماع و محمول عضویت استفاده شده و می‌دانیم این دو خوش تعریف هستند، پس متوجه می‌شویم که $\mathfrak{T}$ یک تابع است.
+	
+	اثبات یک به یک بودن:
+	فرض می‌‌کنیم که به ازای دو مدل $M_n$ و $M_n'$ که ممکن است متفاوت باشند، داریم $\mathfrak{T}(M_n)=\mathfrak{T}(M_n')$. داریم:
+	$$\Rightarrow \forall i \in \mathbb{N}: \mathfrak{T}(M_n)(i)=\mathfrak{T}(M_n')(i)
+	\Rightarrow \forall i \in \mathbb{N}: \forall \pi \in \Pi: \pi \in \mathfrak{T}(M_n)(i) \leftrightarrow \pi \in \mathfrak{T}(M_n')(i)$$
+	$$\Rightarrow \forall i \in \mathbb{N}: \forall \pi \in \Pi: i \in M_n(\pi) \leftrightarrow \pi \in M_n'(\pi) \iff M_n = M_n'$$
+	پس این دو مدل الزاما برابرند و این یعنی این تابع یک به یک است.
+	
+	اثبات پوشا بودن: فرض می‌کنیم $M \in \mathbb{M}$ و ثابت می‌کنیم برای مدل \break
+	$M_n (\pi)=\{i | \pi \in M(i)\}$ 
+	داریم $\mathfrak{T}(M_n)=M$.
+	$$\forall j \in \mathbb{N}: \mathfrak{T}(M_n)(j)=\{\pi | j \in M_n(\pi)\}
+	=\{\pi | j \in \{i | \pi \in M(i)\}\}= \{\pi | \pi \in M(j)\}=M(j)$$
+	$$\Rightarrow \mathfrak{T}(M_n)=M$$
+	پس تابع مبدل پوشا نیز هست.
+\end{proof}
+
+بنابراین می‌توانیم قضیه‌ی زیر را بیان کنیم.
+\begin{thm}
+	معناشناسی جدید و قدیم با یکدیگر معادل‌اند یا به عبارت دیگر 
+	برای هر مدل $M_n \in \mathbb{M_n}$ داریم:
+	$$\forall \phi \in \Phi, i\in\mathbb{N}:\bar{M_n},i \models_n \phi \leftrightarrow \mathfrak{T}(M_n) , i \models \phi $$
+\end{thm}
+
+\begin{proof}
+	روی ساختار $\phi$ استقرا می‌زنیم:
+	$$\blacktriangleright \phi=\pi:$$
+	$$M_n , i \models_n \pi \iff i \in \bar{M_n} (\pi) \iff i \in M_n(\pi)$$
+	$$\iff \pi \in \mathfrak{T}(M_n)(i) \iff \mathfrak{T}(M_n),i \models \pi $$
+	
+	$$\blacktriangleright \phi=\phi \lor \psi:$$
+	$$M_n , i \models_n \phi \lor \psi  \iff i\in \bar{M_n}(\phi \lor \psi) = \bar{M_n} (\phi) \cup \bar{M_n}(\psi)$$
+	در اینجا بدون کاستن از کلیت می‌توانیم فرض کنیم $i \in \bar{M_n}$. با فرض دیگر هم اثبات به همین شکل است.
+	$$i \in \bar{M_n}(\phi) \iff M_n,i\models_n \phi \mathfrak{T}(M_n),i \models \phi \Rightarrow \mathfrak{T}(M_n),i\models \phi \lor \psi$$
+	عکس این اثبات را هم برای عکس این طرف قضیه که ثابت کردیم در همین اثبات می‌شود دید. آخرین نتیجه‌ای که گرفتیم می‌تواند بدون کاستن از کلیت برعکس گرفته شود و در واقع برای هر دو زیر فرمول به‌طور جداگانه ثابت شود.
+	$$\blacktriangleright \phi=\neg \phi:$$
+	$$M_n,i \models_n \iff i \in \bar{M_n}(\neg \phi) \iff i \notin \bar{M_n}(\phi)$$
+	$$\iff M_n ,i \nvDash_n \phi \iff \mathfrak{T}(M_n),i \nvDash \phi \iff \mathfrak{T} (M_n) ,i \models \neg \phi$$ 
+	
+	$$\blacktriangleright \phi=\phi \mathcal{U} \psi:$$
+	$$M_n,i \models_n \pi \mathcal{U} \psi \iff i \in \bar{M_n}(\phi \mathcal{U}\psi)$$
+	$$\iff \exists k: \forall j: i \leq j < k \rightarrow j \in \bar{M_n}(\phi) , k \in \bar{M_n}(\psi)$$
+	$$\iff \exists k: \forall j: i \leq j < k \rightarrow M_n,j \models_n\phi ,  M_n,k\models_n \psi$$
+	$$\iff \exists k: \forall j: i \leq j < k \rightarrow \mathfrak{T}(M_n),j \models\phi ,  \mathfrak{T}(M_n),k\models \psi$$
+	$$\iff \mathfrak{T}(M_n),i \models \phi \mathcal{U} \psi$$
+	
+\end{proof}
+
+پس تا اینجای کار تا حدودی نشان دادم که معناشناسی جدیدی که برای \lr{LTL} ارائه کرده‌ایم با معناشناسی قدیمی‌اش معادل است. 
+
+می‌توان دید که $\bar{M_n}$ به
+$\mathcal{S}^t$
+بسیار شبیه است و انگار که با جایگذاری زوج‌های 
+$\mathsf{L:B}$ به جای اتم‌ها و ردهای پیشوندی متناهی به جای اعداد طبیعی می‌توان 
+از 
+$\bar{M_n}$
+به 
+$\mathcal{S}^t$
+رسید. البته می‌توان برای اطمینان به مشخص‌تر کردن این ارتباط ادامه داد. در واقع ماهیت مدل‌ها در دو منطقی که ادعای معادل بودنشان را داریم، متفاوت است. در منطق قبلی مدل ها هر اتم را به زیرمجموعه‌ای از همه‌ی اعداد طبیعی می‌نگارند و در منطق گسترش یافته مدل‌ها هر اتم را به مجموعه‌ای از وضعیت‌ها( ردهای پیشوندی تک عضوی) می‌نگارند. این یعنی ترتیبی که در ردهای پیشوندی داریم در مدل وجود ندارد، درحالیکه در مدل‌های قدیمی ترتیب از مدل مشخص می‌شود. از آنجایی که در هر دو منطق مجموعه‌ی مدل‌ها هم مرتبه‌ی مجموعه‌ی اعداد حقیقی است، می‌دانیم که یک دو سویی بین مدل‌ها هست و احتمالا صورت هم‌ارزی دو منطق را می‌توان با استفاده از آن تابع و البته دوسویی دیگری بین اتم‌های دو منطق، که از شمارا و نامتناهی بودن مجموعه‌ی اتم‌های هر دو منطق داریم، می‌توان به یک صورت کامل برای این ادعا هم رسید. اما ما فعلا به همین شواهد قانع شده‌ایم.
+
+\subsection{مقایسه}
+
+حال به بررسی این می‌پردازیم که کدام زبان قدرت بیان بیشتری دارد. ابتدا ثابت می‌کنیم عبارات منظمی وجود دارند که قابل بیان به وسیله‌ی \lr{LTL}- گسترش یافته نیستند. سپس عکس این را ثابت می‌کنیم، یعنی ثابت نشان می‌دهیم فرمولی در \lr{LTL}- گسترش یافته وجود دارد که به وسیله‌ی عبارات منظم قابل بیان نیست. 
+
+\begin{thm}
+	به ازای 
+	$\mathsf{L} \subseteq \mathbb{L},\mathsf{B}\in \mathbb{B}$
+	عبارت منظم 
+	$(\mathsf{\langle ? : \mathit{T} \rangle \langle L:B \rangle })^*$
+	قابل بیان با \lr{LTL} نیست. به عبارت دیگر هیچ فرمولی در \lr{LTL}- گسترش یافته نیست که هم‌معنا با عبارت منظم 
+	$(\mathsf{\langle ? : \mathit{T} \rangle \langle L:B \rangle })^*$
+	 باشد.
+\end{thm}
+
+\begin{proof}
+	اثبات را با استقرا روی ساختار زبان \lr{LTL}- گسترش یافته انجام می‌دهیم. در هر مورد از استقرا ثابت می‌کنیم که اگر ساختار فرمول به شکل فرض شده باشد، نمی‌تواند هم معنا با عبارت منظم ذکر شده باشد.
+	
+	$$\blacktriangleright \phi = \mathsf{\langle L:B \rangle}:$$
+	در این حالت معنای $\phi$ صرفا شامل ردهای پیشوندی تک عضوی است در حالی که در معنای عبارت منظم مذکور اصلا رد پیشوندی تک عضوی وجود ندارد.
+	
+	$$\blacktriangleright \phi = \phi_1 \lor \phi_2:$$
+	
+	
+	$$\blacktriangleright \phi = \neg \phi_1:$$
+	
+	
+	
+\end{proof}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
