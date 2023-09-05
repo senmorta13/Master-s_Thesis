@@ -3,7 +3,7 @@
 
 در این فصل، به ادامه‌ی ساختارمندتر کردن کار می‌پردازیم. در فصل گذشته، ساختار عبارات منظم را به تعریف وارسی مدل اضافه کردیم و حالا می‌خواهیم، ساختار زبانمان را به کار اضافه کنیم. این آخرین تلاش \cite{calcul} برای گسترش کار بوده است. یعنی وارسی مدل به شکل جدید تعریف شده است و معادل بودن آن با صورت قبلی وارسی مدل ثابت شده است و پس از آن کار پایان می‌پذیرد. 
 
-تعریف صورت جدید، چونکه روی ساختار زبان انجام گرفته است، جزئیات بسیار طولانی‌ای دارد. همین موضوع باعث شده است، تا اثبات‌ برابری این صورت با صورت قبلی هم بسیار مفصل و حجیم باشد. این اثبات در \cite{calcul} به طور کامل حین معرفی هر مورد تعریف بیان شده است. بنابراین، از ارائه‌ی دوباره‌ی این جزئیات خودداری کرده‌ایم و صرفا ممکن است، برای بعضی موارد آن یک گزارش کلی از اینکه هر برقراری چگونه ثابت شده است، به سبک \cite{calcul} بعد از بیان هر مورد از تعریف، آورده‌باشیم.
+چون تعریف صورت جدید روی ساختار زبان انجام گرفته است، جزئیات بسیار طولانی‌ای دارد. همین موضوع باعث شده است، تا اثبات‌ برابری این صورت با صورت قبلی هم بسیار مفصل و حجیم باشد. این اثبات در \cite{calcul} به طور کامل حین معرفی هر مورد تعریف بیان شده است. بنابراین، از ارائه‌ی دوباره‌ی این جزئیات خودداری کرده‌ایم.
 
 \begin{defn}
 	
@@ -14,7 +14,7 @@ $\mathcal{\hat{M}}$
 \rightarrow ( \mathbb{\underline{EV}} \times \mathit{P}(\mathfrak{S}^{+\infty})) $
 وارسی مدل ساختارمند می‌نامیم( ضابطه‌ی تابع در ادامه‌ی متن آمده است).
 \end{defn}
-در ادامه، ممکن است بعضی جاها به‌جای 
+در ادامه، ممکن است به‌جای 
 $\mathcal{\hat{M}}\langle \underline{\rho}, \mathsf{R} \rangle \mathcal{S}^* \llbracket \mathsf{P} \rrbracket$
 از 
 $\mathcal{\hat{M}}\langle \underline{\rho}, \mathsf{R} \rangle \llbracket \mathsf{P} \rrbracket$
@@ -23,10 +23,11 @@ $\llbracket \; \rrbracket$
 قناعت کرده باشیم.
 
 
+
 تعریف روی ساختار مجموعه‌ی 
 $\mathbb{P \cup Sl \cup S}$
-انجام شده است. تقریبا کاری شبیه به اثبات لمی که در بخش دوم فصل سوم داشتیم.
-در ادامه موردهای تعریف $\mathcal{\hat{M}}$ را به ازای برنامه‌ی $\mathsf{P}$، محیط اولیه‌ی $\underline{\rho}$ و عبارت منظم $\mathsf{R}$تعریف می‌کنیم. یعنی در حال تعریف 
+انجام شده است. تقریبا کاری شبیه به اثبات لمی که در بحث تصمیم ناپذیری در فصل سوم داشتیم.
+در ادامه، قسمت‌های مختلف تعریف $\mathcal{\hat{M}}$ را به ازای برنامه‌ی $\mathsf{P}$، محیط اولیه‌ی $\underline{\rho}$ و عبارت منظم $\mathsf{R}$تعریف می‌کنیم. یعنی در حال تعریف 
 $\mathcal{\hat{M}} \langle \underline{\rho} , \mathsf{R} \rangle \mathcal{S}^* 
 \llbracket \mathsf{P} \rrbracket$
 هستیم، روی ساختار برنامه‌ها یعنی $\mathsf{P}$.
@@ -36,38 +37,35 @@ $$\mathcal{\hat{M}} \langle \underline{\rho} , \mathsf{R} \rangle \mathcal{S}^* 
 \langle \underline{\rho}, \mathsf{R}_i \rangle \mathcal{S}^* \llbracket \mathsf{Sl} \rrbracket \}
 $$  
 $$\mathsf{where\; dnf(R)=R_1 + R_2 + ... + R_n}$$
-اثبات برابری با صورت فصل قبل با اینکه 
+اثبات برابری این قسمت از تابع با صورت فصل قبل با اینکه 
 $\mathcal{\hat{M}^\nmid} \langle \underline{\rho}, \mathsf{R} \rangle \llbracket \mathsf{Sl} \rrbracket$
-هنوز تعریف نشده در \cite{calcul} آمده با این استدلال که برابری 
+هنوز تعریف نشده است، در \cite{calcul} آمده است. استدلال این است که برابری 
 $\mathcal{\hat{M}} \langle \underline{\rho}, \mathsf{R} \rangle \llbracket \mathsf{Sl} \rrbracket=
 \mathcal{{M}} \langle \underline{\rho}, \mathsf{R} \rangle \llbracket \mathsf{Sl} \rrbracket$
-در فرض استقرا آمده. کلیت اثبات هم این است که از باز کردن تعریف
+در فرض استقرا آمده است. کلیت اثبات هم این است که از باز کردن تعریف
 $\mathcal{{M}} \langle \underline{\rho}, \mathsf{R} \rangle \llbracket \mathsf{P} \rrbracket$
 با استفاده‌ی مستقیم تعاریف و بدون تکنیک خاصی به 
 $\mathcal{\hat{M}} \langle \underline{\rho}, \mathsf{R} \rangle \llbracket \mathsf{P} \rrbracket$
-رسیده.
+رسیده است.
 
-در ادامه با توجه به تعریف قبل به بیان تعریف 
+در ادامه با توجه به تعریف قبل، به بیان تعریف 
 $\mathcal{\hat{M}^\nmid}$
-پرداخته شده. این تنها بخش تابع $\mathcal{\hat{M}}$ است که معرفی نشده و با مشخص شدن آن معنای 
+پرداخته شده است. این تنها بخش تابع $\mathcal{\hat{M}}$ است که معرفی نشده است و با مشخص شدن آن معنای 
 $\mathcal{\hat{M}}$
-به ازای برنامه‌های مختلف مشخص می‌شود. این نکته را در نظر داشته باشیم که 
+به ازای برنامه‌های مختلف مشخص می‌شود. 
+
+این نکته را در نظر داریم که 
 $\mathcal{\hat{M}^\nmid}$
-قرار است در عمل روی مجوعه‌ی برنامه‌ها تعریف شود و مثلا اینکه به ازای  
-$\Pi \in \mathfrak{S}^{+\infty}$
-دلخواه که مساوی معنی یک برنامه نیست، این تابع با یک محیط اولیه و یک عبارت منظم چه خروجی‌ای دارد برای ما اهمیتی ندارد و البته به این شکلی  هم که تابع تعریف شده حتی به ازای چنین ورودی‌ای خروجی ندارد. در واقع حتی به ازای 
-$\mathsf{S:=\; x\doteq A;}$
-هم که یک عضو از زبان است، به این معنا که $\mathsf{S}$ صرفا یک بخش از یک برنامه است و
- خروجی‌ای نخواهد داشت و داشتن خروجی به ازای این متغیر را از 
-$\mathcal{\hat{M}^\nmid}$
-انتظار داریم. مشابه 
+در عمل روی مجوعه‌ی معنای برنامه‌ها تعریف می‌شود. مثلا، به ازای  
+$\Pi \subseteq \mathfrak{S}^{+\infty}$
+دلخواه که مساوی معنای یک برنامه نباشد، اینکه این تابع با یک محیط اولیه و یک عبارت منظم چه خروجی‌ای دارد، برای ما اهمیتی ندارد. در واقع، تعریف تابع اصلا به ازای چنین ورودی‌ای خروجی ندارد. به عبارت دیگر، تابعْ جزئی است. مشابه 
 $\mathcal{M^\nmid}$
 خروجی 
 $\mathcal{\hat{M}^\nmid}$
-هم یک زوج مرتب شامل $\pi$ ای که $\mathsf{R}$ را ارضا کرده و یک عبارت منظم بدون $+$ که بخشی از $\mathsf{R}$ را نشان می‌دهد که با $\pi$ تطابق داده نشده( چون احتمالا $\pi$ کوتاه‌تر بوده یا ممکن است اصلا این عبارت منظم تهی باشد).
+هم یک زوج مرتب شامل $\pi$ ای است که $\mathsf{R}$ را ارضا کرده است، به همراه یک عبارت منظم بدون $+$ که بخشی از $\mathsf{R}$ را نشان می‌دهد که با $\pi$ تطابق داده نشده است.
 $$\blacktriangleleft\mathcal{\hat{M}^\nmid} \langle \underline{\rho}, \mathsf{\varepsilon} \rangle \llbracket \mathsf{S} \rrbracket
 =
-\{\langle \pi , \varepsilon \rangle | \pi \in \mathcal{S}^* \rrbracket \mathsf{S} \llbracket \}$$
+\{\langle \pi , \varepsilon \rangle | \pi \in \mathcal{S}^* \llbracket \mathsf{S} \rrbracket \}$$
 
 برای $\mathsf{Sl=SL' \; S}$ و $\mathsf{R} \in \mathbb{R^\nmid} \cap \mathbb{R^+}$ داریم:
 
@@ -80,15 +78,29 @@ $$\{ \langle \pi \langle \mathsf{at}\llbracket \mathsf{S} \rrbracket, \rho \rang
  $$\langle \langle at \llbracket \mathsf{S}\rrbracket , \rho \rangle \pi' , \mathsf{R''} \rangle \in \mathcal{\hat{M}^\nmid}
 \langle \underline{\rho},\mathsf{R'} \rangle   \llbracket \mathsf{S} \rrbracket
  \}$$
-از اینجا به بعد کار با تعاریف طویل‌تری از آنچه تا حالا داشتیم، روبرو هستیم، مانند همین تعریف بالا. اما به هرحال مفهوم چندان پیچیده‌ای پشت این تعاریف نیست. تعریف بالا به طور خلاصه می‌گوید همه‌ی ردهای پیشوندی ‌ای که در 
+از اینجا به بعد، با تعاریف طویل‌تری از آنچه تا حالا داشتیم، روبرو هستیم. هرچند که مفهوم چندان پیچیده‌ای پشت این تعاریف نیست. به ‌طور خلاصه، تعریف بالا می‌گوید، تعریف 
+$\mathcal{\hat{M}^\nmid} \langle \underline{\rho}, \mathsf{R} \rangle \llbracket \mathsf{Sl} \rrbracket$
+وابسته به تعریف 
+$\mathcal{\hat{M}^\nmid} \langle \underline{\rho}, \mathsf{R} \rangle \llbracket \mathsf{S} \rrbracket$
+و
 $\mathcal{\hat{M}^\nmid} \langle \underline{\rho}, \mathsf{R} \rangle \llbracket \mathsf{Sl'} \rrbracket$
-هستند به همراه همه‌ی زوج‌هایی که مولفه اول آن‌ها یک رد پیشوندی است که تکه‌ی اول آن داخل 
+است. ردهای پیشوندی‌ای که داخل این دو مجموعه هستند، به یکدیگر چسبانده می‌وند، به‌ طوریکه اول ردهای داخل 
 $\mathcal{\hat{M}^\nmid} \langle \underline{\rho}, \mathsf{R} \rangle \llbracket \mathsf{Sl'} \rrbracket$
-افتاده و ادامه‌ی آن داخل 
-$\mathcal{\hat{M}^\nmid} \langle \underline{\rho}, \mathsf{R'} \rangle \llbracket \mathsf{S} \rrbracket$
-است، در حالیکه $\mathsf{R'}$ هم ادامه‌ی عبارت منظم $\mathsf{R}$ است، که به تطبیق با رد پیشوندی   داخل  
+قرار می‌گیرند و بعد ردهای داخل 
+$\mathcal{\hat{M}^\nmid} \langle \underline{\rho}, \mathsf{R} \rangle \llbracket \mathsf{S} \rrbracket$.
+ردهای داخل 
 $\mathcal{\hat{M}^\nmid} \langle \underline{\rho}, \mathsf{R} \rangle \llbracket \mathsf{Sl'} \rrbracket$
-که زوج خودش است نرسیده و مولفه‌ی دوم این زوج مرتب نیز ادامه‌ی عبارت منظم $\mathsf{R}$ است که به تطبیق با رد پیشوندی‌ای که در مولفه‌ی اول بود، نرسیده.
+به تنهایی نیز داخل 
+$\mathcal{\hat{M}^\nmid} \langle \underline{\rho}, \mathsf{R} \rangle \llbracket \mathsf{Sl} \rrbracket$
+قرار می‌گیرند. این تعریف بر اساس تعریف 
+$\mathcal{S}^* \llbracket \mathsf{Sl} \rrbracket$
+ارائه شده است. اساس گرفتن تعریف تابع 
+$\mathcal{S}^*$
+در کنار توجه به تعریف تابع 
+$\mathcal{M}$
+که در فصل پیش ارائه شد، در ادامه‌ی تعریف 
+$\mathcal{\hat{M^\nmid}}$
+	 نیز حضور دارد.
 
 برای $\mathsf{Sl=\epsilon}$ و $\mathsf{R} \in \mathbb{R^\nmid} \cap \mathbb{R^+}$ داریم:
 
@@ -97,7 +109,7 @@ $$\blacktriangleleft\mathcal{\hat{M}^\nmid} \langle \underline{\rho}, \mathsf{R}
 $$\{ \langle \langle at \llbracket \mathsf{Sl} \rrbracket , \rho \rangle , \mathsf{R'} \rangle | \langle \underline{\rho} , \langle at \llbracket \mathsf{Sl} \rrbracket, \rho \rangle \rangle \in \mathcal{S}^r \llbracket \mathsf{L:B} \rrbracket
 \}$$
 $$\mathsf{where \; fstnxt(R)=\langle L:B,R' \rangle}$$
-یعنی همه‌ی ردهای پیشوندی تک عضوی که محیطشان اولین لبترال موجود در عبارت منظم را ارضا می‌کند. در واقع هر مخیطی که این لیترال را ارضا کند، برچسب این مجوعه دستور را در این مجموعه می‌آورد(به همراه باقی عبارت منظم).
+یعنی خروجی تابع به ازای این ورودی مجموعه‌ای است، شامل همه‌ی ردهای پیشوندی تک عضوی‌ای که محیط آن‌ها اولین سر عبارت منظم$(\mathsf{L:B})$ را ارضا می‌کند. به عبارت دیگر، هر محیطی که این لیترال را ارضا کند، برچسب این مجوعه دستور را در این مجموعه می‌آورد( به همراه ادامه‌ی عبارت منظم).
 
 برای $\mathsf{S=\;x \doteq A;}$ و $\mathsf{R} \in \mathbb{R^\nmid} \cap \mathbb{R^+}$ داریم:
 $$\blacktriangleleft\mathcal{\hat{M}^\nmid} \langle \underline{\rho}, \mathsf{R} \rangle \llbracket \mathsf{S} \rrbracket
@@ -119,11 +131,11 @@ $$\langle \underline{\rho}, \langle aft \llbracket \mathsf{S} \rrbracket,\rho
 [\mathsf{x} \leftarrow \mathcal{A}\llbracket \mathsf{A} \rrbracket \rho]\rangle \rangle \in 
 \mathcal{S}^r \llbracket \mathsf{L':B'} \rrbracket
 \}$$
-با نگاه به این تعریف می‌توان بهتر متوجه شد که اینکه می‌گفتیم قرار است ساختار زبان وارد صورت فصل پیش شود یعنی چه. به جای اینکه مانند فصل گذشته نسبت به ردهای پیشوندی متفاوت خروجی تابع تعیین شود، نسبت به دستوری که معنایش ردهای پیشوندی هستند، خروجی تعیین می‌شود. 
+$$\mathsf{where \; fstnxt(R)=\langle L:B,R' \rangle}$$
 
-در اینجا هم با اینکه تعریف متکلف است اما معنای ساده‌ای دارد. این تابع دستور را به همراه زوج محیط اولیه و عبارت منظم می‌گیرد، ابتدا همان چیزهایی را که تابع در حالت قبلی برمی‌گردانْد را برمی‌گردانَد و سپس نسبت به اینکه پس از تغییر در محیط‌ها در اثر اجرای دستور مقدار دهی ادامه‌ی عبارت منظم سارگار هست یا نه زوج‌های متشکل از رد پیشوندی و عبارت منظم را به خروجی اضافه می‌کند. نکته‌ای که به جزئیات این تعریف اضافه کرده این است که برای اینکه ادامه‌ی عبارات منظم خارج شده بعد از بررسی اولین لیترال عبارت منظم، یعنی $\mathsf{R'}$،  آیا تهی است یا نه و این دو حالت متفاوت را در بر خواهد گرفت که در تعریف لحاظ شده‌اند.
+این تابع دستور را به همراه زوجی شامل محیط اولیه و عبارت منظم می‌گیرد، همان خروجی‌ای که در حالت قبلی برمی‌گردانْد را برمی‌گردانَد، سپس نسبت به اینکه پس از تغییر در محیط‌ها (در اثر اجرای دستور مقدار دهی) یک رد پیشوندی با ادامه‌ی عبارت منظم سازگار باشد یا نباشد، زوج‌هایی را متشکل از رد پیشوندی و عبارت منظم به خروجی اضافه می‌کند.
 
-از این ۴ حالت تنها اثبات حالت آخر در \cite{calcul} آورده شده و خب اثبات دیگر حالات را هم می‌تواند در همین اثبات که مفصل‌تر و کلی‌تر است، دید. اثبات سر راست است، از جایگذاری تساوی‌های واضح استفاده شده و جزئیات و توضیحات کافی دارد.
+از این ۴ حالت تنها اثبات حالت آخر در \cite{calcul} آورده شده است. اثبات دیگر حالات را هم می‌توان در همین اثبات که مفصل‌تر است، دید. اثبات سر راست است و در آن از جایگذاری تساوی‌های واضح استفاده شده است و جزئیات کافی دارد.
 
 برای عبارت منظم 
 $\mathsf{R} \in \mathbb{R}^\nmid \cup \mathbb{R^+}$
@@ -157,11 +169,19 @@ $$\langle \langle at \llbracket \mathsf{S_t} \rrbracket , \rho \rangle \pi,\math
 $$\cup \{\langle \langle at \llbracket \mathsf{S} \rrbracket , \rho \rangle \langle at \llbracket \mathsf{S_f} \rrbracket, \rho \rangle \pi, \mathsf{R''} | \mathcal{B}\llbracket\mathsf{B} \rrbracket \rho = \mathit{F} \land$$
 $$\langle \underline{\rho},\langle at \llbracket \mathsf{S} \rrbracket , \rho \rangle \rangle \in \mathcal{S}^r \llbracket \mathsf{L':B'} \rrbracket \land$$
 $$\langle \langle at \llbracket \mathsf{S_f} \rrbracket , \rho \rangle \pi,\mathsf{R''} \rangle \in \mathcal{\hat{M}^\nmid}  \langle \underline{\rho}, \mathsf{R'} \rangle \llbracket \mathsf{S_f} \rrbracket \}$$
+$$\mathsf{where\; fstnxt(R)=\langle L':B', R' \rangle}$$
+دو قسمت بالا در مورد دستورات شرطی هستند. در مورد نوع اولی شرطی، یک رد پیشوندی را در معنای $\mathsf{S}$ در نظر بگیرید. بسته به اینکه طبق محیط حاضر در اولین وضعیت این رد پیشوندی، عبارت بولی مقدار صحیح یا غلط داشته باشد، حضور این رد پیشوندی( در یک زوج، به همراه یک عبارت منظم) داخل 
+$\mathcal{\hat{M}^\nmid} \langle \underline{\rho},\mathsf{R} \rangle \llbracket \mathsf{S} \rrbracket$
+تعیین می‌شود. اگر عبارت بولی در محیط مذکورمقدار صحیح داشته باشد، 
+در معنای نوع اول دستور شرطی، پس از تطبیق سر عبارت منظم با اولین وضعیت هر رد پیشوندی، بر اساس اینکه در دومین وضعیت رد پیشوندی، عبارت بولی برقرار باشد یا نباشد، وابسته به این می‌شود که آیا اگر از وضعیت دوم به بعد این رد پیشوندی( که خود یک رد پیشوندی است) در 
+$\mathcal{\hat{M}^\nmid} \langle \underline{\rho},\mathsf{R'} \rangle \llbracket \mathsf{S_t} \rrbracket$
+( که $\mathsf{R'}$ نیز دم $\mathsf{R}$ است) حضور دارد یا خیر. اگر عبارت بولی در محیط مذکور ارزش غلط داشته باشد، حضور رد پیشوندی در
+$\mathcal{\hat{M}^\nmid} \langle \underline{\rho},\mathsf{R} \rangle \llbracket \mathsf{S} \rrbracket$
+وابسته به سازگاری وضعیت دوم رد پیشوندی با سر $\mathsf{R'}$ خواهد بود.
 
- با توجه به موارد قبلی می‌شود مفهوم این دو مورد از تعریف را هم فهمید و پیچیدگی بیشتری ندارد. در باره‌ی مورد اول داستان به این شکل است که مانند تعریف‌های قبلی ابتدا تطابق لیترال اول عبارت منظم با رد‌های پیشوندی تک عضوی با برچسب شروع دستور و محیط دلخواه بررسی می‌شود، سپس به این‌ها ردهای پیشوندی‌ای که در درون دستور $\mathsf{S_t}$ هستند و در موقعیت ابتداییشان عبارت بولی معنای صحیح دارد و البته با اولین لیترال باقی عبارت منظم هستند هم در زوج‌هایی که از یک دانه از رد‌های پیشوندی و یک عبارت منظم که بخش تطبیق داده نشده‌ی $\mathsf{R}$ با رد پیشوندی تشکیل شده‌اند، به مجموعه‌ی خروجی اضافه می‌شوند. دو مجموعه‌ی دیگری که در اینجا با خروجی‌ای که تاحالا توصیف کرده‌ایم اجتماع گرفته‌ شده‌اند هم مربوط به حالتی است که در ابتدای رد پیشوندی عبارت بولی معنای غلط دارد و در این صورت چون برخلاف حالت قبل که عبارت منظم تطبیق داده نشده با خود تابع
- $\mathcal{\hat{M^\nmid}}$
-مشخص می‌شد، در این حالت به ازای اینکه این ادامه‌ی عبارت منظم تهی است یا خیر دو حالت را برای تعریف آن داریم که در واقع عضو دوم زوج مرتب‌های موجود در خروجی را مشخص می‌کنند.
- 
+در نوع دوم دستور شرطی نیز، تعریف شبیه به نوع اول است، با این تفاوت که اگر عبارت بولی در محیط اولین وضعیت رد پیشوندی ارزش غلط داشته باشد، اتفاقی شبیه به حالت درست می‌افتد.
+
+
  برای عبارت منظم 
  $\mathsf{R} \in \mathbb{R}^\nmid \cup \mathbb{R^+}$
  و 
@@ -175,8 +195,8 @@ $$\langle \underline{\rho}, \langle at \llbracket \mathsf{S} \rrbracket, \rho \r
 $$\cup \{ \langle \langle at \llbracket \mathsf{S} \rrbracket , \rho \rangle \langle brk-to \llbracket \mathsf{S} \rrbracket,\rho \rangle ,\mathsf{R''} \rangle | \mathsf{R'} \notin \mathbb{R_\varepsilon} \land$$
 $$ \langle \underline{\rho},\langle at \llbracket \mathsf{S} \rrbracket , \rho \rangle \rangle \in \mathcal{S}^r \llbracket \mathsf{L:B} \rrbracket \land \langle \mathsf{L':B',R''} \rangle = \mathsf{fstnxt(R') \land}$$
 $$\langle \underline{\rho}, \langle brk-to \llbracket \mathsf{S} \rrbracket, \rho \rangle \rangle \in \mathcal{S}^r \llbracket \mathsf{L':B'} \rrbracket \}$$
-	    
- با توجه به موارد قبلی این که این قسمت از تعریف چه معنایی دارد و به چه علت به این شکل است، قابل درک است.
+$$\mathsf{where\; fstnxt(R)=\langle L':B', R' \rangle}$$
+ با توجه به موارد قبلی، اینکه این قسمت از تعریف چه معنایی دارد و به چه علت به این شکل است، قابل درک است.
  
  برای عبارت منظم 
  $\mathsf{R} \in \mathbb{R}^\nmid \cup \mathbb{R^+}$
@@ -205,9 +225,11 @@ $$\mathcal{B} \llbracket \mathsf{B} \rrbracket \rho = \mathit{T} \land \mathsf{R
 $$\langle \underline{\rho} , \langle at \llbracket \mathsf{S}\rrbracket , \rho \rangle \rangle \in \mathcal{S}^r \llbracket \mathsf{L:B} \rrbracket \land \mathsf{R''''} \notin \mathbb{R_\varepsilon} \land$$
 $$\langle \mathsf{L':B',R'''} \rangle = \mathsf{fstnxt(R'''')} \land \langle \underline{\rho} , \langle at \llbracket \mathsf{S_b}\rrbracket , \rho \rangle \rangle \in \mathcal{S}^r \llbracket \mathsf{L':B'} \rrbracket \land$$
 $$\langle \langle at \llbracket \mathsf{S_b} \rrbracket, \rho \rangle \pi_3 , \mathsf{R'} \rangle \in \mathcal{\hat{M}^\nmid} \langle \underline{\rho} , \mathsf{R'''} \rangle \llbracket \mathsf{S_b} \rrbracket \}$$
-$$ \mathsf{and \; \langle L':B' , R' \rangle = fstnxt(R)}$$
+$$ \mathsf{where \; \langle L':B' , R' \rangle = fstnxt(R)}$$
 
-برای دستور $\mathscr{while}$ تفاوتی که با سایر دستورات وجود دارد، حضور یک تابع در تعریف آن است و در واقع وارسی مدل به صورت کوچک‌ترین نقطه ثابت این تابع تعریف می‌شود. این همان کاری است که در تعریف معنای اجزای زبان هم انجام شد و وقتی که می‌خواهیم ساختار زبان را به صورت وارسی مدل اضافه انتظار می‌داشتیم که سر و کله‌ی عملگر نقطه ثابت هم پیدا شود، همان طور که تعریف بقیه‌ی دستورات زبان مطابق تعریف معانیشان که در ابتدای کار آورده‌ایم، انجام شده.
+تفاوت تعریف 
+$\mathcal{\hat{M}}^\nmid$
+ برای دستور حلقه با سایر دستورات، حضور یک تابع به نام $\mathcal{\hat{F}^\nmid}$ در تعریف معنای آن است. در واقع، وارسی مدل به صورت کوچک‌ترین نقطه ثابت این تابع تعریف می‌شود. این همان کاری است که در تعریف معنای اجزای زبان هم انجام شد و چون می‌خواهیم ساختار زبان را به صورت وارسی مدل اضافه انتظار داریم که عملگر نقطه ثابت هم در تعریف حضور پیدا کند. تابع $\mathcal{\hat{F}^\nmid}$ مثل یک دور اجرای حلقه‌ عمل می‌کند، منتها در همین حین، سازگاری ردهای پیشوندی را با عبارت منظم بررسی می‌کند و ردهای پیشوندی‌ای را که با عبارت منظم ناسازگار هستند، مجموعه‌ی خروجی‌اش حذف می‌کند.
 
 
 برای عبارت منظم 
@@ -229,19 +251,13 @@ $$\blacktriangleleft \mathcal{\hat{M}^\nmid} \langle \underline{\rho}, \mathsf{R
  \mathcal{\hat{M}^\nmid} \langle \underline{\rho}, \mathsf{R} \rangle \llbracket \mathsf{Sl} \rrbracket$$
 
 
-همین طور صادق بودن یک خاصیت $\mathsf{R} \in \mathbb{R}$ را برای برنامه‌ی $\mathsf{P}$ و محیط اولیه‌ی $\underline{\rho}$ با 
+همین طور، صادق بودن یک خاصیت $\mathsf{R} \in \mathbb{R}$ را برای برنامه‌ی $\mathsf{P}$ و محیط اولیه‌ی $\underline{\rho}$ با 
 $$\mathsf{P} , \underline{\rho} \models_s \mathsf{R}$$
 نشان می‌دهیم و برقرار بودن این شرط به شکل زیر تعریف می‌شود:
 $$\mathsf{P} , \underline{\rho} \models_s \mathsf{R} \iff \{\underline{\rho}\} \times \mathcal{S}^* \llbracket \mathsf{P} \rrbracket \subseteq \hat{\mathcal{M}} \langle \underline{\rho} , \mathsf{R} \rangle \mathcal{S}^* \llbracket \mathsf{P} \rrbracket$$
 
+در اینجا تعریف توابع مربوط به وارسی مدل ساختارمند به پایان می‌رسد.
 
-
-در اینجا تعریف وارسی مدل ساختارمند به پایان می‌رسد.
- 
- 
- 
- 
- 
  
  
  

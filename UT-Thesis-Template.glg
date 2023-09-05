@@ -1,0 +1,40 @@
+;; This logfile was generated automatically by `xindy'
+;; at 05.09.2023  16:35:45
+;; Indexstyle: "/tmp/JA0HdZBjGG", Rawindex: "/tmp/WyI133xvB6", Output: "UT-Thesis-Template.gls"
+
+
+Building indexentry-tree:
+Hierdepth of index is :TREE
+
+sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
+sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
+sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
+sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
+sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
+sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
+sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
+sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
+sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
+
+Forming letter-groups:
+Letter-group: "®°¥¦­ ¤©¦¤¬ª¯¨" -> "M"
+Letter-group: "´º¯µ¢¹" -> "S"
+Letter-group: "±³¦§ª¹ µ³¢¤¦ ´¦®¢¯µª¤´" -> "P"
+Letter-group: "´¦®¢¯µª¤´" -> "S"
+Letter-group: "·¦³ª§ª¤¢µª°¯" -> "V"
+Letter-group: "§°³®¢­ ®¦µ©°¥" -> "F"
+Letter-group: "§ª¯ªµ¦ ´µ¢µ¦ ®¢¤©ª¯¦" -> "F"
+Letter-group: "®°¥¦­" -> "M"
+Letter-group: "¤°®±¶µ¦³ ±³°¨³¢®" -> "C"
+sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
+Letter-group: "¤°®±¶µ¦³ ±³°¨³¢®" -> "C"
+sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
+Letter-group: "§ª¯ªµ¦ ´µ¢µ¦ ®¢¤©ª¯¦" -> "F"
+sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
+Letter-group: "®°¥¦­" -> "M"
+sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
+Letter-group: "±³¦§ª¹ µ³¢¤¦ ´¦®¢¯µª¤´" -> "P"
+sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
+Letter-group: "´¦®¢¯µª¤´" -> "S"
+sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
+Letter-group: "·¦³ª§ª¤¢µª°¯" -> "V"
