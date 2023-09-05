@@ -277,7 +277,7 @@ $\mathsf{R \Bumpeq dnf(R) }$
 	$$\blacktriangleright \mathsf{R=R_1^+:}$$
 	$$\mathcal{S}^r \llbracket \mathsf{dfn(R_1^+)} \rrbracket=$$
 	$$\mathcal{S}^r \llbracket \mathsf{dfn(R_1 R_1^*)} \rrbracket$$
-	در اینجا، عملگر چسباندن را داریم. در موردهای قبلی، این را نشان دادیم که چه‌طور در حضور عملگر چسباندن، حکم برقرار می‌شود. همان اثبات را درمورد همین عبارت هم می‌توانیم، بگوییم و پس از آن، به این شکل ادامه دهیم:
+	در اینجا، عملگر چسباندن را داریم. در موردهای قبلی، این را نشان دادیم که چه‌ طور در حضور عملگر چسباندن، حکم برقرار می‌شود. همان اثبات را درمورد همین عبارت هم می‌توانیم، بگوییم و پس از آن، به این شکل ادامه دهیم:
 	$$\mathcal{S}^r \llbracket \mathsf{dfn(R_1 R_1^*)} \rrbracket=
 	\mathcal{S}^r \llbracket \mathsf{R_1 R_1^*} \rrbracket=
 	\mathcal{S}^r \llbracket \mathsf{R_1^+} \rrbracket$$
@@ -606,14 +606,14 @@ $$\mathsf{where \; dnf (R) = R_1 + R_2 + ... + R_n}$$
 
 
 
-در این صورت اگر خاصیت $\mathsf{R} \in \mathbb{R}$ در محیط اولیه‌ی $\underline{\rho}$ برای برنامه‌ی $\mathsf{P}$ برقرار باشد، می نویسیم
+در این صورت اگر ویژگی $\mathsf{R} \in \mathbb{R}$ در محیط اولیه‌ی $\underline{\rho}$ برای برنامه‌ی $\mathsf{P}$ برقرار باشد، می نویسیم
 $$\mathsf{P} , \underline{\rho} \models_r \mathsf{R}$$
 و برقرار بودن این رابطه با شرط زیر تعریف می‌شود:
 $$\mathsf{P} , \underline{\rho} \models_r \mathsf{R} \iff \{\underline{\rho}\} \times \mathcal{S}^* \llbracket \mathsf{P} \rrbracket \subseteq \mathcal{M} \langle \underline{\rho} , \mathsf{R} \rangle \mathcal{S}^* \llbracket \mathsf{P} \rrbracket$$
 
 \end{defn}
 
-با این تعریف در واقع زمانی می‌توانیم بگوییم، برنامه‌ی $\mathsf{P}$ خاصیت $\mathsf{R}$ دارد \break که 
+با این تعریف در واقع زمانی می‌توانیم بگوییم، برنامه‌ی $\mathsf{P}$ ویژگی $\mathsf{R}$ دارد \break که 
 $\mathcal{M}\langle \underline{\rho} , \mathsf{R} \rangle \mathcal{S}^* \llbracket \mathsf{P} \rrbracket = 
 \{\underline{\rho}\} \times \mathcal{S}^* \llbracket \mathsf{P} \rrbracket$.
 در واقع انگار تابع 
@@ -650,7 +650,7 @@ $\langle \underline{\rho}, \pi \rangle \in \{\underline{\rho}\} \times \mathcal{
 مجموعه‌ی معنای یک برنامه را می‌توان به مجموعه‌ای از دسته‌ها افراز کرد که در هر یک از این دسته‌ها ردهای پیشوندی‌ای حضور دارند که وضعیت اول آن‌ها یکسان است. قاعدتا، در هر یک از این دسته‌ها باید وضعیت‌های بعدی هم، در صورت وجود، به طور موازی با یکدیگر یکسان باشند، یعنی مثلا در یک مجموعه از افراز توصیف شده، همه‌ی ردهای پیشوندی‌ای که عضو دوم دارند، عضو دومشان با هم برابر است. این گزاره در مورد عضو سوم و چهارم و غیره هم برقرار است. در هر دسته از این افراز، یک رد پیشوندی ماکسیمال وجود خواهد داشت که توصیف تمام و کمال برنامه در اجرا با وضعیت اول مختص آن دسته است.
 اگر ردهای پیشوندی با محیط اولیه‌ی یکسان به اشکال مختلفی ادامه پیدا کنند، باید زبانی که تعریف کرده‌ایم غیرقطعی باشد. در صورتیکه، در زبان و معناشناسی این زبان مولفه‌ای از غیرقطعی بودن حضور ندارد.
 
-حال برای هر برنامه‌ی $\mathsf{P}$ که خاصیت $\mathsf{R}$ در مورد آن در حال بررسی است، می‌توانیم همین افراز را روی مجموعه‌ی 
+حال برای هر برنامه‌ی $\mathsf{P}$ که ویژگی $\mathsf{R}$ در مورد آن در حال بررسی است، می‌توانیم همین افراز را روی مجموعه‌ی 
 $\mathcal{M} \langle \underline{\rho}, \mathsf{R} \rangle \mathcal{S}^* \llbracket \mathsf{P} \rrbracket$
 در نظر بگیریم. می‌توانیم هر دسته از این افراز را متناظر با دسته‌ای در افرازی که روی 
 $\mathcal{S}^* \llbracket \mathsf{P}\rrbracket$ 
