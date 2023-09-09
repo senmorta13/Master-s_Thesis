@@ -1,7 +1,7 @@
 \chapter{وارسی مدل منظم}
 در این فصل، به صورتی ساختارمندتر برای روش وارسی مدل می‌رسیم. ساختاری که در این فصل به صورت روش وارسی مدل اضافه می‌شود، ساختار عبارات منظم است و نام این صورت هم \gls{regmodelc} است. از این رو، پیش از اینکه به بیان وارسی مدل منظم بپردازیم، نیاز داریم که ابتدا، به بررسی و تعریف برخی خواص عبارات منظم بپردازیم که در ادامه، برای صورت وارسی مدل منظم مورد نیاز هستند.
 
-\section{در مورد عبارات منظم}
+\section{برخی مفاهیم}
 در این بخش، ابتدا مفهوم هم‌ارز بودن را برای عبارت‌های منظم تعریف می‌کنیم، سپس به سراغ تعریف دو تابع 
 $\mathsf{dnf}$
 و 
@@ -17,7 +17,7 @@ $\mathsf{fstnxt}$
 	$\mathsf{R_2}$
 	 را هم‌ارز می‌گوییم، اگر و تنها اگر شرط زیر برقرار باشد:
 	 $$\mathcal{S}^r \llbracket \mathsf{R_1} \rrbracket = \mathcal{S}^r \llbracket \mathsf{R_2} \rrbracket$$ 
-	 این هم‌ارزی را با 
+	 و آن را با 
 	 $\mathsf{R_1} \Bumpeq \mathsf{R_2}$
 	 نمایش می‌دهیم.
 \end{defn}
@@ -30,7 +30,7 @@ $\mathsf{fstnxt}$
 	$$\mathcal{S}^r \llbracket \mathsf{R} \rrbracket = 
 	\mathcal{S}^r \llbracket \mathsf{R} \rrbracket \Rightarrow
 	\mathsf{R} \Bumpeq \mathsf{R}$$
-	پس این رابطه \gls*{reflexive} است.
+	پس $\Bumpeq$ \gls*{reflexive} است.
 	
 	اگر 
 	$\mathsf{R_1 , R_2} \in \mathbb{R}$
@@ -41,7 +41,7 @@ $\mathsf{fstnxt}$
 	\mathcal{S}^r \llbracket \mathsf{R_1} \rrbracket \Rightarrow
 	\mathsf{R_1} \Bumpeq \mathsf{R_2} \rightarrow
 	\mathsf{R_2} \Bumpeq \mathsf{R_1}$$
-	پس این رابطه \gls*{symmetric} هم هست.
+	پس $\Bumpeq$ \gls*{symmetric} است.
 	
 	اگر
 	 $\mathsf{R_1,R_2,R_3} \in \mathbb{R}$
@@ -56,29 +56,29 @@ $\mathsf{fstnxt}$
 	 \mathsf{R_1} \Bumpeq \mathsf{R_2} \land
 	 \mathsf{R_2} \Bumpeq \mathsf{R_3} \rightarrow
 	 \mathsf{R_1} \Bumpeq \mathsf{R_3}$$
-	 پس این رابطه \gls*{transitive} نیز هست.
+	 پس $\Bumpeq$ \gls*{transitive} است.
 	 
-	 پس این یک رابطه‌ی هم‌ارزی است.
+	 پس $\Bumpeq$ یک رابطه‌ی هم‌ارزی است.
 \end{proof}
 
 
 \subsection{فرم نرمال فصلی}
-	 یک دسته از عبارت‌های منظم هستند که به آن‌ها \gls{dnf} می‌گوییم. در صورتی از وارسی مدل که در این فصل ارائه شده است، مفهوم فرم نرمال فصلی حضور دارد، بنابراین باید به بحث در مورد آن، پیش از رسیدن به صورت جدید، بپردازیم.
+
+	 در این فصل، برای معرفی صورت جدید وارسی مدل نیاز به مفهوم فرم \gls{dnf} که در تعریف زیر آمده است.
 	 \begin{defn}
 	 	(فرم نرمال فصلی): عبارت منظم 
 	 	$\mathsf{R} \in \mathbb{R}$
-	 	را یک فرم نرمال فصلی می‌گوییم، اگر و تنها اگر با فرض اینکه عبارت‌های منظم بدون انتخاب
+	 	را یک فرم نرمال فصلی می‌گوییم، اگر و تنها اگر عبارت‌های منظم بدون انتخاب
 	 	$\mathsf{R_1 , R_2, ..., R_n} \in \mathbb{R}^{\nmid}$
-	 	وجود داشته باشند که 
+	 	چنان وجود داشته باشند که 
 	 	$\mathsf{R= R_1 + R_2 + ... R_n}$.
 	 \end{defn}
- در تعریف بالا، به = دقت شود که با 
+ در تعریف بالا، = با 
  $\Bumpeq$
- که در ادامه مورد بحث ماست فرق می‌کند. منظور از = همان تساوی نحوی است.
+فرق می‌کند که منظور از آن همان تساوی نحوی است.
  
- در ادامه می‌خواهیم، یک تابع به اسم $\mathsf{dnf}$ تعریف کنیم که یک عبارت منظم $\mathsf{R}$ را می‌گیرد و عبارت منظم $\mathsf{R'}$ را تحویل می‌دهد. $\mathsf{R'}$ یک فرم نرمال فصلی است و 
- $\mathsf{R \Bumpeq R'}$
-برقرار است. ابتدا، این تابع را به صورت استقرایی روی ساختار عبارات منظم تعریف می‌کنیم، سپس خاصیتی که گفتیم را در مورد آن ثابت می‌کنیم. این اثباتی بر این گزاره خواهد بود که هر عبارت منظم با یک فرم نرمال فصلی هم ارز است.
+ در ادامه می‌خواهیم، یک تابع به اسم $\mathsf{dnf}$ تعریف کنیم که یک عبارت منظم $\mathsf{R}$ را می‌گیرد و عبارت منظم هم‌ارز به فرم نرمال فصلی تحویل می‌دهد.
+ 
   
   \begin{defn}
   	(تابع $\mathsf{dnf}$): تابع $\mathsf{dnf}$ روی عبارات منظم به شکل زیر تعریف می‌شود:
@@ -101,13 +101,13 @@ $\mathsf{fstnxt}$
 \begin{proof}
 از استقرا روی ساختار $\mathsf{R}$ استفاده می‌کنیم.
 $$\blacktriangleright \mathsf{R}=\varepsilon:$$
-$$\mathsf{dnf(\varepsilon)}=\varepsilon$$
-که $\varepsilon$ یک فرم نرمال فصلی است.
+$$\mathsf{dnf(\varepsilon)}=\varepsilon,$$
+که یک فرم نرمال فصلی است.
 
 
 $$\blacktriangleright \mathsf{R=L:B}:$$
 $$\mathsf{dnf(\mathsf{L:B})}=\mathsf{L:B}$$
-که $\mathsf{L:B}$ هم یک فرم نرمال فصلی است.
+که یک فرم نرمال فصلی است.
 
 
 $$\blacktriangleright \mathsf{R=R_1R_2}:$$
@@ -116,7 +116,7 @@ $\mathsf{dnf(R_1)=R_1^1+R_1^2+...+R_1^n}$
 و
 $\mathsf{dnf(R_2)=R_2^1+R_2^2+...+R_2^n}$.
 درحالیکه، $\mathsf{dnf(R_1)}$ و $\mathsf{dnf(R_2)}$ ترکیب نرمال فصلی هستند، یعنی هر $\mathsf{R_1^i}$ و هر $\mathsf{R_2^j}$ عضو $\mathbb{R^{\nmid}}$ است.
-طبق تعریف، خواهیم داشت:
+طبق تعریف، داریم:
 $$\mathsf{dnf}(\mathsf{R_1 R_2})=\mathsf{\Sigma_{i=1}^{n_1}\Sigma_{j=1}^{n_2} R_1^i R_2^j}$$
 که طرف راست گزاره‌ی بالا یک ترکیب نرمال فصلی است، چون هر  
 $\mathsf{R_1^i R_2^j}$
@@ -134,17 +134,17 @@ $$\blacktriangleright \mathsf{R=R_1^*}:$$
 $$\mathsf{dnf(R_1^*)= ((R_1^1)^* (R_1^2)^* ... (R_1^n)^*)}$$
 که:
 $$\mathsf{dnf(R_1)=R_1^1+R_1^2+...+R_1^n}$$
-که اینکه $\mathsf{((R_1^1)^* (R_1^2)^* ... (R_1^n)^*)}$ یک فرم نرمال فصلی است، مشخص است، چون می‌دانیم که در هیچ کدام از این $\mathsf{R_1^i}$ ها عملگر $+$ وجود ندارد و عملگر $ ^*$ و عملگر چسباندن هم تغییری در این وضع ایجاد نمی‌کنند.
+واضح است که $\mathsf{((R_1^1)^* (R_1^2)^* ... (R_1^n)^*)}$ یک فرم نرمال فصلی است، چون می‌دانیم که در هیچ کدام از $\mathsf{R_1^i}$ ها عملگر $+$ وجود ندارد و عملگر $ ^*$ و عملگر چسباندن هم تغییری در این وضع ایجاد نمی‌کنند.
 
 $$\blacktriangleright \mathsf{R=R_1^+}:$$
 طبق تعریف، داریم:
 $$\mathsf{dnf(R_1^+)=dnf(R_1 R_1^*)}$$
 $$\mathsf{dnf(R_1^*)= ((R_1^1)^* (R_1^2)^* ... (R_1^n)^*)}$$
-که گیریم 
+توجه شود 
 $\mathsf{R'=dnf(R_1^*)}$
- که عضو 
+ عضو 
  $\mathbb{R^\nmid}$
-است. علاوه بر این، از فرض استقرا داریم:
+است. بعلاوه، از فرض استقرا داریم:
 $$\mathsf{R_1= R_1^1 + ... + R_1^n}$$
 پس با توجه به تعریف $\mathsf{dnf}$ برای عملگر چسباندن و پخش پذیری چسباندن نسبت به انتخاب، خواهیم داشت:
 $$\mathsf{dnf(R_1^+) = \Sigma_{i=1}^n R_1^i R'}$$
@@ -162,15 +162,40 @@ $\mathsf{(dnf(R_1))=R'} \in \mathbb{R^\nmid}$
 
 گزاره‌ی دیگری که برای اثبات مانده است، برقرار بودن 
 $\mathsf{R \Bumpeq dnf(R) }$
-است. برای اثبات آن باید ابتدا قضیه‌ی زیر را اثبات کنیم که اثبات آن را ارجاع می‌دهیم به \cite{ullman}. 
+است. برای اثبات آن باید ابتدا قضیه‌ی زیر را اثبات کنیم.
 \begin{thm}
 	برای هر دو عبارت منظم 
 	$\mathsf{R_1 , R_2} \in \mathbb{R}$
 	داریم:
-	$$\mathsf{(R_1 + R_2)^* \Bumpeq (R_1^* R_2^*)^*}$$
+	$$\mathsf{(R_1 + R_2)^* \Bumpeq (R_1^* R_2^*)^*}.$$
 \end{thm} 
+\begin{proof}
+	ثابت می‌کنیم:
+	$$1.\mathcal{S}^r \llbracket \mathsf{(R_1 + R_2)}^* \rrbracket \subseteq \mathcal{S}^r \llbracket \mathsf{(R_1^* R_2^*)}^* \rrbracket,$$
+	$$2.\mathcal{S}^r \llbracket \mathsf{(R_1^* R_2^*)}^* \rrbracket \subseteq \mathcal{S}^r \llbracket  \mathsf{(R_1 + R_2)}^*\rrbracket.$$ 
+	
+	اثبات $1$:
+	$$\mathcal{S}^r \llbracket \mathsf{(R_1 + R_2)}^* \rrbracket = \bigcup_{n\in\mathbb{N}}
+	\mathcal{S}^r \llbracket\mathsf{(R_1 + R_2)}^n \rrbracket
+	$$
+	$$\Rightarrow \exists m\; (\pi=\pi_1\pi_2...\pi_m \;\land\;\forall i \; (1\leq i \leq m \rightarrow \langle\underline{\rho},\pi_i \rangle \in \mathcal{S}^r \llbracket \mathsf{R_1+R_2}\rrbracket))$$
+	$$\Rightarrow\forall i \; (1\leq i \leq m \rightarrow \langle\underline{\rho},\pi_i  \rangle \in \mathcal{S}^r \llbracket \mathsf{R_1}\rrbracket \cup \mathcal{S}^r \llbracket \mathsf{R_2}\rrbracket)$$
+	$$\Rightarrow\forall i \; (1\leq i \leq m \rightarrow \langle\underline{\rho},\pi_i  \rangle \in \mathcal{S}^r \llbracket \mathsf{R_1}\rrbracket \lor \langle\underline{\rho},\pi_i  \rangle \mathcal{S}^r \llbracket \mathsf{R_2}\rrbracket)$$
+	$$\Rightarrow\forall i \; (1\leq i \leq m \rightarrow \langle\underline{\rho},\pi_i  \rangle \in \mathcal{S}^r \llbracket \mathsf{R_1^* R_2^*}\rrbracket)$$
+	$$\Rightarrow\langle\underline{\rho},\pi  \rangle \in \mathcal{S}^r \llbracket \mathsf{(R_1^* R_2^*)^m}\rrbracket \subseteq \mathcal{S}^r \llbracket \mathsf{(R_1^* R_2^*)^*}\rrbracket.$$
+	
+	اثبات $2$:
+	$$\langle\underline{\rho},\pi  \rangle \in \mathcal{S}^r \llbracket \mathsf{(R_1^* R_2^*)^*}\rrbracket \Rightarrow \exists m \; (\langle\underline{\rho},\pi  \rangle \in \mathcal{S}^r \llbracket \mathsf{(R_1^* R_2^*)^m}\rrbracket)$$
+	$$\Rightarrow \pi=\pi_1\pi_2...\pi_m \;\land\;\forall i \; (1\leq i \leq m \rightarrow \langle\underline{\rho},\pi_i \rangle \in \mathcal{S}^r \llbracket \mathsf{R_1^* R_2^*}\rrbracket)$$
+	$$\Rightarrow\forall i \; (1\leq i \leq m \rightarrow \pi_i=\pi_i^1 \pi_i^2 \land  \langle\underline{\rho},\pi_i^1  \rangle \in \mathcal{S}^r \llbracket \mathsf{R_1}^*\rrbracket \land \langle\underline{\rho},\pi_i^2  \rangle \in \mathcal{S}^r \llbracket \mathsf{R_2}^*\rrbracket)$$
+	$$\Rightarrow\forall i \; (1\leq i \leq m \rightarrow \pi_i=\pi_i^1 \pi_i^2 \land  \langle\underline{\rho},\pi_i^1  \rangle \in \mathcal{S}^r \llbracket \mathsf{(R_1+R_2)}^*\rrbracket \land \langle\underline{\rho},\pi_i^2  \rangle \in \mathcal{S}^r \llbracket \mathsf{(R_1+R_2)}^*\rrbracket)$$
+	$$\Rightarrow\forall i \; (1\leq i \leq m \rightarrow \langle\underline{\rho},\pi_i  \rangle \in \mathcal{S}^r \llbracket \mathsf{(R_1 + R_2)^*} \bullet \mathsf{(R_1 + R_2)^*}\rrbracket)$$
+	$$\Rightarrow\forall i \; (1\leq i \leq m \rightarrow \langle\underline{\rho},\pi_i  \rangle \in \mathcal{S}^r \llbracket \mathsf{(R_1 + R_2)^*}\rrbracket)$$	
+	$$\Rightarrow \langle\underline{\rho},\pi  \rangle \in \mathcal{S}^r \llbracket \mathsf{((R_1 + R_2)^*)^n}\rrbracket\Rightarrow \langle\underline{\rho},\pi  \rangle \in \mathcal{S}^r \llbracket \mathsf{(R_1 + R_2)^*}\rrbracket.$$
+\end{proof}
 
-به عنوان نتیجه از قضیه‌ی بالا، می‌توانیم با استفاده از یک برهان ساده به کمک استقرا روی اعداد طبیعی، حکم بالا را به جای ۲ برای تعداد دلخواه متنهاهی‌ای از عبارات منظم اثبات کنیم. در ادامه در واقع از این حکم در اثبات استفاده شده است.
+
+به عنوان نتیجه‌ای از قضیه‌ی بالا، می‌توانیم با استفاده از یک برهان ساده به کمک استقرا روی اعداد طبیعی، حکم بالا را به جای ۲ برای تعداد دلخواه متنهاهی‌ای از عبارات منظم اثبات کنیم. در ادامه در واقع از این حکم در اثبات استفاده شده است.
 
 \begin{thm}
 	برای هر
@@ -182,31 +207,33 @@ $\mathsf{R \Bumpeq dnf(R) }$
 \begin{proof}
 	این اثبات با استقرا روی ساختار $\mathsf{R}$ انجام می‌شود.
 	توجه شود که در هر حالت از استقرا اگر عبارات منظم 
-	$\mathsf{R_1 , R_2}$
+	$\mathsf{R}_1$
+	و
+	$\mathsf {R}_2$
 	در ساختار $\mathsf{R}$ حضور داشته باشند، در مورد آن‌ها فرض گرفته‌ایم که 
 	$\mathsf{dnf(R_1)=R_1^1+R_1^2+...+R_1^n}$
 	و
-	$\mathsf{dnf(R_2)=R_1^2+R_2^2+...+R_2^m}$.
+	$\mathsf{dnf(R_2)=R_2^1+R_2^2+...+R_2^m}$.
 		
 	$$\blacktriangleright \mathsf{R=\varepsilon:}$$
 	$$\mathsf{dnf}(\varepsilon)=\varepsilon \Rightarrow 
 		\mathcal{S}^r \llbracket \mathsf{dnf(\varepsilon)} \rrbracket =
-		\mathcal{S}^r \llbracket \varepsilon \rrbracket$$
+		\mathcal{S}^r \llbracket \varepsilon \rrbracket.$$
 	
 	$$\blacktriangleright \mathsf{R=L:B\;:}$$
 	$$\mathsf{dnf(L:B)=L:B} \Rightarrow 
 	\mathcal{S}^r \llbracket \mathsf{dnf(L:B)} \rrbracket =
-	\mathcal{S}^r \llbracket \mathsf{L:B} \rrbracket$$
+	\mathcal{S}^r \llbracket \mathsf{L:B} \rrbracket.$$
 	
 	$$\blacktriangleright \mathsf{R=R_1 R_2\;:}$$
 	برای اثبات این حالت، باید دو گزاره‌ی زیر را ثابت کنیم:
-	$$\mathcal{S}^r \llbracket \mathsf{R_1 R_2} \rrbracket \subseteq
-	  \mathcal{S}^r \llbracket \mathsf{dnf(R_1 R_2)} \rrbracket$$
-	$$\mathcal{S}^r \llbracket \mathsf{R_1 R_2} \rrbracket \supseteq
-	\mathcal{S}^r \llbracket \mathsf{dnf(R_1 R_2)} \rrbracket$$
+	$$1.\mathcal{S}^r \llbracket \mathsf{R_1 R_2} \rrbracket \subseteq
+	  \mathcal{S}^r \llbracket \mathsf{dnf(R_1 R_2)} \rrbracket,$$
+	$$2.\mathcal{S}^r \llbracket \mathsf{R_1 R_2} \rrbracket \supseteq
+	\mathcal{S}^r \llbracket \mathsf{dnf(R_1 R_2)} \rrbracket.$$
 	
 	
-	$:(\supseteq)$
+	اثبات $1$:
 	
 	فرض می‌کنیم که 
 	$\langle \underline{\rho} , \pi \rangle$ 
@@ -216,80 +243,78 @@ $\mathsf{R \Bumpeq dnf(R) }$
 	چون 
 	$\mathsf{dnf(R_1R_2)=} \mathsf{\Sigma_{i=1}^{n_1} \Sigma_{j=1}^{n_2} R_1^i R_2^j }$،
 	 پس داریم:
-	$$\exists k_1,k_2:
-	\pi \in \mathcal{S}^r \llbracket \mathsf{R_1^{k_1} R_2^{k_2}} \rrbracket 
+	$$\exists k_1,k_2\;
+	(\pi \in \mathcal{S}^r \llbracket \mathsf{R_1^{k_1} R_2^{k_2}} \rrbracket)
 	$$
 	$$\Rightarrow
-	\exists \pi_1, \pi_2 \; s.t. \; \pi=\pi_1 \pi_2 , 
+	\exists \pi_1, \pi_2 \; ( \; \pi=\pi_1 \pi_2 , 
 	\langle \underline{\rho} , \pi_1 \rangle \in \mathcal{S}^r \llbracket \mathsf{R_1^{k_1}} \rrbracket,
-	\langle \underline{\rho} , \pi_2 \rangle \in \mathcal{S}^r \llbracket \mathsf{R_2^{k_2}} \rrbracket
+	\langle \underline{\rho} , \pi_2 \rangle \in \mathcal{S}^r \llbracket \mathsf{R_2^{k_2}} \rrbracket)
 	$$
 	در این صورت، داریم:
 	$$\mathcal{S}^r \llbracket \mathsf{R_1^{k_1}} \rrbracket \subseteq
-	\mathcal{S}^r \llbracket \mathsf{R_1} \rrbracket,
+	\mathcal{S}^r \llbracket \mathsf{R_1} \rrbracket,\;\;
 	\mathcal{S}^r \llbracket \mathsf{R_2^{k_2}} \rrbracket \subseteq
 	\mathcal{S}^r \llbracket \mathsf{R_2} \rrbracket$$
+	بنابراین:
 	$$
-	\Rightarrow
 	\langle \underline{\rho} , \pi_1 \pi_2 \rangle =
 	\langle \underline{\rho} , \pi \rangle \in 
-	\mathcal{S}^r \llbracket \mathsf{R_1 R_2} \rrbracket$$ 
+	\mathcal{S}^r \llbracket \mathsf{R_1 R_2} \rrbracket.$$ 
 	
-	$:(\subseteq)$
+	اثبات $2$: فرض کنید
+	
 	$$\langle \underline{\rho} ,\pi \rangle \in \mathcal{S}^r \llbracket \mathsf{R_1 R_2} \rrbracket$$
-	$$\Rightarrow\exists \pi_1, \pi_2: \pi = \pi_1 \pi_2\;s.t.\;
+	آنگاه
+	$$\exists \pi_1, \pi_2 ( \pi = \pi_1 \pi_2\;s.t.\;
 	\langle \underline{\rho} , \pi_1 \rangle \in \mathcal{S}^r \llbracket \mathsf{R_1} \rrbracket
-	,\langle \underline{\rho} , \pi_2 \rangle \in \mathcal{S}^r \llbracket \mathsf{R_2} \rrbracket$$
+	,\langle \underline{\rho} , \pi_2 \rangle \in \mathcal{S}^r \llbracket \mathsf{R_2} \rrbracket).$$
 	طبق فرض استقرا، داریم:
 	$$\mathcal{S}^r \llbracket \mathsf{R_1} \rrbracket=
-	\mathcal{S}^r \llbracket \mathsf{dnf(R_1)} \rrbracket,
+	\mathcal{S}^r \llbracket \mathsf{dnf(R_1)} \rrbracket, \;\;
 	\mathcal{S}^r \llbracket \mathsf{R_2} \rrbracket=
-	\mathcal{S}^r \llbracket \mathsf{dnf(R_2)} \rrbracket,
+	\mathcal{S}^r \llbracket \mathsf{dnf(R_2)} \rrbracket
 	$$
 	$$\Rightarrow
-	\exists k_1,k_2: \langle \underline{\rho} , \pi_1 \rangle \in 
+	\exists k_1,k_2 (\langle \underline{\rho} , \pi_1 \rangle \in 
 	\mathcal{S}^r \llbracket \mathsf{R_1^{k_1}} \rrbracket,
 	\langle \underline{\rho} , \pi_2 \rangle \in 
-	\mathcal{S}^r \llbracket \mathsf{R_2^{k_2}} \rrbracket$$
+	\mathcal{S}^r \llbracket \mathsf{R_2^{k_2}} \rrbracket)$$
 	$$\Rightarrow
 	\langle \underline{\rho} , \pi \rangle \in
 	\mathcal{S}^r \llbracket \mathsf{R_1^{k_1} R_2^{k_2}} \rrbracket
-	\subseteq \mathcal{S}^r \llbracket \mathsf{dnf(R_1 R_2)} \rrbracket
+	\subseteq \mathcal{S}^r \llbracket \mathsf{dnf(R_1 R_2)} \rrbracket.
 	$$ 
 	
-	
+	ادامه‌ی اثبات اصلی:
 	$$\blacktriangleright \mathsf{R=R_1 + R_2:}$$	
-	$$\mathcal{S}^r \llbracket \mathsf{dnf(R_1+R_2)} \rrbracket=$$
-	$$\mathcal{S}^r \llbracket \mathsf{dnf(R_1)+dnf(R_2)} \rrbracket=$$
-	$$\mathcal{S}^r \llbracket \mathsf{dnf(R_1)} \rrbracket \cup
-	\mathcal{S}^r \llbracket \mathsf{dnf(R_2)} \rrbracket=$$
-	(به کمک فرض استقرا)
+	$$\mathcal{S}^r \llbracket \mathsf{dnf(R_1+R_2)} \rrbracket=
+	\mathcal{S}^r \llbracket \mathsf{dnf(R_1)+dnf(R_2)} \rrbracket$$
+	$$=\mathcal{S}^r \llbracket \mathsf{dnf(R_1)} \rrbracket \cup
+	\mathcal{S}^r \llbracket \mathsf{dnf(R_2)} \rrbracket.$$
+	طبق فرض استقرا عبارت بالایی با 
+	$\mathcal{S}^r \llbracket \mathsf{R_1} \rrbracket \cup
+	\mathcal{S}^r \llbracket \mathsf{R_2} \rrbracket$
+	برابر است، پس داریم:
 	$$\mathcal{S}^r \llbracket \mathsf{R_1} \rrbracket \cup
-	\mathcal{S}^r \llbracket \mathsf{R_2} \rrbracket=$$
-	$$\mathcal{S}^r \llbracket \mathsf{R_1+R_2} \rrbracket$$
+	\mathcal{S}^r \llbracket \mathsf{R_2} \rrbracket$$
+	$$=\mathcal{S}^r \llbracket \mathsf{R_1+R_2} \rrbracket.$$
 	
 	$$\blacktriangleright \mathsf{R=R_1^*:}$$
-	$$\mathcal{S}^r \llbracket \mathsf{dfn(R_1^*)} \rrbracket=$$
-	$$\mathcal{S}^r \llbracket \mathsf{((R_1^1)^* (R_1^2)^* ... (R_1^n))^*} \rrbracket=$$
+	$$\mathcal{S}^r \llbracket \mathsf{dfn(R_1^*)} \rrbracket=\mathcal{S}^r \llbracket \mathsf{((R_1^1)^* (R_1^2)^* ... (R_1^n))^*} \rrbracket$$
 	(طبق نتیجه‌ای که از قضیه‌ی قبل گرفتیم)
-	$$\mathcal{S}^r \llbracket \mathsf{(R_1^1+R_1^2+...+R_1^n)^*} \rrbracket=$$
-	$$\mathcal{S}^r \llbracket \mathsf{(R_1)^*} \rrbracket=$$
-	$$\mathcal{S}^r \llbracket \mathsf{R_1^*} \rrbracket$$
+	$$=\mathcal{S}^r \llbracket \mathsf{(R_1^1+R_1^2+...+R_1^n)^*} \rrbracket=\mathcal{S}^r \llbracket \mathsf{(R_1)^*} \rrbracket$$
+	$$=\mathcal{S}^r \llbracket \mathsf{R_1^*} \rrbracket.$$
 	
 	$$\blacktriangleright \mathsf{R=R_1^+:}$$
-	$$\mathcal{S}^r \llbracket \mathsf{dfn(R_1^+)} \rrbracket=$$
-	$$\mathcal{S}^r \llbracket \mathsf{dfn(R_1 R_1^*)} \rrbracket$$
+	$$\mathcal{S}^r \llbracket \mathsf{dfn(R_1^+)} \rrbracket=\mathcal{S}^r \llbracket \mathsf{dfn(R_1 R_1^*)} \rrbracket.$$
 	در اینجا، عملگر چسباندن را داریم. در حالت‌های قبلی، این را نشان دادیم که چه‌ طور در حضور عملگر چسباندن، حکم برقرار می‌شود. همان اثبات را در مورد همین گزاره هم می‌توانیم، بگوییم و پس از آن، به این شکل ادامه دهیم:
 	$$\mathcal{S}^r \llbracket \mathsf{dfn(R_1 R_1^*)} \rrbracket=
 	\mathcal{S}^r \llbracket \mathsf{R_1 R_1^*} \rrbracket=
 	\mathcal{S}^r \llbracket \mathsf{R_1^+} \rrbracket$$
 	
 	$$\blacktriangleright \mathsf{R=(R_1):}$$
-	$$\mathcal{S}^r \llbracket \mathsf{dnf((R_1))} \rrbracket=$$
-	$$\mathcal{S}^r \llbracket \mathsf{dnf(R_1)} \rrbracket=$$
-	(طبق فرض استقرا:)
-	$$\mathcal{S}^r \llbracket \mathsf{R_1} \rrbracket=$$
-	$$\mathcal{S}^r \llbracket \mathsf{(R_1)} \rrbracket$$
+	$$\mathcal{S}^r \llbracket \mathsf{dnf((R_1))} \rrbracket=\mathcal{S}^r \llbracket \mathsf{dnf(R_1)} \rrbracket=\mathcal{S}^r \llbracket \mathsf{R_1} \rrbracket=\mathcal{S}^r \llbracket \mathsf{(R_1)} \rrbracket.$$
 \end{proof}
 
 
@@ -298,55 +323,59 @@ $\mathsf{R \Bumpeq dnf(R) }$
 $\mathsf{fstnxt}$
 نشان می‌دهیم و نام آن \gls{fstnxt} است. قرار است این تابع یک عبارت منظم را بگیرد و آن را به این شکل تجزیه کند که اولین اتم موجود در عبارت منظم که انگار سر عبارت منظم است، از باقی آن که دم آن عبارت منظم می‌شود، جدا شود. تابع روی عبارات منظم تهی و عبارات منظمی که عملگر $+$ را دارند تعریف نمی‌شود.
 \begin{defn}
-	(تابع سر و دم): تابع سر و دم را از نوع 
+	(تابع سر و دم): تابع سر و دم
 	$\mathsf{fstnxt}:\mathbb{( \mathbb{R^+ \cap R^\nmid})} \rightarrow \mathbb{R \times R}$ 
-	به شکل زیر تعریف می‌‌کنیم:
-	$$
+	را به شکل زیر تعریف می‌‌کنیم:\\
+	\lr{
+	$
 	\blacktriangleleft\mathsf{fstnxt (L:B) = \langle L:B , \varepsilon \rangle }
-	$$
-	$$
-	\blacktriangleleft\mathsf{fstnxt (R_1 R_2) = fstnxt (R_2)}$$
-	$$\mathsf{where\; R_1 \in \mathbb{R}_\varepsilon}$$
-	$$\blacktriangleleft\mathsf{fstnxt(R_1 R_2)= \llparenthesis  R_1^n \in \mathbb{R}_\varepsilon \; \mathbb{?} \; \langle R_1^f , R_2 \rangle : 
-		\langle R_1^f , R_1^n \bullet R_{2} \rangle \rrparenthesis} $$
-	$$\mathsf{where\; R_1 \notin \mathbb{R}_\varepsilon and\;
-		fstnxt(R_1)= \langle R_1^f , R_1^n \rangle}$$
-	$$\blacktriangleleft\mathsf{fstnxt(R^+)= \llparenthesis R^n \in \mathbb{R_\varepsilon}\;?\;\langle R^f , R^* \rangle : \langle R^f , R^n \bullet R^* \rangle \rrparenthesis}$$
-	$$\mathsf{where\; fstnxt(R)=\langle R^f , R^n \rangle}$$
-	$$\blacktriangleleft\mathsf{fstnxt((R))=fstnxt(R)}$$
-	
+	$\\
+	$
+	\blacktriangleleft\mathsf{fstnxt (R_1 R_2) = fstnxt (R_2)}\;\;$
+	$\mathsf{where\; R_1 \in \mathbb{R}_\varepsilon}$\\
+	$\blacktriangleleft\mathsf{fstnxt(R_1 R_2)= \llparenthesis  R_1^n \in \mathbb{R}_\varepsilon \; \mathbb{?} \; \langle R_1^f , R_2 \rangle : 
+		\langle R_1^f , R_1^n \bullet R_{2} \rangle \rrparenthesis} $\\
+	$\mathsf{where\; R_1 \notin \mathbb{R}_\varepsilon and\;
+		fstnxt(R_1)= \langle R_1^f , R_1^n \rangle}$\\
+	$\blacktriangleleft\mathsf{fstnxt(R^+)= \llparenthesis R^n \in \mathbb{R_\varepsilon}\;?\;\langle R^f , R^* \rangle : \langle R^f , R^n \bullet R^* \rangle \rrparenthesis}\;\;$
+	$\mathsf{where\; fstnxt(R)=\langle R^f , R^n \rangle}$\\
+	$\blacktriangleleft\mathsf{fstnxt((R))=fstnxt(R)}$\\}
 \end{defn}
 
 از این تعریف در صورتی از وارسی مدل که در این فصل ارائه می‌شود، استفاده می‌شود. یک قضیه در آخر این بخش آمده است که مهم‌ترین نتیجه در مورد تابع سر و دم است. 
-برای اثبات آن قضیه ابتدا یک نحو برای $\mathbb{R^+ \cap R^\nmid}$ می‌آوریم.
+برای اثبات آن قضیه ابتدا یک نحو
+\footnote{
+ساختاری که تابع سر و دم روی آن تعریف شده است، با ساختاری که در صورت قضیه‌ی بعدی برای مجموعه‌ی 
+$\mathbb{R}^+ \cap \mathbb{R}^\nmid$ 
+آورده‌ایم،
+ ریخت متفاوتی دارد و البته لزومی هم ندارد که یکی باشند. ساختاری که در صورت قضیه‌ی بعدی ارائه کرده‌ایم، در \cite{calcul} نیامده است و خودمان با هدف اثبات قضیه‌ی 3.10، این ساختار را در اینجا ارائه‌ کرده‌ایم.
+}
+ برای $\mathbb{R^+ \cap R^\nmid}$ می‌آوریم.
 \begin{thm}
-	ساختار زیر نحو اعضای $\mathbb{R^+ \cap R^\nmid}$ را توصیف می‌کند.
-	$$\mathsf{R} \:\:\:\in\:\:\: \mathbb{R^+ \cap R^\nmid}$$
+	$\mathbb{R'=R^+ \cap R^\nmid}$ توسط گرامر زیر تولید می‌شود.
 	$$\mathsf{R}\:\:\: ::= \:\:\: \mathsf{L:B} \: |
 	\: \mathsf{\varepsilon R_2} \: | \: \mathsf{R_1 \varepsilon} \: |
 	\: \mathsf{R_1 R_2} \: | 
 	\: \mathsf{R_1^+} | (\mathsf{R_1})$$
 \end{thm}
 \begin{proof}
-	نام مجموعه‌ی عبارت‌های منظم تولید شده با ساختار بالا را $\mathbb{R'}$ می‌گذاریم. باید ثابت کنیم
-	$\mathbb{R'=R^+ \cap R^\nmid}$
-	که در این راه مجبور هستیم که ثابت کنیم، این دو مجموعه زیر مجموعه‌ی یکدیگر هستند. برای اثبات 
+	برای 
 	$\mathbb{R' \subseteq R^+ \cap R^\nmid}$
-	می‌توانیم از استقرا روی ساختار بالا استفاده کنیم:
+	از استقرا روی ساختار بالا استفاده می‌کنیم:
 	$$\blacktriangleright \mathsf{R=L:B}\;:$$
-	به وضوح 
-	$\mathsf{L:B} \in \mathbb{R^+ \cap R^\nmid}$
-	است و این را از ساختار $\mathbb{R^+}$ و $\mathbb{R^\nmid}$ می‌توانیم ببینیم.
+	طبق ساختار  $\mathbb{R^+}$ و $\mathbb{R^\nmid}$ داریم
+	$\mathsf{L:B} \in \mathbb{R^+ \cap R^\nmid}$.
+
 	$$\blacktriangleright \mathsf{R=\varepsilon R_2}\;:$$
-	با فرض اینکه 
-	$\mathsf{R_2} \in \mathbb{R^+ \cap R^\nmid}$
-	که فرض استقراست، طبق ساختار $\mathbb{R^+}$ داریم 	$\varepsilon\mathsf{R_2} \in \mathbb{R^+}$ و طبق ساختار $\mathbb{R^\nmid}$ داریم چون 
+	که در آن 
+	$\mathsf{R_2} \in \mathbb{R^+ \cap R^\nmid}$.
+	طبق ساختار $\mathbb{R^+}$ ،	$\varepsilon\mathsf{R_2} \in \mathbb{R^+}$ و طبق ساختار $\mathbb{R^\nmid}$ داریم چون 
 	$\mathsf{R_2} \in \mathbb{R^\nmid}$
 	و
 	$\varepsilon \in \mathbb{R^\nmid}$،
 	پس 
 	$\mathsf{\varepsilon R_2} \in \mathbb{R^\nmid}$.
-	پس داریم 
+	پس
 	$\mathsf{\varepsilon R_2} \in \mathbb{R^+ \cap R^\nmid}$.
 	
 	$$\blacktriangleright \mathsf{R=R_1 \varepsilon}\;:$$
@@ -361,7 +390,7 @@ $\mathsf{fstnxt}$
 	$$\blacktriangleright \mathsf{R=(R_1)}\;:$$
 	مثل حالت قبل اثبات می‌شود.
 	
-	در اینجا اثبات 
+	در اینجا، اثبات 
 	$\mathbb{R' \subseteq R^+ \cap R^\nmid}$ 
 	کامل می‌شود. حال به سراغ اثبات 
 	$\mathbb{R^+ \cap R^\nmid \subseteq R'}$
@@ -385,7 +414,7 @@ $\mathsf{fstnxt}$
 	
 	$$\blacktriangleright \mathsf{R=R_1^*}\;:$$
 	چون به ازای هیچ عبارت منظم $\mathsf{R_1}$ای 
-	$\mathsf{R_1}^*$ داخل $\mathbb{R^+}$ نمی‌افتد، پس بررسی این حالت هم مورد نیاز نیست.
+	$\mathsf{R_1}^*$ داخل $\mathbb{R^+}$ نمی‌افتد، پس بررسی این حالت هم نیاز نیست.
 	
 	
 	$$\blacktriangleright \mathsf{R=R_1^+}\;:$$
@@ -403,13 +432,13 @@ $\mathsf{fstnxt}$
 	
 \end{proof}
 
-ساختاری که تابع سر و دم روی آن تعریف شده است، با این ساختار ریخت متفاوتی دارد و البته لزومی هم ندارد که یکی باشند. ساختاری که در قضیه‌ی قبل ارائه کرده‌ایم، در \cite{calcul} نیامده است و خودمان با هدف اثبات قضیه‌ی بعدی، این ساختار را در اینجا ارائه‌ کرده‌ایم.
+
 
 
 
 \begin{thm}
 	برای هر عبارت منظم 
-	$\mathsf{R} \in \mathbb{R^+ \cap R^\nmid}$
+	$\mathsf{R} \in \mathbb{R^+ \cap R^\nmid}$،
 	اگر 
 	$\mathsf{fstnxt(R)=\langle L:B , R'\rangle}$
 		آنگاه 
@@ -418,18 +447,18 @@ $\mathsf{fstnxt}$
 	$\mathsf{R \Bumpeq L:B\bullet R'}$.
 \end{thm}
 \begin{proof}
-	اثبات را باید با استفاده از استقرا روی ساختار عبارت‌های منظم عضو 
+	قضیه را به استقرا روی ساختار اعضای 
 	$\mathbb{R^+ \cap R^\nmid}$
-	انجام داد.
-	$$\blacktriangleright\mathsf{R=L:B;\:}$$
+	اثبات می‌کنیم.
+	$$\blacktriangleright\mathsf{R=L:B\;:}$$
 	در این حالت، طبق تعریف تابع سر و دم، داریم
 	$\mathsf{fstnxt(R)=\langle L:B , \varepsilon \rangle}$.
 	از طرف دیگر \break
 	$\mathcal{S}^r\llbracket \mathsf{L:B \bullet \varepsilon} \rrbracket = 
 	\mathcal{S}^r \llbracket \mathsf{L:B} \rrbracket$
-	را داریم و $\varepsilon$ عضو $\mathbb{R^\nmid}$ است.
+	و $\varepsilon$ عضو $\mathbb{R^\nmid}$ است.
 	
-	$$\blacktriangleright\mathsf{R=\varepsilon R_2;\:}$$
+	$$\blacktriangleright\mathsf{R=\varepsilon R_2\;:}$$
 	طبق تعریف تابع سر و دم، داریم
 	$\mathsf{fstnxt(\varepsilon R_2) = fstnxt(R_2)}$.
 		فرض استقرا این است که اگر 
@@ -439,10 +468,10 @@ $\mathsf{fstnxt}$
 	و
 	$\mathsf{L:B \bullet R'_2} \Bumpeq  \mathsf{R_2}$.
 	پس 
-	$\mathsf{fstnxt(R)=\langle L:B , R'_2 \rangle}$
-	که همان‌ طور که گفتیم طبق فرض استقرا 
+	$\mathsf{fstnxt(R)=\langle L:B , R'_2 \rangle}$.
+	طبق فرض استقرا، 
 	$\mathsf{R'_2} \in \mathbb{R^\nmid}$
-	و از طرف دیگر:
+	و از طرفی داریم:
 	$$\mathsf{R=\varepsilon R_2 \Bumpeq R_2 \Bumpeq L:B \bullet R'_2 }$$
 			
 	
@@ -450,7 +479,7 @@ $\mathsf{fstnxt}$
 	
 	
 	
-	$$\blacktriangleright\mathsf{R=R_1 \varepsilon;\:}$$
+	$$\blacktriangleright\mathsf{R=R_1 \varepsilon\;:}$$
 	در این حالت امکان ندارد $\mathsf{R_1=\varepsilon}$ باشد، چون در آن صورت خواهیم داشت، 
 	$\mathsf{R=\varepsilon \varepsilon} \in \mathbb{R_\varepsilon}$
 	که تناقض است، چون $\varepsilon \varepsilon$ در دامنه‌ی تابع سر و دم نیست.
@@ -484,7 +513,7 @@ $$\mathsf{L:B \bullet R'_1 \bullet \varepsilon \Bumpeq R_1 \varepsilon = R }$$
 
 
 	
-	$$\blacktriangleright\mathsf{R=R_1 R_2;\:}$$
+	$$\blacktriangleright\mathsf{R=R_1 R_2\;:}$$
 	اگر یکی از $\mathsf{R_1}$ و $\mathsf{R_2}$ مساوی $\varepsilon$ باشند، حالاتی که بررسی کرده‌ایم اتفاق می‌افتند. اگر هر دو عبارت منظم برابر با $\varepsilon$ باشند نیز به تناقض می‌خوریم، چون در این صورت دیگر در $\mathbb{R^+}$ این عبارت منظم را نداریم. پس تنها یک حالت می‌ماند و آن این است که هیچ یک از این دو عبارت منظم تهی نباشند. در این صورت، اگر فرض کنیم 
 	$\mathsf{fstnxt(R_1)=\langle L:B , R'_1 \rangle}$،
 	مسئله بنا به اینکه 
@@ -506,7 +535,7 @@ $$\mathsf{L:B \bullet R'_1 \bullet \varepsilon \Bumpeq R_1 \varepsilon = R }$$
 	مثل حالت‌های قبل ثابت می‌شود که $\mathsf{R_2} \in \mathbb{R^\nmid}$ و داریم:
 	$$\mathsf{R = L:B \bullet R_2 \Rightarrow L:B \bullet R_2 \Bumpeq R}$$ 
 	
-	$$\blacktriangleright\mathsf{R=R_1^+;\:}$$
+	$$\blacktriangleright\mathsf{R=R_1^+\;:}$$
 	با فرض اینکه 
 	$\mathsf{fstnxt(R_1)=\langle L:B , R'_1 \rangle}$،
 		بنا به اینکه 
@@ -533,7 +562,7 @@ $$\mathsf{L:B \bullet R'_1 \bullet \varepsilon \Bumpeq R_1 \varepsilon = R }$$
 	(L:B)^+}$$
 
 	$$\blacktriangleright\blacktriangleright\mathsf{R'_1} \notin \mathbb{R_\varepsilon}:$$
-با توجه به تعریف تابع سر و دم و فرض استقرا که پیش‌تر بیان کرده‌ایم، در این حالت داریم 
+با توجه به تعریف تابع سر و دم و فرض استقرا، در این حالت داریم 
 	$\mathsf{fstnxt(R)=\langle L:B , R'_1 \bullet R_1^* \rangle}$.
 	به همان دلیل حالت قبلی، می‌دانیم که $\mathsf{R_1^*}$ عضو $\mathbb{R^\nmid}$ است و طبق فرض استقرا داریم $\mathsf{R'_1} \in \mathbb{R^\nmid}$. بنابراین داریم
 		$\mathsf{R'_1 \bullet R_1^*} \in \mathbb{R^\nmid}$.
@@ -550,19 +579,19 @@ $$\mathsf{L:B \bullet R'_1 \bullet \varepsilon \Bumpeq R_1 \varepsilon = R }$$
 
 \section{وارسی مدل منظم}
 همان‌طور که پیش‌تر گفتیم، می‌خواهیم در این فصل یک صورت معادل با صورتی که در فصل پیش برای روش وارسی مدل آورده شده بود، ارائه کنیم. تا اینجای این فصل، صرفا به معرفی چند مفهوم که برای بیان  صورت جدید به آن‌ها احتیاج داریم، پرداخته‌ایم. در این یخش ابتدا این صورت جدید را بیان می‌‌کنیم و سپس اثبات می‌‌کنیم که صورت جدید با صورت قبلی معادل است. همان‌طور که پیش‌تر هم اشاره شد، تفاوت این دو صورت در این است که در این صورت ساختار عبارات منظم اثر دارد، در حالیکه، صورت قبلی ساختاری نداشت.
-\subsection{صورت}
+\subsection{صورت وارسی مدل منظم}
 
-در نهایت، برای تعریف صورت به یک تابع به نام $\mathcal{M}$ خواهیم رسید که در ورودی‌اش، یک زوج متشکل از یک محیط اولیه و یک عبارت منظم را در کنار یک برنامه می‌گیرد و در خروجی، همه‌ی ردهای پیشوندی موجود در معنای برنامه که عبارت منظم را ارضا می‌کنند، داخل یک مجموعه بر می‌گرداند.
-اما در این بین، مفهوم سازگاری یک رد پیشوندی با یک عبارت منظم چگونه مشخص می‌شود؟ این نکته‌ای است که تا به حال در مورد آن بحث نکرده‌ایم و حالا می‌خواهیم، تعریف تابع $\mathcal{M}^t$ را با این هدف به بحث وارد کنیم. البته، این تابع یک ویژگی بیشتر هم دارد. ویژگی دیگر است که اگر عبارت منظم با رد پیشوندی سازگار نباشد، تابع به ما می‌گوید که کجای عبارت منظم ناسازگاری وجود داشته است. همین ‌طور اگر رد پیشوندی با عبارت منظم سازگار باشد، این تابع به ما نشان می‌دهد که عبارت منظم تا کجا بررسی شده است. فهمیدن این موضوع با نگاه به تعریف ساده‌تر است و البته، نباید فراموش کرد که سازگاری‌ای که داریم، هماهنگ با صورت قبلی است که در آن عملگر 
+در نهایت، برای تعریف صورت وارسی مدل منظم به یک تابع به نام $\mathcal{M}$ خواهیم رسید که در ورودی‌اش، یک زوج متشکل از یک محیط اولیه و یک عبارت منظم را در کنار یک برنامه می‌گیرد و در خروجی، همه‌ی ردهای پیشوندی موجود در معنای برنامه که عبارت منظم را ارضا می‌کنند، داخل یک مجموعه بر می‌گرداند.
+اما در این بین، مفهوم سازگاری یک رد پیشوندی با یک عبارت منظم چگونه مشخص می‌شود؟ این نکته‌ای است که تا به حال در مورد آن بحث نکرده‌ایم و حالا می‌خواهیم، تعریف تابع $\mathcal{M}^t$ را با این هدف به بحث وارد کنیم. البته، این تابع یک ویژگی بیشتر هم دارد. ویژگی دیگر این است که اگر عبارت منظم با رد پیشوندی سازگار نباشد، تابع به ما می‌گوید که کجای عبارت منظم ناسازگاری وجود داشته است. همین ‌طور اگر رد پیشوندی با عبارت منظم سازگار باشد، این تابع به ما نشان می‌دهد که عبارت منظم تا کجا بررسی شده است. فهمیدن این موضوع با نگاه به تعریف ساده‌تر است و البته، نباید فراموش کرد که سازگاری‌ای که داریم، هماهنگ با صورت قبلی با داشتن عملگر 
 $\mathsf{prefix}$
 و الحاق عبارت منظم
 $\mathsf{(?:\mathit{T})^*}$
-را داشتیم. 
+است. 
 \begin{defn}
-	(وارسی‌گر رد پیشوندی): به تابع $\mathcal{M}^t$ از نوع 
-	$\mathbb{(\underline{EV} \times R^\nmid) \rightarrow  \mathfrak{S}^{+\infty}}
+	(وارسی‌گر رد پیشوندی): تابع وارسی‌گر رد پیشوندی \break
+	$\mathcal{M}^t:\mathbb{(\underline{EV} \times R^\nmid) \rightarrow  \mathfrak{S}^{+\infty}}
 	\rightarrow (\mathbb{B \times R^\nmid} ) $
-	وارسی‌گر رد پیشوندی می‌گوییم. این تابع ضابطه‌ی زیر را دارد:
+	با ضابطه‌ی زیر تعریف می‌شود:
 	$$\blacktriangleleft\mathcal{M}^t \langle \underline{\rho} , \varepsilon \rangle \pi = 
 	\langle \mathit{T} , \varepsilon \rangle$$
 	(برای هر عضو دیگر $\mathbb{R_\varepsilon}$ هم حالت بالایی برقرار است. دو حالت پایینی برای عبارت‌های منظم عضو $\mathbb{R^+ \cap R^\nmid}$ هستند.)
@@ -582,10 +611,10 @@ $\mathsf{(?:\mathit{T})^*}$
  $\mathcal{M}^\nmid$ 
 نشان می‌دهیم. در واقع، همان کاری را که $\mathcal{M}$ قرار است به ازای همه‌ی عبارت‌های منظم انجام دهد، این تابع روی عبارت‌های منظمی که $+$ ندارند انجام می‌دهد.
 \begin{defn}
-	(وارسی مدل منظم محدود به $\mathbb{R^\nmid}$): به تابع $\mathcal{M}^\nmid$ از نوع \break
-	$\mathbb{(\underline{EV} \times R^\nmid)} \rightarrow  \mathit{P}({\mathfrak{S}^{+\infty})}
+	(وارسی مدل منظم محدود به $\mathbb{R^\nmid}$): تابع وارسی مدل منظم محدود به $\mathbb{R^\nmid}$ \break
+	$\mathcal{M}^\nmid:\mathbb{(\underline{EV} \times R^\nmid)} \rightarrow  \mathit{P}({\mathfrak{S}^{+\infty})}
 	\rightarrow \mathit{P}(\mathfrak{S}^{+\infty} \times \mathbb{R}^\nmid ) $
-	می‌گوییم وارسی مدل منظم محدود به $\mathbb{R^\nmid}$. ضابطه‌ی این تابع به شکل زیر است:
+	با ضابطه‌ی زیر تعریف می‌شود:
 	
 	 $$\mathcal{M}^\nmid \langle \underline{\rho} , \mathsf{R} \rangle \Pi= \{ \langle \pi , \mathsf{R'} \rangle | \pi \in \Pi \land  
 	  \mathcal{M}^t \langle \underline{\rho} , \mathsf{R} \rangle \pi =
@@ -593,15 +622,15 @@ $\mathsf{(?:\mathit{T})^*}$
 \end{defn}
 
 
-حالا خود $\mathcal{M}$ را تعریف می‌کنیم. تعریف این تابع چیزی نیست جز \gls*{union} گرفتن از خروجی تابع بالا، به ازای عبارات منظمی که در فرم نرمال فصلی عبارت منظم ورودی تابع حضور دارند. البته، بخشی از اطلاعاتمان از هر رد پیشوندی در هر زوجی که در خروجی $\mathcal{M}^\nmid$ وجود دارد، حذف می‌شود. به عبارت دیگر، صرفا ردهای پیشوندی را در مجموعه‌ای که خروجی $\mathcal{M}$ است، داریم. اطلاعات برای هر رد پیشوندی یک عبارت منظم است که بخشی از $\mathsf{R}$ است که سازگاری‌اش با رد پیشوندی بررسی نشده است. برای ردهای پیشوندی‌ای که در خروجی $\mathcal{M}$ حضور دارند و طولشان بیشتر یا مساوی عبارت منظم مورد بررسی است، این عبارت منظم برابر با تهی است.
+حالا خود $\mathcal{M}$ را تعریف می‌کنیم. تعریف این تابع چیزی نیست جز \gls*{union} گرفتن از خروجی تابع $\mathcal{M}^\nmid$، به ازای عبارت‌های منظمی که در فرم نرمال فصلی عبارت منظم ورودی تابع حضور دارند. البته، بخشی از اطلاعاتمان از هر رد پیشوندی در هر زوجی که در خروجی $\mathcal{M}^\nmid$ وجود دارد، حذف می‌شود. به عبارت دیگر، صرفا ردهای پیشوندی را در مجموعه‌ای که خروجی $\mathcal{M}$ است، داریم. اطلاعات برای هر رد پیشوندی یک عبارت منظم است که بخشی از $\mathsf{R}$ است که سازگاری‌اش با رد پیشوندی بررسی نشده است. برای ردهای پیشوندی‌ای که در خروجی $\mathcal{M}$ حضور دارند و طولشان بیشتر یا مساوی عبارت منظم مورد بررسی است، این عبارت منظم برابر با تهی است.
 
 \begin{defn}
 (وارسی مدل منظم):
 
-تابع $\mathcal{M}$ را از نوع 
-$\mathbb{(\underline{EV} \times R)} \rightarrow  \mathit{P}({\mathfrak{S}^{+\infty})}
+تابع وارسی مدل منظم 
+$\mathcal{M}:\mathbb{(\underline{EV} \times R)} \rightarrow  \mathit{P}({\mathfrak{S}^{+\infty})}
 \rightarrow (\mathbb{\underline{EV}} \times \mathit{P} (\mathfrak{S}^{+\infty} ) )$
- وارسی مدل منظم می‌گوییم که ضابطه‌ی زیر را دارد:
+با ضابطه‌ی زیر تعریف می‌شود:
 $$\mathcal{M} \langle \underline{\rho} , \mathsf{R} \rangle \Pi= \bigcup_{i=1}^n \{  \langle \underline{\rho},\pi\rangle | \exists \mathsf{R'} \in \mathbb{R}:\; \langle \pi , \mathsf{R'} \rangle \in 
 \mathcal{M}^\nmid \langle \underline{\rho}, \mathsf{R_i} \rangle \Pi \}$$
 $$\mathsf{where \; dnf (R) = R_1 + R_2 + ... + R_n}$$ 
@@ -615,7 +644,7 @@ $$\mathsf{P} , \underline{\rho} \models_r \mathsf{R} \iff \{\underline{\rho}\} \
 
 \end{defn}
 
-با این تعریف، در واقع زمانی می‌توانیم بگوییم، برنامه‌ی $\mathsf{P}$ ویژگی $\mathsf{R}$ دارد \break که 
+با این تعریف، در واقع زمانی می‌توانیم بگوییم، برنامه‌ی $\mathsf{P}$ ویژگی $\mathsf{R}$ را دارد \break که 
 $\mathcal{M}\langle \underline{\rho} , \mathsf{R} \rangle \mathcal{S}^* \llbracket \mathsf{P} \rrbracket = 
 \{\underline{\rho}\} \times \mathcal{S}^* \llbracket \mathsf{P} \rrbracket$.
 در واقع، انگار تابع 
@@ -625,7 +654,7 @@ $\mathcal{S}^* \llbracket \mathsf{P} \rrbracket$
 عمل می‌کند، پس خروجی این مجموعه زیر مجموعه‌ی $\{\underline{\rho}\} \times \mathcal{S}^* \llbracket \mathsf{P} \rrbracket$ است.
 \begin{thm}
 	برای هر برنامه‌ی $\mathsf{P}$، محیط اولیه‌ی $\underline{\rho}$ و عبارت منظم $\mathsf{R}$ داریم:
-	$$\mathcal{M}\langle \underline{\rho},\mathsf{R} \rangle \mathcal{S}^* \llbracket \mathsf{P} \rrbracket \subseteq \{\underline{\rho}\} \times \mathcal{S}^* \llbracket \mathsf{P}\rrbracket$$
+	$$\mathcal{M}\langle \underline{\rho},\mathsf{R} \rangle \mathcal{S}^* \llbracket \mathsf{P} \rrbracket \subseteq \{\underline{\rho}\} \times \mathcal{S}^* \llbracket \mathsf{P}\rrbracket.$$
 \end{thm}
 
 \begin{proof}
@@ -656,19 +685,19 @@ $\langle \underline{\rho}, \pi \rangle \in \{\underline{\rho}\} \times \mathcal{
 $\mathcal{M} \langle \underline{\rho}, \mathsf{R} \rangle \mathcal{S}^* \llbracket \mathsf{P} \rrbracket$
 در نظر بگیریم. می‌توانیم هر دسته از این افراز را متناظر با دسته‌ای در افرازی که روی 
 $\mathcal{S}^* \llbracket \mathsf{P}\rrbracket$ 
-توصیف کردیم بدانیم، اگر و تنها اگر وضعیت اولیه در ردهای پیشوندی موجود در دو دسته یکسان باشند.
+توصیف کردیم بدانیم، دقیقا موقعی که وضعیت اولیه در ردهای پیشوندی موجود در دو دسته یکسان باشند.
 
 اگر در هر دسته از این افراز روی 
 $\mathcal{S}^* \llbracket \mathsf{P} \rrbracket$،
 رد پیشوندی ماکسیمال این دسته در دسته‌ی متناظر در
 $\mathcal{M} \langle \underline{\rho}, \mathsf{R} \rangle \mathcal{S}^* \llbracket \mathsf{P} \rrbracket$
- وجود داشته باشد، در این صورت پس حتما \break
+ وجود داشته باشد، در این صورت،
 $\mathcal{M} \langle \underline{\rho}, \mathsf{R} \rangle \mathcal{S}^* \llbracket \mathsf{P} \rrbracket =\{\underline{\rho}\} \times \mathcal{S}^* \llbracket \mathsf{P} \rrbracket$.
 اگر دسته‌ای از افراز روی 
 $\mathcal{M} \langle \underline{\rho}, \mathsf{R} \rangle \mathcal{S}^* \llbracket \mathsf{P} \rrbracket$
 دارای عضو ماکسیمال متفاوتی نسبت به همان دسته روی 
 $\mathcal{S}^* \llbracket \mathsf{P} \rrbracket$
-باشد، قطعا این عضو ماکسیمال کوتاه‌تر از عضو ماکسیمال همان دسته در 
+باشد، این عضو ماکسیمال کوتاه‌تر از عضو ماکسیمال همان دسته در 
 $\mathcal{S}^* \llbracket \mathsf{P} \rrbracket$
 است و این یعنی ناسازگاری‌ای با عبارت منظم مورد بررسی وجود داشته است. محل وقوع ناسازگاری را تابع  
 $\mathcal{M}^\nmid$
@@ -682,9 +711,10 @@ $\mathsf{dnf(R)}$
 
 
 \subsection{درستی و تمامیت}
-حال به اثبات معادل بودن صورت جدید با صورت قبلی می‌پردازیم. در \cite{calcul} این اثبات که یک قضیه‌ی دوطرفه است، تحت دو قضیه به نام‌های \gls{soundness} و \gls{completeness} آمده است. درستی به این معناست که اگر یک بررسی در صورت جدید انجام شود، نتیجه‌ای یکسان با انجام بررسی برای همان برنامه و همان عبارت منظم در صورت قبلی دارد. تمامیت نیز عکس درستی است، یعنی هر بررسی‌ای که با صورت قبلی انجام شده، نتیجه‌ی یکسانی با انجام همان بررسی در صورت جدید دارد.
+حال به اثبات معادل بودن صورت جدید با صورت قبلی می‌پردازیم. در \cite{calcul} این اثبات
+\footnote{نگارنده‌ی این پایان نامه، به درستی دو اثبات موجود در \cite{calcul} بسیار بد بین است! در اثبات تمامیت، برهان به شکل عجیبی بی‌ربط است و در اثبات قضیه درستی، ایرادات فنی ریزی در جزئیات وجود دارد که با تعاریف در تناقض است. از این رو برهان‌هایی که در اینجا آورده‌ایم، جدید هستند.}
+ که یک قضیه‌ی دوطرفه است، تحت دو قضیه به نام‌های \gls{soundness} و \gls{completeness} آمده است. درستی به این معناست که اگر یک بررسی در صورت جدید انجام شود، نتیجه‌ای یکسان با انجام بررسی برای همان برنامه و همان عبارت منظم در صورت قبلی دارد. تمامیت نیز یعنی هر بررسی‌ای که با صورت قبلی انجام شده، نتیجه‌ی یکسانی با انجام همان بررسی در صورت جدید دارد.
 
-نگارنده‌ی این پایان نامه، به درستی دو اثبات موجود در \cite{calcul} بسیار بد بین است! در اثبات تمامیت، برهان به شکل عجیبی بی‌ربط است و در اثبات قضیه درستی، ایرادات فنی ریزی در جزئیات وجود دارد که با تعاریف در تناقض است. از این رو برهان‌هایی که در اینجا آورده‌ایم، جدید هستند.
 
 \begin{thm}
 	(قضیه درستی): اگر $\mathsf{P}$ یک برنامه، $\mathsf{R}$ یک عبارت منظم و $\underline{\rho}$ یک محیط اولیه باشند، آنگاه داریم:
@@ -741,13 +771,13 @@ $$\mathsf{prefix(\mathcal{S}^r \llbracket \mathsf{R} \bullet (?:\mathit{T})^* \r
 $$\langle \underline{\rho}, \pi \rangle \in \mathsf{prefix(\mathcal{S}^r \llbracket \mathsf{R} \bullet (?:\mathit{T})^* \rrbracket)}$$
 
 $$\blacktriangleright \mathsf{R}_k \not\Bumpeq \varepsilon:$$
-همان طور که پیش‌تر اشاره کردیم، این فرض یعنی
+همان طور که پیش‌تر اشاره شد، این فرض یعنی
 $\mathsf{R}_k \in \mathsf{R}^+ \cap \mathsf{R}^\nmid$.
 پس مجاز هستیم از تابع سر و دم استفاده کنیم. فرض می‌کنیم 
 $\mathsf{fstnxt(R}_k) = \langle \mathsf{L}_k^1 : \mathsf{B}_k^1 , \mathsf{R}_k^1 \rangle$.
 همین طور فرض می‌کنیم:
 $$\pi = \langle l_0,\rho_0 \rangle \langle l_1 , \rho_1 \rangle \langle l_2 , \rho_2 \rangle ... \langle l_l , \rho_l \rangle$$
-و تعریف می‌کنیم:
+قرار دهید:
 $$\pi(i)=\langle l_i , \rho_i\rangle \langle l_{i+1},\rho_{i+1}\rangle,...,\langle l_l,\rho_l \rangle$$
 داریم:
 $$\mathcal{M}^t \langle \underline{\rho},\mathsf{R}_k \rangle \pi = \langle \mathit{T} , \mathsf{R'} \rangle \Rightarrow \forall \mathsf{R''} \in \mathbb{R}: \mathcal{M}^t \langle \underline{\rho},\mathsf{R}_k \rangle \pi \neq \langle \mathit{F},\mathsf{R}'' \rangle$$
@@ -756,7 +786,7 @@ $$\mathcal{M}^t \langle \underline{\rho}, \mathsf{R}_k \rangle \pi= \mathcal{M}^
 بدون کاستن از کلیت( چون ممکن است $\mathsf{R}_k^1 \Bumpeq \varepsilon$)، فرض می‌کنیم کاری که انجام دادیم را می‌توانیم روی دم خروجی عبارت منظم $\mathsf{R}_k$( یعنی $\mathsf{R}_k^1$) تکرار کنیم:
 $$\mathcal{M}^t \langle \underline{\rho}, \mathsf{R}_k^1 \rangle \pi(1)= \mathcal{M}^t \langle \underline{\rho}, \mathsf{R}_k^2 \rangle \pi(2)\;\;\; \mathsf{where\;fstnxt}(\mathsf{R}_k^1)=\langle \mathsf{L}_k^2 : \mathsf{B}_k^2 , \mathsf{R}_k^2 \rangle$$
 
-باز هم بدون کاستن از کلیت، می‌توانیم فرض کنیم که این رویه را به صورت یک سلسله می‌توان تا $h$ مرحله ادامه داد، یعنی:
+باز هم بدون کاستن از کلیت، می‌توانیم فرض کنیم که این رویه را تا $h$ مرحله ادامه دادیم، یعنی:
 $$\mathcal{M}^t \langle \underline{\rho},\mathsf{R}_k^{h-1} \rangle \pi(h-1)=\mathcal{M}^t\langle \underline{\rho},\mathsf{R}_k^{h} \rangle \pi(h) \;\;\;
 \mathsf{where\;fstnxt}(\mathsf{R}_k^{h-1})=\langle \mathsf{L}_k^{h} : \mathsf{B}_k^{h} , \mathsf{R}_k^{h} \rangle$$
 در حالیکه، 
@@ -771,15 +801,15 @@ $$\blacktriangleright\blacktriangleright h<l:$$
 $$\mathcal{M}^t \langle \underline{\rho}, \mathsf{R}_k^h \rangle \pi(h+1)=\langle \mathit{T} , \varepsilon \rangle$$
 
 که این یعنی داریم:
-$$\forall j:1\leq j \leq h \rightarrow \langle \underline{\rho},\langle l_j, \rho_j \rangle\rangle \in \mathcal{S}^r \llbracket \mathsf{L}_j : \mathsf{B}_j \rrbracket$$
-$$\Rightarrow \langle \underline{\rho}, \pi \rangle \in \mathcal{S}^r \llbracket \mathsf{R}_k \bullet (?:\mathit{T})^* \rrbracket \Rightarrow \langle \underline{\rho},\pi\rangle \in \mathsf{prefix(\mathcal{S}^r \llbracket R \bullet (?:\mathit{T})^*} \rrbracket)$$ 
+$$\forall j\;(1\leq j \leq h \rightarrow \langle \underline{\rho},\langle l_j, \rho_j \rangle\rangle \in \mathcal{S}^r \llbracket \mathsf{L}_j : \mathsf{B}_j \rrbracket)$$
+$$\Rightarrow \langle \underline{\rho}, \pi \rangle \in \mathcal{S}^r \llbracket \mathsf{R}_k \bullet (?:\mathit{T})^* \rrbracket \Rightarrow \langle \underline{\rho},\pi\rangle \in \mathsf{prefix(\mathcal{S}^r \llbracket R \bullet (?:\mathit{T})^*} \rrbracket).$$ 
 
 $$\blacktriangleright\blacktriangleright h\geq l:$$
 در این صورت داریم:
 $$\mathcal{M}^t \langle\underline{\rho},\mathsf{R_k}\rangle \pi = \langle \mathit{T}, \mathsf{R}_k^l\rangle$$
 که یعنی:
-$$\forall j:1\leq j \leq l \rightarrow \langle \underline{\rho},\langle l_j, \rho_j \rangle\rangle \in \mathcal{S}^r \llbracket \mathsf{L}_j : \mathsf{B}_j \rrbracket$$
-$$\Rightarrow \langle \underline{\rho}, \pi \rangle \in \mathsf{prefix}(\mathcal{S}^r \llbracket \mathsf{R}_k\rrbracket) \Rightarrow \langle \underline{\rho},\pi\rangle \in \mathsf{prefix(\mathcal{S}^r \llbracket R \bullet (?:\mathit{T})^*} \rrbracket)$$ 
+$$\forall j\;(1\leq j \leq l \rightarrow \langle \underline{\rho},\langle l_j, \rho_j \rangle\rangle \in \mathcal{S}^r \llbracket \mathsf{L}_j : \mathsf{B}_j \rrbracket)$$
+$$\Rightarrow \langle \underline{\rho}, \pi \rangle \in \mathsf{prefix}(\mathcal{S}^r \llbracket \mathsf{R}_k\rrbracket) \Rightarrow \langle \underline{\rho},\pi\rangle \in \mathsf{prefix(\mathcal{S}^r \llbracket R \bullet (?:\mathit{T})^*} \rrbracket).$$ 
 
 پس در کل می‌توانیم، بگوییم
 $$\langle \underline{\rho},\pi\rangle \in \mathsf{prefix(\mathcal{S}^r \llbracket R \bullet (?:\mathit{T})^*} \rrbracket)$$
@@ -797,20 +827,20 @@ $$\mathsf{P},\underline{\rho} \models \mathsf{R} \Rightarrow
 \begin{proof}
 	با برهان خلف این قضیه را ثابت می‌کنیم. شکل اثبات تا حدی شبیه به اثبات درستی است.
 	$$\{\underline{\rho}\}\times \mathcal{S}^* \llbracket \mathsf{P} \rrbracket \nsubseteq \mathcal{M}\langle \underline{\rho}, \mathsf{R} \rangle \mathcal{S}^* \llbracket \mathsf{P} \rrbracket \Rightarrow
-	\exists \pi:\langle \underline{\rho}, \pi \rangle \in \{\rho\}\times \mathcal{S}^* \llbracket \mathsf{P}\rrbracket \land \langle \underline{\rho}, \pi \rangle \notin \mathcal{M}\langle \underline{\rho},\mathsf{R}\rangle\mathcal{S}^* \llbracket \mathsf{P} \rrbracket$$
+	\exists \pi\;(\langle \underline{\rho}, \pi \rangle \in \{\rho\}\times \mathcal{S}^* \llbracket \mathsf{P}\rrbracket \land \langle \underline{\rho}, \pi \rangle \notin \mathcal{M}\langle \underline{\rho},\mathsf{R}\rangle\mathcal{S}^* \llbracket \mathsf{P} \rrbracket)$$
 	اگر فرض کنیم
 	$\mathsf{dnf(R)=R_1+R_2+...+R_n}$
 	و علاوه بر این، با توجه به آنچه در اثبات درستی گفتیم، فرض کنیم:
 	$$\mathsf{R}_i \Bumpeq \mathsf{L_i^1:B_i^1 \bullet L_i^2:B_i^2 \bullet ... \bullet L_i^n:B_i^n}$$ 
 	و
 	$$\pi=\langle l_1 ,\rho_1 \rangle \langle l_2 ,\rho_2 \rangle ... \langle l_l ,\rho_l \rangle$$
-	می‌توانیم، در ادامه‌ی فرض خلف، نتیجه بگیریم:
-	$$\forall i:1 \leq i \leq n \rightarrow 
-	\langle \underline{\rho}, \pi \rangle \notin \mathcal{M}^\nmid \langle \underline{\rho}, \mathsf{R}_i \rangle \mathcal{S}^* \llbracket \mathsf{P} \rrbracket$$
-	$$\Rightarrow\forall i:1 \leq i \leq n \rightarrow\exists \mathsf{R'}_i:\Rightarrow \mathcal{M}^t \langle \underline{\rho},\mathsf{R}_i \rangle \pi = \langle \mathit{F},\mathsf{R}_i^k \rangle$$
-	در این صورت، خواهیم داشت:
-	$$\exists j: \langle \underline{\rho},\langle l_j,\rho_j \rangle \rangle \notin \mathcal{S}^r \llbracket \mathsf{L_i^j:B_i^j} \rrbracket
-	\Rightarrow \langle \underline{\rho},\pi \rangle \notin \mathcal {S}^r \llbracket \mathsf{R}_i \bullet (?:\mathit{T})^* \rrbracket$$
+	داریم:
+	$$\forall i\;(1 \leq i \leq n \rightarrow 
+	\langle \underline{\rho}, \pi \rangle \notin \mathcal{M}^\nmid \langle \underline{\rho}, \mathsf{R}_i \rangle \mathcal{S}^* \llbracket \mathsf{P} \rrbracket)$$
+	$$\Rightarrow\forall i \;(1 \leq i \leq n \rightarrow\exists \mathsf{R'}_i (\mathcal{M}^t \langle \underline{\rho},\mathsf{R}_i \rangle \pi = \langle \mathit{F},\mathsf{R'}_i \rangle)).$$
+	بنابراین:
+	$$\exists j\; (\langle \underline{\rho},\langle l_j,\rho_j \rangle \rangle \notin \mathcal{S}^r \llbracket \mathsf{L_i^j:B_i^j} \rrbracket
+	\Rightarrow \langle \underline{\rho},\pi \rangle \notin \mathcal {S}^r \llbracket \mathsf{R}_i \bullet (?:\mathit{T})^* \rrbracket).$$
 	از نتیجه‌ی آخر می‌توانیم ثابت کنیم 
 	$\langle \underline{\rho},\pi \rangle \notin \mathsf{prefix}(\mathcal {S}^r \llbracket \mathsf{R}_i \bullet (?:\mathit{T})^* \rrbracket)$.
 	چون اگر غیر از این باشد، یعنی اگر فرض کنیم 
@@ -819,12 +849,12 @@ $$\mathsf{P},\underline{\rho} \models \mathsf{R} \Rightarrow
 	 $\mathsf{prefix}(\mathcal {S}^r \llbracket \mathsf{R}_i \bullet (?:\mathit{T})^* \rrbracket)$
 	 هست، اما عضو \break
 	 $\mathcal {S}^r \llbracket \mathsf{R}_i \bullet (?:\mathit{T})^* \rrbracket$
-	 نیست، در آن صورت، اگر طول $\pi$ بزرگتر یا مساوی $j$ باشد، به خاطر وجود 
+	 نیست، در آن صورت، اگر طول $\pi'$ بزرگتر یا مساوی $j$ باشد، به خاطر وجود 
 	 $\langle l_j,\rho_j \rangle$
 	 در $\pi$، خواهیم داشت $\pi \neq \pi'$ و اگر طول $\pi'$ کمتر از $j$ باشد، چون طول $\pi$ قطعا بزرگتر یا مساوی $j$ است( نتیجه از گزاره‌ی بالایی که دارای سور وجودی است)، پس باز هم 
 	 $\pi \neq \pi'$.
 	 توجه شود که 
-	 $\langle \underline{\rho},\pi \rangle \notin \mathcal {S}^r \llbracket \mathsf{R}_i \bullet (?:\mathit{T})^* \rrbracket$
+	 $\langle \underline{\rho},\pi \rangle \notin \mathsf{prefix}( \mathcal {S}^r \llbracket \mathsf{R}_i \bullet (?:\mathit{T})^* \rrbracket)$
 	 با توجه به آنچه گفتیم، با فرض در تناقض است و حکم ثابت می‌شود.
 \end{proof}
 
