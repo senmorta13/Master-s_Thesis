@@ -102,6 +102,8 @@
 \glossentry{f-empty}{\glossaryentrynumbers{\relax 
 \glsXpageXglsnumberformat{}{8}}}\glsgroupskip
 \glsgroupheading{ج}\relax\glsresetentrylist
+\glossentry{f-commutative}{\glossaryentrynumbers{\relax 
+\glsXpageXglsnumberformat{}{21}}}\relax\glsresetentrylist
 \glossentry{f-java}{\glossaryentrynumbers{\relax 
 \glsXpageXglsnumberformat{}{5}}}\relax\glsresetentrylist
 \glossentry{f-kleenealgebra}{\glossaryentrynumbers{\relax 
@@ -117,6 +119,8 @@
 \glossentry{f-loop}{\glossaryentrynumbers{\relax 
 \glsXpageXglsnumberformat{}{6}}}\glsgroupskip
 \glsgroupheading{خ}\relax\glsresetentrylist
+\glossentry{f-idempotent}{\glossaryentrynumbers{\relax 
+\glsXpageXglsnumberformat{}{21}}}\relax\glsresetentrylist
 \glossentry{f-welldef}{\glossaryentrynumbers{\relax 
 \glsXpageXglsnumberformat{}{7}}}\glsgroupskip
 \glsgroupheading{د}\relax\glsresetentrylist
@@ -157,13 +161,14 @@
 \glossentry{f-consistency}{\glossaryentrynumbers{\relax 
 \glsXpageXglsnumberformat{}{19}}}\relax\glsresetentrylist
 \glossentry{f-fstnxt}{\glossaryentrynumbers{\relax 
-\glsXpageXglsnumberformat{}{38}}}\glsgroupskip
+\glsXpageXglsnumberformat{}{39}}}\glsgroupskip
 \glsgroupheading{ش}\relax\glsresetentrylist
 \glossentry{f-conditional}{\glossaryentrynumbers{\relax 
 \glsXpageXglsnumberformat{}{6}}}\relax\glsresetentrylist
 \glossentry{f-arrow}{\glossaryentrynumbers{\relax 
 \glsXpageXglsnumberformat{}{3}}}\relax\glsresetentrylist
-\glossentry{f-assoc}{\glossaryentrynumbers{\relax 
+\glossentry{f-associative}{\glossaryentrynumbers{\relax 
+\glsXpageXglsnumberformat{}{21}\delimN 
 \glsXpageXglsnumberformat{}{43}}}\relax\glsresetentrylist
 \glossentry{f-cinf}{\glossaryentrynumbers{\relax 
 \glsXpageXglsnumberformat{}{2}}}\glsgroupskip
@@ -174,7 +179,7 @@
 \glsXpageXglsnumberformat{}{2}}}\relax\glsresetentrylist
 \glossentry{f-formalization}{\glossaryentrynumbers{\relax 
 \glsXpageXglsnumberformat{}{2}\delimN 
-\glsXpageXglsnumberformat{}{15}}}\glsgroupskip
+\glsXpageXglsnumberformat{}{16}}}\glsgroupskip
 \glsgroupheading{ع}\relax\glsresetentrylist
 \glossentry{f-lregex}{\glossaryentrynumbers{\relax 
 \glsXpageXglsnumberformat{}{15}}}\relax\glsresetentrylist
@@ -183,7 +188,7 @@
 \glossentry{f-emptyregex}{\glossaryentrynumbers{\relax 
 \glsXpageXglsnumberformat{}{22}}}\relax\glsresetentrylist
 \glossentry{f-nonemptyregex}{\glossaryentrynumbers{\relax 
-\glsXpageXglsnumberformat{}{22}}}\relax\glsresetentrylist
+\glsXpageXglsnumberformat{}{23}}}\relax\glsresetentrylist
 \glossentry{f-expression}{\glossaryentrynumbers{\relax 
 \glsXpageXglsnumberformat{}{7}}}\relax\glsresetentrylist
 \glossentry{f-boolexp}{\glossaryentrynumbers{\relax 
@@ -201,6 +206,8 @@
 \glsXpageXglsnumberformat{}{6}}}\relax\glsresetentrylist
 \glossentry{f-natnum}{\glossaryentrynumbers{\relax 
 \glsXpageXglsnumberformat{}{4}}}\relax\glsresetentrylist
+\glossentry{f-identity}{\glossaryentrynumbers{\relax 
+\glsXpageXglsnumberformat{}{21}}}\relax\glsresetentrylist
 \glossentry{f-operator}{\glossaryentrynumbers{\relax 
 \glsXpageXglsnumberformat{}{6}}}\relax\glsresetentrylist
 \glossentry{f-boolop}{\glossaryentrynumbers{\relax 
@@ -322,7 +329,9 @@
 \glossentry{f-fp}{\glossaryentrynumbers{\relax 
 \glsXpageXglsnumberformat{}{13}}}\relax\glsresetentrylist
 \glossentry{f-type}{\glossaryentrynumbers{\relax 
-\glsXpageXglsnumberformat{}{18}}}\glsgroupskip
+\glsXpageXglsnumberformat{}{18}}}\relax\glsresetentrylist
+\glossentry{f-semiring}{\glossaryentrynumbers{\relax 
+\glsXpageXglsnumberformat{}{21}}}\glsgroupskip
 \glsgroupheading{و}\relax\glsresetentrylist
 \glossentry{f-modelchecking}{\glossaryentrynumbers{\relax 
 \glsXpageXglsnumberformat{}{1}}}\relax\glsresetentrylist

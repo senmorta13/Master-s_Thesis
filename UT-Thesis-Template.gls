@@ -43,7 +43,8 @@
 \glsXpageXglsnumberformat{}{10}}}\relax\glsresetentrylist
 \glossentry{arrow}{\glossaryentrynumbers{\relax 
 \glsXpageXglsnumberformat{}{3}}}\relax\glsresetentrylist
-\glossentry{assoc}{\glossaryentrynumbers{\relax 
+\glossentry{associative}{\glossaryentrynumbers{\relax 
+\glsXpageXglsnumberformat{}{21}\delimN 
 \glsXpageXglsnumberformat{}{43}}}\relax\glsresetentrylist
 \glossentry{atom}{\glossaryentrynumbers{\relax 
 \glsXpageXglsnumberformat{}{16}}}\glsgroupskip
@@ -72,6 +73,8 @@
 \glsXpageXglsnumberformat{}{2}}}\relax\glsresetentrylist
 \glossentry{classicalproplog}{\glossaryentrynumbers{\relax 
 \glsXpageXglsnumberformat{}{3}}}\relax\glsresetentrylist
+\glossentry{commutative}{\glossaryentrynumbers{\relax 
+\glsXpageXglsnumberformat{}{21}}}\relax\glsresetentrylist
 \glossentry{lattice}{\glossaryentrynumbers{\relax 
 \glsXpageXglsnumberformat{}{13}}}\relax\glsresetentrylist
 \glossentry{completeness}{\glossaryentrynumbers{\relax 
@@ -126,7 +129,7 @@
 \glossentry{fsm}{\glossaryentrynumbers{\relax 
 \glsXpageXglsnumberformat{}{1}}}\relax\glsresetentrylist
 \glossentry{fstnxt}{\glossaryentrynumbers{\relax 
-\glsXpageXglsnumberformat{}{38}}}\relax\glsresetentrylist
+\glsXpageXglsnumberformat{}{39}}}\relax\glsresetentrylist
 \glossentry{fp}{\glossaryentrynumbers{\relax 
 \glsXpageXglsnumberformat{}{13}}}\relax\glsresetentrylist
 \glossentry{form}{\glossaryentrynumbers{\relax 
@@ -139,7 +142,7 @@
 \glsXpageXglsnumberformat{}{2}}}\relax\glsresetentrylist
 \glossentry{formalization}{\glossaryentrynumbers{\relax 
 \glsXpageXglsnumberformat{}{2}\delimN 
-\glsXpageXglsnumberformat{}{15}}}\relax\glsresetentrylist
+\glsXpageXglsnumberformat{}{16}}}\relax\glsresetentrylist
 \glossentry{formula}{\glossaryentrynumbers{\relax 
 \glsXpageXglsnumberformat{}{2}}}\relax\glsresetentrylist
 \glossentry{function}{\glossaryentrynumbers{\relax 
@@ -153,6 +156,10 @@
 \glossentry{halting}{\glossaryentrynumbers{\relax 
 \glsXpageXglsnumberformat{}{25}}}\glsgroupskip
 \glsgroupheading{I}\relax\glsresetentrylist
+\glossentry{idempotent}{\glossaryentrynumbers{\relax 
+\glsXpageXglsnumberformat{}{21}}}\relax\glsresetentrylist
+\glossentry{identity}{\glossaryentrynumbers{\relax 
+\glsXpageXglsnumberformat{}{21}}}\relax\glsresetentrylist
 \glossentry{implang}{\glossaryentrynumbers{\relax 
 \glsXpageXglsnumberformat{}{5}}}\relax\glsresetentrylist
 \glossentry{implementation}{\glossaryentrynumbers{\relax 
@@ -219,7 +226,7 @@
 \glossentry{nondeter}{\glossaryentrynumbers{\relax 
 \glsXpageXglsnumberformat{}{7}}}\relax\glsresetentrylist
 \glossentry{nonemptyregex}{\glossaryentrynumbers{\relax 
-\glsXpageXglsnumberformat{}{22}}}\glsgroupskip
+\glsXpageXglsnumberformat{}{23}}}\glsgroupskip
 \glsgroupheading{O}\relax\glsresetentrylist
 \glossentry{operator}{\glossaryentrynumbers{\relax 
 \glsXpageXglsnumberformat{}{6}}}\glsgroupskip
@@ -274,6 +281,8 @@
 \glsXpageXglsnumberformat{}{1}}}\relax\glsresetentrylist
 \glossentry{regexsemantics}{\glossaryentrynumbers{\relax 
 \glsXpageXglsnumberformat{}{18}}}\relax\glsresetentrylist
+\glossentry{semiring}{\glossaryentrynumbers{\relax 
+\glsXpageXglsnumberformat{}{21}}}\relax\glsresetentrylist
 \glossentry{seq}{\glossaryentrynumbers{\relax 
 \glsXpageXglsnumberformat{}{8}}}\relax\glsresetentrylist
 \glossentry{set}{\glossaryentrynumbers{\relax 
