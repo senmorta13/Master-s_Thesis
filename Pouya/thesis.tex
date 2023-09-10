@@ -22,7 +22,7 @@
 %	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
 %----------------------------------------------------------------------------------------
 
-\documentclass[handout]{beamer}
+\documentclass{beamer}
 
 \usetheme{focus} % Use the Focus theme supplied with the template
 % Add option [numbering=none] to disable the footer progress bar
@@ -43,6 +43,8 @@
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{mathrsfs}
 \usepackage{tikz}
 \usepackage[version=4]{mhchem}
 \usepackage{stmaryrd}
@@ -327,11 +329,10 @@ $\mathbb{L}$
 		\rl{
 			\centering
 			\vspace{-1cm}
-			$$\blacktriangleleft\mathsf{S} = \mathsf{if}  \mathsf{ \;(B)\;S_t\;else\;S_f}:$$
-			$$\mathcal{S^*} \llbracket\mathsf{S}\rrbracket = \{ \langle at\llbracket\mathsf{S}\rrbracket , \rho \rangle | \rho \in \mathbb{EV}       \} $$$$\cup     \{ \langle at\llbracket\mathsf{S}\rrbracket , \rho \rangle \langle at\llbracket\mathsf{S_f}\rrbracket , \rho \rangle 
-			\pi | \mathcal{B}\llbracket\mathsf{B}\rrbracket \rho =False  \wedge   \langle  at\llbracket\mathsf{S_f}\rrbracket  , \rho \rangle \pi \in \mathcal{S} \llbracket\mathsf{S_f}\rrbracket    \}  
-			$$$$\cup    \{ \langle at\llbracket\mathsf{S}\rrbracket , \rho \rangle \langle at\llbracket\mathsf{S_t}\rrbracket , \rho \rangle 
-			\pi | \mathcal{B}\llbracket\mathsf{B}\rrbracket \rho =True  \wedge   \langle  at\llbracket\mathsf{S_t}\rrbracket  , \rho \rangle \pi \in \mathcal{S} \llbracket\mathsf{S_t}\rrbracket    \}          $$
+	$$\blacktriangleleft\mathsf{S}= \mathsf{if}  \mathsf{ (B) S_t}:$$
+$$\mathcal{S^*} \llbracket\mathsf{S}\rrbracket = \{ \langle at\llbracket\mathsf{S}\rrbracket , \rho \rangle | \rho \in \mathbb{EV}       \} \cup     \{ \langle at\llbracket\mathsf{S}\rrbracket , \rho \rangle \langle aft\llbracket\mathsf{S}\rrbracket , \rho \rangle | \mathcal{B}\llbracket\mathsf{B}\rrbracket \rho =False      \} 
+$$$$\cup    \{ \langle at\llbracket\mathsf{S}\rrbracket , \rho \rangle \langle at\llbracket\mathsf{S_t}\rrbracket , \rho \rangle 
+\pi | \mathcal{B}\llbracket\mathsf{B}\rrbracket \rho =True  \wedge   \langle  at\llbracket\mathsf{S_t}\rrbracket  , \rho \rangle \pi \in \mathcal{S} \llbracket\mathsf{S_t}\rrbracket    \}          $$ 
 		}
 	\end{block}
 \end{frame}
@@ -565,13 +566,348 @@ $$\forall \pi \in \mathfrak{S^{+}} :
 	\end{flushright}
 \end{frame}
 %----------------------------------
-\section{\rl{وارسی مدل منظم}}
 \begin{frame}{\rl{وارسی مدل منظم}}
 	\begin{flushright}
-	\rl{$\bullet$
-	ساختار عبارات منظم به صورت اضافه می‌شود.}
+		\rl{$\bullet$
+			ساختار عبارات منظم به صورت اضافه می‌شود.}
 	\end{flushright}
 \end{frame}
+
+\begin{frame}{\rl{برخی مفاهیم در مورد عبارات منظم}}
+	\begin{block}{\rl{هم‌ارزی عبارات منظم}}
+		\rl{
+			دو عبارت منظم
+			$\mathsf{R}_1$
+			و
+			$\mathsf{R_2}$
+			را هم‌ارز می‌گوییم، اگر و تنها اگر شرط زیر برقرار باشد:
+			\vspace{-1.25cm}
+			\begin{center}
+				$$\mathcal{S}^r \llbracket \mathsf{R_1} \rrbracket = \mathcal{S}^r \llbracket \mathsf{R_2} \rrbracket$$
+			\end{center} 
+			و آن را با 
+			$\mathsf{R_1} \Bumpeq \mathsf{R_2}$
+			نمایش می‌دهیم.
+		}
+	\end{block}
+
+\begin{exampleblock}{\rl{قضیه}}
+	\rl{
+	هم‌ارزی $\Bumpeq$ تعریف شده روی مجموعه‌ی عبارت‌های منظم یک رابطه‌ی هم‌ارزی است.
+	}
+\end{exampleblock}
+\end{frame}
+
+\begin{frame}{\rl{برخی مفاهیم در مورد عبارات منظم}}
+	\begin{block}{\rl{تابع $\mathsf{dnf}$}}
+		\rl{
+		تابع $\mathsf{dnf}$ روی عبارات منظم به شکل زیر تعریف می‌شود:
+		\vspace{-1cm}
+		\begin{center}
+		$$\blacktriangleleft\mathsf{dnf}(\varepsilon)=\varepsilon$$
+		\pause
+		$$\blacktriangleleft\mathsf{dnf}(\mathsf{L:B})=\mathsf{L:B}$$
+		\pause
+		$$\blacktriangleleft\mathsf{dnf}(\mathsf{R_1 R_2})= \mathsf{\Sigma_{i=1}^{n_1} \Sigma_{j=1}^{n_2} R_1^i R_2^j }$$
+		$$\mathsf{where\;R_1^1 + R_1^2 + ... + R_1^{n_1} = dnf(R_1)\;and\; R_2^1 + R_2^2 + ... + R_2^{n_2}= dnf(R_2)}$$
+		\end{center}
+		}
+	\end{block}
+\end{frame}
+
+\begin{frame}{\rl{برخی مفاهیم در مورد عبارات منظم}}
+	\begin{block}{\rl{
+				تابع 
+				$\mathsf{dnf}$
+			(ادامه)}}
+		\rl{
+			\vspace{-1cm}
+			\begin{center}
+   $$\blacktriangleleft\mathsf{dnf (R_1+R_2)=dnf(R_1)+dnf(R_2)}$$
+   \pause
+$$\blacktriangleleft\mathsf{dnf (R^*)}= \mathsf{((R_1)^* (R_2)^* ... (R_n)^*)^*}$$
+\pause
+$$\blacktriangleleft\mathsf{dnf(R^+)=dnf(RR^*)}$$
+\pause
+   $$\blacktriangleleft\mathsf{ dnf((R)) = ( dnf(R) ) }$$  
+			\end{center}
+		}
+	\end{block}
+\end{frame}
+
+\begin{frame}{\rl{برخی مفاهیم در مورد عبارات منظم}}
+	\begin{block}{\rl{
+				تابع 
+				$\mathsf{dnf}$
+				(ادامه)}}
+		\rl{
+			\vspace{-1.5cm}
+			\begin{center}
+   $$\blacktriangleleft\mathsf{dnf (R^*)}= \mathsf{((R_1)^* (R_2)^* ... (R_n)^*)^*}$$
+$$\mathsf{where\;dnf(R)=R_1+R_2+...+R_n}$$
+			\end{center}
+		}
+	\end{block}
+\pause
+\begin{exampleblock}{\rl{قضیه}}
+	\rl{
+	اگر $\mathsf{R} \in \mathbb{R}$ آنگاه $\mathsf{dnf(R)}$ یک ترکیب نرمال فصلی است و داریم:
+	\begin{center}
+		\vspace{-1cm}
+			$$\mathsf{dnf(R) \Bumpeq R}$$
+	\end{center}
+	}
+\end{exampleblock}
+\end{frame}
+
+\begin{frame}{\rl{برخی مفاهیم در مورد عبارات منظم}}
+	\begin{block}{\rl{
+				تابع 
+				$\mathsf{fstnxt}$}}
+		\rl{
+			\vspace{-1cm}
+			\begin{center}
+				$
+				\blacktriangleleft\mathsf{fstnxt (L:B) = \langle L:B , \varepsilon \rangle }
+				$\\
+				\pause
+				$\blacktriangleleft\mathsf{fstnxt (R_1 R_2) = fstnxt (R_2)}\;\;$\\
+				$\mathsf{where\; R_1 \in \mathbb{R}_\varepsilon}$\\
+				\pause
+				$\blacktriangleleft\mathsf{fstnxt(R_1 R_2)= \llparenthesis  R_1^n \in \mathbb{R}_\varepsilon \; \mathbb{?} \; \langle R_1^f , R_2 \rangle : 
+					\langle R_1^f , R_1^n \bullet R_{2} \rangle \rrparenthesis} $\\
+				$\mathsf{where\; R_1 \notin \mathbb{R}_\varepsilon and\;
+					fstnxt(R_1)= \langle R_1^f , R_1^n \rangle}$\\
+			\end{center}
+		}
+	\end{block}
+\end{frame}
+
+\begin{frame}{\rl{برخی مفاهیم در مورد عبارات منظم}}
+	\vspace{-1cm}
+	\begin{block}{\rl{
+				تابع 
+				$\mathsf{fstnxt}$
+			(ادامه)}}
+		\rl{
+			\vspace{-1cm}
+			\begin{center}
+				$\blacktriangleleft\mathsf{fstnxt(R^+)= \llparenthesis R^n \in \mathbb{R_\varepsilon}\;?\;\langle R^f , R^* \rangle : \langle R^f , R^n \bullet R^* \rangle \rrparenthesis}\;\;$\\
+				\pause
+				$\mathsf{where\; fstnxt(R)=\langle R^f , R^n \rangle}$\\
+				$\blacktriangleleft\mathsf{fstnxt((R))=fstnxt(R)}$
+			\end{center}
+		}
+	\end{block}
+\pause
+	\begin{exampleblock}{\rl{قضیه}}
+		\rl{
+				برای هر عبارت منظم 
+		$\mathsf{R} \in \mathbb{R^+ \cap R^\nmid}$،
+		اگر 
+		$\mathsf{fstnxt(R)=\langle L:B , R'\rangle}$
+		آنگاه 
+		$\mathsf{R'}\in \mathbb{R}^\nmid$
+		و 
+		$\mathsf{R \Bumpeq L:B\bullet R'}$
+	}
+	\end{exampleblock}
+
+\end{frame}
+
+
+\begin{frame}{\rl{صورت وارسی مدل منظم}}
+	\begin{block}{\rl{وارسی‌گر رد پیشوندی- تابع $\mathcal{M}^t$}}
+		\rl{	\vspace{-1cm}	
+	\begin{center}
+$$\blacktriangleleft\mathcal{M}^t \langle \underline{\rho} , \varepsilon \rangle \pi = 
+\langle \mathit{T} , \varepsilon \rangle$$
+\pause
+$$\blacktriangleleft\mathcal{M}^t \langle \underline{\rho} , \mathsf{R} \rangle \epsilon = 
+\langle \mathit{T} , \mathsf{R} \rangle$$
+\pause
+$$\blacktriangleleft\mathcal{M}^t \langle \underline{\rho} , \mathsf{R} \rangle \pi = 
+\llparenthesis \langle \underline{\rho}, \langle l_1, \rho_1 \rangle \rangle \in
+\mathcal{S}^r \llbracket \mathsf{L:B} \rrbracket \; ? \; 
+\mathcal{M}^t \langle \underline{\rho}, \mathsf{R'} \rangle \pi' \; : \; 
+\langle \mathit{F}, \mathsf{R} \rangle \rrparenthesis$$
+$$\mathsf{where}\; \pi=\langle l_1,\rho_1\rangle \pi' \;\mathsf{and}\; 
+\langle \mathsf{L:B,R'}\rangle = \mathsf{fstnxt(R)}$$	
+\end{center}
+}
+	\end{block}
+\end{frame}
+
+
+
+\begin{frame}{\rl{صورت وارسی مدل منظم}}
+	\begin{block}{\rl{وارسی مدل منظم محدود به $\mathbb{R^\nmid}$- تابع $\mathcal{M}^\nmid$}}
+		\rl{	\vspace{-1cm}	
+			\begin{center}
+					 $$\mathcal{M}^\nmid \langle \underline{\rho} , \mathsf{R} \rangle \Pi= \{ \langle \pi , \mathsf{R'} \rangle | \pi \in \Pi \land  
+				\mathcal{M}^t \langle \underline{\rho} , \mathsf{R} \rangle \pi =
+				\langle \mathit{T} , \mathsf{R'} \rangle \}$$
+			\end{center}
+		}
+	\end{block}
+\end{frame}
+
+
+
+
+\begin{frame}{\rl{صورت وارسی مدل منظم}}
+	\begin{block}{\rl{وارسی مدل منظم- تابع $\mathcal{M}$}}
+		\rl{	\vspace{-1cm}	
+			\begin{center}
+				$$\mathcal{M} \langle \underline{\rho} , \mathsf{R} \rangle \Pi= \bigcup_{i=1}^n \{  \langle \underline{\rho},\pi\rangle | \exists \mathsf{R'} \in \mathbb{R}:\; \langle \pi , \mathsf{R'} \rangle \in 
+				\mathcal{M}^\nmid \langle \underline{\rho}, \mathsf{R_i} \rangle \Pi \}$$
+				$$\mathsf{where \; dnf (R) = R_1 + R_2 + ... + R_n}$$ 
+			\end{center}
+		}
+	\end{block}
+\end{frame}
+
+
+\begin{frame}{\rl{صورت وارسی مدل منظم}}
+	\begin{block}{\rl{وارسی مدل منظم}}
+		\rl{	\vspace{-1cm}	
+			\begin{center}
+اگر ویژگی $\mathsf{R} \in \mathbb{R}$ در محیط اولیه‌ی $\underline{\rho}$ برای برنامه‌ی $\mathsf{P}$ برقرار باشد، می نویسیم
+$$\mathsf{P} , \underline{\rho} \models_r \mathsf{R}$$
+و برقرار بودن این رابطه با شرط زیر تعریف می‌شود:
+$$\mathsf{P} , \underline{\rho} \models_r \mathsf{R} \iff \{\underline{\rho}\} \times \mathcal{S}^* \llbracket \mathsf{P} \rrbracket \subseteq \mathcal{M} \langle \underline{\rho} , \mathsf{R} \rangle \mathcal{S}^* \llbracket \mathsf{P} \rrbracket$$
+			\end{center}
+		}
+	\end{block}
+\end{frame}
+
+
+\begin{frame}{\rl{درستی و تمامیت وارسی مدل منظم}}
+	\begin{exampleblock}{\rl{قضیه درستی و تمامیت}}
+		\rl{	\vspace{-1cm}
+			اگر $\mathsf{P}$ یک برنامه، $\mathsf{R}$ یک عبارت منظم و $\underline{\rho}$ یک محیط اولیه باشند، آنگاه داریم:	
+			\begin{center}
+				$$\mathsf{P},\underline{\rho} \models_r \mathsf{R} \iff
+				\mathsf{P},\underline{\rho} \models \mathsf{R}$$
+			\end{center}
+		}
+	\end{exampleblock}
+\end{frame}
+%------------------------------------------
+\section{\rl{وارسی مدل ساختارمند}}
+\begin{frame}{\rl{وارسی مدل ساختارمند}}
+	\begin{flushright}
+		\rl{$\bullet$
+			ساختار برنامه‌ها به صورت اضافه می‌شود.}
+	\end{flushright}
+\end{frame}
+
+
+\begin{frame}{\rl{صورت وارسی مدل ساختارمند}}
+	\begin{flushright}
+		\rl{
+			\vspace{-0.75cm}	
+		\begin{block}{\rl{وارسی مدل ساختارمند- تابع 
+					$\mathcal{\hat{M}}$
+				(دستور مقداردهی)}}
+		\rl{	\vspace{-0.5cm}	
+			\begin{footnotesize}
+			برای $\mathsf{S=\;x \doteq A;}$ و $\mathsf{R} \in \mathbb{R^\nmid} \cap \mathbb{R^+}$ داریم ($\mathsf{where \; fstnxt(R)=\langle L:B,R' \rangle}$):
+			\end{footnotesize}
+		\vspace{-0.5 cm}
+			\begin{center}
+				\begin{footnotesize}
+					\pause
+					$$\blacktriangleleft\mathcal{\hat{M}^\nmid} \langle \underline{\rho}, \mathsf{R} \rangle \llbracket \mathsf{S} \rrbracket
+					=$$
+					\pause
+					$$\{
+					\langle \langle at \llbracket \mathsf{S} \rrbracket, \rho \rangle , \mathsf{R'} \rangle |
+					\langle \underline{\rho}, \langle at \llbracket \mathsf{S} \rrbracket, \rho \rangle \rangle \in \mathcal{S}^r \llbracket \mathsf{L:B} \rrbracket \}$$
+					\pause
+					$$\cup \{ \langle \langle at \llbracket \mathsf{S} \rrbracket , \rho \rangle  \langle aft \llbracket \mathsf{S} \rrbracket, 
+					\rho [\mathsf{x}\leftarrow \mathcal{A}\llbracket \mathsf{A} \rrbracket \rho ]\rangle , \varepsilon \rangle | \mathsf{R'} \in \mathbb{R_\varepsilon} \land
+					\langle \underline{\rho}, \langle at \llbracket \mathsf{S} \rrbracket , \rho \rangle \rangle \in 
+					\mathcal{S}^r \llbracket \mathsf{L:B} \rrbracket
+					\}$$
+					\pause
+					$$\cup \{
+					\langle \langle at \llbracket \mathsf{S} \rrbracket , \rho \rangle \langle aft \llbracket \mathsf{S} \rrbracket , \rho [\mathsf{x} \leftarrow \mathcal \llbracket \mathsf{A}\rrbracket \rho]\rangle, \mathsf{R''}\rangle | \mathsf{R'} \notin \mathbb{R_\varepsilon} \land$$
+					$$\langle \underline{\rho},\langle at \llbracket \mathsf{S} \rrbracket , \rho \rangle \rangle \in \mathcal{S}^r \llbracket \mathsf{L:B} \rrbracket \land \langle \mathsf{L':B',R''} \rangle = 
+					\mathsf{fstnxt(R') }\land$$
+					$$\langle \underline{\rho}, \langle aft \llbracket \mathsf{S} \rrbracket,\rho 
+					[\mathsf{x} \leftarrow \mathcal{A}\llbracket \mathsf{A} \rrbracket \rho]\rangle \rangle \in 
+					\mathcal{S}^r \llbracket \mathsf{L':B'} \rrbracket
+					\}$$
+				\end{footnotesize}
+			\end{center}	
+	}
+\end{block}	
+	}
+	\end{flushright}
+\end{frame}
+
+
+
+
+
+\begin{frame}{\rl{درستی و تمامیت وارسی مدل ساختارمند}}
+	\begin{exampleblock}{\rl{قضیه درستی و تمامیت}}
+		\rl{	\vspace{-1cm}
+			اگر $\mathsf{P}$ یک برنامه، $\mathsf{R}$ یک عبارت منظم و $\underline{\rho}$ یک محیط اولیه باشند، آنگاه داریم:	
+			\begin{center}
+				$$\mathsf{P},\underline{\rho} \models_s \mathsf{R} \iff
+				\mathsf{P},\underline{\rho} \models_r \mathsf{R}$$
+			\end{center}
+		\pause
+		به این شکل که ثابت می‌شود( قوی‌تر از عبارت بالا):
+		\vspace{-0.75cm}
+		\begin{center}
+			$$\mathcal{\hat{M}} \langle \underline{\rho}, \mathsf{R} \rangle \llbracket \mathsf{P} \rrbracket
+			=
+			\mathcal{M} \langle \underline{\rho}, \mathsf{R} \rangle \llbracket \mathsf{P} \rrbracket
+			$$
+		\end{center}
+		}
+	\end{exampleblock}
+\end{frame}
+
+%-----------------------------------------
+
+
+\section{\rl{جمع بندی و ادامه‌ی راه}}
+
+\begin{frame}{\rl{نتیجه گیری و ادامه‌ی راه}}
+\rl{
+\begin{flushright}	
+$\bullet$	
+وارسی مدل در صورت جدیدی بیان شد.\\
+\pause
+$\bullet$	
+قابل پیاده‌سازی نیست.\\
+\pause
+$\bullet$	
+متناهی در نظر گرفتن وضعیت‌ها\\
+\pause
+$\bullet$	
+حذف دو عملگر $^*$ و $^+$ از عبارات منظم
+\end{flushright}
+}	
+\end{frame}
+
+
+
+%--------------------------------------
+\begin{frame}
+	\begin{center}
+		\begin{Huge}
+		\rl{پایان}
+	\end{Huge}
+	\end{center}
+\end{frame}
+
+
+
 
 
 
