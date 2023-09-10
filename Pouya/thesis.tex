@@ -1,0 +1,580 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Focus Beamer Presentation
+% LaTeX Template
+% Version 1.0 (8/8/18)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Pasquale Africa (https://github.com/elauksap/focus-beamertheme) with modifications by 
+% Vel (vel@LaTeXTemplates.com)
+%
+% Template license:
+% GNU GPL v3.0 License
+%
+% Important note:
+% The bibliography/references need to be compiled with bibtex.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[handout]{beamer}
+
+\usetheme{focus} % Use the Focus theme supplied with the template
+% Add option [numbering=none] to disable the footer progress bar
+% Add option [numbering=fullbar] to show the footer progress bar as always full with a slide countx
+
+
+\definecolor{main}{RGB}{55, 135, 177}
+\definecolor{text}{RGB}{60, 60, 80}
+\definecolor{background}{RGB}{255, 255, 255}
+
+\setbeamercovered{transparent}
+
+%------------------------------------------------
+
+\usepackage{booktabs} % Required for better table rules
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{tikz}
+\usepackage[version=4]{mhchem}
+\usepackage{stmaryrd}
+\usepackage{bbold}
+\usepackage{mathrsfs}
+\usepackage{CJKutf8}
+\usepackage{xepersian}
+\settextfont{Vazir}
+\setsansfont{FreeSerif}
+\renewcommand{\baselinestretch}{1.3}
+
+
+\title{\rl{بهبود روش وارسی مدل با استفاده از تعبیر مجرد}}
+
+\subtitle{\rl{پویا پرتو}}
+
+\author{\rl{دکتر مجید علی‌زاده و دکتر مجتبی محتهدی}}
+
+\titlegraphic{\includegraphics[scale=.21]{images/tu-logo-hckd.png}}
+
+\institute{\rl{	دانشکده‌ی ریاضی، آمار و علومِ کامپیوتر \\ دانشگاهِ تهران}}
+
+\date{\rl{شهریور ۱۴۰2}}
+
+
+
+
+\begin{document}
+
+
+\begin{frame}
+	\maketitle
+\end{frame}
+%--------------------------------
+%پیشگفتار
+
+\section{\rl{پیشگفتار}}
+\begin{frame}{\rl{درستی‌یابی برنامه‌های کامپیوتری}}
+	\begin{flushright}
+	\rl{$\bullet$
+		اهمیت درستی‌یابی برنامه‌ها\\
+		\vspace{1em}
+	\pause
+	$\bullet$
+		روش‌های پویا\\
+	\vspace{1em}
+	\pause
+	$\bullet$
+	روش‌های ایستا
+}	
+	\end{flushright}
+\end{frame}
+
+
+\begin{frame}{\rl{روش‌های ایستا}}
+	\begin{flushright}
+		\rl{$\bullet$
+			روش‌های صوری: استفاده از نظریه‌های مختلف در منطق ریاضی\\
+			\vspace{1em}
+			\pause
+			$\bullet$
+			قضیه‌ی رایس: تصمیم ناپذیری مسئله در حالت کلی\\
+			\vspace{1em}
+			\pause
+			$\bullet$
+			روش وارسی مدل: استفاده از منطق‌های وجهی مختلف در کنار مدل کردن برنامه با کمک معناشناسی منطق\\
+			\vspace{1em}
+			\pause
+			$\bullet$
+			روش‌های استنتاجی: استفاده از نظریه نوع یا منطق تفکیک (منطق هور) و اثبات‌یار‌ها (مانند $\mathsf{Coq,Isabelle}$ و ...)\\
+			\vspace{1em}
+			\pause
+			$\bullet$
+			استفاده از نظریه تعبیر مجرد: تخمین زدن 
+			\textbf{درست}
+			 معناشناسی برنامه‌های کامپیوتری 
+		}	
+	\end{flushright}
+	
+	
+\end{frame}
+
+\begin{frame}{\rl{هدف}}
+	\begin{flushright}
+		\rl{$\bullet$
+			بیان دوباره روش وارسی مدل با استفاده از عبارات منظم به جای منطق‌های وجهی\\
+			\vspace{1em}
+			\pause
+			$\bullet$
+			فایده: آشنا بودن برنامه نویسان با عبارات منظم\\
+			\vspace{1em}
+			\pause
+			$\bullet$
+			روش‌ وارسی مدل در سه صورت جدید بیان می‌شود.\\
+		}	
+	\end{flushright}
+\end{frame}
+%----------------------------------
+\section{\rl{مفاهیم اولیه}}
+
+\begin{frame}{\rl{منطق زمانی خطی}}
+\begin{flushright}
+	\begin{block}{\rl{نحو}}
+		\vspace{-0.75 cm}
+		\begin{center}
+		$$
+		\phi \in \Phi \Leftrightarrow
+		\phi ::= \pi | \phi \lor \phi |
+		\neg \phi |
+		\bigcirc \phi |
+		\phi \mathcal{U}\phi \;\;\;\;\;(\pi \in \Pi) 
+		$$	
+		\end{center}
+	\end{block}	
+\pause
+	\begin{block}{\rl{معناشناسی}}
+		\vspace{-0.5 cm}
+		\begin{center}
+		$	M,i \models \pi \:\:\: \mathit{iff} \:\:\: \pi \in M(i),$\\
+		$	M,i \models \neg \phi \:\:\: \mathit{iff} \:\:\: M,i\nvDash \phi,$\\
+		$	M,i \models \phi \lor \psi \:\:\: \mathit{iff} \:\:\: M,i \models \phi \:\:\: \mathit{or} \:\:\: M,i \models \psi,$\\
+		$M,i \models \bigcirc \phi  \:\:\:  \mathit{iff} \:\:\: M,i+1 \models \phi,$\\
+		$M,i \models \phi \mathcal{U} \psi \:\:\: \mathit{iff} \:\:\: 
+		\exists k \geq i \in \mathbb{N}_0: \forall i\leq j< k: M,j \models \phi \:\:\: \mathit{and} \:\:\: M,k \models \psi.$
+		\end{center}	
+\end{block}
+\end{flushright}
+\end{frame}
+
+\begin{frame}{\rl{نحو زبان مورد بررسی}}
+
+		\begin{flushleft}
+			\setlength{\parindent}{3.5cm}
+			\begin{small}
+			\lr{	
+			\hspace{4.5cm}$\mathsf{x,y},... \in \mathbb{X},$\\
+			$\mathsf{A} \in \mathbb{A} ::=\mathsf{1\:|\:x\:|\:A_1 - A_2}$\\
+			$\mathsf{B \in \mathbb{B} ::=A_1<A_2 \:|\: B_1 \: nand\: B_2}$\\
+			$\mathsf{E \in \mathbb{E}::= A \: | \: B}$\\
+			$\mathsf{S\in \mathbb{S} ::=  }$\\
+			$\hspace{1.5cm}\mathsf{x\doteq A; }$\\
+			$\hspace{1.5cm}\mathsf{|\:\:\:;}$\\
+			$\hspace{1.5cm}\mathsf{|\:\:\:if\:(B)\:S\:|\:if\:(B)\:S\:else\:S}$\\
+			$\hspace{1.5cm}\mathsf{|\:\:\:while\:(B)\:S\: | \: break;}$\\
+			$\hspace{1.5cm}\mathsf{|\:\:\:\{Sl\}}$\\
+			$\mathsf{Sl \in \mathbb{Sl}::=Sl\:\:\:S\:|\:\backepsilon}$\\
+			$\mathsf{P\in \mathbb{P}\:::=Sl}$
+			}	
+		\end{small}
+\end{flushleft}		
+\end{frame}
+
+\begin{frame}{\rl{برچسب‌ها}}
+		\begin{flushright}
+\rl{
+\lr{at$\llbracket\mathsf{S}\rrbracket$} : برچسب شروع $\mathsf{S}$.\\
+\pause
+\lr{aft$\llbracket\mathsf{S}\rrbracket$} : برچسب پایان $\mathsf{S}$، اگر پایانی داشته باشد.\\
+\pause
+\lr{esc$\llbracket\mathsf{S}\rrbracket$} : یک مقدار بولی را باز‌‌می‌گرداند که بسته به اینکه در $\mathsf{S}$ عبارت دستوری $\mathsf{break;}$ وجود دارد یا خیر، مقدار درست یا غلط را بر‌می‌گرداند.\\
+\lr{brk-to$\llbracket\mathsf{S}\rrbracket$} : 
+برچسبی است که اگر حین اجرای $\mathsf{S}$ عبارت دستوری $\mathsf{break;}$ اجرا شود، برنامه از آن برچسب ادامه پیدا می کند.\\
+\lr{brks-of$\llbracket\mathsf{S}\rrbracket$} :
+مجموعه‌ای از برچسب‌های عبارت‌های دستوری
+$\mathsf{break;}$
+که داخل $\mathsf{S}$ هستند را بر‌می‌گرداند.\\
+\lr{in$\llbracket\mathsf{S}\rrbracket$} : مجموعه‌ای از تمام برچسب‌های درون $\mathsf{S}$ را برمی‌گرداند.\\
+\lr{labs$\llbracket\mathsf{S}\rrbracket$} : مجموعه‌ای از تمام بر‌چسب‌هایی که با اجرای $\mathsf{S}$ قابل دسترسی هستند را بر‌می‌گرداند.\\
+مجموعه‌ی همه‌ی برچسب‌ها را با 
+$\mathbb{L}$
+نشان می‌دهیم.
+}
+	\end{flushright}		
+\end{frame}
+
+
+\begin{frame}{\rl{معناشناسی برنامه‌ها}}
+	\begin{block}{\rl{محیط }}
+		\rl{
+		به ازای مجموعه مقادیر
+		$\mathbb{V}$
+		و مجموعه متغیر‌ها
+		$\mathbb{X}$ تابع 
+		$\rho : \mathbb{X} \rightarrow \mathbb{V}$ 
+		را یک محیط می‌گوییم. مجموعه‌ی همه‌ی محیط‌ها را با $\mathbb{EV}$ نمایش می‌دهیم.}
+	\end{block}
+
+	\begin{block}{\rl{وضعیت}}
+	\rl{
+		به ازای مجموعه مقادیر(وضعیت): به هر زوج مرتب متشکل از یک برچسب $l$ و یک محیط $\rho$ یک وضعیت  
+		$\langle l , \rho \rangle$
+		می‌گوییم. مجموعه‌ی همه‌ی وضعیت‌ها را با $\mathfrak{S}$ نشان می‌دهیم.}
+\end{block}
+
+	\begin{block}{\rl{رد پیشوندی}}
+	\rl{
+		به یک دنباله از وضعیت‌ها( با امکان تهی بودن) یک رد پیشوندی می‌گوییم.}
+\end{block}
+
+\end{frame}
+
+\begin{frame}{\rl{معناشناسی}}
+	\begin{block}{\rl{عملگر چسباندن}}
+	\renewcommand{\baselinestretch}{0.8}
+		\rl{
+	برای 
+	$\pi_1 , \pi_2 \in \mathfrak{S^{+\infty}}$ 
+	و
+	$\sigma_1 ,\sigma_2 \in \mathfrak{S}$
+	داریم:
+	\vspace{-0.5cm}
+	\begin{center}	
+	$$\blacktriangleleft \pi_1 \in \mathfrak{S}^\infty:$$
+	$$\pi_1 \Join \pi_2 = \pi_1$$
+	$$\blacktriangleleft \pi_1 \in \mathfrak{S}^+:$$
+	$$\blacktriangleleft \blacktriangleleft \sigma_1 = \sigma_2:$$
+	$$\pi_1\sigma_1 \Join \sigma_2 \pi_2 = \pi_1 \sigma_1 \pi_2$$
+	$$\blacktriangleleft \blacktriangleleft \sigma_1 \neq \sigma_2:$$
+	در این حالت 
+	$\pi_1 \Join \pi_2$
+	تعریف نمی‌شود.	
+\end{center}}
+	\end{block}
+\end{frame}
+
+\begin{frame}{\rl{معناشناسی}}
+	\begin{block}{\rl{معنای عبارت‌های حسابی - تابع $\mathcal{A}$}}
+		\renewcommand{\baselinestretch}{0.8}
+		\rl{
+			تابع 
+			$\mathcal{A}:\mathbb{A}\rightarrow (\mathbb{EV} \rightarrow \mathbb{V})$
+			را به صورت بازگشتی روی ساختار 
+			$\mathsf{A} \in \mathbb{A}$
+			به شکل زیر تعریف می‌کنیم:
+			\vspace{-0.5cm}
+			\begin{center}
+			$$\blacktriangleleft\mathcal{A\llbracket\mathsf{1}\rrbracket\rho = }1     $$
+			$$\blacktriangleleft\mathcal{A\llbracket\mathsf{x}\rrbracket\rho = } \rho(\mathsf{x})          $$
+			$$\blacktriangleleft\mathcal{A\llbracket\mathsf{A_1-A_2}\rrbracket\rho = }\mathcal{A\llbracket\mathsf{A_1}\rrbracket\rho }- \mathcal{A\llbracket\mathsf{A_2}\rrbracket\rho }       $$
+		\end{center}
+		}
+		
+	\end{block}
+\end{frame}
+
+
+\begin{frame}{\rl{معناشناسی}}
+	\begin{block}{\rl{معنای عبارت‌های بولی - تابع $\mathcal{B}$}}
+		\renewcommand{\baselinestretch}{2}
+		\rl{
+		تابع 
+		$\mathcal{B}: \mathbb{B} \rightarrow (\mathbb{EV} \rightarrow \mathbb{BOOL})$
+		را به صورت بازگشتی روی ساختار 
+		$\mathsf{B} \in \mathbb{B}$
+		به شکل زیر تعریف می‌کنیم:
+		\vspace{-0.25cm}
+		\begin{center}
+			اگر $\mathcal{A\llbracket\mathsf{A_1}\rrbracket\rho }$ کوچکتر از $\mathcal{A\llbracket\mathsf{A_2}\rrbracket\rho }$ باشد
+			$\blacktriangleleft\mathcal{B\llbracket\mathsf{A_1<A_2}\rrbracket\rho = } True   \hspace{2cm}  $\\
+			اگر $\mathcal{A\llbracket\mathsf{A_1}\rrbracket\rho }$ بزرگتر از $\mathcal{A\llbracket\mathsf{A_2}\rrbracket\rho }$ باشد
+			$\blacktriangleleft\mathcal{B\llbracket\mathsf{A_1<A_2}\rrbracket\rho = } False   \hspace{2cm}  $\\
+			$ \blacktriangleleft\mathcal{B\llbracket\mathsf{B_1 nand B_2}\rrbracket\rho = } \neg(\mathcal{B\llbracket\mathsf{B_1}\rrbracket\rho}   \wedge \mathcal{B\llbracket\mathsf{B_2}\rrbracket\rho}) $
+		\end{center}
+		}
+	\end{block}
+\end{frame}
+
+\begin{frame}{\rl{معناشناسی}}
+	\begin{block}{\rl {معنای برنامه‌ها - تابع $\mathcal{S}^*$ (دستور مقداردهی)}}
+		\rl{
+		\centering
+		\vspace{-1cm}
+		$$\blacktriangleleft\mathsf{S}=\mathsf{x\doteq A;}\;:$$
+		$$\mathcal{S^*} \llbracket\mathsf{S}\rrbracket = \{ \langle at\llbracket\mathsf{S}\rrbracket , \rho \rangle | \rho \in \mathbb{EV}       \} \cup   $$  
+		$$\{ \langle at\llbracket\mathsf{S}\rrbracket , \rho \rangle \langle aft\llbracket\mathsf{S}\rrbracket , \rho[\mathsf{x}\leftarrow \mathcal{A}\llbracket\mathsf{A}\rrbracket\rho] \rangle | \rho \in \mathbb{EV}       \}             $$ 
+		}
+	\end{block}
+\end{frame}
+
+\begin{frame}{\rl{معناشناسی}}
+	\begin{block}{\rl {معنای برنامه‌ها - تابع $\mathcal{S}^*$ (دستور شرط)}}
+		\rl{
+			\centering
+			\vspace{-1cm}
+			$$\blacktriangleleft\mathsf{S} = \mathsf{if}  \mathsf{ \;(B)\;S_t\;else\;S_f}:$$
+			$$\mathcal{S^*} \llbracket\mathsf{S}\rrbracket = \{ \langle at\llbracket\mathsf{S}\rrbracket , \rho \rangle | \rho \in \mathbb{EV}       \} $$$$\cup     \{ \langle at\llbracket\mathsf{S}\rrbracket , \rho \rangle \langle at\llbracket\mathsf{S_f}\rrbracket , \rho \rangle 
+			\pi | \mathcal{B}\llbracket\mathsf{B}\rrbracket \rho =False  \wedge   \langle  at\llbracket\mathsf{S_f}\rrbracket  , \rho \rangle \pi \in \mathcal{S} \llbracket\mathsf{S_f}\rrbracket    \}  
+			$$$$\cup    \{ \langle at\llbracket\mathsf{S}\rrbracket , \rho \rangle \langle at\llbracket\mathsf{S_t}\rrbracket , \rho \rangle 
+			\pi | \mathcal{B}\llbracket\mathsf{B}\rrbracket \rho =True  \wedge   \langle  at\llbracket\mathsf{S_t}\rrbracket  , \rho \rangle \pi \in \mathcal{S} \llbracket\mathsf{S_t}\rrbracket    \}          $$
+		}
+	\end{block}
+\end{frame}
+
+
+\begin{frame}{\rl{معناشناسی}}
+	\begin{block}{\rl {معنای برنامه‌ها - تابع $\mathcal{S}^*$ (دستور حلقه)}}
+		\rl{
+			\centering
+			\vspace{-1cm}
+			$$\mathcal{S^*} \llbracket\mathsf{S}\rrbracket = lfp^{\subseteq}\: \mathcal{F\llbracket\mathsf{S}\rrbracket},$$
+			$$\mathcal{F} \llbracket\mathsf{S}\rrbracket X= \{ \langle at\llbracket\mathsf{S}\rrbracket , \rho \rangle | \rho \in \mathbb{EV}       \} \cup $$
+			$$  \{ \pi_2 \langle l ,\rho \rangle \langle aft\llbracket\mathsf{S}\rrbracket,\rho \rangle |  \pi_2 \langle l ,\rho \rangle \in X \wedge \mathcal{B}\llbracket\mathsf{B}\rrbracket\rho=False \wedge l= at\llbracket\mathsf{S}\rrbracket   \} \cup      $$
+			$$  \{ \pi_2 \langle l ,\rho \rangle \langle at\llbracket\mathsf{S_b}\rrbracket,\rho \rangle \pi_3 |  \pi_2 \langle l ,\rho \rangle \in X \wedge \mathcal{B}\llbracket\mathsf{B}\rrbracket\rho=True \wedge$$$$  \langle at\llbracket\mathsf{S_b}\rrbracket,\rho \rangle \pi_3 \in  \mathcal{S} \llbracket\mathsf{S_b}\rrbracket   \wedge   l= at\llbracket\mathsf{S}\rrbracket  \}  $$
+		}
+	\end{block}
+\end{frame}
+
+%----------------------------------------
+\section{\rl{صوری‌سازی جدید برای روش وارسی مدل}}
+
+\begin{frame}{\rl{عبارات منظم}}
+\begin{block}{\rl{نحو عبارات منظم}}
+	\rl{مجموعه‌ی $\mathbb{R}$ توسط گرامر زیر ساخته می‌شود.}\\
+	\begin{flushright}
+	\setlength{\parindent}{3.5cm}
+	\begin{small}
+	\lr{
+	\hspace{2cm}$\mathsf{R} ::=\hspace{0.5cm} \varepsilon$\\
+	$|\:\:\:\mathsf{L : B}$\\
+	$|\:\:\:\mathsf{R_1 R_2}\:\:\:(or\:\mathsf{R_1 \bullet R_2 })$\\
+	$|\:\:\:\mathsf{R_1\:\mid\:R_2}\:\:\:(or\:\mathsf{R_1 + R_2 })$\\
+	$|\:\:\:\mathsf{R_1^*}$\\
+	$|\:\:\:\mathsf{R_1^+}$\\
+	$|\:\:\:(\mathsf{R_1})$
+	}
+	\end{small}
+	\end{flushright}
+\end{block}
+\end{frame}
+
+\begin{frame}{\rl{عبارات منظم}}
+	\begin{block}{\rl{معناشناسی عبارات منظم}}
+		\centering
+		\vspace{-1cm}
+$$\blacktriangleleft\mathcal{S}^r\llbracket\varepsilon\rrbracket= \{ \langle \underline{\rho} , \epsilon \rangle | \underline{\rho} \in \underline{\mathbb{EV}}\}$$
+\pause
+$$\blacktriangleleft\mathcal{S}^r\llbracket\mathsf{L:B}\rrbracket = \{\langle\underline{\rho},\langle l , \rho \rangle \rangle | l \in \mathsf{L} \land \mathcal{B}\llbracket\mathsf{B}\rrbracket \underline{\rho},\rho \}$$
+\pause
+$$\blacktriangleleft\mathcal{S}^r\llbracket\mathsf{R_1 R_2}\rrbracket= \mathcal{S}^r\llbracket\mathsf{R_1}\rrbracket \Join \mathcal{S}^r\llbracket\mathsf{R_2}\rrbracket$$
+\pause
+$$\blacktriangleleft\mathcal{S}^r \llbracket\mathsf{R_1\:|\:R_2}\rrbracket= 
+\mathcal{S}^r \llbracket R_1\rrbracket \cup
+\mathcal{S}^r \llbracket R_2\rrbracket$$
+	\end{block}
+\end{frame}
+
+
+\begin{frame}{\rl{عبارات منظم}}
+	\begin{block}{\rl{معناشناسی عبارات منظم (ادامه)}}
+		\centering
+		\vspace{-1cm}
+		$$\blacktriangleleft\mathcal{S}^r \llbracket\mathsf{R}\rrbracket^0 = \mathcal{S}^r\llbracket\varepsilon\rrbracket,$$
+		$$\blacktriangleleft\mathcal{S}^r \llbracket\mathsf{R}\rrbracket^{n+1} = \mathcal{S}^r \llbracket\mathsf{R}\rrbracket^{n} \Join
+		\mathcal{S}^r \llbracket\mathsf{R}\rrbracket.$$
+		\pause
+$$\blacktriangleleft\mathcal{S}^r\llbracket\mathsf{R^*}\rrbracket =  \bigcup_{n \in \mathbb{N}}
+\mathcal{S}^r \llbracket\mathsf{R}^n\rrbracket,$$
+		\pause
+$$\blacktriangleleft\mathcal{S}^r\llbracket\mathsf{R^+}\rrbracket =  \bigcup_{n \in \mathbb{N}\setminus\{0\}}
+\mathcal{S}^r \llbracket\mathsf{R}^n\rrbracket.$$
+		\pause
+$$\blacktriangleleft\mathcal{S}^r \llbracket(\mathsf{R})\rrbracket=\mathcal{S}^r \llbracket\mathsf{R}\rrbracket.$$
+	\end{block}
+\end{frame}
+
+\begin{frame}{\rl{عبارات منظم}}
+		\begin{block}{\rl{ارضا پذیری}}
+		\rl{
+			می‌گوییم، در محیط اولیه‌ی $\underline{\rho}$ رد پیشوندی $\pi$ عبارت منظم $\mathsf{R}$ را ارضا می‌کند، اگر و تنها اگر 
+		$\langle \underline{\rho},\pi \rangle \in \mathcal{S}^r \llbracket \mathsf{R} \rrbracket$. 	
+		}
+	\end{block}
+\end{frame}
+
+
+
+\begin{frame}{\rl{گونه‌های مختلف عبارات منظم}}
+	\begin{block}{\rl{عبارت منظم تهی - $\mathbb{R_\varepsilon}$}}
+		\rl{
+			$\mathbb{R}_\varepsilon$ 
+			توسط گرامر زیر تولید می‌شود.
+			\vspace{-0.75cm}
+			\begin{center}
+			$$\mathsf{R}\:\:\: ::= \:\:\: \varepsilon \: | \: \mathsf{R_1 R_2} \: | 
+			\: \mathsf{R_1 + R_2} \: | \: \mathsf{R_1^*} \: | \: \mathsf{R_1^+} | (\mathsf{R_1})$$
+			\end{center}
+		}
+	\end{block}
+\end{frame}
+
+	\begin{frame}{\rl{گونه‌های مختلف عبارات منظم}}
+		\begin{block}{\rl{عبارات منظم ناتهی - $\mathbb{R}^+$}}
+			\rl{
+$\mathbb{R}^+$ توسط گرامر زیر تولید می‌شود.	توسط گرامر زیر تولید می‌شود.
+				\vspace{-0.75cm}
+				\begin{center}
+					$$\mathsf{R}\:\:\: ::= \:\:\: \mathsf{L:B} \: |
+					\: \mathsf{\varepsilon R_2} \: | \: \mathsf{R_1 \varepsilon} \: |
+					\: \mathsf{R_1 R_2} \: | 
+					\: \mathsf{R_1 + R_2} \: | \: \mathsf{R_1^+} | (\mathsf{R_1})$$
+				\end{center}
+			}
+		\end{block}
+	\end{frame}
+
+
+	\begin{frame}{\rl{گونه‌های مختلف عبارات منظم}}
+	\begin{block}{\rl{عبارات منظم بدون انتخاب - $\mathbb{R}^\nmid$}}
+		\rl{
+$\mathbb{R}^\nmid$ توسط گرامر زیر تولید می‌شود.
+			\vspace{-0.75cm}
+			\begin{center}
+$$
+\mathsf{R}\:\:\: ::= \:\:\: \varepsilon \: | \: \mathsf{L:B} \: | \:
+\mathsf{R_1 R_2} \: | \: \mathsf{R_1}^* \: | \: \mathsf{R_1}^+ \: | \:
+(\mathsf{R_1})$$
+			\end{center}
+		}
+	\end{block}
+\end{frame}
+
+
+\begin{frame}{\rl{صورت جدید مسئله‌ی وارسی مدل}}
+	\begin{block}{\rl{بستار پیشوندی}}
+		\rl{
+	اگر 
+$\Pi \in \mathit{P}(\mathbb{\underline{EV}\times \mathfrak{S}^+})$،
+آنگاه بستار پیشوندی $\Pi$ را به صورت زیر تعریف می‌کنیم:
+			\vspace{-0.75cm}
+			\begin{center}
+$$\mathsf{prefix}(\Pi)=
+\{\langle \underline{\rho},\pi\rangle | \pi \in \mathfrak{S^+} \land \exists\
+\pi' \in \mathfrak{S^*}: \langle \underline{\rho}, \pi \pi' \rangle \in \Pi \}$$
+			\end{center}
+		}
+	\end{block}
+\end{frame}
+
+
+\begin{frame}{\rl{صورت جدید مسئله‌ی وارسی مدل}}
+	\begin{block}{\rl{وارسی مدل}}
+		\rl{
+		اگر 
+		$\mathsf{P}\in\mathbb{P} , \mathsf{R} \in \mathbb{R}^+ , \underline{\rho} \in \underline{\mathbb{EV}}$
+		آنگاه:
+			\vspace{-0.75cm}
+			\begin{center}
+$$\mathsf{P},\underline{\rho} \models \mathsf{R}
+\Leftrightarrow
+(\{\underline{\rho}\}\times \mathcal{S}^* \llbracket\mathsf{P}\rrbracket) \subseteq 
+\mathsf{prefix} (\mathcal{S}^r \llbracket\mathsf{R} \bullet (?:\mathit{T})^*\rrbracket)
+$$
+			\end{center}
+		}
+	\end{block}
+\end{frame}
+
+\begin{frame}{\rl{در مورد توقف پذیری}}
+	\begin{block}{\rl{توقف پذیری}}
+		\rl{
+			برنامه‌ی $\mathsf{P}$ را به همراه محیط اولیه
+			$\underline{\rho}$
+			توقف پذیر
+			می‌گوییم، اگر و تنها اگر وجود داشته باشد 
+			$\pi \in \mathcal{S}^* \llbracket \mathsf{P} \rrbracket$، 
+			که ($\rho$ محیط متناظر با محیط اولیه‌ی $\underline{\rho}$ است):
+			$$\pi = \langle at \llbracket \mathsf{P} \rrbracket , \rho \rangle \pi'$$
+			و اینکه $\langle aft\llbracket \mathsf{P} \rrbracket , \rho' \rangle$ در $\pi$ حضور داشته باشد. در این صورت می‌نویسیم
+			$\mathsf{P,\underline{\rho}\downarrow}$.
+		}
+	\end{block}
+\end{frame}
+
+\begin{frame}{\rl{در مورد توقف پذیری}}
+\begin{exampleblock}{\rl{قضیه}}
+	\rl{
+برای برنامه‌ی $\mathsf{P}$ و محیط اولیه‌ی $\underline{\rho}$ داریم $\mathsf{P} , \underline{\rho} \downarrow $، اگر و تنها اگر $\rho$ محیط متناظر با محیط اولیه‌ی $\underline{\rho}$ باشد و
+\vspace{-1cm}
+\begin{center}
+$$\forall \pi \in \mathfrak{S^{+}} : 
+\langle at \llbracket \mathsf{P} \rrbracket , \rho \rangle \pi \in \mathcal{S^*} \llbracket \mathsf{P} \rrbracket \rightarrow
+\langle at \llbracket \mathsf{P} \rrbracket , \rho \rangle \pi \in \mathbb{R^+}.$$	
+\end{center}
+}
+\end{exampleblock}
+\end{frame}
+
+\begin{frame}{\rl{در مورد توقف پذیری}}
+	\vspace{-1cm}
+	\begin{flushright}
+	\rl{$\bullet$
+		داریم:}
+\end{flushright}
+	\vspace{-1.5cm}
+	\begin{center}
+	$$\mathsf{P},\underline{\rho} \models \varepsilon$$
+	$$\Leftrightarrow$$
+	$$(\{\underline{\rho}\}\times \mathcal{S}^* \llbracket \mathsf{P}\rrbracket) \subseteq 
+	\mathsf{prefix} (\mathcal{S}^r \llbracket \varepsilon \bullet (?:\mathit{T})^*\rrbracket)
+	=\mathsf{prefix} (\mathcal{S}^r \llbracket (?:\mathit{T})^*\rrbracket)$$
+\end{center}
+\end{frame}
+
+
+\begin{frame}{\rl{در مورد توقف پذیری}}
+	\vspace{-1cm}
+	\begin{flushright}
+		\rl{$\bullet$
+			پس اگر الگوریتمی برای تشخیص $\mathsf{P},\underline{\rho} \models \varepsilon$
+	داشته باشیم، مسئله‌ی توقف حل می‌شود.\\
+	\pause
+	\vspace{1 cm}
+	$\bullet$
+	پس پیاده‌سازی این روش غیر ممکن است.\\
+	\pause
+	\vspace{1 cm}
+	$\bullet$
+	دو صورت دیگر هم قابل پیاده‌سازی نیستند!
+	}
+	\end{flushright}
+\end{frame}
+%----------------------------------
+\section{\rl{وارسی مدل منظم}}
+\begin{frame}{\rl{وارسی مدل منظم}}
+	\begin{flushright}
+	\rl{$\bullet$
+	ساختار عبارات منظم به صورت اضافه می‌شود.}
+	\end{flushright}
+\end{frame}
+
+
+
+
+
+\end{document}
