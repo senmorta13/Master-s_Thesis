@@ -1,0 +1,321 @@
+\documentclass[12pt]{report}
+
+
+%Packages-------------------------------------
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{graphics}
+\usepackage{graphicx}
+\usepackage{tikz}
+
+
+
+
+
+%\usepackage{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+
+
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[version=4]{mhchem}
+\usepackage{stmaryrd}
+\usepackage{bbold}
+\usepackage{graphicx}
+\usepackage[export]{adjustbox}
+\graphicspath{ {./images/} }
+\usepackage{mathrsfs}
+\usepackage{CJKutf8}
+%\usepackage{xtocnic}
+\usepackage{minted}
+\usepackage[xindy,toc,acronym,nonumberlist=true]{glossaries}
+\usepackage[colorlinks,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\usepackage[bottom]{footmisc}
+
+%\usepackage{draftwatermark}
+%\SetWatermarkLightness{0.85}
+%\SetWatermarkAngle{45}
+%\SetWatermarkScale{0.2}
+%\SetWatermarkText{پایان‌نامه کارشناسی ارشد- پویا پرتو }
+
+
+
+
+\usepackage{xepersian}
+
+
+
+
+% دستوری برای تعریف واژه‌نامه انگلیسی به فارسی
+
+\newcommand\persiangloss[2]{#1\dotfill\lr{#2}\\}
+
+% دستوری برای تعریف واژه‌نامه فارسی به انگلیسی
+
+\newcommand\englishgloss[2]{#2\dotfill\lr{#1}\\}
+
+
+
+
+
+\settextfont{XB Zar}
+
+\linespread{1.3}
+
+%Layout---------------------------------------
+
+%\usepackage[top=2cm, bottom=2cm, left=2cm, right=2cm]{geometry}
+
+%Commands-------------------------------------
+
+
+%Theorems-------------------------------------
+\newtheorem{thm}{قضیه}[chapter]
+\newtheorem{cor}[thm]{نتیجه}
+\newtheorem{defn}[thm]{تعریف}
+\newtheorem{prop}[thm]{گزاره}
+\newtheorem{lmm}[thm]{لم}
+\newtheorem{conj}[thm]{حدس}
+\newtheorem{exm}[thm]{مثال}
+\newtheorem{rem}[thm]{تذکر}
+\newtheorem{note}[thm]{یادداشت}
+\newtheorem{alg}[thm]{الگوریتم}
+
+
+%واژه‌نامه
+
+\begin{document}
+
+%Title page ---------------------------------------------
+
+\begin{figure}
+\centering
+\includegraphics[height=2.5cm]{UT-Logo.png}
+\end{figure}
+
+\begin{center}
+دانشکدگان علوم
+\\
+دانشکده ریاضی، آمار و علوم کامپیوتر
+\end{center}
+
+\begin{center}
+%%%%%%%%%%%%%
+\end{center}
+
+\begin{center}
+\huge{بهبود روش وارسی مدل با استفاده از تعبیر مجرد}
+\end{center}
+
+\begin{center}
+%%%
+\end{center}
+
+\begin{center}
+نگارنده:
+\textbf{
+	پویا پرتو
+}
+\end{center}
+\begin{center}
+
+\end{center}
+
+\begin{center}
+\begin{tabular}{rr}
+استاد راهنمای اول:& دکتر مجید علی‌زاده
+\\
+استاد راهنمای دوم: & دکتر مجتبی مجتهدی
+\\
+
+\end{tabular}
+\end{center}
+
+\vspace{3cm}
+\begin{center}
+پایان نامه برای دریافت درجه کارشناسی ارشد
+\\
+در رشته علوم کامپیوتر
+\end{center}
+
+\begin{center}
+تاریخ دفاع
+\end{center}
+
+\pagestyle{empty}
+\pagenumbering{}
+
+\newpage
+%\pagestyle{headings}
+%\setcounter{page}{1}
+%\pagenumbering{roman}
+\pagestyle{plain}
+\setcounter{page}{1}
+\pagenumbering{harfi}
+%Abstract page-------------------------------
+\chapter*{}
+\section*{چکیده}
+روش وارسی مدل یک روش قابل اعتماد برای بررسی صحت عملکرد برنامه‌های کامپیوتری است. بیان‌های مختلف این روش از منطق موجهات بهره می‌برند که چندان برای برنامه نویسان شناخته شده نیستند. در این رساله سعی شده است که یک بیان جدید از روش وارسی مدل مورد شرح و بررسی قرار گیرد که در  ادبیات نظریه تعبیر مجرد بیان شده است و در آن به جای منطق موجهات از عبارات منظم استفاده شده است.
+
+پس از ارائه‌ی مفاهیم اولیه‌، به سه صورت متفاوت به بیانی جدید از روش وارسی مدل پرداخته‌ایم. صورت اول ساختار خاصی ندارد و صرفا در ادبیات نو بیان شده است، صورت دوم ساختار عبارات منظم را به صورتبندی‌اش اضافه کرده است و در صورت سوم، با اضافه شدن ساختار برنامه‌ به صورتبندی، روش به پیاده سازی نزدیک‌تر شده است.
+معادل بودن این سه صورت نیز مطالعه و بررسی می‌شود.\\\\
+
+
+\textbf{کلمات کلیدی:}
+وارسی مدل، نظریه تعبیر مجرد، معناشناسی دلالتی، درستی‌یابی صوری، تحلیل ایستا، درستی‌یابی برنامه‌های کامپیوتری
+%Dedication page-----------------------------
+
+\chapter*{تقدیم}
+\begin{large}
+این پایان نامه را تقدیم می‌کنم خدمت استاد ارجمندم، جناب آقای دکتر امیر عباس ورشوی، به پاس تاثیر عمیقی که بر زندگی من در چند سال گذشته داشته‌اند. 
+\end{large}
+%Acknowledgement page------------------------
+\chapter*{سپاسگزاری}
+
+
+\begin{large}
+$\;\;\;\;\;$ابتدا، از خانواده‌ی عزیزم سپاسگزاری می‌کنم، بابت اینکه هر چه که توانسته‌اند را در پشتیبانی معنوی و مادی از من دریغ نکرده‌اند.
+
+پس از آن، از دو استاد ارجمندم جناب آقایان دکتر مجید علی‌زاده و دکتر مجتبی مجتهدی بابت زحمات و حمایت‌هایشان سپاسگزاری می‌کنم. بسیار مفتخرم که در این مدت دانشجوی ایشان بوده‌ام.
+
+در نهایت از دوستان عزیزم در داخل و بیرون از دانشگاه سپاسگزاری می‌کنم که طی این مدت در کنار من بودند. به طور ویژه، از جناب آقای علیرضا محمودیان بابت حضور ارزشمند و کمک‌هایشان سپاسگزاری می‌کنم.
+\end{large} 
+
+%copyright + declaration page
+%\chapter*{اصالت اثر}
+%\section*{اصالت اثر}
+% هیچ قسمت از این پایان‌نامه، پیش از این در هیج موسسه تحصیلات عالی برای دریافت درجه تحصیلی استفاده نشده است. همچنین، هیچ قسمت از این پایان‌نامه برگردان فارسی تمامی یا قسمتی از یک اثر دیگر علمی (مانند مقاله، پایان‌نامه، و غیره) به زبانی دیگر نمی‌باشد. ارائه این پایان‌نامه توسط نگارنده به معاونت آموزشی (معاونت پژوهشی و تحصیلات تکمیلی برای ارشد و دکتری) به منزله تعهد نگارنده به اصالت متن و محتوای ارائه شده بر اساس یک کار پژوهشی در مدت تحصیل در دانشگاه تهران می باشد. در صورت اثبات خلاف این امر، مدرک تحصیلی اخذ شده توسط این پایان‌نامه از دانشگاه تهران، معتبر نمی باشد. 
+%
+%\chapter*{حق مالکیت معنوی}
+%\section*{حق مالکیت معنوی}
+%حق مالکیت معنوی این اثر متعلق به دانشگاه تهران می باشد. استفاده از مطالب این پایان‌نامه در فعالیت های تحقیقاتی با ذکر منبع بلامانع می‌باشد. در صورت استفاده تجاری، مانند چاپ این پایان‌نامه، هماهنگی لازم و اجازه کتبی از دانشگاه و نگارنده پایان‌نامه الزامی می‌باشد.
+
+%\listoffigures
+
+%-------------------------
+%\pagestyle{plain}
+%\setcounter{page}{1}
+%\pagenumbering{harfi}
+%-------------------------
+
+
+\chapter*{پیشگفتار }
+با توجه به پیشرفت روز‌ افزون علوم کامپیوتر و ورود کاربرد‌های آن به زندگی روزمره، پیشرفت در روش‌های ساخت و نگه‌داری برنامه‌ها نیازی آشکار به نظر می‌رسد. یکی از مسائل مهم در این زمینه بررسی صحت کارکرد برنامه‌های نوشته‌شده است. عدم صحت کارکرد برنامه‌های نوشته‌ شده بسته به حساسیت یک برنامه می‌تواند تبعات زیان‌بار جبران ناپذیری به همراه داشته‌باشد. پرتاب ناموفق آریان 5\cite{ariane}  ، از مدار خارج شدن مدار‌گرد مریخ \cite{orbiter} و  تصادف هلیکوپتر چینوک \cite{chinook} چند نمونه از تبعات بزرگ این قضیه در گذشته بوده اند، همین‌ طور به‌سادگی می‌توان فجایع دیگری از این دست را در زندگی روزمره‌ی انسان‌ها متصور شد.
+
+برای تعیین صحت کارکرد برنامه‌های کامپیوتری روش های متفاوتی ابداع شده‌اند که در ادامه به طور مختصر از آن‌ها یاد می‌کنیم، اما پیش از آن به یک خاصیت مشترک همه‌ی این روش‌ها، یعنی "ناکامل بودن"، می‌پردازیم. منظور از ناکامل بودن این است که با استفاده از هیچ یک از روش‌هایی که داریم، نمی‌توانیم هر خاصیتی را برای هر برنامه‌ای بررسی کنیم. به عبارت دیگر، استفاده از هر روشی محدودیت‌هایی دارد. البته قضیه رایس  \cite{rice} به ما این تضمین را داده که روش کاملی اصلا وجود ندارد. قضیه رایس( به طور غیر رسمی) بیان می‌کند که مسئله ی بررسی هر خاصیت غیر بدیهی، برای همه ی برنامه‌ها، تصمیم ناپذیر است. این دلیلی بر این شده که روش‌های مختلفی برای این کار معرفی شوند که هر کدام می‌توانند حالت‌های خاصی از مسئله را حل کنند.
+
+یک دسته‌بندی برای این روش‌ها تقسیم آن‌ها به دو دسته‌ی پویا و ایستا است. روش‌های پویا روش‌هایی هستند که در آن‌ها تست برنامه همزمان با اجرای برنامه است، درحالیکه روش‌های ایستا بدون اجرای برنامه‌ها آن‌ها را تست می‌کنند.
+
+روش‌های پویا معمولاً با اجرای حالات محدودی از برنامه تصمیم می‌گیرند که برنامه‌ای که نوشته‌ شده است، انتظارات را برآورده می‌کند یا خیر. اگر این روش بتواند تشخیص دهد که برنامه‌ای درست کار نمی‌کند، می‌توانیم با اطمینان نتیجه بگیریم که آن برنامه غلط نوشته‌شده است، اما اگر برنامه‌ای از تست‌های ساخته‌شده با این روش‌ها با موفقیت عبور کند، نمی‌توان اطمینان حاصل کرد که برنامه درست کار می‌کند، زیرا ممکن است، حالتی مشکل‌زا از اجرای برنامه وجود داشته باشد که در تست ها نیامده باشد. برای اطلاعات بیشتر به \cite{art} مراجعه کنید.
+
+روش‌های ایستا معمولاً روش‌هایی هستند که از نظریه‌های مختلف در منطق ریاضی به عنوان ابزار بهره می‌برند تا بدون اجرای خود برنامه‌ها در مورد صحت اجرای آن‌ها نتیجه‌گیری کنند. به همین دلیل به بخشی مهم و بزرگی از این دستورات که از منطق استفاده می‌کنند روش‌های صوری هم گفته‌می‌شود. معروف ترین روش‌های ایستا؛ روش وارسی‌ مدل، روش‌های استنتاجی و استفاده از نظریه تعبیر مجرد است.
+
+در روش وارسی مدل، یک مدل صوری متناهی از برنامه‌ی موردبررسی می‌سازیم که  همه‌ی حالات اجرای برنامه با آن قابل‌توصیف است، سپس با استفاده از یک زبان صوری که بتواند در مورد مدل هایمان صحبت‌کند، ویژگی‌های مورد بررسی را بیان‌می‌کنیم و در نهایت صحت ویژگی‌های بیان‌شده را بررسی می کنیم. مقاله \cite{clarke} شروع این روش‌ها بوده که این کار را با استفاده از نوعی مدل کریپکی  \cite{kripke} و نوعی منطق زمانی به نام منطق زمانی خطی \cite{clarke} انجام داده که روشی است با دقت و البته هزینه‌ی محاسباتی بسیار بالا. \cite{logicincs} یک منبع بسیار مقدماتی و کتاب\cite{clarke2} یک مرجع سنتی در این زمینه است.
+
+در روش‌های استنتاجی که شاید بتوان یکی از ابتدایی ترین آن‌ها را استفاده از منطق هور\cite{hoare} دانست، درستی کارکرد برنامه‌هایمان را با ارائه‌ی یک درخت اثبات در یک دستگاه استنتاجی، متناسب با زبان برنامه‌هایمان، نشان می‌‌دهیم. در این روش هم اگر بتوانیم درستی یک برنامه را اثبات کنیم، دیگر به‌ طور نظری، خیالی آسوده از درستی برنامه خواهیم داشت، اما ساختن درخت اثبات در یک نظریه برهان می‌تواند چالش بر‌انگیز باشد. در\cite{logicincs} به منطق هور به طور مقدماتی پرداخته شده است. همین ‌طور کتاب\cite{softwarefoundations} نیز به پیاده‌سازی منطق هور در زبان \lr{coq} پرداخته است، که در آن \lr{coq} یک اثبات‌یار است که بر اساس نظریه نوع وابسته کار می‌کند. برای اطلاعات بیشتر در مورد چگونگی طرز کار این اثبات‌یار و نظریه‌ی بنیادین آن به کتاب\cite{chlipala} مراجعه‌ کنید. نظریه‌ی مورد شرح در\cite{dynamic} نیز می‌تواند در این مسیر به کار گرفته شود.
+
+نظریه تعبیر مجرد\cite{cousot1} نیز یک نظریه ریاضیاتی است که به‌نوعی سعی می‌کند از روی معناشناسی یک برنامه‌ی کامپیوتری\cite{winskel} یک تقریب بسازد. منظور از تقریب یک دستگاه کوچک‌تر از معناشناسی اصلی است که رفتارش زیرمجموعه‌ی رفتارهای دستگاه اصلی است. سعی بر این است که دستگاه جدیدی که می‌سازیم به لحاظ محاسباتی ساده‌تر از معناشناسی اصلی کار کند تا بتوان خواص آن را راحت‌تر بررسی کرد. در این صورت هر نتیجه‌ای در مورد خواص جدید، را می‌توان برای خود برنامه هم بیان کرد، اما توجه شود که در این صورت ممکن است به همه‌ی حقایق دست پیدا نکنیم. برای اطلاعات بیشتر به \cite{cousotbook} و \cite{statica} مراجعه شود.
+
+در این پایان نامه، تمرکز ما روی بهبود روش اول یعنی روش وارسی مدل به کمک روش سوم یعنی نظریه‌ی تعبیر مجرد خواهد بود.
+
+
+\tableofcontents
+
+\include{AbstractInterpretation}
+
+
+
+\chapter*{نتیجه گیری}
+دیدیم که صوری‌سازی روش وارسی مدل در ادبیات نظریه‌ی تعبیر مجرد به چه شکل است و در همین حال تلاش کردیم این صوری‌سازی را شفاف‌تر و واضح‌تر از \cite{calcul} بیان کنیم. همین طور دیدیم که می‌توان به‌ جای منطق‌های زمانی از عبارات منظم در روش وارسی مدل استفاده کرد.
+
+همان طور که در \cite{calcul} آمده است و در فصل دوم به‌طور واضح‌تری نشان دادیم، این روش قابل پیاده‌سازی نیست. در \cite{calcul} نزدیک کردن کار به پیاده‌سازی را از طریق متناهی کردن مجموعه‌ی وضعیت‌ها ممکن می‌‌داند. به ‌هر حال، در واقعیت هم مجموعه‌ی وضعیت‌ها متناهی است، چون حافظه‌ها متناهی هستند و این فرض می‌تواند صوری‌سازی را یک قدم به واقعیت نزدیک‌تر کند.
+
+ایده‌ای که ما برای نزدیک کردن این کار به پیاده‌سازی داریم این است که عبارات منظم محدود‌تر شود. اگر علاوه‌بر متناهی کردن مجموعه‌ی وضعیت‌ها، دو عملگر $^*$ و $^+$ را از عبارات منظم حذف کنیم، صوری‌سازی احتمالا قابل پیاده‌سازی خواهد شد. درست است که حذف این دو عملگر از قدرت بیان ویژگی‌ها کم می‌کند، اما شاید در عمل، همان قدرت بیان باقی مانده برای بیان بسیاری از ویژگی‌ها کافی باشد.
+
+
+
+
+\newpage
+\begin{latin}
+	\bibliographystyle{abbrv}
+	\bibliography{references}
+\end{latin}
+\printglossary
+
+
+\begin{latin}
+\begin{abstract}
+
+
+
+Model checking is a reliable method for program verification. Different forms of this method use temporal logic to express properties, which is not commonly accepted by programmers. In this thesis, it has been tried to represent a new form of model checking that has been stated in the literature of abstract interpretation theory and uses regular expressions for expressing program properties instead of modal logic.
+
+After representing basic notions, three novel forms of model checking have been introduced. The first form has no structure and is merely expressed in a new literature; the second form has added the structure of regular expressions to itself; and the third form has the structure of programs in it to get closer to implementation.
+The equivalence of the three forms has been studied and discussed as well. \\\\
+
+\textbf{Kew Words:}
+Model Checking, Abstract Interpretation, Denotational Semantics, Formal Verification, Static Analysis, Formal Verification of Computer Programs
+
+
+
+\end{abstract}
+\newpage
+
+%Title page ---------------------------------------------
+\begin{figure}
+\centering
+\includegraphics[height=2.5cm]{UT-Logo.png}
+\end{figure}
+\begin{center}
+
+College of Science\\
+School of Mathematics, Statistics, and Computer Science
+\end{center}
+
+\begin{center}
+%%%%%%%%%%%%%
+\end{center}
+
+\begin{center}
+\huge{Improving Model Checking with Abstract Interpretation}
+\end{center}
+
+\begin{center}
+%%%
+\end{center}
+
+\begin{center}
+\textbf{
+Pouya Partow
+}
+\end{center}
+
+\begin{center}
+\begin{tabular}{rr}
+Supervisor: & Majid Alizadeh\\
+Co-Supervisor: & Mojtaba Mojtahedi\\
+\end{tabular}
+\end{center}
+
+\vspace{3cm}
+\begin{center}
+A thesis submitted to Graduate Studies Office\\
+in partial fulfillment of the requirements for the degree of \\
+Master of Science in\\
+Computer Science
+\end{center}
+
+\begin{center}
+2023
+\end{center}
+
+%\pagestyle{empty}
+%\pagenumbering{}
+
+\end{latin}
+
+\end{document}
